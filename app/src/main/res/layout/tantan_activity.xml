@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+
+    <include layout="@layout/tantan_buttons" />
+
+    <com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView.OverlyingListView
+        android:id="@+id/frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rotation_degrees="10.0"
+        app:min_adapter_stack="4"
+        app:max_visible="4"
+        app:y_offset_step="28dp"/>
+
+</FrameLayout>
+

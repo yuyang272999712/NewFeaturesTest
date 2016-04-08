@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 不同的fragment来加载不同的Preference文件 -->
+    <header
+        android:fragment="com.yuyang.fitsystemwindowstestdrawer.PreferenceFragmentDemo"
+        android:summary="test 1"
+        android:title="Name1">
+    </header>
+    <!-- 同一个fragment加载不同的Preference文件，使用extra区分 -->
+    <!--<header android:fragment="com.test.fragment.Fragment"
+            android:summary="test"
+            android:title="Name" >
+        <extra
+            android:name="type"
+            android:value="first" />
+    </header>-->
+
+</preference-headers>

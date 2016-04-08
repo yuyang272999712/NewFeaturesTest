@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest package="com.yuyang.fitsystemwindowstestdrawer"
+          xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-sdk
+        android:targetSdkVersion="9"/>
+
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:name=".MyApplication"
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MyActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".PreferenceDemo"/>
+        <activity
+            android:name=".MetricsActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
+        <activity android:name=".dragHelperTest.DefinedViewTest"/>
+        <activity android:name=".mvp.activity.UserInfoMvpTest"/>
+        <activity android:name=".replaceViewHolder.ListTestActivity"/>
+        <activity android:name=".largeImage.BitmapRegionTest"/>
+        <activity android:name=".largeImage.LargeImageTest"/>
+        <activity android:name=".cardViewPager.CardViewPager"/>
+        <activity android:name=".tantan.TantanActivity"/>
+        <activity android:name=".propertyAnimation.PropertyAnimationActivity"/>
+
+        <service android:name=".service.BackgroundService"/>
+
+        <receiver android:name=".broadcastReceiver.PresentReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+            <!--<intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <action android:name="android.intent.action.MEDIA_EJECT" />
+                <data android:scheme="file" />
+            </intent-filter>-->
+        </receiver>
+
+    </application>
+
+</manifest>

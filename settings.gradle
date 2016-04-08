@@ -1,0 +1,30 @@
+/*我们团队内部建立的编译环境初始化函数 这个函数的目的是
+1 解析一个名为 local.properties 的文件,读取 Android SDK 和 NDK 的路径
+2 获取最终产出物目录的路径。这样,编译完的 apk 或者 jar 包将拷贝到这个最终产出物目录中
+3 获取 Android SDK 指定编译的版本
+*/
+def initMinshengGradleEnvironment(){
+    println "initialize Minsheng Gradle Environment ....."
+    Properties properties = new Properties()
+    //local.properites 也放在 posdevice 目录下
+    File propertyFile = new File(rootDir.getAbsolutePath() + "/gradle.properties")
+    properties.load(propertyFile.newDataInputStream())
+    /*根据 Project、Gradle 生命周期的介绍,settings 对象的创建位于具体 Project 创建之前 而 Gradle 底对象已经创建好了。
+    所以,我们把 local.properties 的信息读出来后,通过 extra 属性的方式设置到 gradle 对象中
+    而具体 Project 在执行的时候,就可以直接从 gradle 对象中得到这些属性了!
+    */
+    gradle.ext.api = properties.getProperty('sdk.api')
+    gradle.ext.sdkDir = properties.getProperty('sdk.dir')
+    gradle.ext.ndkDir = properties.getProperty('ndk.dir')
+    gradle.ext.localDir = properties.getProperty('local.dir')
+    //指定 debug keystore 文件的位置,debug 版 apk 签名的时候会用到
+    gradle.ext.debugKeystore = properties.getProperty('debug.keystore')
+
+    println "initialize Minsheng Gradle Environment completes..."
+}
+
+//初始化
+initMinshengGradleEnvironment()
+
+//添加子 Project 信息
+include ':app', ':testlibrary'

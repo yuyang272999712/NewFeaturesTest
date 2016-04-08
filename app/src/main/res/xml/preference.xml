@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="我的位置"
+        android:key="set_local" >
+        <CheckBoxPreference
+            android:icon="@drawable/ic_menu_gallery"
+            android:key="apply_wireless"
+            android:title="使用无线网络"
+            android:summary="使用无线网络在应用程序（例如Google地图）中查看位置"
+            android:defaultValue="true">
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="apply_gps"
+            android:title="使用GPS"
+            android:summary="定位到街道级别（需要消耗更多的电量以及天气允许）">
+        </CheckBoxPreference>
+        <Preference
+            android:title="跳转" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://www.example.com" />
+        </Preference>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="无线和网络设置">
+
+        <CheckBoxPreference
+            android:key="apply_fly"
+            android:title="飞行模式"
+            android:summary="禁用所有无线连接" >
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="apply_internet"
+            android:title="Internet共享"
+            android:summary="禁用通过USB共享Internet连接">
+        </CheckBoxPreference>
+        <CheckBoxPreference
+            android:key="apply_wifi"
+            android:title="Wi-Fi"
+            android:summary="打开Wi-Fi">
+        </CheckBoxPreference>
+        <Preference
+            android:key="wifi_setting"
+            android:title="Wi-Fi设置"
+            android:summary="设置和管理无线接入点"
+            android:dependency="apply_wifi">
+            <!-- 点击时 自定义一个默认跳转Intent  action指定隐式Intent -->
+            <!-- action指定隐式Intent ; targetPackage和targetClass指定显示Intent-->
+            <intent android:action="com.feixun.action.seemAction"
+                    android:targetPackage="com.yuyang.fitsystemwindowstestdrawer"
+                    android:targetClass="com.yuyang.fitsystemwindowstestdrawer.MainActivity" />
+        </Preference>
+        <CheckBoxPreference
+            android:key="apply_bluetooth"
+            android:title="蓝牙"
+            android:summary="启用蓝牙">
+        </CheckBoxPreference>
+        <Preference
+            android:key="bluetooth_setting"
+            android:title="蓝牙设置"
+            android:summary="管理连接、设备设备名称和可检测性"
+            android:dependency="apply_bluetooth">
+        </Preference>
+        <EditTextPreference
+            android:key="number_edit"
+            android:title="输入电话号码"
+            android:defaultValue="123">
+        </EditTextPreference>
+        <ListPreference
+            android:key="depart_value"
+            android:title="部门设置"
+            android:dialogTitle="选择部门"
+            android:entries="@array/department"
+            android:entryValues="@array/department_value">
+        </ListPreference>
+    </PreferenceCategory>
+
+
+    <PreferenceCategory
+        android:title="铃音"
+        android:key="set_ring" >
+
+        <RingtonePreference
+            android:icon="@drawable/ic_menu_gallery"
+            android:key="ring_key"
+            android:title="铃声"
+            android:ringtoneType="all"
+            android:showDefault="true"
+            android:showSilent="true">
+        </RingtonePreference>
+        <SwitchPreference
+            android:key="switch"
+            android:title="测试"
+            android:showDefault="true"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

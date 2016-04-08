@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#b17fc1"
+        android:fitsSystemWindows="true">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/metrics_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+
+        <FrameLayout
+            android:id="@+id/metrics_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/metrics_toolbar"
+            android:background="#c67555"
+            android:layout_marginLeft="200px"
+            android:layout_marginTop="50px"
+            android:padding="50px">
+
+            <TextView
+                android:id="@+id/metrics_text"
+                android:layout_width="60dp"
+                android:layout_height="300px"
+                android:background="#9bde6e"
+                android:textSize="30sp"
+                android:text="开发测试"/>
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/metrics_linear"
+            android:orientation="horizontal"
+            android:layout_width="200px"
+            android:layout_height="1500px"
+            android:layout_below="@id/metrics_frame"
+            android:layout_marginTop="50px"
+            android:layout_marginLeft="100px"
+            android:background="#5fafd2">
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/metrics_toolbar"
+            android:layout_marginTop="10dp"
+            android:background="#00ffffff">
+
+            <TextView
+                android:id="@+id/viewInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/viewInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/viewInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/viewInfo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/viewInfo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</ScrollView>

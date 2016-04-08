@@ -1,0 +1,31 @@
+import groovy.util.XmlSlurper //解析 XML 时候要引入这个 groovy 的 package
+
+def getVersionNameAdvanced(){//老朋友
+    def xmlFile = project.file("AndroidManifest.xml")
+    def rootManifest = new XmlSlurper().parse(xmlFile)
+    return rootManifest['@android:versionName']
+}
+
+//对于 android library 编译,我会 disable 所有的 debug 编译任务
+def disableDebugBuild(){
+    //project.tasks 包含了所有的 tasks,下面的 findAll 是寻找那些名字中带 debug 的 Task。
+    //返回值保存到 targetTasks 容器中
+    def targetTasks = project.tasks.findAll{
+        task ->
+            task.name.contains("Debug")
+    }
+    //对满足条件的 task,设置它为 disable。如此这般,这个 Task 就不会被执行
+    targetTasks.each{
+        println "disable debug task : ${it.name}"
+        it.setEnabled false
+    }
+}
+//将函数设置为 extra 属性中去,这样,加载 utils.gradle 的 Project 就能调用此文件中定义的函数了
+ext{
+    copyFile = this.&copyFile
+    rmFile = this.&rmFile
+    cleanOutput = this.&cleanOutput
+    copyOutput = this.&copyOutput
+    getVersionNameAdvanced = this.&getVersionNameAdvanced
+    disableDebugBuild = this.&disableDebugBuild
+}

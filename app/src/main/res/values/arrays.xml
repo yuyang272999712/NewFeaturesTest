@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="department">
+        <item>IT</item>
+        <item>Commerce</item>
+        <item>HR</item>
+    </string-array>
+    <string-array name="department_value">
+        <item>001</item>
+        <item>002</item>
+        <item>003</item>
+    </string-array>
+</resources>

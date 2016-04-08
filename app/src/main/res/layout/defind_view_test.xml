@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.VerticalDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:background="#c7f16c"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></LinearLayout>
+
+    <LinearLayout
+        android:background="#f16cc5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开发测试"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.ClearEditTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="自带清除按钮的edittext"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="倒计时发送"/>
+
+    </LinearLayout>
+
+</com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.VerticalDrawerLayout>
