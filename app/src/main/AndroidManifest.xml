@@ -42,6 +42,7 @@
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.PropertyAnimationActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
+        <activity android:name=".destWidget.DestWidgetActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
@@ -57,6 +58,19 @@
                 <action android:name="android.intent.action.MEDIA_EJECT" />
                 <data android:scheme="file" />
             </intent-filter>-->
+        </receiver>
+
+        <!-- 添加桌面小控件-->
+        <receiver android:name=".destWidget.DestWidget" android:label="CurrentTime">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="com.yuyang.time_change.REFRESHED"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/dest_widget_info"/>
         </receiver>
 
     </application>

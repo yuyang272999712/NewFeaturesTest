@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appwidget-provider
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/dest_widget"
+    android:minWidth="110dp"
+    android:minHeight="40dp"
+    android:label="CurrentTime"
+    android:updatePeriodMillis="360000">
+
+</appwidget-provider>

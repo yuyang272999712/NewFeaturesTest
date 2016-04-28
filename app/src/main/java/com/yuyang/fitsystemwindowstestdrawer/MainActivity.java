@@ -20,6 +20,7 @@ import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPager;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
+import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     private Button button10;
     private Button button11;
     private Button button12;
+    private Button button13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -186,6 +188,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MaterialDesignActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button13 = (Button) findViewById(R.id.button13);
+        button13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DestWidgetActivity.class);
                 startActivity(intent);
             }
         });
