@@ -1,14 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer;
 
-import android.animation.Animator;
-import android.annotation.TargetApi;
-import android.app.ActivityOptions;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -17,25 +10,20 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewAnimationUtils;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
-import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPager;
 import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.preferenceAbout.PreferenceDemo;
-import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
-import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
@@ -43,7 +31,6 @@ import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private ImageView image;
     private Button button;
     private Button button2;
     private Button button3;
@@ -55,20 +42,12 @@ public class MainActivity extends AppCompatActivity
     private Button button9;
     private Button button10;
     private Button button11;
-    private TextView textView;
-    private Handler uiHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         CrashHandler.getInstance().start(getApplicationContext());
 
-        /*//请求一个窗口进度条特性风格
-        requestWindowFeature(Window.FEATURE_PROGRESS);
-        //设置进度条可视
-        setProgressBarVisibility(true);
-        setSecondaryProgress(70);
-        setProgress(50);*/
         MyApplication.getInstance().setName("wocao");
 
         setContentView(R.layout.activity_main);
@@ -82,28 +61,6 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
-                Animator animator = createAnimator(image);
-                animator.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                        image.setVisibility(View.VISIBLE);
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
-                animator.start();
             }
         });
 
@@ -121,49 +78,10 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MyActivity.class);
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    Pair imagePair = Pair.create(image, "image");
-                    Pair buttonPair = Pair.create(button, "button");
-                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(MainActivity.this, imagePair, buttonPair);
-                    startActivity(intent, options.toBundle());
-                }else {
-                    startActivity(intent);
-                }
+                startActivity(intent);
             }
         });
 
-        image = (ImageView) findViewById(R.id.image);
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Animator animator = createAnimator(v);
-                animator.addListener(new Animator.AnimatorListener() {
-                    @Override
-                    public void onAnimationStart(Animator animation) {
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animator animation) {
-                        if (image.getVisibility() == View.VISIBLE) {
-                            image.setVisibility(View.INVISIBLE);
-                        }else {
-                            image.setVisibility(View.VISIBLE);
-                        }
-                    }
-
-                    @Override
-                    public void onAnimationCancel(Animator animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animator animation) {
-
-                    }
-                });
-                animator.start();
-            }
-        });
 
         button2 = (Button) findViewById(R.id.button2);
         button2.setOnClickListener(new View.OnClickListener() {
@@ -173,13 +91,6 @@ public class MainActivity extends AppCompatActivity
                 startActivity(intent);
             }
         });
-
-        PreferenceManager.setDefaultValues(this, R.xml.preference, false);
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        boolean apply_wireless = sharedPreferences.getBoolean("apply_wireless",false);
-
-        textView = (TextView) findViewById(R.id.textView);
-        textView.setText(apply_wireless+"");
 
         button3 = (Button) findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
@@ -267,31 +178,6 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         startService(new Intent(this, BackgroundService.class));
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    private Animator createAnimator(View v){
-        Animator animator;
-        if(v.getVisibility() == View.VISIBLE){
-            animator = ViewAnimationUtils.createCircularReveal(
-                    v,
-                    v.getWidth()/2,
-                    v.getHeight()/2,
-                    v.getWidth(),
-                    0
-            );
-        }else {
-            animator = ViewAnimationUtils.createCircularReveal(
-                    v,
-                    v.getWidth(),
-                    v.getHeight(),
-                    0,
-                    v.getWidth()
-            );
-        }
-        animator.setDuration(1000);
-        animator.setInterpolator(new DecelerateInterpolator());
-        return animator;
     }
 
     @Override
