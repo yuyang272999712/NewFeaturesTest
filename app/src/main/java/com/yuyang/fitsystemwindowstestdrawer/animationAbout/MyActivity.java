@@ -1,7 +1,6 @@
-package com.yuyang.fitsystemwindowstestdrawer;
+package com.yuyang.fitsystemwindowstestdrawer.animationAbout;
 
 import android.animation.AnimatorSet;
-import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
@@ -12,14 +11,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.AnimationSet;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.ViewAnimator;
+
+import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * Created by yuyang on 16/1/7.

@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer;
+package com.yuyang.fitsystemwindowstestdrawer.horizontalFling;
 
 import android.content.Context;
 import android.util.AttributeSet;

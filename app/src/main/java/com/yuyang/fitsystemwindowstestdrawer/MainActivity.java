@@ -27,12 +27,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPager;
 import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
-import com.yuyang.fitsystemwindowstestdrawer.propertyAnimation.PropertyAnimationActivity;
+import com.yuyang.fitsystemwindowstestdrawer.preferenceAbout.PreferenceDemo;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;

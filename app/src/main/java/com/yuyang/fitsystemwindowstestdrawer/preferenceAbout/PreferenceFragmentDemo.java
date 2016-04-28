@@ -1,7 +1,9 @@
-package com.yuyang.fitsystemwindowstestdrawer;
+package com.yuyang.fitsystemwindowstestdrawer.preferenceAbout;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
+
+import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * Created by yuyang on 16/1/20.

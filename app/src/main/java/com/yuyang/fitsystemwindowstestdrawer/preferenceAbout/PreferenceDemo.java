@@ -1,8 +1,10 @@
-package com.yuyang.fitsystemwindowstestdrawer;
+package com.yuyang.fitsystemwindowstestdrawer.preferenceAbout;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+
+import com.yuyang.fitsystemwindowstestdrawer.R;
 
 import java.util.List;
 

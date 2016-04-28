@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.propertyAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.animationAbout;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;

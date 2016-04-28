@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 /**
  * 通用viewHolder
  *
+ * 适用于AbsListView
  */
 public abstract class ViewHolderAdapter extends BaseAdapter {
 

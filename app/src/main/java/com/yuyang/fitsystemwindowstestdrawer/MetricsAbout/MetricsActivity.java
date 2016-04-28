@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer;
+package com.yuyang.fitsystemwindowstestdrawer.MetricsAbout;
 
 import android.graphics.Rect;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.util.DisplayMetrics;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
+
+import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * Created by yuyang on 16/2/1.

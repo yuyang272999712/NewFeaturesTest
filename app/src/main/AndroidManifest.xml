@@ -25,12 +25,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MyActivity"
+            android:name=".animationAbout.MyActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".PreferenceDemo"/>
+            android:name=".preferenceAbout.PreferenceDemo"/>
         <activity
-            android:name=".MetricsActivity"
+            android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".dragHelperTest.DefinedViewTest"/>
@@ -40,7 +40,7 @@
         <activity android:name=".largeImage.LargeImageTest"/>
         <activity android:name=".cardViewPager.CardViewPager"/>
         <activity android:name=".tantan.TantanActivity"/>
-        <activity android:name=".propertyAnimation.PropertyAnimationActivity"/>
+        <activity android:name=".animationAbout.PropertyAnimationActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 

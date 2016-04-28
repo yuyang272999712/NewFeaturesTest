@@ -3,7 +3,7 @@
 
     <!-- 不同的fragment来加载不同的Preference文件 -->
     <header
-        android:fragment="com.yuyang.fitsystemwindowstestdrawer.PreferenceFragmentDemo"
+        android:fragment="com.yuyang.fitsystemwindowstestdrawer.preferenceAbout.PreferenceFragmentDemo"
         android:summary="test 1"
         android:title="Name1">
     </header>
