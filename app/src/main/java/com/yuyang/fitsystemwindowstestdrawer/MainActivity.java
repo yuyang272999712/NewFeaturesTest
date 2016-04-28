@@ -19,6 +19,7 @@ import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPager;
+import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
@@ -28,6 +29,12 @@ import com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
 
+/**
+ * tableLayout 相关属性设定：
+ *      android:stretchColumns="0"           第0列可伸展
+ *      android:shrinkColumns="1,2"         第1,2列皆可收缩
+ *      android:collapseColumns="*"         隐藏所有行
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -42,6 +49,7 @@ public class MainActivity extends AppCompatActivity
     private Button button9;
     private Button button10;
     private Button button11;
+    private Button button12;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +60,8 @@ public class MainActivity extends AppCompatActivity
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         toolbar.setTitle("开发测试");
+        setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -169,6 +177,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, PropertyAnimationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button12 = (Button) findViewById(R.id.button12);
+        button12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MaterialDesignActivity.class);
                 startActivity(intent);
             }
         });

@@ -16,79 +16,98 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:shrinkColumns="0">
-        <TableRow>
+        android:layout_height="match_parent"
+        android:shrinkColumns="0,1"
+        android:stretchColumns="0,1">
+        <TableRow >
             <Button
                 android:id="@+id/button"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="android5界面切换效果"/>
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="页面跳转2"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <Button
                 android:id="@+id/button3"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="测量工具"/>
 
             <Button
                 android:id="@+id/button4"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="动画测试"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <Button
                 android:id="@+id/button5"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="各种自定义控件，dragHelper测试"/>
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:text="MVP模式"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <Button
                 android:id="@+id/button7"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="viewholder替换方案"/>
 
             <Button
                 android:id="@+id/button8"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="加载超大图"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <Button
                 android:id="@+id/button9"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="卡片viewpager效果"/>
 
             <Button
                 android:id="@+id/button10"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="仿探探效果"/>
         </TableRow>
-        <TableRow>
+        <TableRow >
             <Button
                 android:id="@+id/button11"
-                android:layout_width="match_parent"
+                android:layout_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="PropertyAnimation"/>
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="android5.0"/>
 
         </TableRow>
     </TableLayout>

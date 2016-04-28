@@ -41,6 +41,7 @@
         <activity android:name=".cardViewPager.CardViewPager"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.PropertyAnimationActivity"/>
+        <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
