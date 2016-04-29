@@ -11,27 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="50dp">
-        <!--<TextView
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+            android:background="#99f799"
             android:gravity="center"
-            android:text="开发测试"/>-->
+            android:text="开发测试1"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
             android:background="#84fad9"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
+            app:layout_scrollFlags="scroll|enterAlways"
             android:gravity="center"
-            android:text="开发测试"/>
+            android:text="开发测试2"/>
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="#848afa"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            android:gravity="center"
+            android:text="开发测试3"/>-->
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            android:background="#99f799"
             android:theme="@style/AppTheme.AppBarOverlay"/>
     </android.support.design.widget.AppBarLayout>
 
@@ -55,11 +62,18 @@
                     android:text="ceshi1"
                     android:textSize="20dp"
                     android:gravity="bottom"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/material_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="跳转至CollapsingToolbarLayout效果页"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1500dp"
-                    android:background="#8cea8c"
-                    android:text="ceshi2"/>
+                    android:background="#3c5c3c"
+                    android:text="ceshi2"
+                    android:textSize="20dp"
+                    android:gravity="bottom"/>
             </LinearLayout>
 
         </android.support.v4.widget.NestedScrollView>

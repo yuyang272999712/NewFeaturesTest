@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <!--自定义样式-->
+    <style name="expanded_title_text_style">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#a5fffb</item>
+    </style>
+
 </resources>

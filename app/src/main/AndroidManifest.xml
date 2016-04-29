@@ -42,6 +42,7 @@
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.PropertyAnimationActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
+        <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".destWidget.DestWidgetActivity"/>
 
         <service android:name=".service.BackgroundService"/>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1aaa7">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/material_appbar_layout"
+        app:elevation="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:fitsSystemWindows="true">
+
+        <!--<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            android:background="#84fad9"
+            app:layout_scrollFlags="scroll"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="开发测试0_在AppBarLayout内"/>-->
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/material_collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:minHeight="?attr/actionBarSize"
+            app:contentScrim="#fc4949"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleTextAppearance="@style/expanded_title_text_style"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlwaysCollapsed|snap">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+                android:background="#7689e678"
+                android:textColor="#000"
+                android:text="TextView1_在CollapsingToolbarLayout内"
+                app:layout_collapseMode="parallax"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:background="#e678db"
+                android:textColor="#000"
+                android:text="TextView2_在CollapsingToolbarLayout内"
+                app:layout_collapseMode="parallax"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:background="#3000"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin">
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll"
+            android:background="#84fad9"
+            android:gravity="center"
+            android:textColor="#000"
+            android:text="TextView_在AppBarLayout内"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/material_frame_layout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#f382f9">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/material_ceshi_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#f58e4b"
+                    android:text="TextView_在NestedScrollView内"
+                    android:textSize="20dp"
+                    android:gravity="center"/>
+
+                <!--<android.support.design.widget.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="20dp"
+                    android:layout_weight="1"
+                    android:minHeight="?attr/actionBarSize"
+                    app:contentScrim="#fc4949"
+                    app:expandedTitleMarginEnd="64dp"
+                    app:expandedTitleMarginStart="48dp"
+                    app:expandedTitleTextAppearance="@style/expanded_title_text_style"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"
+                        android:gravity="center"
+                        android:background="#89e678"
+                        android:textColor="#000"
+                        android:text="TextView1_在CollapsingToolbarLayout内"
+                        app:layout_collapseMode="parallax"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:gravity="center"
+                        android:background="#e678db"
+                        android:textColor="#000"
+                        android:text="TextView2_在CollapsingToolbarLayout内"
+                        app:layout_collapseMode="parallax"/>
+
+                </android.support.design.widget.CollapsingToolbarLayout>-->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1500dp"
+                    android:background="#3c5c3c"
+                    android:text="TextView_在NestedScrollView内"
+                    android:textSize="20dp"
+                    android:gravity="bottom"/>
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+    </FrameLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="布局测试_在CoordinatorLayout内"
+        app:layout_anchor="@id/material_frame_layout"
+        app:layout_anchorGravity="top|center"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/material_action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_anchor="@id/material_appbar_layout"
+        app:layout_anchorGravity="bottom|right|end"
+        android:src="@mipmap/home_buttons_dislike_normal"/>
+
+</android.support.design.widget.CoordinatorLayout>
