@@ -13,11 +13,11 @@
         android:minHeight="50dp">
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+            android:layout_height="80dp"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed|snap"
             android:background="#99f799"
             android:gravity="center"
-            android:text="开发测试1"/>
+            android:text="TextView1_在AppBarLayout内"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,7 +25,7 @@
             android:background="#84fad9"
             app:layout_scrollFlags="scroll|enterAlways"
             android:gravity="center"
-            android:text="开发测试2"/>
+            android:text="TextView2_在AppBarLayout内"/>
         <!--<TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:text="ceshi1"
+                    android:text="TextView1_在NestedScrollView内"
                     android:textSize="20dp"
                     android:gravity="bottom"/>
                 <android.support.v7.widget.AppCompatButton
@@ -71,7 +71,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="1500dp"
                     android:background="#3c5c3c"
-                    android:text="ceshi2"
+                    android:text="TextView2_在NestedScrollView内"
                     android:textSize="20dp"
                     android:gravity="bottom"/>
             </LinearLayout>
