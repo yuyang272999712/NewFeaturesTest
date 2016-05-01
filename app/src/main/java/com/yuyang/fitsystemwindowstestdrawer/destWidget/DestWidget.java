@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -28,11 +29,13 @@ public class DestWidget extends AppWidgetProvider {
         RemoteViews views1 = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
         views1.setOnClickPendingIntent(R.id.dest_hour, pendingIntent);
         views1.setOnClickPendingIntent(R.id.dest_minute, pendingIntent);
+        views1.setOnClickPendingIntent(R.id.dest_second, pendingIntent);
         appWidgetManager.updateAppWidget(appWidgetIds, views1);
 
         Date date = new Date();
         int hour = date.getHours();
         int minute = date.getMinutes();
+        int second = date.getSeconds();
 
         final int N = appWidgetIds.length;
         for (int i = 0; i < N; i++){
@@ -40,6 +43,7 @@ public class DestWidget extends AppWidgetProvider {
             RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
             views.setTextViewText(R.id.dest_hour, hour+"");
             views.setTextViewText(R.id.dest_minute, minute+"");
+            views.setTextViewText(R.id.dest_second, second+"");
             appWidgetManager.updateAppWidget(appWidgetId, views);
         }
     }
@@ -57,6 +61,21 @@ public class DestWidget extends AppWidgetProvider {
 
         AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
         int[] appWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
-        onUpdate(context,appWidgetManager,appWidgetIds);
+
+        Date date = new Date();
+        int hour = date.getHours();
+        int minute = date.getMinutes();
+        int second = date.getSeconds();
+
+        final int N = appWidgetIds.length;
+        for (int i = 0; i < N; i++){
+            int appWidgetId = appWidgetIds[i];
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
+            views.setTextViewText(R.id.dest_hour, hour+"");
+            views.setTextViewText(R.id.dest_minute, minute+"");
+            views.setTextViewText(R.id.dest_second, second+"");
+            appWidgetManager.updateAppWidget(appWidgetId, views);
+        }
+        Log.w("DestWidgetReceiver", "收到广播"+second);
     }
 }

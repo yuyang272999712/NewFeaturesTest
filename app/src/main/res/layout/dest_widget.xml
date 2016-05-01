@@ -10,8 +10,9 @@
     <TextView
         android:id="@+id/dest_hour"
         android:text="hour"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
         android:textSize="24sp"
         android:padding="3dp"
         android:gravity="center_vertical"/>
@@ -19,8 +20,19 @@
     <TextView
         android:id="@+id/dest_minute"
         android:text="minute"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:textSize="18sp"
+        android:padding="3dp"
+        android:gravity="center_vertical"/>
+
+    <TextView
+        android:id="@+id/dest_second"
+        android:text="millisecond"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:textSize="14sp"
         android:padding="3dp"
         android:gravity="center_vertical"/>
