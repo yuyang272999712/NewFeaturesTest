@@ -30,5 +30,6 @@ public class DestWidgetActivity extends AppCompatActivity {
                 sendBroadcast(intent);
             }
         });
+
     }
 }

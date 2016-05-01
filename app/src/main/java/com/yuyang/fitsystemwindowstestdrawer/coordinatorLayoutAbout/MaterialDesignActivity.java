@@ -17,13 +17,15 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 /**
  * 知识点：
  * 一、Snackbar 只有使用CoordinatorLayout作为基本布局，FAB按钮才会自动产生向上移动的动画。
- *      FAB浮动操作按钮有一个 默认的 behavior来检测Snackbar的添加并让按钮在Snackbar之上呈现上移与Snackbar等高的动画。
+ *    FAB浮动操作按钮有一个 默认的 behavior来检测Snackbar的添加并让按钮在Snackbar之上呈现上移与Snackbar等高的动画。
  *
  * 二、CoordinatorLayout （[kəʊ'ɔ:dɪneɪtə] ）协调员
+ *    CoordinatorLayout自己并不控制View，所有的控制权都在Behavior
  *      该布局会检测他的所有子View，传递Behavior事件。
  *      该布局类似于FrameLayout布局，普图部件可以通过设置“android:layout_gravity="bottom|right"”来设置在布局中的位置
  *
- *    1.配合AppBarLayout布局使用可以实现滚动响应事件 （AppBarLayout布局必需是CoordinatorLayout布局中的第一个）
+ * 三、AppBarLayout
+ *    CoordinatorLayout配合AppBarLayout布局使用可以实现滚动响应事件 （AppBarLayout布局必需是CoordinatorLayout布局中的第一个）
  *    （AppBarLayout的父类是LinearLayout竖直排版,即：AppBarLayout中可以竖直排版多个子View，
  *    但是如果第一个子View的app:layout_behavior属性没用设置“scroll”，那么下面的子View也不会滚动出屏幕,
  *    !!!AppBarLayout不必非要配合toolbar使用，任何放在AppBarLayout中的子View都可以实现滚动）。
@@ -43,13 +45,33 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  *          4. exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
  *          5. snap：滚动压缩到50%以后自动收缩，不到则会自动复原
  *
- *    2.配合CollapsingToolbarLayout布局使用可以是toolbar具有塌缩效果（详见MaterialDesignActivity2.class页面）
+ * 四、CollapsingToolbarLayout
+ *    AppBarLayout配合CollapsingToolbarLayout布局使用可以是toolbar具有塌缩效果（详见MaterialDesignActivity2.class页面）
  *
+ * 五、Behavior
+ *    通过 CoordinatorLayout.Behavior(YourView.Behavior.class) 来定义自己的Behavior，
+ *    并在layout 文件中设置 app:layout_behavior=”com.example.app.YourView$Behavior” 来达到效果。
+ *
+ *    自定义Behavior 需要根据需要重写对应的方法，比如：
+ *      public boolean layoutDependsOn(CoordinatorLayout parent, V child, View dependency)
+ *      public boolean onDependentViewChanged(CoordinatorLayout parent, V child, View dependency)
+ *      public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, V child, View directTargetChild, View target, int nestedScrollAxes)
+ *      public void onNestedScrollAccepted(CoordinatorLayout coordinatorLayout, V child, View directTargetChild, View target, int nestedScrollAxes)
+ *      等方法
+ *
+ * 六、TabLayout
+ *    有以下常用属性：
+ *      app:tabGravity="fill"  表示TabLayout中的Tabs要占满屏幕的width；
+ *      app:tabSelectedTextColor：Tab被选中字体的颜色；
+ *      app:tabTextColor：Tab未被选中字体的颜色；
+ *      app:tabIndicatorColor：Tab指示器下标的颜色；
  */
 public class MaterialDesignActivity extends AppCompatActivity {
     FloatingActionButton actionButton;
     Toolbar toolbar;
-    Button btn;
+    Button btn_to_collapsing;
+    Button btn_to_behavior;
+    Button btn_to_behavior2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -75,7 +97,9 @@ public class MaterialDesignActivity extends AppCompatActivity {
     private void findView() {
         actionButton = (FloatingActionButton) findViewById(R.id.material_action_button);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        btn = (Button) findViewById(R.id.material_button);
+        btn_to_collapsing = (Button) findViewById(R.id.material_button1);
+        btn_to_behavior = (Button) findViewById(R.id.material_button2);
+        btn_to_behavior2 = (Button) findViewById(R.id.material_button3);
     }
 
     private void initAction() {
@@ -92,10 +116,24 @@ public class MaterialDesignActivity extends AppCompatActivity {
                 snackbar.show();
             }
         });
-        btn.setOnClickListener(new View.OnClickListener() {
+        btn_to_collapsing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MaterialDesignActivity.this, MaterialDesignActivity2.class);
+                startActivity(intent);
+            }
+        });
+        btn_to_behavior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaterialDesignActivity.this, BehaviorActivity1.class);
+                startActivity(intent);
+            }
+        });
+        btn_to_behavior2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaterialDesignActivity.this, BehaviorActivity2.class);
                 startActivity(intent);
             }
         });

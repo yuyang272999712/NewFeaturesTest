@@ -63,10 +63,20 @@
                     android:textSize="20dp"
                     android:gravity="bottom"/>
                 <android.support.v7.widget.AppCompatButton
-                    android:id="@+id/material_button"
+                    android:id="@+id/material_button1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="跳转至CollapsingToolbarLayout效果页"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/material_button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="跳转至自定义behavior效果页"/>
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/material_button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="跳转至自定义behavior2效果页"/>
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="1500dp"
@@ -87,6 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|right"
-        android:src="@mipmap/home_buttons_dislike_normal"/>
+        android:src="@mipmap/home_buttons_dislike_normal"
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.ScrollAwareFABBehavior"/>
 
 </android.support.design.widget.CoordinatorLayout>
