@@ -12,6 +12,7 @@ import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -63,7 +64,8 @@ public class OptionsCompatActivity extends AppCompatActivity {
 
     private List<Integer> images = new ArrayList<>();
     private RecyclerAdapter adapter;
-    private GridLayoutManager layoutManager;
+    private GridLayoutManager gridManager;
+    private LinearLayoutManager linearMananger;
     private RecyclerAdapter.ItemClickListener clickListener;
 
     @Override
@@ -114,7 +116,7 @@ public class OptionsCompatActivity extends AppCompatActivity {
                          */
                         break;
                     case 1://TODO yuyang makeScaleUpAnimation
-                        View source1 = layoutManager.findViewByPosition(position);
+                        View source1 = gridManager.findViewByPosition(position);
                         ActivityOptionsCompat scaleUpOpt = ActivityOptionsCompat.makeScaleUpAnimation(source1,
                                 source1.getWidth()/2,source1.getHeight()/2,0,0);
                         ActivityCompat.startActivity(OptionsCompatActivity.this, intent, scaleUpOpt.toBundle());
@@ -126,14 +128,14 @@ public class OptionsCompatActivity extends AppCompatActivity {
                         break;
                     case 2://TODO yuyang makeSceneTransitionAnimation
                         Toast.makeText(getApplicationContext(),"android5.0才会看到transition效果",Toast.LENGTH_SHORT).show();
-                        View view1 = layoutManager.findViewByPosition(position);
+                        View view1 = gridManager.findViewByPosition(position);
                         ActivityOptionsCompat sceneOpt1 = ActivityOptionsCompat.makeSceneTransitionAnimation(
                                 OptionsCompatActivity.this,view1,getResources().getString(R.string.transition_view_option));
                         ActivityCompat.startActivity(OptionsCompatActivity.this, intent, sceneOpt1.toBundle());
                         break;
                     case 3://TODO yuyang makeSceneTransitionAnimation
                         Toast.makeText(getApplicationContext(),"android5.0才会看到transition效果",Toast.LENGTH_SHORT).show();
-                        View view2 = layoutManager.findViewByPosition(position);
+                        View view2 = gridManager.findViewByPosition(position);
                         Pair pair1 = Pair.create(view2,getResources().getString(R.string.transition_view_option));
                         Pair pair2 = Pair.create(circularRevealImg,getResources().getString(R.string.transition_view_option));
                         ActivityOptionsCompat sceneOpt2 = ActivityOptionsCompat.makeSceneTransitionAnimation(
@@ -141,7 +143,7 @@ public class OptionsCompatActivity extends AppCompatActivity {
                         ActivityCompat.startActivity(OptionsCompatActivity.this, intent, sceneOpt2.toBundle());
                         break;
                     case 4://TODO yuyang makeThumbnailScaleUpAnimation
-                        View source2 = layoutManager.findViewByPosition(position);
+                        View source2 = gridManager.findViewByPosition(position);
                         Bitmap thumb = BitmapFactory.decodeResource(getResources(),R.mipmap.img1);
                         ActivityOptionsCompat thumbnailScaleOpt = ActivityOptionsCompat.makeThumbnailScaleUpAnimation(
                                 source2,thumb,source2.getWidth()/2,source2.getHeight()/2);
@@ -159,9 +161,10 @@ public class OptionsCompatActivity extends AppCompatActivity {
         images.add(R.mipmap.img1);
         images.add(R.mipmap.img1);
         adapter = new RecyclerAdapter(images, clickListener);
-        layoutManager = new GridLayoutManager(this,2);
+        gridManager = new GridLayoutManager(this,2);
+        linearMananger = new LinearLayoutManager(this);
 
-        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setLayoutManager(gridManager);
         recyclerView.setAdapter(adapter);
     }
 

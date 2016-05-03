@@ -34,7 +34,7 @@
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".dragHelperTest.DefinedViewTest"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
-        <activity android:name=".replaceViewHolder.ListTestActivity"/>
+        <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTest"/>
         <activity android:name=".largeImage.LargeImageTest"/>
         <activity android:name=".cardViewPager.CardViewPagerActivity"/>

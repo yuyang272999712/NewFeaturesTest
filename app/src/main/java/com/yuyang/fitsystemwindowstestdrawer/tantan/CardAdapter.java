@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder.ViewHolderAdapter;
+import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ViewHolderAdapter;
 
 import java.util.List;
 

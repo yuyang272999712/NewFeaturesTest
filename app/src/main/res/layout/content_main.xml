@@ -25,6 +25,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="android5界面切换效果"/>
 
             <Button
@@ -32,6 +33,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="页面跳转2"/>
         </TableRow>
         <TableRow >
@@ -40,6 +42,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="测量工具"/>
 
             <Button
@@ -47,6 +50,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="水平拖拽"/>
         </TableRow>
         <TableRow >
@@ -55,6 +59,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="各种自定义控件，dragHelper测试"/>
 
             <Button
@@ -62,6 +67,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="MVP模式"/>
         </TableRow>
         <TableRow >
@@ -70,13 +76,15 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="viewholder替换方案"/>
+                android:textAllCaps="false"
+                android:text="ListViewHolder"/>
 
             <Button
                 android:id="@+id/button8"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="加载超大图"/>
         </TableRow>
         <TableRow >
@@ -85,6 +93,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="卡片viewpager效果"/>
 
             <Button
@@ -92,6 +101,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="仿探探效果"/>
         </TableRow>
         <TableRow >
@@ -100,6 +110,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="属性动画"/>
 
             <Button
@@ -107,6 +118,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="android5.0新控件"/>
 
         </TableRow>
@@ -116,6 +128,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text="更新桌面小控件"/>
 
             <Button
@@ -123,6 +136,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:textAllCaps="false"
                 android:text=""/>
 
         </TableRow>

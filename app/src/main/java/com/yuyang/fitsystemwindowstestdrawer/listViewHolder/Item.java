@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder;
+package com.yuyang.fitsystemwindowstestdrawer.listViewHolder;
 
 /**
  * Created by yuyang on 16/3/3.

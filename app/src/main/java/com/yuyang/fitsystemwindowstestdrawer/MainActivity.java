@@ -26,7 +26,7 @@ import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActi
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.preferenceAbout.PreferenceDemo;
-import com.yuyang.fitsystemwindowstestdrawer.replaceViewHolder.ListTestActivity;
+import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
 
