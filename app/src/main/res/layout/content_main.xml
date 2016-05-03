@@ -47,7 +47,7 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="动画测试"/>
+                android:text="水平拖拽"/>
         </TableRow>
         <TableRow >
             <Button
@@ -100,14 +100,14 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="PropertyAnimation"/>
+                android:text="属性动画"/>
 
             <Button
                 android:id="@+id/button12"
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="android5.0"/>
+                android:text="android5.0新控件"/>
 
         </TableRow>
         <TableRow >

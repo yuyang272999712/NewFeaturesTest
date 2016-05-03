@@ -12,7 +12,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * Created by yuyang on 16/5/1.
  * 该behavior相当于系统提供的“ScrollingViewBehavior”
  * “ScrollingViewBehavior”使目标View永远在AppBarLayout的下面
- * “MyDefineBehavior3”使目标View永远在id为targetId的下面
+ * “MyDefineLikeSysBehavior”使目标View永远在id为targetId的下面
  */
 public class MyDefineLikeSysBehavior extends CoordinatorLayout.Behavior<View> {
     private int targetId;

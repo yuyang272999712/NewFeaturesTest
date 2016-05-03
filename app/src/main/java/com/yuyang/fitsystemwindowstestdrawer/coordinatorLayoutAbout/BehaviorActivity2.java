@@ -9,7 +9,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 /**
  * Created by yuyang on 16/5/1.
  * 自定义behavior，详见布局文件
- * 本例主要使用了“MyDefineBehavior3”  该behavior相当于系统提供的“ScrollingViewBehavior”
+ * 本例主要使用了“MyDefineLikeSysBehavior”  该behavior相当于系统提供的“ScrollingViewBehavior”
  *
  * @string/appbar_scrolling_view_behavior(android.support.design.widget.AppBarLayout$ScrollingViewBehavior)
  * ScrollingViewBehavior的源码不多，唯一的作用是把自己放到AppBarLayout的下面

@@ -11,8 +11,13 @@ import java.util.List;
 
 /**
  * Created by yuyang on 16/3/11.
+ * 这里不是新空间CardView
+ * 使用的时ViewPager，关键是使用如下两个属性：
+ *      android:clipToPadding="false"
+ *      android:clipChildren="false"
+ *  使ViewPager的padding区域也可以绘制adapter内容，详见效果图
  */
-public class CardViewPager extends AppCompatActivity {
+public class CardViewPagerActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private List<CardPager> pagers = new ArrayList<>();
 

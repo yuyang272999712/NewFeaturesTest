@@ -16,9 +16,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
-import com.yuyang.fitsystemwindowstestdrawer.animationAbout.MyActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
-import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPager;
+import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MyActivity.class);
+                Intent intent = new Intent(MainActivity.this, OptionsCompatActivity.class);
                 startActivity(intent);
             }
         });
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, CardViewPager.class);
+                Intent intent = new Intent(MainActivity.this, CardViewPagerActivity.class);
                 startActivity(intent);
             }
         });

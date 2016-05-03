@@ -24,9 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".animationAbout.MyActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".androidLAnimationAbout.OptionsCompatActivity"/>
+        <activity android:name=".androidLAnimationAbout.AdapterDetailActivity"/>
         <activity
             android:name=".preferenceAbout.PreferenceDemo"/>
         <activity
@@ -38,7 +37,7 @@
         <activity android:name=".replaceViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTest"/>
         <activity android:name=".largeImage.LargeImageTest"/>
-        <activity android:name=".cardViewPager.CardViewPager"/>
+        <activity android:name=".cardViewPager.CardViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.PropertyAnimationActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
