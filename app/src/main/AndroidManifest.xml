@@ -75,6 +75,17 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/dest_widget_info"/>
         </receiver>
+        <!-- 添加桌面小控件 集合类-->
+        <receiver android:name=".destWidget.DestStackWidget" android:label="CurrentTimeList">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/dest_stack_widget_info"/>
+        </receiver>
+        <service android:name=".destWidget.MyRemoteViewService"
+            android:permission="android.permission.BIND_REMOTEVIEWS"/>
 
     </application>
 
