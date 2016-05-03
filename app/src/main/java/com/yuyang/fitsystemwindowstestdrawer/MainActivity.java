@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.yuyang.fitsystemwindowstestdrawer.LayoutInflateAbout.LayoutInflateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PreferenceDemo.class);
+                Intent intent = new Intent(MainActivity.this, LayoutInflateActivity.class);
                 startActivity(intent);
             }
         });

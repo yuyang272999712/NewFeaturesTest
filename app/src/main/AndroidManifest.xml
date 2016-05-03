@@ -45,6 +45,7 @@
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity1"/>
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity2"/>
         <activity android:name=".destWidget.DestWidgetActivity"/>
+        <activity android:name=".LayoutInflateAbout.LayoutInflateActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 

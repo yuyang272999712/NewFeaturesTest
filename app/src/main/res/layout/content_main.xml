@@ -34,7 +34,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="页面跳转2"/>
+                android:text="LayoutInflate三个参数含义"/>
         </TableRow>
         <TableRow >
             <Button
