@@ -32,7 +32,7 @@
             android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
-        <activity android:name=".dragHelperTest.DefinedViewTest"/>
+        <activity android:name=".userDefinedViews.DefinedViewActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTest"/>

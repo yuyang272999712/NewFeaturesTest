@@ -1,13 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.VerticalDrawerLayout
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.VerticalDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:orientation="vertical"
         android:background="#c7f16c"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:gravity="center"
+            android:background="#66111111">
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="Welcome" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="IT工程师" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="学习ing" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="恋爱ing" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="挣钱ing" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="努力ing" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:text="I thick i can" />
+
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:background="#66111111"
+            app:gravity="right"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_2"
+                android:text="Welcome"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_2"
+                android:text="IT工程师"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_2"
+                android:text="学习ing"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_2"
+                android:text="恋爱ing"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_3"
+                android:text="挣钱ing"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_3"
+                android:text="努力ing"
+                android:textColor="#43BBE7" />
+
+            <TextView
+                style="@style/flow_item_text_style"
+                android:background="@drawable/flow_item_bg_3"
+                android:text="I thick i can"
+                android:textColor="#43BBE7" />
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.TagFlowLayout
+            android:id="@+id/defind_tag_flow_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:max_select="3"/>
+    </LinearLayout>
 
     <LinearLayout
         android:background="#f16cc5"
@@ -15,16 +111,104 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+        
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#717070">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#FF4444"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:background="#5dff44"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#444dff"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#ef44ff"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
 
-        <TextView
-            android:id="@+id/textView"
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_marginTop="20dp"
+            android:background="#717070">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#FF4444"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="70dp"
+                android:layout_margin="5dp"
+                android:background="#5dff44"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#444dff"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:background="#ef44ff"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ClearEditTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="开发测试"/>
-
-        <com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.ClearEditTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:singleLine="true"
             android:text="自带清除按钮的edittext"/>
 
@@ -32,8 +216,14 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="倒计时发送"/>
+            android:text="短信倒计时启动"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="上滑显示下层视图"/>
 
     </LinearLayout>
 
-</com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.VerticalDrawerLayout>
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.VerticalDrawerLayout>

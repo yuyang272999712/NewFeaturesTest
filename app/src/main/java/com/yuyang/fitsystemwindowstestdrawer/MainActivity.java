@@ -22,11 +22,10 @@ import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationAct
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.dragHelperTest.DefinedViewTest;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
-import com.yuyang.fitsystemwindowstestdrawer.preferenceAbout.PreferenceDemo;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DefinedViewTest.class);
+                Intent intent = new Intent(MainActivity.this, DefinedViewActivity.class);
                 startActivity(intent);
             }
         });

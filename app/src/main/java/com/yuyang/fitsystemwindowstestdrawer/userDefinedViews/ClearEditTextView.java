@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.dragHelperTest;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews;
 
 import android.content.Context;
 import android.graphics.Rect;

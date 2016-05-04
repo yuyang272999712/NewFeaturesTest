@@ -22,5 +22,13 @@
         <item name="android:textSize">20sp</item>
         <item name="android:textColor">#a5fffb</item>
     </style>
+    <!-- FlowLayout内TextView样式-->
+    <style name="flow_item_text_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <item name="android:background">@drawable/flow_item_bg_1</item>
+        <item name="android:textColor">#ffffff</item>
+    </style>
 
 </resources>
