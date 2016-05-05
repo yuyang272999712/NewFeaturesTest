@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 public abstract class BaseFlingAdapterView extends AdapterView<BaseAdapter> {
 
     private int widthMeasureSpec;
-    private int heightMeaseureSpec;
+    private int heightMeasureSpec;
 
     public BaseFlingAdapterView(Context context) {
         super(context);
@@ -34,7 +34,7 @@ public abstract class BaseFlingAdapterView extends AdapterView<BaseAdapter> {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         this.widthMeasureSpec = widthMeasureSpec;
-        this.heightMeaseureSpec = heightMeasureSpec;
+        this.heightMeasureSpec = heightMeasureSpec;
     }
 
     public int getWidthMeasureSpec() {
@@ -42,6 +42,6 @@ public abstract class BaseFlingAdapterView extends AdapterView<BaseAdapter> {
     }
 
     public int getHeightMeasureSpec() {
-        return heightMeaseureSpec;
+        return heightMeasureSpec;
     }
 }

@@ -29,6 +29,7 @@ import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
+import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
 
 /**
  * tableLayout 相关属性设定：
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity
     private Button button11;
     private Button button12;
     private Button button13;
+    private Button button14;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -197,6 +199,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, DestWidgetActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button14 = (Button) findViewById(R.id.button14);
+        button14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
                 startActivity(intent);
             }
         });
