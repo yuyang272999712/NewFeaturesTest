@@ -20,6 +20,7 @@ import android.webkit.WebViewClient;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.utils.FileUtils;
 
 import java.io.File;
 
@@ -140,15 +141,15 @@ public class WebViewActivity extends AppCompatActivity {
                 return;
             }
 
-//            String path =  FileUtils.getPath(this, result);
-//            Uri uri = Uri.fromFile(new File(path));
+            String path =  FileUtils.getPath(this, result);
+            Uri uri = Uri.fromFile(new File(path));
 
             /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 mUploadMessage.onReceiveValue(new Uri[]{result});
             }else {
                 mUploadMessage.onReceiveValue(result);
             }*/
-            mUploadMessage.onReceiveValue(result);
+            mUploadMessage.onReceiveValue(uri);
 
             mUploadMessage = null;
         }
