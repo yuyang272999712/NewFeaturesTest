@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/6.
+ * 系统SwipeDismissBehavior使用测试
  */
 public class SwipeDismissBehaviorActivity extends AppCompatActivity {
     private TextView textView;
