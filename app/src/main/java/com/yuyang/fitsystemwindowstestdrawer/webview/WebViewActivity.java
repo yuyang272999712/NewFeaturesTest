@@ -1,10 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer.webview;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -102,6 +99,7 @@ public class WebViewActivity extends AppCompatActivity {
                 this.openFileChooser(uploadMsg, acceptType);
             }
 
+            //For Android 5.0
             /*@TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @SuppressLint("NewApi")
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback,
@@ -167,6 +165,10 @@ public class WebViewActivity extends AppCompatActivity {
         return super.onKeyDown(keyCode, event);
     }
 
+    /**
+     * 创建系统调用广播
+     * @return
+     */
     private Intent createDefaultOpenableIntent() {
         Intent i = new Intent(Intent.ACTION_GET_CONTENT);
         i.addCategory(Intent.CATEGORY_OPENABLE);
@@ -187,6 +189,10 @@ public class WebViewActivity extends AppCompatActivity {
         return chooser;
     }
 
+    /**
+     * 调用拍照的广播
+     * @return
+     */
     private Intent createCameraIntent() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         File externalDataDir = Environment.getExternalStoragePublicDirectory(
@@ -200,10 +206,16 @@ public class WebViewActivity extends AppCompatActivity {
         return cameraIntent;
     }
 
+    /**
+     * 调用录像的广播
+     */
     /*private Intent createCamcorderIntent() {
         return new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
     }*/
 
+    /**
+     * 调用录音的广播
+     */
     /*private Intent createSoundRecorderIntent() {
         return new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
     }*/
