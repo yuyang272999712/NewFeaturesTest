@@ -84,6 +84,7 @@ public class MaterialDesignActivity extends AppCompatActivity {
     Button btn_to_collapsing;
     Button btn_to_behavior;
     Button btn_to_behavior2;
+    Button btn_to_swipe_dismiss;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,6 +113,7 @@ public class MaterialDesignActivity extends AppCompatActivity {
         btn_to_collapsing = (Button) findViewById(R.id.material_button1);
         btn_to_behavior = (Button) findViewById(R.id.material_button2);
         btn_to_behavior2 = (Button) findViewById(R.id.material_button3);
+        btn_to_swipe_dismiss = (Button) findViewById(R.id.btn_to_swipe_dismiss);
     }
 
     private void initAction() {
@@ -146,6 +148,13 @@ public class MaterialDesignActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MaterialDesignActivity.this, BehaviorActivity2.class);
+                startActivity(intent);
+            }
+        });
+        btn_to_swipe_dismiss.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MaterialDesignActivity.this, SwipeDismissBehaviorActivity.class);
                 startActivity(intent);
             }
         });
