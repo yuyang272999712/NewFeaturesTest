@@ -102,7 +102,7 @@ public class WebViewActivity extends AppCompatActivity {
                 this.openFileChooser(uploadMsg, acceptType);
             }
 
-            /*@TargetApi(Build.VERSION_CODES.LOLLIPOP)
+            @TargetApi(Build.VERSION_CODES.LOLLIPOP)
             @SuppressLint("NewApi")
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback,
                                              FileChooserParams fileChooserParams) {
@@ -112,7 +112,7 @@ public class WebViewActivity extends AppCompatActivity {
                 mUploadMessage = filePathCallback;
                 startActivityForResult(createDefaultOpenableIntent(), FILECHOOSER_RESULTCODE);
                 return true;
-            }*/
+            }
         });
     }
 
@@ -141,15 +141,17 @@ public class WebViewActivity extends AppCompatActivity {
                 return;
             }
 
+            //TODO yuyang 这里做这个转换是因为锤子手机的兼容问题，content provider提供的URI锤子手机无法上传
             String path =  FileUtils.getPath(this, result);
             Uri uri = Uri.fromFile(new File(path));
 
-            /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                mUploadMessage.onReceiveValue(new Uri[]{result});
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mUploadMessage.onReceiveValue(new Uri[]{uri});
+                //TODO yuyang 不能使用WebChromeClient.FileChooserParams.parseResult(resultCode, intent)，因为拍照的话intent的值可能是空
+                //mUploadMessage.onReceiveValue(WebChromeClient.FileChooserParams.parseResult(resultCode, intent));
             }else {
-                mUploadMessage.onReceiveValue(result);
-            }*/
-            mUploadMessage.onReceiveValue(uri);
+                mUploadMessage.onReceiveValue(uri);
+            }
 
             mUploadMessage = null;
         }
