@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by yuyang on 16/5/6.
+ * 通用ViewHolder
  */
 public class CommonViewHolder extends RecyclerView.ViewHolder {
     private SparseArrayCompat<View> mViews;
