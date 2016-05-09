@@ -10,4 +10,40 @@
         <item>002</item>
         <item>003</item>
     </string-array>
+
+    <array name="recycler_items">
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
+        <item>Nine</item>
+        <item>Ten</item>
+    </array>
+
+    <array name="recycler_items_add">
+        <item>One@</item>
+        <item>Two@</item>
+        <item>Three@</item>
+        <item>Four@</item>
+        <item>Five@</item>
+        <item>Six@</item>
+        <item>Seven@</item>
+        <item>Eight@</item>
+        <item>Nine@</item>
+        <item>Ten@</item>
+    </array>
 </resources>

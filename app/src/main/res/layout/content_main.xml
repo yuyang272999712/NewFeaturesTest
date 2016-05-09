@@ -140,6 +140,25 @@
                 android:text="webView"/>
 
         </TableRow>
+
+        <TableRow >
+            <Button
+                android:id="@+id/button15"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="recycler_swipe"/>
+
+            <Button
+                android:id="@+id/button16"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text=""/>
+
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

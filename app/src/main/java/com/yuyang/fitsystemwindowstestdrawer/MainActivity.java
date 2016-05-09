@@ -22,6 +22,7 @@ import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationAct
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
@@ -54,6 +55,8 @@ public class MainActivity extends AppCompatActivity
     private Button button12;
     private Button button13;
     private Button button14;
+    private Button button15;
+    private Button button16;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -208,6 +211,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button15 = (Button) findViewById(R.id.button15);
+        button15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SwipeRefreshActivity.class);
                 startActivity(intent);
             }
         });

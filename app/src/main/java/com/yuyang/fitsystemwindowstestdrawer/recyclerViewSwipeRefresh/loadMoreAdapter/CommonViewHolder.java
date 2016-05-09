@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipRefresh;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter;
 
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;
@@ -37,5 +37,9 @@ public class CommonViewHolder extends RecyclerView.ViewHolder {
             mViews.put(viewId, view);
         }
         return (T)view;
+    }
+
+    public View getmConvertView(){
+        return mConvertView;
     }
 }

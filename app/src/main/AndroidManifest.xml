@@ -58,6 +58,7 @@
         <activity android:name=".destWidget.DestWidgetActivity"/>
         <activity android:name=".LayoutInflateAbout.LayoutInflateActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
+        <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
