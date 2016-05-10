@@ -3,6 +3,8 @@ package com.yuyang.fitsystemwindowstestdrawer.webview;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,6 +26,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.utils.FileUtils;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * 如果未选择文件mUploadMessage.onReceiveValue(null)必须被调用,否则网页会阻塞。
@@ -215,7 +218,28 @@ public class WebViewActivity extends AppCompatActivity {
      * @return
      */
     private Intent createCameraIntent() {
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        /**
+         * TODO yuyang
+         * Android系统安装第三方拍照应用后使用MediaStore.ACTION_IMAGE_CAPTURE会提示选择拍照应用，
+         * 但部分第三方应用不返回拍照结果，为了能正常获取返回，所以有了这段代码，用以直接打开Android默认的相机。
+         */
+        /*
+        有的手机相机名称不是这个默认名称
+        final Intent cameraIntent = getPackageManager().getLaunchIntentForPackage("com.android.camera");
+        if (cameraIntent != null) {
+            cameraIntent.setPackage("com.android.camera");
+        }*/
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        List<ResolveInfo> list = getPackageManager().queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo: list) {
+            if (resolveInfo.activityInfo.applicationInfo.sourceDir.startsWith("/system/app"))
+            {
+                intent.setClassName(resolveInfo.activityInfo.applicationInfo.packageName, resolveInfo.activityInfo.name);
+                break;
+            }
+        }
+
+
         File externalDataDir = Environment.getExternalStoragePublicDirectory(
                 Environment.DIRECTORY_DCIM);
         File cameraDataDir = new File(externalDataDir.getAbsolutePath() +
@@ -223,20 +247,20 @@ public class WebViewActivity extends AppCompatActivity {
         cameraDataDir.mkdirs();
         mCameraFilePath = cameraDataDir.getAbsolutePath() + File.separator +
                 System.currentTimeMillis() + ".jpg";
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mCameraFilePath)));
-        return cameraIntent;
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mCameraFilePath)));
+        return intent;
     }
 
-    /**
-     * 调用录像的广播
-     */
+/**
+ * 调用录像的广播
+ */
     /*private Intent createCamcorderIntent() {
         return new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
     }*/
 
-    /**
-     * 调用录音的广播
-     */
+/**
+ * 调用录音的广播
+ */
     /*private Intent createSoundRecorderIntent() {
         return new Intent(MediaStore.Audio.Media.RECORD_SOUND_ACTION);
     }*/
