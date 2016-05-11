@@ -54,9 +54,13 @@
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity1"/>
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity2"/>
+        <activity android:name=".coordinatorLayoutAbout.SwipeDismissBehaviorActivity"/>
         <activity android:name=".destWidget.DestWidgetActivity"/>
         <activity android:name=".LayoutInflateAbout.LayoutInflateActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
+        <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
+        <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
+            android:theme="@style/SwipeBackTheme"/>
 
         <service android:name=".service.BackgroundService"/>
 

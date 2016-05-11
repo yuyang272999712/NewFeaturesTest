@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#f7caca"
+    android:layout_margin="2dp">
+
+    <TextView
+        android:id="@+id/item_recycler_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="24dp"
+        android:text="测试"/>
+
+    <ImageView
+        android:id="@+id/item_recycler_drag_flag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_drag_handle_blue_a400_24dp"
+        android:scaleType="centerCrop"/>
+
+</LinearLayout>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="GBK">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuyang/fitsystemwindowstestdrawer/swipeBackActivity/baseActivity/SwipeBackActivity.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuyang/fitsystemwindowstestdrawer/swipeBackActivity/baseActivity/SwipeBackLayout.java" charset="GBK" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

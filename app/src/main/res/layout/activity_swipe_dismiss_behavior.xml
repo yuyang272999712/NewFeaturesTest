@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/swipe_text1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Swipe_dismiss1"
+        android:textSize="20sp"
+        android:background="#f2b8b8"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/swipe_text2"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="Swipe_dismiss2"
+        android:textSize="20sp"
+        android:background="#ccf2b8"
+        android:gravity="center"
+        app:target="@id/swipe_text1"
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MyDefineLikeSysBehavior"/>
+
+</android.support.design.widget.CoordinatorLayout>

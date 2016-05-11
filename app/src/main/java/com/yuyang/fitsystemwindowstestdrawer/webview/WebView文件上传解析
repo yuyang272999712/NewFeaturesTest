@@ -1,0 +1,24 @@
+默认情况下情况下，使用Android的WebView是不能够支持上传文件的。
+因此需要重写WebChromeClient，然后在WebViewActivity中接收选择到的文件Uri，传给页面去上传就可以了。
+
+WebChromeClient不同Android版本有着不同方法参数区别：
+    //For Android 3.0
+    openFileChooser(ValueCallback<Uri> uploadMsg)
+    //For Android 3.0+
+    openFileChooser(ValueCallback uploadMsg, String acceptType)
+    //For Android 4.1+
+    openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType, String capture)
+    //For Android 5.0+
+    onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, FileChooserParams fileChooserParams)
+第一个ValueCallback用于我们在选择完文件后，接收文件回调到网页内处理，
+acceptType为接受的文件mime type。在Android 5.0之后，
+系统提供了onShowFileChooser来让我们实现选择文件的方法，
+仍然有ValueCallback，在FileChooserParams参数中，同样包括acceptType。
+
+注意：
+    选择文件会使用系统提供的组件或者其他支持的app，返回的uri有的直接是文件的url，
+    有的是contentprovider的uri，因此我们需要统一处理一下，转成文件的uri，获取文件的路径（具体参考FileUtils.java类）。
+
+    再有，即使获取的结果为null，也要传给web，即直接调用 mUploadMessage.onReceiveValue(null) ,否则网页会阻塞。
+    最后，在打release包的时候，因为我们会混淆，要特别设置不要混淆WebChromeClient子类里面的openFileChooser方法，
+    由于不是继承的方法，所以默认会被混淆，然后就无法选择文件了。

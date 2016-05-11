@@ -11,7 +11,7 @@ import android.view.ViewGroup;
  * Created by yuyang on 16/2/22.
  * 自定义view，类似于Drawerlayout,不过这个为竖直方向滑动
  */
-public class VerticalDrawerLayout extends ViewGroup{
+public class ViewDragHelperDemoView extends ViewGroup{
     private ViewDragHelper mViewDragHelper;
 
     private View mContentView;
@@ -21,17 +21,17 @@ public class VerticalDrawerLayout extends ViewGroup{
 
     private boolean mIsOpen = true;
 
-    public VerticalDrawerLayout(Context context) {
+    public ViewDragHelperDemoView(Context context) {
         super(context);
         init();
     }
 
-    public VerticalDrawerLayout(Context context, AttributeSet attrs) {
+    public ViewDragHelperDemoView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public VerticalDrawerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public ViewDragHelperDemoView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
