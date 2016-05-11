@@ -14,7 +14,7 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/11.
+ * 自定义View
  */
 public class CustomProgressBar extends View {
     /**
@@ -115,7 +115,7 @@ public class CustomProgressBar extends View {
         int radius = center - mCircleWidth/2;//获取半径
         mPaint.setStrokeWidth(mCircleWidth);//这是圆环的宽度
         mPaint.setAntiAlias(true);//消除锯齿
-        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStyle(Paint.Style.STROKE);//设置空心
 
         RectF oval = new RectF(center - radius, center - radius, center + radius, center + radius);//设置绘制区域
         if (isNext){

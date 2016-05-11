@@ -55,14 +55,26 @@
         <attr name="imageScaleType"/>
     </declare-styleable>
     <!-- 自定义View－CustomProgressBar-->
-    <attr name="firstColor" format="color" />
-    <attr name="secondColor" format="color" />
-    <attr name="circleWidth" format="dimension" />
-    <attr name="speed" format="integer" />
+    <attr name="firstColor" format="color" /><!--背景色-->
+    <attr name="secondColor" format="color" /><!--前景色-->
+    <attr name="circleWidth" format="dimension" /><!--圆环宽度-->
+    <attr name="speed" format="integer" /><!--转动速度-->
     <declare-styleable name="CustomProgressBar">
         <attr name="firstColor" />
         <attr name="secondColor" />
         <attr name="circleWidth" />
         <attr name="speed" />
+    </declare-styleable>
+    <!-- 自定义View－CustomVolumeControlBar-->
+    <attr name="dotCount" format="integer" /><!--描点数量-->
+    <attr name="splitSize" format="integer" /><!--每个点指间的间隔-->
+    <attr name="bg" format="reference"></attr><!--中间的图片-->
+    <declare-styleable name="CustomVolumeControlBar">
+        <attr name="firstColor" />
+        <attr name="secondColor" />
+        <attr name="circleWidth" />
+        <attr name="dotCount" />
+        <attr name="splitSize" />
+        <attr name="bg" />
     </declare-styleable>
 </resources>
