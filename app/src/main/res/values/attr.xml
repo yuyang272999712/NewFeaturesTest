@@ -22,4 +22,23 @@
             <enum name="right" value="1" />
         </attr>
     </declare-styleable>
+    <!-- View构造函数的自定属性继承关系测试-->
+    <declare-styleable name="Customize">
+        <attr name="attr_one" format="string" />
+        <attr name="attr_two" format="string" />
+        <attr name="attr_three" format="string" />
+        <attr name="attr_four" format="string" />
+    </declare-styleable>
+    <attr name="CustomizeStyle" format="reference" />
+
+    <!-- 自定义View－CustomTitleView1-->
+    <attr name="titleStyle" format="reference"/>
+    <attr name="titleText" format="string"/>
+    <attr name="titleColor" format="color"/>
+    <attr name="titleSize" format="dimension"/>
+    <declare-styleable name="CustomTitleView">
+        <attr name="titleText"/>
+        <attr name="titleColor"/>
+        <attr name="titleSize"/>
+    </declare-styleable>
 </resources>
