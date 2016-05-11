@@ -24,4 +24,14 @@
         style="@style/ThroughStyle"
         android:text="View构造函数测试，详情请看log"/>
 
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomImageView
+        android:layout_marginTop="20dp"
+        android:layout_width="280dp"
+        android:layout_height="150dp"
+        app:titleText="开发测试"
+        app:titleColor="#faa4f8"
+        app:titleSize="16sp"
+        app:image="@mipmap/img1"
+        app:imageScaleType="fillXY"/>
+
 </LinearLayout>

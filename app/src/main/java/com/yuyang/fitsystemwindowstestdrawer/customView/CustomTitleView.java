@@ -50,9 +50,9 @@ public class CustomTitleView extends View {
     public CustomTitleView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyleAttr, R.style.DefaultCustomTitleStyle);
-        titleText = a.getString(R.styleable.CustomTitleView1_titleText);
-        titleColor = a.getColor(R.styleable.CustomTitleView1_titleColor, Color.BLACK);
-        titleSize = a.getDimensionPixelSize(R.styleable.CustomTitleView1_titleSize,
+        titleText = a.getString(R.styleable.CustomTitleView_titleText);
+        titleColor = a.getColor(R.styleable.CustomTitleView_titleColor, Color.BLACK);
+        titleSize = a.getDimensionPixelSize(R.styleable.CustomTitleView_titleSize,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
         Log.i("－－CustomTitleView－－", titleText);
         a.recycle();

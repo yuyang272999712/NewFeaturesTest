@@ -31,7 +31,7 @@
     </declare-styleable>
     <attr name="CustomizeStyle" format="reference" />
 
-    <!-- 自定义View－CustomTitleView1-->
+    <!-- 自定义View－CustomTitleView-->
     <attr name="titleStyle" format="reference"/>
     <attr name="titleText" format="string"/>
     <attr name="titleColor" format="color"/>
@@ -40,5 +40,18 @@
         <attr name="titleText"/>
         <attr name="titleColor"/>
         <attr name="titleSize"/>
+    </declare-styleable>
+    <!-- 自定义View－CustomImageView-->
+    <attr name="image" format="reference"/>
+    <attr name="imageScaleType">
+        <enum name="fillXY" value="0"/>
+        <enum name="center" value="1"/>
+    </attr>
+    <declare-styleable name="CustomImageView">
+        <attr name="titleText"/>
+        <attr name="titleColor"/>
+        <attr name="titleSize"/>
+        <attr name="image"/>
+        <attr name="imageScaleType"/>
     </declare-styleable>
 </resources>
