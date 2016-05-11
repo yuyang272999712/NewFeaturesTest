@@ -34,4 +34,13 @@
         app:image="@mipmap/img1"
         app:imageScaleType="fillXY"/>
 
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomProgressBar
+        android:layout_marginTop="20dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:circleWidth="10dp"
+        app:firstColor="#7777f2"
+        app:secondColor="#c6fd8e"
+        app:speed="20"/>
+
 </LinearLayout>
