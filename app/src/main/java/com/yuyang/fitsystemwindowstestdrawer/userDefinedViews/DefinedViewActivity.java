@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -17,13 +18,25 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.TagFlow
 import java.util.Set;
 
 /**
- * Created by yuyang on 16/2/22.
+ * 自定义ViewDragHelper的布局
+ * 自定义FlowLayout的流失布局
+ * 自定义带清楚按钮的EditText的View
+ * CountDownTimer定时工具的使用
  */
 public class DefinedViewActivity extends AppCompatActivity {
-    private Button button;
+    private Button timerButton;
+    private Button nextButton;
+    /**
+     * TODO yuyang 可以添加选中动作的FlowLayout
+     */
     private TagFlowLayout tagFlowLayout;
-
+    /**
+     * TODO yuyang android提供的计时工具
+     */
     private CountDownTimer countDownTimer;
+    /**
+     * TagFlowLayout 的适配器
+     */
     private TagAdapter<String> adapter;
 
     private String[] mVals = new String[]
@@ -42,7 +55,8 @@ public class DefinedViewActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-        button = (Button) findViewById(R.id.button);
+        timerButton = (Button) findViewById(R.id.button);
+        nextButton = (Button) findViewById(R.id.defind_next_drag_helper);
         tagFlowLayout = (TagFlowLayout) findViewById(R.id.defind_tag_flow_layout);
     }
 
@@ -51,14 +65,14 @@ public class DefinedViewActivity extends AppCompatActivity {
         countDownTimer = new CountDownTimer(60000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                button.setClickable(false);
-                button.setText("倒计时" + millisUntilFinished/1000 + "秒");
+                timerButton.setClickable(false);
+                timerButton.setText("倒计时" + millisUntilFinished/1000 + "秒");
             }
 
             @Override
             public void onFinish() {
-                button.setClickable(true);
-                button.setText("倒计时完成");
+                timerButton.setClickable(true);
+                timerButton.setText("倒计时完成");
             }
         };
 
@@ -76,13 +90,24 @@ public class DefinedViewActivity extends AppCompatActivity {
     }
 
     private void initAction() {
-        button.setOnClickListener(new View.OnClickListener() {
+        timerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 countDownTimer.start();
             }
         });
 
+        nextButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        /**
+         * TagFlowLayout的单击事件
+         */
         tagFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener()
         {
             @Override
@@ -93,7 +118,9 @@ public class DefinedViewActivity extends AppCompatActivity {
             }
         });
 
-
+        /**
+         * TagFlowLayout的选中／放弃选中动作
+         */
         tagFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener()
         {
             @Override

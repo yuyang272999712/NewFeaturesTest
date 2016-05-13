@@ -1,0 +1,41 @@
+ViewDragHelper常用方法：
+    1、shouldInterceptTouchEvent
+        在parentView的onInterceptTouchEvent中调用，判断是否需要拦截［必需］
+    2、processTouchEvent
+        在parentView的onTouchEvent中调用［必需］
+    3、setEdgeTrackingEnabled
+        设置编辑触碰回调是否可用（常用值：EDGE_LEFT，EDGE_RIGHT，EDGE_TOP，EDGE_BOTTOM）
+    4、continueSettling
+        在parentView的computeScroll中使用continueSettling方法（因为ViewDragHelper使用了scroller）
+    5、captureChildView
+        手动设置捕获子View，即使tryCaptureView返回false该View也会被捕获
+    6、settleCapturedViewAt
+        设置captureView滚动至指定位置
+
+ViewDragHelper.Callback常用方法：
+    1、onViewDragStateChanged
+        当ViewDragHelper状态发生变化时回调（IDLE,DRAGGING,SETTING[自动滚动时]）
+    2、onViewPositionChanged
+        当captureView的位置发生改变时回调
+    3、onViewCaptured
+        当captureView被捕获时回调
+    4、onViewReleased
+        当captureView被释放时（即拖动松开时）回调
+    5、onEdgeTouched
+        当触摸到边界时回调。
+    6、onEdgeLock
+        true的时候会锁住当前的边界，false则unLock。
+    7、onEdgeDragStarted
+        当发生边界触碰时回调
+    8、getOrderedChildIndex
+        改变同一个坐标（x,y）去寻找captureView位置的方法。（具体在：findTopChildUnder方法中）
+    9、getViewHorizontalDragRange
+        ＊＊X轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
+    10、getViewVerticalDragRange
+        ＊＊Y轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
+    11、tryCaptureView
+        通过该方法的返回值可以决定一个parentView中哪个子view可以拖动，即得到captureView
+    12、clampViewPositionHorizontal
+        ［必须重写］返回X轴方向移动后位置
+    13、clampViewPositionVertical
+        ［必须重写］返回Y轴方向移动后位置

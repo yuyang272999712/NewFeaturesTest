@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.dragHelperViews;
 
 import android.content.Context;
 import android.support.v4.widget.ViewDragHelper;
@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 
 /**
  * Created by yuyang on 16/2/22.
- * 自定义view，类似于Drawerlayout,不过这个为竖直方向滑动
+ * 自定义view，类似于DrawerLayout,不过这个为竖直方向滑动
  */
-public class ViewDragHelperDemoView extends ViewGroup{
+public class VerticalDrawerLayout extends ViewGroup{
     private ViewDragHelper mViewDragHelper;
 
     private View mContentView;
@@ -21,17 +21,17 @@ public class ViewDragHelperDemoView extends ViewGroup{
 
     private boolean mIsOpen = true;
 
-    public ViewDragHelperDemoView(Context context) {
+    public VerticalDrawerLayout(Context context) {
         super(context);
         init();
     }
 
-    public ViewDragHelperDemoView(Context context, AttributeSet attrs) {
+    public VerticalDrawerLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
     }
 
-    public ViewDragHelperDemoView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public VerticalDrawerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
