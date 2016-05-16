@@ -21,6 +21,7 @@ import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompa
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
+import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity
     private Button button14;
     private Button button15;
     private Button button16;
+    private Button button17;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -230,6 +232,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SimpleSwipeBackActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button17 = (Button) findViewById(R.id.button17);
+        button17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CustomActivity.class);
                 startActivity(intent);
             }
         });

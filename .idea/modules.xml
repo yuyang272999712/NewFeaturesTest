@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/FitSystemWindowsTestDrawer.iml" filepath="$PROJECT_DIR$/FitSystemWindowsTestDrawer.iml" />
       <module fileurl="file://$PROJECT_DIR$/NewFeaturesTest.iml" filepath="$PROJECT_DIR$/NewFeaturesTest.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/testlibrary/testlibrary.iml" filepath="$PROJECT_DIR$/testlibrary/testlibrary.iml" />

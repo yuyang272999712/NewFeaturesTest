@@ -10,12 +10,16 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.OnStartDragListener;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.SimpleItemTouchHelperCallBack;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter.LoadMoreFooterView;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loopviewpager.AutoLoopViewPager;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.recyclerItemClickListener.OnRecyclerItemClickListener;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,6 +28,7 @@ import me.relex.circleindicator.CircleIndicator;
 
 /**
  * ItemTouchHelper实现RecyclerView上添加拖动排序与滑动删除的事情
+ * RecyclerLoadMoreAdapter 自带加载更多的adapter
  */
 public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDragListener {
     private SwipeRefreshLayout refreshLayout;
@@ -45,6 +50,7 @@ public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDr
             List<String> data = Arrays.asList(getResources().getStringArray(R.array.recycler_items_add));
             adapter.addmItems(data);
             refreshLayout.setRefreshing(false);
+            //TODO yuyang 通知adapter加载完成，true加载成功，false加载失败
             adapter.setLoadMoreFinish(true);
             return false;
         }
@@ -70,7 +76,7 @@ public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDr
     private void initDatas() {
         mDatas = Arrays.asList(getResources().getStringArray(R.array.recycler_items));
         adapter = new RecyclerLoadMoreAdapter(this, mDatas);
-        //设置拖动事件
+        //TODO yuyang 设置拖动事件,供ItemTouchHelper拖动调用
         adapter.setDragListener(this);
         layoutManager = new GridLayoutManager(this,2);
 
@@ -92,10 +98,30 @@ public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDr
                 loadMore();
             }
         });
+        /**
+         * TODO yuyang 为adapter添加加载更多事件
+         */
         adapter.setOnLoadMoreListener(new LoadMoreFooterView.OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
                 loadMore();
+            }
+        });
+        /**
+         * TODO yuyang 为recyclerView添加单击事件
+         * 这里没用用到adapter中回调的方式，只是一种解决办法，但会与ItemTouchHelper有冲突
+         */
+        recyclerView.addOnItemTouchListener(new OnRecyclerItemClickListener(recyclerView) {
+            @Override
+            public void onItemClick(RecyclerView.ViewHolder viewHolder) {
+                long itemId = viewHolder.getAdapterPosition();
+                Toast.makeText(SwipeRefreshActivity.this, "单击了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onItemLongClick(RecyclerView.ViewHolder viewHolder) {
+                long itemId = viewHolder.getAdapterPosition();
+                Toast.makeText(SwipeRefreshActivity.this, "长按了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
             }
         });
     }

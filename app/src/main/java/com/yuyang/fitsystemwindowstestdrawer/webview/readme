@@ -44,6 +44,9 @@ WebViewClient 的方法全解
         }
         return super.onKeyDown(keyCode, event);
     }
+初始页面为A，点击某个链接跳转到B,B页面重定向到C页面。当调用webview.goBack()时，页面回退到B，然后接着会重定向回C页面。
+解决这个问题，有一种方法是依赖于 JS，通过 JS 的 API 可以实现对历史记录的管控。
+webview.loadUrl("javascript:window.history.back();");
 
 WebViewClient主要帮助WebView处理各种通知、请求事件的，比如：
     onLoadResource

@@ -35,5 +35,35 @@
         <item name="android:background">@drawable/flow_item_bg_1</item>
         <item name="android:textColor">#ffffff</item>
     </style>
+    <!-- View构造函数的自定属性继承关系测试-->
+    <style name="ActivityTheme" parent="AppTheme.NoActionBar">
+        <item name="attr_one">attr one from theme</item>
+        <item name="attr_two">attr two from theme</item>
+        <item name="attr_three">attr three from theme</item>
+        <item name="attr_four">attr four from theme</item>
+        <item name="CustomizeStyle">@style/CustomizeStyleInTheme</item>
+    </style>
+    <style name="CustomizeStyleInTheme">
+        <item name="attr_one">attr one from theme reference</item>
+        <item name="attr_two">attr two from theme reference</item>
+        <item name="attr_three">attr three from theme reference</item>
+    </style>
+    <style name="ThroughStyle">
+        <item name="attr_one">attr one from style</item>
+        <item name="attr_two">attr two from style</item>
+    </style>
+    <style name="DefaultCustomizeStyle">
+        <item name="attr_one">attr one from defalut style res</item>
+        <item name="attr_two">attr two from defalut style res</item>
+        <item name="attr_three">attr three from defalut style res</item>
+        <item name="attr_four">attr four from defalut style res</item>
+    </style>
+    <!-- CustomTitleView1 样式-->
+    <style name="DefaultCustomTitleStyle">
+        <item name="titleText">测试1</item>
+    </style>
+    <style name="CustomTitleStyleInLayout">
+        <item name="titleText">测试2</item>
+    </style>
 
 </resources>

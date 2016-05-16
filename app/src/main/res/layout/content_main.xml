@@ -159,6 +159,25 @@
                 android:text="侧滑返回"/>
 
         </TableRow>
+
+        <TableRow >
+            <Button
+                android:id="@+id/button17"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="自定义View"/>
+
+            <Button
+                android:id="@+id/button18"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text=""/>
+
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>

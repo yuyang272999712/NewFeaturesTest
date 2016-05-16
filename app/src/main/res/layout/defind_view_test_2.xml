@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.dragHelperViews.FreedomViewsLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:background="#4400ff11"
+        android:text="DragView"
+        android:clickable="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#44ff0000"
+        android:text="AutoBackView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+    <TextView
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="#440015ff"
+        android:text="EdgeTrackerView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"/>
+
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.dragHelperViews.FreedomViewsLayout>

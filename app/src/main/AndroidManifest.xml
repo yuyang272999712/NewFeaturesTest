@@ -43,6 +43,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".userDefinedViews.DefinedViewActivity"/>
+        <activity android:name=".userDefinedViews.DefinedViewActivity2"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTest"/>
@@ -60,6 +61,9 @@
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
+            android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
+        <activity android:name=".customView.CustomActivity"
+            android:theme="@style/ActivityTheme"/>
             android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
         <activity android:name=".mediaPlayerAbout.VideoActivity"/>

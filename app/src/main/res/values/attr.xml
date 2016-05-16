@@ -22,4 +22,59 @@
             <enum name="right" value="1" />
         </attr>
     </declare-styleable>
+    <!-- View构造函数的自定属性继承关系测试-->
+    <declare-styleable name="Customize">
+        <attr name="attr_one" format="string" />
+        <attr name="attr_two" format="string" />
+        <attr name="attr_three" format="string" />
+        <attr name="attr_four" format="string" />
+    </declare-styleable>
+    <attr name="CustomizeStyle" format="reference" />
+
+    <!-- 自定义View－CustomTitleView-->
+    <attr name="titleStyle" format="reference"/>
+    <attr name="titleText" format="string"/>
+    <attr name="titleColor" format="color"/>
+    <attr name="titleSize" format="dimension"/>
+    <declare-styleable name="CustomTitleView">
+        <attr name="titleText"/>
+        <attr name="titleColor"/>
+        <attr name="titleSize"/>
+    </declare-styleable>
+    <!-- 自定义View－CustomImageView-->
+    <attr name="image" format="reference"/>
+    <attr name="imageScaleType">
+        <enum name="fillXY" value="0"/>
+        <enum name="center" value="1"/>
+    </attr>
+    <declare-styleable name="CustomImageView">
+        <attr name="titleText"/>
+        <attr name="titleColor"/>
+        <attr name="titleSize"/>
+        <attr name="image"/>
+        <attr name="imageScaleType"/>
+    </declare-styleable>
+    <!-- 自定义View－CustomProgressBar-->
+    <attr name="firstColor" format="color" /><!--背景色-->
+    <attr name="secondColor" format="color" /><!--前景色-->
+    <attr name="circleWidth" format="dimension" /><!--圆环宽度-->
+    <attr name="speed" format="integer" /><!--转动速度-->
+    <declare-styleable name="CustomProgressBar">
+        <attr name="firstColor" />
+        <attr name="secondColor" />
+        <attr name="circleWidth" />
+        <attr name="speed" />
+    </declare-styleable>
+    <!-- 自定义View－CustomVolumeControlBar-->
+    <attr name="dotCount" format="integer" /><!--描点数量-->
+    <attr name="splitSize" format="integer" /><!--每个点指间的间隔-->
+    <attr name="bg" format="reference"></attr><!--中间的图片-->
+    <declare-styleable name="CustomVolumeControlBar">
+        <attr name="firstColor" />
+        <attr name="secondColor" />
+        <attr name="circleWidth" />
+        <attr name="dotCount" />
+        <attr name="splitSize" />
+        <attr name="bg" />
+    </declare-styleable>
 </resources>
