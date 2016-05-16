@@ -61,6 +61,8 @@
         <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
             android:theme="@style/SwipeBackTheme"/>
+        <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
+        <activity android:name=".mediaPlayerAbout.VideoActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
