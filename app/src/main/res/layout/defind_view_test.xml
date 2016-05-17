@@ -117,6 +117,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="显示下一个DragHelperView"/>
+        <Button
+            android:id="@+id/defind_vertical_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="显示竖直滚动"/>
         
         <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
             android:layout_width="match_parent"
@@ -165,6 +170,7 @@
         </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
 
         <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
+            android:id="@+id/defined_view_my_view_group"
             android:layout_width="wrap_content"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"

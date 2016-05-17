@@ -1,0 +1,42 @@
+View类似解析：
+    1、scrollTo(x,y)和scrollBy(x,y) 为View的方法。
+      scrollTo(x,y)和scrollBy(x,y) 移动的只是View的内容,但是View的背景是不移动的.
+    2、mScrollX和mScrollY 表示:View的内容(content)相对于View本身在水平或垂直方向的偏移量.
+    3、computeScroll ()
+      当我们执行onTouch()或invalidate()或postInvalidate()都会导致这个方法的执行
+
+    scrollTo(x,y)和scrollBy(x,y) 两个方法会导致视图重绘.
+    即调用public void invalidate(int l, int t, int r, int b)方法.
+    此处的l,t,r,b四个参数就表示View原来的坐标.
+    在该方法中最终会调用:
+    tmpr.set(l - scrollX, t - scrollY, r - scrollX, b - scrollY);
+    p.invalidateChild(this, tmpr);
+    *所以mScrollX和mScrollY为正数是向左上角滚动
+
+    备注说明:
+     * 使用scrollTo(By)()方法移动过程较快而且比较生硬.
+     * 为了优化scrollTo(By)()的滑动过程可采用Scroller类.
+——————————————————————————————分割下————————————————————————————————————————————————————
+Scroller解析
+    常用方法解析：
+      1、startScroll(int startX, int startY, int dx, int dy, int duration)
+        第一个参数是起始移动的x坐标值，第二个是起始移动的y坐标值，第三个第四个参数都是移到某点的坐标值，
+        而duration 当然就是执行移动的时间。
+      2、computeScrollOffset()
+        当startScroll执行过程中即在duration时间内，computeScrollOffset()方法会一直返回true，
+        但当动画执行完成后会返回返加true.
+
+      **综上所属
+        所以我们像下面这样调用，postInvalidate执行后，会去调computeScroll方法，
+        而这个方法里再去调postInvalidate，这样就可以不断地去调用scrollTo方法了，
+        直到mScroller动画结束，当然第一次时，我们需要手动去调用一次postInvalidate才会去调用
+        computeScroll 方法
+
+        代码实例：
+        @Override
+        public void computeScroll() {
+            if (mScroller.computeScrollOffset()) {
+                scrollTo(mScroller.getCurrX(), 0);
+                postInvalidate();
+            }
+        }

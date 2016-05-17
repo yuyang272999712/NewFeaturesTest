@@ -26,6 +26,8 @@ import java.util.Set;
 public class DefinedViewActivity extends AppCompatActivity {
     private Button timerButton;
     private Button nextButton;
+    private Button verticalButton;
+    private MyViewGroup myViewGroup;
     /**
      * TODO yuyang 可以添加选中动作的FlowLayout
      */
@@ -57,7 +59,9 @@ public class DefinedViewActivity extends AppCompatActivity {
     private void findViews() {
         timerButton = (Button) findViewById(R.id.button);
         nextButton = (Button) findViewById(R.id.defind_next_drag_helper);
+        verticalButton = (Button) findViewById(R.id.defind_vertical_layout);
         tagFlowLayout = (TagFlowLayout) findViewById(R.id.defind_tag_flow_layout);
+        myViewGroup = (MyViewGroup) findViewById(R.id.defined_view_my_view_group);
     }
 
     private void initDatas() {
@@ -94,6 +98,7 @@ public class DefinedViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 countDownTimer.start();
+                myViewGroup.scrollBy(100,0);
             }
         });
 
@@ -104,15 +109,20 @@ public class DefinedViewActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        verticalButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity3.class);
+                startActivity(intent);
+            }
+        });
 
         /**
          * TagFlowLayout的单击事件
          */
-        tagFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener()
-        {
+        tagFlowLayout.setOnTagClickListener(new TagFlowLayout.OnTagClickListener() {
             @Override
-            public boolean onTagClick(View view, int position, FlowLayout parent)
-            {
+            public boolean onTagClick(View view, int position, FlowLayout parent) {
                 Toast.makeText(DefinedViewActivity.this, mVals[position], Toast.LENGTH_SHORT).show();
                 return true;
             }
@@ -121,11 +131,9 @@ public class DefinedViewActivity extends AppCompatActivity {
         /**
          * TagFlowLayout的选中／放弃选中动作
          */
-        tagFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener()
-        {
+        tagFlowLayout.setOnSelectListener(new TagFlowLayout.OnSelectListener() {
             @Override
-            public void onSelected(Set<Integer> selectPosSet)
-            {
+            public void onSelected(Set<Integer> selectPosSet) {
                 Toast.makeText(DefinedViewActivity.this, "选中了"+selectPosSet.size()+"个", Toast.LENGTH_SHORT).show();
             }
         });

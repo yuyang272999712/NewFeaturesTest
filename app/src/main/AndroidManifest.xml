@@ -44,6 +44,7 @@
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".userDefinedViews.DefinedViewActivity"/>
         <activity android:name=".userDefinedViews.DefinedViewActivity2"/>
+        <activity android:name=".userDefinedViews.DefinedViewActivity3"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTest"/>
@@ -64,6 +65,7 @@
             android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
         <activity android:name=".customView.CustomActivity"
             android:theme="@style/ActivityTheme"/>
+        <activity android:name=".customView.CustomActivity2"/>
 
         <service android:name=".service.BackgroundService"/>
 

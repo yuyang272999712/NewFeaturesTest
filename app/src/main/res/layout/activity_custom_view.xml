@@ -9,7 +9,7 @@
     
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomTitleView
         android:layout_width="wrap_content"
-        android:layout_height="100dp"
+        android:layout_height="80dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:titleText="3456"
@@ -45,13 +45,19 @@
 
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomVolumeControlBar
         android:layout_marginTop="20dp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         app:circleWidth="10dp"
         app:firstColor="#7777f2"
         app:secondColor="#c6fd8e"
         app:dotCount="15"
         app:splitSize="20"
         app:bg="@mipmap/home_buttons_info_pressed"/>
+
+    <Button
+        android:id="@+id/custom_next_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一个页面"/>
 
 </LinearLayout>
