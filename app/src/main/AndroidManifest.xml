@@ -66,6 +66,9 @@
         <activity android:name=".customView.CustomActivity"
             android:theme="@style/ActivityTheme"/>
         <activity android:name=".customView.CustomActivity2"/>
+            android:theme="@style/SwipeBackTheme"/>
+        <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
+        <activity android:name=".mediaPlayerAbout.VideoActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
