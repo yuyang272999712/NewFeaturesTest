@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.gestureLock.GestureLockViewGroup
+        android:id="@+id/gesture_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:count="3"
+        app:tryTimes="5"
+        app:minPoint="5"
+        app:color_finger_on="#0000ff"
+        app:color_finger_up_error="#ff0000"
+        app:color_finger_up_right="#0abf00"
+        app:color_no_finger_inner_circle="#00eeff"
+        app:color_no_finger_outer_circle="#da00ffc4"/>
+
+</RelativeLayout>

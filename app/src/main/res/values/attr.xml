@@ -77,4 +77,23 @@
         <attr name="splitSize" />
         <attr name="bg" />
     </declare-styleable>
+    <!-- 自定义view－GestureLockView-->
+    <attr name="color_no_finger_inner_circle" format="color"/><!--无手指触摸状态下的内圆颜色-->
+    <attr name="color_no_finger_outer_circle" format="color"/><!--无手指触摸状态下的外圆颜色-->
+    <attr name="color_finger_on" format="color"/><!--手指触摸的状态下内圆和外圆的颜色 -->
+    <attr name="color_finger_up_error" format="color"/><!--手指抬起的状态下内圆和外圆的颜色(验证错误) -->
+    <attr name="color_finger_up_right" format="color"/><!--手指抬起的状态下内圆和外圆的颜色(验证正确) -->
+    <attr name="count" format="integer"/><!--矩阵个数-->
+    <attr name="tryTimes" format="integer"/><!--尝试次数-->
+    <attr name="minPoint" format="integer"/><!--最小手势点个数-->
+    <declare-styleable name="GestureLockViewGroup">
+        <attr name="color_no_finger_inner_circle"/>
+        <attr name="color_no_finger_outer_circle"/>
+        <attr name="color_finger_on"/>
+        <attr name="color_finger_up_error"/>
+        <attr name="color_finger_up_right"/>
+        <attr name="count"/>
+        <attr name="tryTimes"/>
+        <attr name="minPoint"/>
+    </declare-styleable>
 </resources>

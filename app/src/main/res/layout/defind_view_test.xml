@@ -116,64 +116,22 @@
             android:id="@+id/defind_next_drag_helper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="显示下一个DragHelperView"/>
+            android:text="显示下一个DragHelperView"
+            android:textAllCaps="false"/>
         <Button
             android:id="@+id/defind_vertical_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="显示竖直滚动"/>
+        <Button
+            android:id="@+id/defind_gesture_lock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手势密码"/>
         
         <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="#717070">
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#FF4444"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:background="#5dff44"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#444dff"
-                android:gravity="center"
-                android:text="2"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#ef44ff"
-                android:gravity="center"
-                android:text="3"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
-
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
-            android:id="@+id/defined_view_my_view_group"
-            android:layout_width="wrap_content"
-            android:layout_height="150dp"
-            android:layout_marginTop="20dp"
             android:background="#717070">
             <TextView
                 android:layout_width="70dp"
