@@ -6,4 +6,10 @@
 
     <color name="card_background">#ffffff</color>
     <color name="card_shadow">#10000000</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <color name="state_1">#ff7979</color>
+    <color name="state_2">#9dff79</color>
+    <color name="state_3">#797bff</color>
 </resources>

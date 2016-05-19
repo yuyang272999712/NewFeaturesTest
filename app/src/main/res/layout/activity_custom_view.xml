@@ -16,7 +16,7 @@
         app:titleColor="#faa4f8"
         app:titleSize="40sp"/>
 
-    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomizeTextView
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomTextView
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -17,7 +17,7 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * 自定义View
+ * 自定义声音控件View
  */
 public class CustomVolumeControlBar extends View {
     /**

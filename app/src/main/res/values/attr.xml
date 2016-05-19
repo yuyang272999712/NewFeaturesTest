@@ -77,7 +77,7 @@
         <attr name="splitSize" />
         <attr name="bg" />
     </declare-styleable>
-    <!-- 自定义view－GestureLockView-->
+    <!-- 自定义view－手势密码－GestureLockView-->
     <attr name="color_no_finger_inner_circle" format="color"/><!--无手指触摸状态下的内圆颜色-->
     <attr name="color_no_finger_outer_circle" format="color"/><!--无手指触摸状态下的外圆颜色-->
     <attr name="color_finger_on" format="color"/><!--手指触摸的状态下内圆和外圆的颜色 -->
@@ -95,5 +95,14 @@
         <attr name="count"/>
         <attr name="tryTimes"/>
         <attr name="minPoint"/>
+    </declare-styleable>
+    <!--自定义View－自定义属性－CustomStateView-->
+    <attr name="state_1" format="boolean"/>
+    <attr name="state_2" format="boolean"/>
+    <attr name="state_3" format="boolean"/>
+    <declare-styleable name="CustomStateView">
+        <attr name="state_1"/>
+        <attr name="state_2"/>
+        <attr name="state_3"/>
     </declare-styleable>
 </resources>

@@ -29,14 +29,14 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  *      2. defStyleAttr（即defStyle）不为0且在当前Theme中可以找到这个attribute的定义时，defStyleRes不起作用
  *         所以本例中attr_four虽然在defStyleRes（DefaultCustomizeStyle）中定义了，但取到的值仍为null。
  */
-public class CustomizeTextView extends TextView {
-    private static final String TAG = "－－"+CustomizeTextView.class.getSimpleName()+"－－";
+public class CustomTextView extends TextView {
+    private static final String TAG = "－－"+ CustomTextView.class.getSimpleName()+"－－";
 
     /**
      * 用代码动态创建一个view而不使用布局文件xml inflate，那么此实现就可以了。
      * @param context
      */
-    public CustomizeTextView(Context context) {
+    public CustomTextView(Context context) {
         this(context, null);
     }
 
@@ -46,11 +46,11 @@ public class CustomizeTextView extends TextView {
      * @param context
      * @param attrs
      */
-    public CustomizeTextView(Context context, AttributeSet attrs) {
+    public CustomTextView(Context context, AttributeSet attrs) {
         this(context, attrs, R.attr.CustomizeStyle);
     }
 
-    public CustomizeTextView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomTextView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.Customize, defStyleAttr,
