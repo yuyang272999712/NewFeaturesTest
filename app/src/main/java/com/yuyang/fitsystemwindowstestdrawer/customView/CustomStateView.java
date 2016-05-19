@@ -41,6 +41,7 @@ public class CustomStateView extends TextView {
                     break;
             }
         }
+        a.recycle();
     }
 
     @Override
