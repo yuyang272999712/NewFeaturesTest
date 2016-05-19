@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 
 /**
  * Created by zhy on 15/9/10.
+ * 此View是为了包裹用户自定义的itemView，
  */
 public class TagView extends FrameLayout implements Checkable
 {

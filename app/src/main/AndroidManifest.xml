@@ -70,6 +70,7 @@
             android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
         <activity android:name=".mediaPlayerAbout.VideoActivity"/>
+        <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 

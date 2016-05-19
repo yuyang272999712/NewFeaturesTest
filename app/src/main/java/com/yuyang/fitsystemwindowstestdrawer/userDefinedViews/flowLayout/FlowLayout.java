@@ -13,6 +13,8 @@ import java.util.List;
 
 /**
  * 水平流式布局
+ * (Google最新发布了FlexboxLayout控件与FlowLayout类似,
+ *  compile 'com.google.android:flexbox:0.1.2' )
  */
 public class FlowLayout extends ViewGroup {
     private static final int LEFT = -1;
