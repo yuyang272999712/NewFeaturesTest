@@ -103,6 +103,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:max_select="3"/>
+
+        <Button
+            android:id="@+id/defind_goto_ArcMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ArcMenu菜单实例"/>
     </LinearLayout>
 
     <LinearLayout

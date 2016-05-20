@@ -28,6 +28,7 @@ public class DefinedViewActivity extends AppCompatActivity {
     private Button nextButton;
     private Button verticalButton;
     private Button gestureLockButton;
+    private Button gotoArcMenuButton;
     /**
      * TODO yuyang 可以添加选中动作的FlowLayout
      */
@@ -61,6 +62,7 @@ public class DefinedViewActivity extends AppCompatActivity {
         nextButton = (Button) findViewById(R.id.defind_next_drag_helper);
         verticalButton = (Button) findViewById(R.id.defind_vertical_layout);
         gestureLockButton = (Button) findViewById(R.id.defind_gesture_lock);
+        gotoArcMenuButton = (Button) findViewById(R.id.defind_goto_ArcMenu);
         tagFlowLayout = (TagFlowLayout) findViewById(R.id.defind_tag_flow_layout);
     }
 
@@ -119,6 +121,13 @@ public class DefinedViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DefinedViewActivity.this, GestureLockActivity.class);
+                startActivity(intent);
+            }
+        });
+        gotoArcMenuButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, ArcMenuActivity.class);
                 startActivity(intent);
             }
         });

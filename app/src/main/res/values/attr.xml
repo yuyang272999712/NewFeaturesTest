@@ -105,4 +105,16 @@
         <attr name="state_2"/>
         <attr name="state_3"/>
     </declare-styleable>
+    <!--自定义View－ArcMenu－圆弧动画菜单-->
+    <attr name="position" format="enum"><!--位置-->
+        <enum name="left_top" value="0"/>
+        <enum name="right_top" value="1"/>
+        <enum name="left_bottom" value="2"/>
+        <enum name="right_bottom" value="3"/>
+    </attr>
+    <attr name="radius" format="dimension"/><!--半径-->
+    <declare-styleable name="ArcMenu">
+        <attr name="position"/>
+        <attr name="radius"/>
+    </declare-styleable>
 </resources>

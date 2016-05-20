@@ -71,6 +71,7 @@
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
         <activity android:name=".mediaPlayerAbout.VideoActivity"/>
         <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
+        <activity android:name=".userDefinedViews.ArcMenuActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 
