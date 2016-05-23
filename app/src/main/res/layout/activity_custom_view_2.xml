@@ -15,7 +15,7 @@
         android:layout_weight="1"
         android:gravity="center"
         android:textSize="25sp"
-        android:text="开发测试"
+        android:text="自定义控件状态，点击状态变化－引起颜色变化"
         android:background="@drawable/selector_custom_state"
         state:state_1="true"/>
 

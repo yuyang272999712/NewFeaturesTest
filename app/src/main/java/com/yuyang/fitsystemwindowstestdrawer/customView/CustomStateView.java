@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * 自定义控件状态
+ * 自定义控件 状态
  * http://blog.csdn.net/imyfriend/article/details/8091476
  */
 public class CustomStateView extends TextView {
@@ -44,6 +44,11 @@ public class CustomStateView extends TextView {
         a.recycle();
     }
 
+    /**
+     * TODO yuyang 添加控件状态
+     * @param extraSpace
+     * @return
+     */
     @Override
     protected int[] onCreateDrawableState(int extraSpace) {
         int[] drawableState = super.onCreateDrawableState(extraSpace+3);
@@ -63,6 +68,9 @@ public class CustomStateView extends TextView {
         this.state1 = state1;
         state2 = false;
         state3 = false;
+        /**
+         * TODO yuyang 状态改变后刷新通知控件状态改变
+         */
         refreshDrawableState();
     }
 
