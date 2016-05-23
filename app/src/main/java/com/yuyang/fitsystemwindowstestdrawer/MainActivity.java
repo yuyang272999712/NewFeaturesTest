@@ -24,6 +24,7 @@ import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesi
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.FlexboxLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity
     private Button button16;
     private Button button17;
     private Button button18;
+    private Button button19;
+    private Button button20;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -252,6 +255,15 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, FlexboxLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        button19 = (Button) findViewById(R.id.button19);
+        button19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MediaAboutActivity.class);
                 startActivity(intent);
             }
         });

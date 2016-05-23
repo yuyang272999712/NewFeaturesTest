@@ -69,7 +69,9 @@
         <activity android:name=".customView.CustomActivity2"/>
             android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
-        <activity android:name=".mediaPlayerAbout.VideoActivity"/>
+        <activity android:name=".mediaPlayerAbout.VideoActivity"
+            android:screenOrientation="landscape"/>
+        <activity android:name=".mediaPlayerAbout.SurfaceActivity"/>
         <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
         <activity android:name=".userDefinedViews.DefinedViewActivity4"/>
         <activity android:name=".userDefinedViews.HuaLangActivity"/>

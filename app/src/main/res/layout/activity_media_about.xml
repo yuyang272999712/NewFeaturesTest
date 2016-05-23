@@ -10,6 +10,12 @@
         android:id="@+id/media_about_video"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="视频相关"/>
+        android:text="视频相关video"/>
+
+    <Button
+        android:id="@+id/media_about_surface"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="视频相关surface"/>
 
 </LinearLayout>

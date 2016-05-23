@@ -14,6 +14,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  */
 public class MediaAboutActivity extends AppCompatActivity {
     private Button btnVideo;
+    private Button btnSurface;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -27,6 +28,7 @@ public class MediaAboutActivity extends AppCompatActivity {
 
     private void findViews() {
         btnVideo = (Button) findViewById(R.id.media_about_video);
+        btnSurface = (Button) findViewById(R.id.media_about_surface);
     }
 
     private void initDatas() {
@@ -38,6 +40,14 @@ public class MediaAboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaAboutActivity.this, VideoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSurface.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, SurfaceActivity.class);
                 startActivity(intent);
             }
         });
