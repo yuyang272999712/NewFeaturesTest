@@ -5,10 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.zoomImageView.ZoomImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/e"/>
+
     <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ArcMenu.ArcMenu
         android:id="@+id/id_arcmenu1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:background="#ad0026ff"
         zhy:position="right_bottom"
         zhy:radius="130dp" >
 

@@ -7,9 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/19.
+ * ArcMenu（圆弧弹出菜单）实例
+ *
  */
-public class ArcMenuActivity extends AppCompatActivity {
+public class DefinedViewActivity4 extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

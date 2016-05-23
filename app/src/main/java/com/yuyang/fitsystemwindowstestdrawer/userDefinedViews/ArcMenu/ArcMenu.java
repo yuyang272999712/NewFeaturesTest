@@ -1,18 +1,16 @@
 package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ArcMenu;
 
-import android.animation.AnimatorSet;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
@@ -122,6 +120,20 @@ public class ArcMenu extends ViewGroup implements View.OnClickListener {
                 view.layout(childLeft, childTop, childLeft+childWidth, childTop+childHeight);
             }
         }
+    }
+
+    /**
+     * 如果是打开状态的即不往下分发触摸事件
+     * @param event
+     * @return
+     */
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (mState == State.OPEN){
+            toggleMenu(300);
+            return true;
+        }
+        return super.onTouchEvent(event);
     }
 
     /**

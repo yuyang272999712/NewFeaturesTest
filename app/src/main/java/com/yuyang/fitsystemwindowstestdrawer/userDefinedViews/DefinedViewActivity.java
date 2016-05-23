@@ -129,7 +129,7 @@ public class DefinedViewActivity extends AppCompatActivity {
         gotoArcMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DefinedViewActivity.this, ArcMenuActivity.class);
+                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity4.class);
                 startActivity(intent);
             }
         });
