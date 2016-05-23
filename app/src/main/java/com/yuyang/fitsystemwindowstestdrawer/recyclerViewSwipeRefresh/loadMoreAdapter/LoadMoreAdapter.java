@@ -108,7 +108,7 @@ public abstract class LoadMoreAdapter<T> extends RecyclerView.Adapter<CommonView
 
     /**
      * 特殊处理GridLayoutManager情况footer占整行
-     * TODO yuyang 如果不起作用请在RecyclerView上先设置setLayoutManager在setAdapter
+     * TODO yuyang 如果不起作用请在RecyclerView上先设置setLayoutManager再setAdapter
      * @param recyclerView
      */
     @Override

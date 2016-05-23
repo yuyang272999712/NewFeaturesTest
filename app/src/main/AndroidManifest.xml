@@ -72,6 +72,7 @@
         <activity android:name=".mediaPlayerAbout.VideoActivity"/>
         <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
         <activity android:name=".userDefinedViews.ArcMenuActivity"/>
+        <activity android:name=".userDefinedViews.HuaLangActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 

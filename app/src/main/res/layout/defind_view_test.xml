@@ -134,6 +134,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="手势密码"/>
+        <Button
+            android:id="@+id/defind_hualang_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="画廊效果"/>
         
         <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
             android:layout_width="match_parent"

@@ -178,6 +178,25 @@
                 android:text="google新控件"/>
 
         </TableRow>
+
+        <TableRow >
+            <Button
+                android:id="@+id/button19"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text=""/>
+
+            <Button
+                android:id="@+id/button20"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text=""/>
+
+        </TableRow>
     </TableLayout>
 
 </LinearLayout>
