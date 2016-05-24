@@ -22,6 +22,21 @@ import java.io.IOException;
  *
  * MediaController可以直接作用于VideoView。
  * MediaController要想控制MediaPlayer需要实现一个新的MediaController.MediaPlayerControl
+ *
+ * MediaPlayer
+ *  常用方法：
+ *      create()
+ *      setDataSource()
+ *      prepare()
+ *      start\stop\pause
+ *      getDuration()
+ *      getCurrentPosition()
+ *      seekTo() //跳到媒体的特定位置
+ *      setVolume(0.5f,0.5f)  //设置声道音量0~1之间
+ *      setScreenOnWhilePlaying(true) //强制屏幕在视频播放期间不变暗
+ *      setLooping(true) //循环播放
+ *      isLooping()
+ *
  */
 public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     private MediaPlayer mediaPlayer;
@@ -119,6 +134,7 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
                 mediaPlayer.start();
             }
         });
+        //设置目标View，以在目标View上显示mediaController
         mediaController.setAnchorView(surfaceView);
     }
 
