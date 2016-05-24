@@ -41,6 +41,14 @@ public class GestureLockActivity extends AppCompatActivity {
             @Override
             public void onGestureEvent(boolean matched) {
                 Toast.makeText(GestureLockActivity.this, matched+"", Toast.LENGTH_SHORT).show();
+                Handler handler = new Handler(new Handler.Callback() {
+                    @Override
+                    public boolean handleMessage(Message msg) {
+                        lockViewGroup.clearGesture();
+                        return false;
+                    }
+                });
+                handler.sendEmptyMessageDelayed(0, 2000);
             }
 
             @Override

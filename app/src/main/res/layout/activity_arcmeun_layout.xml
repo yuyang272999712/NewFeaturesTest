@@ -8,7 +8,7 @@
     <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.zoomImageView.ZoomImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/e"/>
+        android:src="@mipmap/zoom_img_2"/>
 
     <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ArcMenu.ArcMenu
         android:id="@+id/id_arcmenu1"
