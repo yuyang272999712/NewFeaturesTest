@@ -1,0 +1,141 @@
+Animation与Animator区别
+    Animation(视图动画／补间动画)：是针对视图外观的动画实现，动画被应用时外观改变但视图的触发点不会发生变化，还是在原来定义的位置。
+    Animator(属性动画)：是针对视图属性的动画实现，动画被应用时对象属性产生变化，最终导致视图外观变化。
+AnimatorSet与AnimationSet区别
+    AnimationSet(视图动画集合)：我们最常用的是调用其 addAnimation 将一个个不一样的动画组织到一起来，
+        然后调用view 的 startAnimation 方法触发这些动画执行。功能较弱不能做到把集合中的动画按一定顺序进行组织然后在执行的定制。
+    AnimatorSet(属性动画集合)：我们最常用的是调用其play、before、with、after 等方法设置动画的执行顺序，然后调用其start 触发动画执行。
+
+一、Property Animation 属性动画
+    属性动画就是，动画的执行类来设置动画操作的对象的属性、持续时间，开始和结束的属性值，时间差值等，
+ 然后系统会根据设置的参数动态的变化对象的属性。
+    相关的类
+    a、ObjectAnimator  动画的执行类
+    b、ValueAnimator 动画的执行类
+    c、AnimatorSet 用于控制一组动画的执行：线性，一起，每个动画的先后执行等。
+    d、AnimatorInflater 用户加载属性动画的xml文件
+    e、TypeEvaluator  类型估值，主要用于设置动画操作属性的值。
+    f、TimeInterpolator 时间插值，定义动画的变化率
+
+ 1、ObjectAnimator
+    1)、主要提供了ofInt(),ofFloat(),ofObject()等方法，这几个方法都是设置动画作用的元素、作用的属性、动画开始、结束、以及中间的任意个属性值。
+       当对于属性值，只设置一个的时候，会认为当然对象该属性的值为开始（getPropName反射获取），然后设置的值为终点。如果设置两个，则一个为开始、一个为结束~~~
+       动画更新的过程中，会不断调用setPropName更新元素的属性，所有使用ObjectAnimator更新某个属性，必须得有getter（设置一个属性值的时候）和setter方法~
+    2)、如果你操作对象的该属性方法里面，比如setRotationX如果内部没有调用view的重绘，则你需要自己按照下面方式手动调用。
+        anim.addUpdateListener(new AnimatorUpdateListener()  {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation)  {
+              view.postInvalidate();
+              view.invalidate();
+            }
+        });
+    3)、PropertyValuesHolder是API Level 11加进来的。根据名字就可以判断出它是某种属性的持有者。
+       使用工厂方法构造PropertyValuesHolder对象，使用整形ofInt()、浮点型ofFloat()、Object类型ofObject()等方法指定属性名和一系列属性值。
+
+        // 利用ofFloat工厂方法构造PropertyValuesHolder类型对象，控制y属性
+        PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", view.getY(), getHeight() - view.getHeight());
+        // 利用ofFloat工厂方法构造另一个PropertyValuesHolder类型对象，控制alpha属性
+        PropertyValuesHolder pvhAlpha = PropertyValuesHolder.ofFloat("alpha", 1.0f, 0f);
+        // 利用ofPropertyValuesHolder方法来构造ObjectAnimator对象
+        // 把多个属性变化结合到一个动画中去
+        ObjectAnimator yAlphaBouncer = ObjectAnimator.ofPropertyValuesHolder(view, pvhY, pvhAlpha).setDuration(DURATION / 2);
+
+ 2、ValueAnimator
+    ValueAnimator没有在属性上做操作
+    好处：不需要操作的对象的属性一定要有getter和setter方法，你可以自己根据当前动画的计算值，来操作任何属性
+    1)、setObjectValues()
+        setEvaluator()
+       两方法配合使用可以设置自定义属性的值
+
+ 3、AnimatorSet
+    见最上方比较内容
+
+ 4、AnimatorInflater
+    加载属性动画资源文件，加载返回Animator对象，然后设置目标View即可（详见PropertyAniXmlActivity.java类）
+
+二、Layout Animation 布局动画
+
+ 1、LayoutTransition为布局的容器设置动画，当容器中的视图层次发生变化时存在过渡的动画效果
+    LayoutTransition使用的是Animator属性动画
+    (详见LayoutTransitionActivity.java)
+    过渡的类型一共有四种：
+        LayoutTransition.APPEARING 当一个View在ViewGroup中出现时，对此View设置的动画
+        LayoutTransition.CHANGE_APPEARING 当一个View在ViewGroup中出现时，对此View对其他View位置造成影响，对其他View设置的动画
+        LayoutTransition.DISAPPEARING  当一个View在ViewGroup中消失时，对此View设置的动画
+        LayoutTransition.CHANGE_DISAPPEARING 当一个View在ViewGroup中消失时，对此View对其他View位置造成影响，对其他View设置的动画
+        LayoutTransition.CHANGE 不是由于View出现或消失造成对其他View位置造成影响，然后对其他View设置的动画。
+
+ 2、LayoutAnimationController为布局的容器设置动画，当容器第一次加载到屏幕时给容器内的子View设置动画效果
+    LayoutAnimationController使用的是Animation视图动画
+    可以在xml布局文件中设置android:layoutAnimation="@anim/layout_animation"来设置容器动画（layoutAnimation.xml）
+    代码中设置LayoutAnimationController(详见LayoutTransitionActivity.java)
+    下面是显示的顺序：
+        LayoutAnimationController.ORDER_NORMAL;  //顺序显示
+        LayoutAnimationController.ORDER_REVERSE; //反显示
+        LayoutAnimationController.ORDER_RANDOM //随机显示
+
+三、ViewPropertyAnimator
+ 在SDK11的时候，给View添加了animate方法，更加方便的实现动画效果。（详见ViewAnimateActivity.java类）
+
+四、View Animation／Tweened Animation 视图动画／补间动画
+ View Animation相当简单，不过只能支持简单的缩放、平移、旋转、透明度基本的动画。
+ 且有一定的局限性，比如：你希望View有一个颜色的切换动画；你希望可以使用3D旋转动画；你希望当动画停止时，
+ View的位置就是当前的位置；这些View Animation都无法做到。这就是Property Animation产生的原因
+  视图动画一共有四种：
+      Alpha: 淡入淡出效果
+      Scale: 缩放效果
+      Rotate: 旋转效果
+      Translate:移动效果
+  Animation有几个通用方法：
+      setDuration(long duration)
+       设置持续时间
+      setFillAfter(boolean fillAfter)
+       如果fillAfter的值为真的话，动画结束后，控件停留在执行后的状态
+      setFillBefore(boolean fillBefore)
+       如果fillBefore的值为真的话，动画结束后，控件停留在动画开始的状态
+      setStartOffset(long startOffset)
+       设置动画控件执行动画之前等待的时间
+      setRepeatCount(int repeatCount)
+       设置动画重复执行的次数
+
+ 1、AlphaAnimation
+    淡入淡出效果：
+        AlphaAnimation al=new AlphaAnimation(1,0); //1代表完全不透明，0代表完全透明
+ 2、RotateAnimation
+    旋转效果：
+        RotateAnimation al=new RotateAnimation (0,720,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_PARENT,0.5f);
+        //前两个参数参数旋转的角度，后面几个参数决定旋转的中心
+        //Animation.ABSOLUTE:绝对坐标
+        //Animation.RELATIVE_TO_PARENT:相对父控件
+        //Animation.RELATIVE_TO_SELF:相对自己
+ 3、ScaleAnimation
+    缩放效果：
+        ScaleAnimation al=new ScaleAnimation(0,1,0,1,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        //前四个参数是x方向缩放从多大到多大，y方向缩放从多大到多大，后面的参数是缩放的中心点
+ 4、TranslateAnimation
+    移动效果：
+        TranslateAnimation al=new TranslateAnimation(Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,2,Animation.RELATIVE_TO_SELF,0,Animation.RELATIVE_TO_SELF,2);
+
+ 5、AnimationSet
+    见最上方比较内容
+    AnimationSet加入Animation之后设置AnimationSet对加入的所有Animation都有效。
+
+ 6、AnimationUtils
+    加载动画资源文件，返回Animation对象，View就可以调用startAnimation()方法执行Animation动画
+    （详见ViewAnimationActivity.java类）
+    这里重点提一下 android:pivotX 和 android:pivotY 和 android:fromXDelta 、 android:toXDelta：
+        android:pivotX="50"使用绝对坐标
+        android:pivotX="50%"相对自己
+        android:pivotX="50%p"相对父控件
+
+五、AnimationDrawable
+ AnimationDrawable是实现Drawable animations的基本类。
+ Drawable animation可以加载Drawable资源实现帧动画。
+ 推荐用XML文件的方法实现Drawable动画，不推荐在代码中实现。
+ 这种XML文件存放在工程中res/drawable/目录下。（详见animation_drawable.xml）
+ XML文件的指令(即属性)为动画播放的顺序和时间间隔。
+
+ AnimationDrawable的start()方法不能在onCreate()函数中调用。（详见AnimationDrawableActivity.java）
+ 因为AnimationDrawable并未完全关联到Window，在onCreate()方法中，
+ View并未完成显示(同理，在此方法中测量某个View的宽高，常得到0值。也同理SurfaceHolder要增加Callback方法)。
+ 在此如果想最快的启动动画，使用监听方法onWindowFocusChanged().

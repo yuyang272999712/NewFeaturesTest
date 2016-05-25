@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/animation_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="属性动画"/>
+    <Button
+        android:id="@+id/animation_property_xml"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="属性动画xml"/>
+    <Button
+        android:id="@+id/animation_layout_transition"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="布局动画"/>
+    <Button
+        android:id="@+id/animation_layout_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="View animate方法动画"/>
+    <Button
+        android:id="@+id/animation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="视图动画"/>
+    <Button
+        android:id="@+id/animation_drawable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="逐帧动画"/>
+
+</LinearLayout>

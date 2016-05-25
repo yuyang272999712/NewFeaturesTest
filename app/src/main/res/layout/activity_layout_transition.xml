@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/base_layout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutAnimation="@anim/layout_animation">
+
+    <Button
+        android:id="@+id/layout_add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addView"
+        android:text="添加按钮"/>
+
+    <CheckBox
+        android:id="@+id/layout_appearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="APPEARING"/>
+
+    <CheckBox
+        android:id="@+id/layout_change_appearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="CHANGE_APPEARING"/>
+
+    <CheckBox
+        android:id="@+id/layout_disappearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="DISAPPEARING"/>
+
+    <CheckBox
+        android:id="@+id/layout_change_disappearing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:checked="true"
+        android:text="CHANGE_DISAPPEARING"/>
+    
+    <GridLayout
+        android:id="@+id/layout_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="5"/>
+
+</LinearLayout>

@@ -19,12 +19,13 @@
         android:layout_height="match_parent"
         android:shrinkColumns="0,1"
         android:stretchColumns="0,1">
-        <TableRow >
+        <TableRow
+            android:gravity="bottom">
             <Button
                 android:id="@+id/button"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textAllCaps="false"
                 android:text="android5界面切换效果"/>
 
@@ -53,7 +54,8 @@
                 android:textAllCaps="false"
                 android:text="水平拖拽"/>
         </TableRow>
-        <TableRow >
+        <TableRow
+            android:gravity="bottom">
             <Button
                 android:id="@+id/button5"
                 android:layout_weight="1"
@@ -66,7 +68,7 @@
                 android:id="@+id/button6"
                 android:layout_weight="1"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:textAllCaps="false"
                 android:text="MVP模式"/>
         </TableRow>
@@ -111,7 +113,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="属性动画"/>
+                android:text="动画相关"/>
 
             <Button
                 android:id="@+id/button12"

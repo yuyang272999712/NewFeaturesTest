@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--设置Android:oneshot属性为true,表示此次动画只执行一次，最后停留在最后一帧。设置为false则动画循环播放。-->
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/ic_menu_camera" android:duration="500"/>
+    <item android:drawable="@drawable/ic_menu_manage" android:duration="500"/>
+    <item android:drawable="@drawable/ic_menu_send" android:duration="500"/>
+    <item android:drawable="@drawable/ic_menu_gallery" android:duration="500"/>
+    <item android:drawable="@drawable/ic_menu_share" android:duration="500"/>
+    <item android:drawable="@drawable/ic_menu_slideshow" android:duration="500"/>
+</animation-list>

@@ -52,7 +52,13 @@
         <activity android:name=".largeImage.LargeImageTest"/>
         <activity android:name=".cardViewPager.CardViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
-        <activity android:name=".animationAbout.PropertyAnimationActivity"/>
+        <activity android:name=".animationAbout.AnimationActivity"/>
+        <activity android:name=".animationAbout.PropertyAniActivity"/>
+        <activity android:name=".animationAbout.PropertyAniXmlActivity"/>
+        <activity android:name=".animationAbout.LayoutTransitionActivity"/>
+        <activity android:name=".animationAbout.ViewAnimateActivity"/>
+        <activity android:name=".animationAbout.ViewAnimationActivity"/>
+        <activity android:name=".animationAbout.AnimationDrawableActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity1"/>

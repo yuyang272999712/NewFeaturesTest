@@ -18,7 +18,7 @@ import android.widget.Button;
 import com.yuyang.fitsystemwindowstestdrawer.LayoutInflateAbout.LayoutInflateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
-import com.yuyang.fitsystemwindowstestdrawer.animationAbout.PropertyAnimationActivity;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity
         button11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, PropertyAnimationActivity.class);
+                Intent intent = new Intent(MainActivity.this, AnimationActivity.class);
                 startActivity(intent);
             }
         });

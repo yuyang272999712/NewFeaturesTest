@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="17dp"
+    android:paddingRight="17dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ObjectAnimator"
+        android:layout_marginBottom="5dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/object_ani_1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/a"
+            android:onClick="rotateObjAnim1"
+            android:layout_marginRight="20dp"/>
+        <ImageView
+            android:id="@+id/object_ani_2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/b"
+            android:onClick="noParamsObjAnim2"
+            android:layout_marginRight="20dp"/>
+        <ImageView
+            android:id="@+id/object_ani_3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/c"
+            android:onClick="propertyValuesHolderObjAnim3"
+            android:layout_marginRight="20dp"/>
+        <ImageView
+            android:id="@+id/object_ani_4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/d"
+            android:onClick="keyframeObjAnim4"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="togetherRun"
+            android:text="同时执行"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="playWithAfter"
+            android:text="顺序执行"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#131312"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/value_anim_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ValueAnimator"
+            android:layout_marginBottom="5dp"/>
+
+        <ImageView
+            android:id="@+id/value_anim"
+            android:layout_below="@id/value_anim_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu_camera"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="垂直"
+                android:onClick="verticalRun"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="抛物线"
+                android:onClick="paowuxianRun"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
