@@ -15,6 +15,9 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 public class MediaAboutActivity extends AppCompatActivity {
     private Button btnVideo;
     private Button btnSurface;
+    private Button btnAudio;
+    private Button btnRawAudio;
+    private Button btnSoundPool;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -29,6 +32,9 @@ public class MediaAboutActivity extends AppCompatActivity {
     private void findViews() {
         btnVideo = (Button) findViewById(R.id.media_about_video);
         btnSurface = (Button) findViewById(R.id.media_about_surface);
+        btnAudio = (Button) findViewById(R.id.media_audio_manager);
+        btnRawAudio = (Button) findViewById(R.id.media_audio_raw);
+        btnSoundPool = (Button) findViewById(R.id.media_audio_sound_pool);
     }
 
     private void initDatas() {
@@ -48,6 +54,30 @@ public class MediaAboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaAboutActivity.this, SurfaceActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, AudioPlayerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnRawAudio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, RawAudioActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnSoundPool.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, SoundPoolActivity.class);
                 startActivity(intent);
             }
         });

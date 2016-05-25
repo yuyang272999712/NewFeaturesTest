@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
-import android.media.RemoteControlClient;
+import android.media.audiofx.BassBoost;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -33,10 +33,10 @@ import java.io.IOException;
  */
 public class AudioPlayerActivity extends AppCompatActivity {
     private Button playBtn;
+    private Button bassBoostBtn;
 
     private ActivityMediaControlReceiver activityMediaControlReceiver;
     private MediaPlayer mediaPlayer;
-    private RemoteControlClient myRemoteControlClient;
     /**
      * 音频焦点发生变化时监听回调
      */
@@ -99,6 +99,28 @@ public class AudioPlayerActivity extends AppCompatActivity {
                 play();
             }
         });
+
+        bassBoostBtn = (Button) findViewById(R.id.buttonBassBoost);
+        bassBoostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bassBoost();
+            }
+        });
+    }
+
+    /**
+     * 设置音效
+     * BassBoost 增强音频输出的低音音频。使用setStrength方法可以将音效的强度设置为0~1000
+     */
+    private void bassBoost() {
+        int sessionId = mediaPlayer.getAudioSessionId();
+        short boostStrength = 500;
+        int priority = 0;
+
+        BassBoost bassBoost = new BassBoost(priority, sessionId);
+        bassBoost.setStrength(boostStrength);
+        bassBoost.setEnabled(true);
     }
 
     @Override
@@ -148,7 +170,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
     public void stop() {
         mediaPlayer.stop();
-        myRemoteControlClient.setPlaybackState(RemoteControlClient.PLAYSTATE_STOPPED);
         /**
          * 放弃音频焦点
          * 注：只有在暂时性获取音频焦点时才有必要这么做
@@ -159,7 +180,6 @@ public class AudioPlayerActivity extends AppCompatActivity {
 
     public void pause() {
         mediaPlayer.pause();
-        myRemoteControlClient.setPlaybackState(RemoteControlClient.PLAYSTATE_PAUSED);
     }
 
     public void skip() {

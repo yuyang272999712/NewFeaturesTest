@@ -9,12 +9,12 @@
         android:id="@+id/buttonPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play Audio" />
+        android:text="播放音乐" />
 
     <Button
         android:id="@+id/buttonBassBoost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bass Boost" />
+        android:text="使用音效" />
 
 </LinearLayout>
