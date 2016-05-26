@@ -35,7 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="LayoutInflate三个参数含义"/>
+                android:text="源码解析"/>
         </TableRow>
         <TableRow >
             <Button

@@ -13,6 +13,7 @@ import android.widget.Scroller;
 public class CustomBounceLinearLayout extends LinearLayout {
     private Scroller scroller;
     private GestureDetector gestureDetector;
+    private boolean intercept;//是否拦截事件
 
     public CustomBounceLinearLayout(Context context) {
         this(context, null);
@@ -31,9 +32,19 @@ public class CustomBounceLinearLayout extends LinearLayout {
     }
 
     @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        gestureDetector.onTouchEvent(ev);
+        if (ev.getAction() == MotionEvent.ACTION_MOVE){
+            intercept = true;
+        }
+        return intercept;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_UP){
             prepareScroll(0, 0);
+            intercept = false;
         }else {
             gestureDetector.onTouchEvent(event);
         }

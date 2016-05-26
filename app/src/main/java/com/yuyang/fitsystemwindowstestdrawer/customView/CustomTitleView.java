@@ -18,7 +18,7 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * 自定义View
+ * 自定义View 文本View
  */
 public class CustomTitleView extends View {
 

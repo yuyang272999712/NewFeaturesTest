@@ -17,7 +17,7 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/11.
+ * 图文混合View
  */
 public class CustomImageView extends View {
     private final int IMAGE_SCALE_FITXY = 0;

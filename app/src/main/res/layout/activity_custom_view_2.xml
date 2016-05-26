@@ -12,12 +12,28 @@
         android:id="@+id/custom_2_state"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:padding="20dp"
         android:gravity="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:text="自定义控件状态，点击状态变化－引起颜色变化"
         android:background="@drawable/selector_custom_state"
-        state:state_1="true"/>
+        state:state_1="true"
+        state:state_2="false"
+        state:state_3="false"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#ff7c7a"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="上下锯齿状背景"/>
+    </com.yuyang.fitsystemwindowstestdrawer.customView.CustomLinearLayout>
 
     <TextView
         android:layout_width="match_parent"
