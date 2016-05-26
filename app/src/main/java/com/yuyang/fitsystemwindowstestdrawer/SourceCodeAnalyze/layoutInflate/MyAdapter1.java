@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze;
+package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflate;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -14,11 +14,11 @@ import java.util.List;
 /**
  * Created by yuyang on 16/5/3.
  */
-public class MyAdapter3 extends BaseAdapter {
+public class MyAdapter1 extends BaseAdapter {
     private LayoutInflater mInflater;
     private List<String> mDatas;
 
-    public MyAdapter3(Context context, List<String> datas)
+    public MyAdapter1(Context context, List<String> datas)
     {
         mInflater = LayoutInflater.from(context);
         mDatas = datas;
@@ -50,10 +50,9 @@ public class MyAdapter3 extends BaseAdapter {
         if (convertView == null)
         {
             holder = new ViewHolder();
-//          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, null);
+            convertView = mInflater.inflate(R.layout.layout_button_for_inflate, null);
 //          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, parent ,false);
 //          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, parent ,true);
-//          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, parent);
             holder.mBtn = (Button) convertView.findViewById(R.id.layout_item_btn);
             convertView.setTag(holder);
         } else

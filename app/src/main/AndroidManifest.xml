@@ -68,7 +68,7 @@
         <activity android:name=".coordinatorLayoutAbout.SwipeDismissBehaviorActivity"/>
         <activity android:name=".destWidget.DestWidgetActivity"/>
         <activity android:name=".sourceCodeAnalyze.SourceCodeAnalyzeActivity"/>
-        <activity android:name=".sourceCodeAnalyze.LayoutInflateActivity"/>
+        <activity android:name=".sourceCodeAnalyze.layoutInflate.LayoutInflateActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
