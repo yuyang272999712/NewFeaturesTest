@@ -18,6 +18,8 @@ public class MediaAboutActivity extends AppCompatActivity {
     private Button btnAudio;
     private Button btnRawAudio;
     private Button btnSoundPool;
+    private Button btnCameraIntent;
+    private Button btnCamera;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,6 +37,8 @@ public class MediaAboutActivity extends AppCompatActivity {
         btnAudio = (Button) findViewById(R.id.media_audio_manager);
         btnRawAudio = (Button) findViewById(R.id.media_audio_raw);
         btnSoundPool = (Button) findViewById(R.id.media_audio_sound_pool);
+        btnCameraIntent  = (Button) findViewById(R.id.media_audio_camera_intent);
+        btnCamera  = (Button) findViewById(R.id.media_audio_camera);
     }
 
     private void initDatas() {
@@ -78,6 +82,22 @@ public class MediaAboutActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MediaAboutActivity.this, SoundPoolActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCameraIntent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, CameraIntentActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnCamera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MediaAboutActivity.this, CameraActivity.class);
                 startActivity(intent);
             }
         });

@@ -39,4 +39,18 @@
         android:textAllCaps="false"
         android:text="sound_pool"/>
 
+    <Button
+        android:id="@+id/media_audio_camera_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="调用第三方拍照"/>
+
+    <Button
+        android:id="@+id/media_audio_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="使用摄像头"/>
+
 </LinearLayout>
