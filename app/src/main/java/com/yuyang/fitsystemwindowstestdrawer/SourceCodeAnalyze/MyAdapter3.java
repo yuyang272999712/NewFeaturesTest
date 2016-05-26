@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.LayoutInflateAbout;
+package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.yuyang.fitsystemwindowstestdrawer.LayoutInflateAbout.LayoutInflateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
@@ -24,16 +23,17 @@ import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesi
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.FlexboxLayoutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
-import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
-import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
+import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
+import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
 
 /**
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LayoutInflateActivity.class);
+                Intent intent = new Intent(MainActivity.this, SourceCodeAnalyzeActivity.class);
                 startActivity(intent);
             }
         });

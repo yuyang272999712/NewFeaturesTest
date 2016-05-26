@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.LayoutInflateAbout;
+package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
