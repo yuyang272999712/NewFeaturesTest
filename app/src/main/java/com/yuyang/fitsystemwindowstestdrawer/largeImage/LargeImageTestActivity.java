@@ -10,15 +10,15 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by yuyang on 16/3/8.
+ * 加载超大图
  */
-public class LargeImageTest extends AppCompatActivity {
+public class LargeImageTestActivity extends AppCompatActivity {
     private LargeImageView largeImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.large_image_test);
+        setContentView(R.layout.activity_large_image_test);
 
         largeImageView = (LargeImageView) findViewById(R.id.largeImage);
 

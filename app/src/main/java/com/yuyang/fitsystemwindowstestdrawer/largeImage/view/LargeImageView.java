@@ -8,13 +8,16 @@ import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.VelocityTracker;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
+import android.widget.OverScroller;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by yuyang on 16/3/8.
+ * BitmapRegionDecoder加载超大图
  */
 public class LargeImageView extends View {
     private BitmapRegionDecoder mDecoder;
@@ -24,6 +27,10 @@ public class LargeImageView extends View {
     private Rect mRect = new Rect();
     //手势监听
     private MoveGestureDetector mDetector;
+    //滑动速度
+    private VelocityTracker velocityTracker;
+    //加速滚动
+    private OverScroller overScroller;
 
     private static final BitmapFactory.Options options = new BitmapFactory.Options();
 
@@ -34,6 +41,8 @@ public class LargeImageView extends View {
 
     public LargeImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        velocityTracker = VelocityTracker.obtain();
+        overScroller = new OverScroller(context, new DecelerateInterpolator());
         init();
     }
 
@@ -111,7 +120,7 @@ public class LargeImageView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        mDetector.onToucEvent(event);
+        mDetector.onTouchEvent(event);
         return true;
     }
 

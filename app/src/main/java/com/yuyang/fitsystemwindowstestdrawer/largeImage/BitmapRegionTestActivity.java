@@ -14,10 +14,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Created by yuyang on 16/3/7.
+ * BitmapRegionDecoder 图片区域显示实验
  *
  */
-public class BitmapRegionTest extends AppCompatActivity {
+public class BitmapRegionTestActivity extends AppCompatActivity {
 
     ImageView regionView;
     ImageView originView;
@@ -34,13 +34,13 @@ public class BitmapRegionTest extends AppCompatActivity {
             InputStream inputStream = getAssets().open("tangyan.jpg");
 
             originView.setImageBitmap(BitmapFactory.decodeStream(inputStream));
-
+            //获取图片宽高
             BitmapFactory.Options tmpOptions = new BitmapFactory.Options();
             tmpOptions.inJustDecodeBounds = true;
             BitmapFactory.decodeStream(inputStream, null, tmpOptions);
             int height = tmpOptions.outHeight;
             int width = tmpOptions.outWidth;
-
+            //设置显示图片的中心区域
             BitmapRegionDecoder bitmapRegionDecoder = BitmapRegionDecoder.newInstance(inputStream, false);
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = Bitmap.Config.RGB_565;

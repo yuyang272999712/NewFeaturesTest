@@ -52,8 +52,8 @@
         <activity android:name=".userDefinedViews.GestureLockActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
-        <activity android:name=".largeImage.BitmapRegionTest"/>
-        <activity android:name=".largeImage.LargeImageTest"/>
+        <activity android:name=".largeImage.BitmapRegionTestActivity"/>
+        <activity android:name=".largeImage.LargeImageTestActivity"/>
         <activity android:name=".cardViewPager.CardViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>

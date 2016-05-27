@@ -24,7 +24,7 @@ import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.FlexboxLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
-import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTest;
+import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LargeImageTest.class);
+                Intent intent = new Intent(MainActivity.this, LargeImageTestActivity.class);
                 startActivity(intent);
             }
         });
