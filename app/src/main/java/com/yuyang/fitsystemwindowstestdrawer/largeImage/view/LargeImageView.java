@@ -7,9 +7,12 @@ import android.graphics.BitmapRegionDecoder;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.OverScroller;
 
@@ -42,7 +45,7 @@ public class LargeImageView extends View {
     public LargeImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         velocityTracker = VelocityTracker.obtain();
-        overScroller = new OverScroller(context, new DecelerateInterpolator());
+        overScroller = new OverScroller(context, new AccelerateDecelerateInterpolator());
         init();
     }
 
@@ -120,8 +123,43 @@ public class LargeImageView extends View {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        velocityTracker.addMovement(event);
         mDetector.onTouchEvent(event);
+        if (event.getAction() == MotionEvent.ACTION_UP){
+            velocityTracker.computeCurrentVelocity(1000, 1000);
+            int xVelocity = (int) velocityTracker.getXVelocity();
+            int yVelocity = (int) velocityTracker.getYVelocity();
+            overScroller.fling(0,0,xVelocity,yVelocity,-mImageWidth,mImageWidth,-mImageHeight,mImageHeight);
+            invalidate();
+        }
         return true;
+    }
+
+    @Override
+    public void computeScroll() {
+        super.computeScroll();
+        if (overScroller.computeScrollOffset()){
+            if(mImageWidth > getWidth()){
+                mRect.offset(-overScroller.getCurrX(), 0);
+                checkWidth();
+            }
+            if (mImageHeight > getHeight()) {
+                mRect.offset(0, -overScroller.getCurrY());
+                checkHeight();
+            }
+            Log.e("LargeImageView", "X轴滚动距离："+overScroller.getCurrX());
+            invalidate();
+        }
+    }
+
+    @Override
+    protected void onOverScrolled(int scrollX, int scrollY, boolean clampedX, boolean clampedY) {
+        super.onOverScrolled(scrollX, scrollY, clampedX, clampedY);
+    }
+
+    @Override
+    protected void onScrollChanged(int l, int t, int oldl, int oldt) {
+        super.onScrollChanged(l, t, oldl, oldt);
     }
 
     public void setInputStream(InputStream inputStream){
