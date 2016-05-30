@@ -11,6 +11,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.QQSlidingMenu.SlidingMenuActivity1;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.TagAdapter;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.TagFlowLayout;
@@ -30,6 +32,8 @@ public class DefinedViewActivity extends AppCompatActivity {
     private Button gestureLockButton;
     private Button gotoArcMenuButton;
     private Button hualangBtn;
+    private Button qqSlidingBtn;
+    private Button qqDoubleSlidingBtn;
     /**
      * TODO yuyang 可以添加选中动作的FlowLayout
      */
@@ -65,6 +69,8 @@ public class DefinedViewActivity extends AppCompatActivity {
         gestureLockButton = (Button) findViewById(R.id.defind_gesture_lock);
         gotoArcMenuButton = (Button) findViewById(R.id.defind_goto_ArcMenu);
         hualangBtn = (Button) findViewById(R.id.defind_hualang_view);
+        qqSlidingBtn = (Button) findViewById(R.id.defind_qq_sliding);
+        qqDoubleSlidingBtn = (Button) findViewById(R.id.defind_qq_double_sliding);
         tagFlowLayout = (TagFlowLayout) findViewById(R.id.defind_tag_flow_layout);
     }
 
@@ -137,6 +143,20 @@ public class DefinedViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DefinedViewActivity.this, HuaLangActivity.class);
+                startActivity(intent);
+            }
+        });
+        qqSlidingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, SlidingMenuActivity1.class);
+                startActivity(intent);
+            }
+        });
+        qqDoubleSlidingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, SlidingMenuActivity2.class);
                 startActivity(intent);
             }
         });

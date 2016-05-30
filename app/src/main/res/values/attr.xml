@@ -117,4 +117,9 @@
         <attr name="position"/>
         <attr name="radius"/>
     </declare-styleable>
+    <!--自定义View－SlidingMenu－侧滑-->
+    <attr name="rightPadding" format="dimension"/><!--距屏幕右边距离-->
+    <declare-styleable name="SlidingMenu">
+        <attr name="rightPadding"/>
+    </declare-styleable>
 </resources>

@@ -12,6 +12,52 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
+            android:layout_width="200dp"
+            android:layout_height="80dp"
+            android:background="#717070">
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_margin="5dp"
+                android:background="#FF4444"
+                android:gravity="center"
+                android:text="0"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_margin="5dp"
+                android:background="#5dff44"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="35dp"
+                android:layout_margin="5dp"
+                android:background="#444dff"
+                android:gravity="center"
+                android:text="2"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="20dp"
+                android:layout_margin="5dp"
+                android:background="#ef44ff"
+                android:gravity="center"
+                android:text="3"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
+
         <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,11 +150,6 @@
             android:layout_height="wrap_content"
             app:max_select="3"/>
 
-        <Button
-            android:id="@+id/defind_goto_ArcMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="ArcMenu菜单实例"/>
     </LinearLayout>
 
     <LinearLayout
@@ -117,6 +158,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:gravity="center">
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ClearEditTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:singleLine="true"
+            android:text="自带清除按钮的edittext"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="短信倒计时启动"/>
 
         <Button
             android:id="@+id/defind_next_drag_helper"
@@ -139,66 +193,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="画廊效果"/>
-        
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#717070">
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#FF4444"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="70dp"
-                android:layout_margin="5dp"
-                android:background="#5dff44"
-                android:gravity="center"
-                android:text="1"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#444dff"
-                android:gravity="center"
-                android:text="2"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="#ef44ff"
-                android:gravity="center"
-                android:text="3"
-                android:textColor="#FFFFFF"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.MyViewGroup>
-
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ClearEditTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:singleLine="true"
-            android:text="自带清除按钮的edittext"/>
-
         <Button
-            android:id="@+id/button"
+            android:id="@+id/defind_goto_ArcMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="短信倒计时启动"/>
-
+            android:textAllCaps="false"
+            android:text="ArcMenu菜单实例"/>
+        <Button
+            android:id="@+id/defind_qq_sliding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ侧滑1"/>
+        <Button
+            android:id="@+id/defind_qq_double_sliding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="双侧QQ侧滑"/>
+        
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
