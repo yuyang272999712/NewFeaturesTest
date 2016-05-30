@@ -53,4 +53,25 @@
         android:textAllCaps="false"
         android:text="使用摄像头"/>
 
+    <Button
+        android:id="@+id/media_audio_video_intent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="调用第三方摄像"/>
+
+    <Button
+        android:id="@+id/media_audio_recorder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="录制视频"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="scanner"
+        android:textAllCaps="false"
+        android:text="扫描媒体库"/>
+
 </LinearLayout>

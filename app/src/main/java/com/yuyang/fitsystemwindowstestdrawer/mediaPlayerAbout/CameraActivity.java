@@ -2,6 +2,7 @@ package com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout;
 
 import android.graphics.Rect;
 import android.hardware.Camera;
+import android.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.annotation.Nullable;
@@ -10,9 +11,11 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -125,6 +128,24 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
      */
     public void takePicture(View view){
         camera.takePicture(shutterCallback, rawCallback, jpegCallback);
+    }
+
+    /**
+     * 修改图像详细信息（地理位置、相机信息、拍摄时间等）
+     * @param view
+     */
+    public void modifyExif(View view){
+        File file = new File(Environment.getExternalStorageDirectory(), "/yuyang_camera.jpg");
+        try {
+            ExifInterface exif = new ExifInterface(file.getCanonicalPath());
+            //读取摄像头模型和位置属性
+            String model = exif.getAttribute(ExifInterface.TAG_MODEL);
+            Toast.makeText(this,"摄像头模型："+model, Toast.LENGTH_SHORT).show();
+            //设置摄像头的品牌
+            exif.setAttribute(ExifInterface.TAG_MAKE, "yuyang's phone");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
