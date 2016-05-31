@@ -1,12 +1,16 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.zoomImageView;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.clipImage;
 
 import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
@@ -14,6 +18,8 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
+
+import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * 可缩放的ImageView，具体可使用github上的PhotoView项目
@@ -25,8 +31,8 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
     /**
      *  最大放大4倍
      */
-    private static final float SCALE_MAX = 4.0f;
-    private static final float SCALE_MID = 2.0f;
+    private float SCALE_MAX = 4.0f;
+    private float SCALE_MID = 2.0f;
     /**
      * 初始化时的缩放比例，如果图片大于显示区域，initScale值小于1
      */
@@ -54,6 +60,19 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
     private boolean isAutoScale;//是否正在自动缩放
 
     /**
+     * 水平方向与View的边距
+     */
+    private int mHorizontalPadding = 20;
+    /**
+     * 垂直方向与View的边距
+     */
+    private int mVerticalPadding;
+    /**
+     * 要裁剪的图片
+     */
+    private int src;
+
+    /**
      * 拖动相关
      */
     private int mTouchSlop;//判断是拖动的最小距离
@@ -74,6 +93,11 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
 
     public ZoomImageView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.ClipImageLayout, defStyleAttr, 0);
+        mHorizontalPadding = (int) array.getDimension(R.styleable.ClipImageLayout_horizontal_padding,
+                TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mHorizontalPadding, context.getResources().getDisplayMetrics()));
+        src = array.getResourceId(R.styleable.ClipImageLayout_src, R.mipmap.zoom_img_1);
+        setImageResource(src);
         //ImageView专有方法，设置缩放模式
         super.setScaleType(ScaleType.MATRIX);
         //获取系统拖动最小判断距离
@@ -131,6 +155,11 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
             if (drawable == null){
                 return;
             }
+            /**
+             * onLayout执行完后 getHeight()才会有值
+             */
+            mVerticalPadding = (getHeight() - (getWidth() - 2 * mHorizontalPadding)) / 2;
+
             int width = getWidth();
             int height = getHeight();
             //获取图片的真是宽高
@@ -138,17 +167,21 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
             int dh = drawable.getIntrinsicHeight();
             float scale = 1.0f;
             //如果图片的宽或高大于屏幕，则缩放至屏幕的宽或高
-            if (dw > width && dh <= height){
-                scale = width * 1.0f / dw;
+            if (dw > width-mHorizontalPadding*2 && dh <= height-mVerticalPadding*2){
+                scale = (width * 1.0f - mHorizontalPadding * 2) / dw;
             }
-            if (dh > height && dw <= width){
-                scale = height * 1.0f / dh;
+            if (dh > height-mVerticalPadding*2 && dw <= width-mHorizontalPadding*2){
+                scale = (height * 1.0f - mVerticalPadding * 2) / dh;
             }
             //如果图片宽高都大于屏幕
-            if(dw > width && dh > height){
-                scale = Math.min(width * 1.0f / dw, height * 1.0f / dh);
+            if(dw > width-mHorizontalPadding*2 && dh > height-mVerticalPadding*2){
+                float scaleW = (width * 1.0f - mHorizontalPadding * 2) / dw;
+                float scaleH = (height * 1.0f - mVerticalPadding * 2) / dh;
+                scale = Math.min(scaleW, scaleH);
             }
             initScale = scale;
+            SCALE_MID = 2*scale;
+            SCALE_MAX = 4*scale;
             //图片移动至屏幕中心然后进行缩放
             mScaleMatrix.postTranslate((width - dw)/2, (height - dh)/2);
             mScaleMatrix.postScale(scale,scale,width/2,height/2);
@@ -210,20 +243,20 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
         int height = getHeight();
 
         // 如果宽或高大于屏幕，则控制范围
-        if (rect.width() >= width) {
-            if (rect.left > 0) {
-                deltaX = -rect.left;
+        if (rect.width() >= width - 2 * mHorizontalPadding) {
+            if (rect.left > mHorizontalPadding) {
+                deltaX = -rect.left + mHorizontalPadding;
             }
-            if (rect.right < width) {
-                deltaX = width - rect.right;
+            if (rect.right < width - mHorizontalPadding) {
+                deltaX = width - rect.right - mHorizontalPadding;
             }
         }
-        if (rect.height() >= height) {
-            if (rect.top > 0) {
-                deltaY = -rect.top;
+        if (rect.height() >= height - 2 * mVerticalPadding) {
+            if (rect.top > mVerticalPadding) {
+                deltaY = -rect.top + mVerticalPadding;
             }
-            if (rect.bottom < height) {
-                deltaY = height - rect.bottom;
+            if (rect.bottom < height - mVerticalPadding) {
+                deltaY = height - rect.bottom - mVerticalPadding;
             }
         }
         // 如果宽或高小于屏幕，则让其居中
@@ -303,32 +336,31 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
-                if (rectF.width() > getWidth() || rectF.height() > getHeight()) {
+                //这里不用解决滑动冲突
+                /*if (rectF.width() > getWidth() || rectF.height() > getHeight()) {
                     getParent().requestDisallowInterceptTouchEvent(true);
-                }
+                }*/
                 float dx = x - mLastX;
                 float dy = y - mLastY;//每次移动的距离
                 if (!isCanDrag){
                     isCanDrag = isCanDrag(dx, dy);
                 }
                 if (isCanDrag){
-                    /**
-                     * 解决ViewPager滑动冲突
-                     */
-                    if (getMatrixRectF().left == 0 && dx > 0) {
+                    //这里不用解决滑动冲突
+                    /*if (getMatrixRectF().left == 0 && dx > 0) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                     }
                     if (getMatrixRectF().right == getWidth() && dx < 0) {
                         getParent().requestDisallowInterceptTouchEvent(false);
-                    }
+                    }*/
                     isCheckLeftAndRight = isCheckTopAndBottom = true;
                     // 如果宽度小于屏幕宽度，则禁止左右移动
-                    if (rectF.width() < getWidth()){
+                    if (rectF.width() <= getWidth()-2*mHorizontalPadding){
                         dx = 0;
                         isCheckLeftAndRight = false;
                     }
                     // 如果高度小雨屏幕高度，则禁止上下移动
-                    if (rectF.height() < getHeight()){
+                    if (rectF.height() <= getHeight()-2*mVerticalPadding){
                         dy = 0;
                         isCheckTopAndBottom = false;
                     }
@@ -359,21 +391,21 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
         final float viewWidth = getWidth();
         final float viewHeight = getHeight();
         // 判断移动或缩放后，图片显示是否超出屏幕边界
-        if (rect.top > 0 && isCheckTopAndBottom)
+        if (rect.top > mVerticalPadding && isCheckTopAndBottom)
         {
-            deltaY = -rect.top;
+            deltaY = -rect.top + mVerticalPadding;
         }
-        if (rect.bottom < viewHeight && isCheckTopAndBottom)
+        if (rect.bottom < viewHeight-mVerticalPadding && isCheckTopAndBottom)
         {
-            deltaY = viewHeight - rect.bottom;
+            deltaY = viewHeight - mVerticalPadding - rect.bottom;
         }
-        if (rect.left > 0 && isCheckLeftAndRight)
+        if (rect.left > mHorizontalPadding && isCheckLeftAndRight)
         {
-            deltaX = -rect.left;
+            deltaX = -rect.left + mHorizontalPadding;
         }
-        if (rect.right < viewWidth && isCheckLeftAndRight)
+        if (rect.right < viewWidth-mHorizontalPadding && isCheckLeftAndRight)
         {
-            deltaX = viewWidth - rect.right;
+            deltaX = viewWidth - mHorizontalPadding - rect.right;
         }
         mScaleMatrix.postTranslate(deltaX, deltaY);
     }
@@ -445,5 +477,17 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
                 isAutoScale = false;
             }
         }
+    }
+
+    /**
+     * 裁剪图片
+     * @return
+     */
+    public Bitmap clip(){
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        draw(canvas);
+        return Bitmap.createBitmap(bitmap, mHorizontalPadding, mVerticalPadding,
+                getWidth() - 2 * mHorizontalPadding, getHeight() - 2 * mVerticalPadding);
     }
 }

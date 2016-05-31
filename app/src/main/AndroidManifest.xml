@@ -54,6 +54,8 @@
         <activity android:name=".userDefinedViews.GestureLockActivity"/>
         <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity1"/>
         <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity2"/>
+        <activity android:name=".userDefinedViews.ClipImageActivity"/>
+        <activity android:name=".userDefinedViews.ClipImageResultActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>

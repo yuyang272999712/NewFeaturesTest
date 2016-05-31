@@ -122,4 +122,11 @@
     <declare-styleable name="SlidingMenu">
         <attr name="rightPadding"/>
     </declare-styleable>
+    <!--自定义View－ClipImageLayout－裁剪Image-->
+    <attr name="horizontal_padding" format="dimension"/>
+    <attr name="src" format="reference"/>
+    <declare-styleable name="ClipImageLayout">
+        <attr name="horizontal_padding"/>
+        <attr name="src"/>
+    </declare-styleable>
 </resources>

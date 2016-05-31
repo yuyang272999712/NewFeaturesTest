@@ -209,6 +209,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="双侧QQ侧滑"/>
+        <Button
+            android:id="@+id/defind_clip_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="截取图片"/>
         
         <TextView
             android:layout_width="wrap_content"

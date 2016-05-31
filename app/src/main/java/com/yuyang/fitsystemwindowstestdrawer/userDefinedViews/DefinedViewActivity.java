@@ -34,6 +34,7 @@ public class DefinedViewActivity extends AppCompatActivity {
     private Button hualangBtn;
     private Button qqSlidingBtn;
     private Button qqDoubleSlidingBtn;
+    private Button clipImgBtn;
     /**
      * TODO yuyang 可以添加选中动作的FlowLayout
      */
@@ -71,6 +72,7 @@ public class DefinedViewActivity extends AppCompatActivity {
         hualangBtn = (Button) findViewById(R.id.defind_hualang_view);
         qqSlidingBtn = (Button) findViewById(R.id.defind_qq_sliding);
         qqDoubleSlidingBtn = (Button) findViewById(R.id.defind_qq_double_sliding);
+        clipImgBtn = (Button) findViewById(R.id.defind_clip_image);
         tagFlowLayout = (TagFlowLayout) findViewById(R.id.defind_tag_flow_layout);
     }
 
@@ -157,6 +159,13 @@ public class DefinedViewActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DefinedViewActivity.this, SlidingMenuActivity2.class);
+                startActivity(intent);
+            }
+        });
+        clipImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DefinedViewActivity.this, ClipImageActivity.class);
                 startActivity(intent);
             }
         });

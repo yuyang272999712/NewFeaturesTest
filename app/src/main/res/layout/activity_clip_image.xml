@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yuyang="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.clipImage.ClipImageLayout
+        android:id="@+id/clip_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        yuyang:horizontal_padding="50dp"
+        yuyang:src="@mipmap/zoom_img_2"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="clip"
+        android:text="剪切图片"/>
+
+</RelativeLayout>
