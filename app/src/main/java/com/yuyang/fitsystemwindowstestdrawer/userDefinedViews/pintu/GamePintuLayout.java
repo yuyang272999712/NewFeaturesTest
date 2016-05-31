@@ -312,7 +312,7 @@ public class GamePintuLayout extends RelativeLayout implements View.OnClickListe
         }
 
         if (isSuccess) {
-            Toast.makeText(getContext(), "Success , Level Up !",
+            Toast.makeText(getContext(), "完成!",
                     Toast.LENGTH_LONG).show();
             // nextLevel();
         }
