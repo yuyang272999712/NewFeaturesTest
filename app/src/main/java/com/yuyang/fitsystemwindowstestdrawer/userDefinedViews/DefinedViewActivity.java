@@ -116,14 +116,14 @@ public class DefinedViewActivity extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity2.class);
+                Intent intent = new Intent(DefinedViewActivity.this, ViewDragHelperActivity.class);
                 startActivity(intent);
             }
         });
         verticalButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity3.class);
+                Intent intent = new Intent(DefinedViewActivity.this, VerticalLinearLayoutActivity.class);
                 startActivity(intent);
             }
         });
@@ -137,7 +137,7 @@ public class DefinedViewActivity extends AppCompatActivity {
         gotoArcMenuButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DefinedViewActivity.this, DefinedViewActivity4.class);
+                Intent intent = new Intent(DefinedViewActivity.this, ArcMenuAndZoomImageActivity.class);
                 startActivity(intent);
             }
         });

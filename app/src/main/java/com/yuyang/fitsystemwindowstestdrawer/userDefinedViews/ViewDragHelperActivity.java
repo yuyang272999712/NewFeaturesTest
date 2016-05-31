@@ -8,7 +8,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 /**
  * 自定义ViewDragHelper的布局
  */
-public class DefinedViewActivity2 extends AppCompatActivity {
+public class ViewDragHelperActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

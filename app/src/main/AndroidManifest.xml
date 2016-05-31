@@ -49,8 +49,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".userDefinedViews.DefinedViewActivity"/>
-        <activity android:name=".userDefinedViews.DefinedViewActivity2"/>
-        <activity android:name=".userDefinedViews.DefinedViewActivity3"/>
+        <activity android:name=".userDefinedViews.ViewDragHelperActivity"/>
+        <activity android:name=".userDefinedViews.VerticalLinearLayoutActivity"/>
         <activity android:name=".userDefinedViews.GestureLockActivity"/>
         <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity1"/>
         <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity2"/>
@@ -98,7 +98,7 @@
         <activity android:name=".mediaPlayerAbout.CameraVideoIntentActivity"/>
         <activity android:name=".mediaPlayerAbout.MediaRecorderActivity"/>
         <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
-        <activity android:name=".userDefinedViews.DefinedViewActivity4"/>
+        <activity android:name=".userDefinedViews.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedViews.HuaLangActivity"/>
 
         <service android:name=".service.BackgroundService"/>

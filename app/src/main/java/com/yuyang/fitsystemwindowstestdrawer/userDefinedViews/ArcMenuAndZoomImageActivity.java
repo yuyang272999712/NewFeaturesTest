@@ -10,7 +10,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * ArcMenu（圆弧弹出菜单）实例
  *
  */
-public class DefinedViewActivity4 extends AppCompatActivity {
+public class ArcMenuAndZoomImageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

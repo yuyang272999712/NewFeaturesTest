@@ -10,7 +10,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.verticalLinearLayo
 /**
  * 自定义VerticalLinearLayout的布局
  */
-public class DefinedViewActivity3 extends AppCompatActivity {
+public class VerticalLinearLayoutActivity extends AppCompatActivity {
     private VerticalLinearLayout layout;
 
     @Override
@@ -34,7 +34,7 @@ public class DefinedViewActivity3 extends AppCompatActivity {
         layout.setOnPageChangeListener(new VerticalLinearLayout.OnPageChangeListener() {
             @Override
             public void onPageChange(int currentPage) {
-                Toast.makeText(DefinedViewActivity3.this, "切换至第"+currentPage+"页", Toast.LENGTH_SHORT).show();
+                Toast.makeText(VerticalLinearLayoutActivity.this, "切换至第"+currentPage+"页", Toast.LENGTH_SHORT).show();
             }
         });
     }
