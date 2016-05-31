@@ -1,0 +1,19 @@
+View构造函数的自定属性继承关系测试（CustomTextView.java中进行了测试）
+ public TypedArray obtainStyledAttributes (AttributeSet set, int[] attrs, int defStyleAttr, int defStyleRes)
+ *      set：属性值的集合
+ *      attrs：我们要获取的属性的资源ID的一个数组，如同ContextProvider中请求数据库时的Projection数组，
+ *            就是从一堆属性中我们希望查询什么属性的值
+ *      defStyleAttr：这个是当前Theme中的一个attribute，是指向style的一个引用，
+ *                    当在layout xml中和style中都没有为View指定属性时，
+ *                    会从Theme中这个attribute指向的Style中查找相应的属性值，
+ *                    这就是defStyle的意思，如果没有指定属性值，就用这个值，所以是默认值，
+ *                    但这个attribute要在Theme中指定，且是指向一个Style的引用，如果这个参数传入0表示不向Theme中搜索默认值
+ *                    （就是本例中的ActivityTheme中CustomizeStyle属性）
+ *      defStyleRes：这个也是指向一个Style的资源ID，
+ *                  但是仅在defStyleAttr为0或defStyleAttr不为0但Theme中没有为defStyleAttr属性赋值时起作用
+ *
+ *
+ * 总结：
+ *      1. 直接在XML中定义>style定义>由defStyleAttr定义的值>(defStyleRes指定的默认值>=直接在Theme中指定的值)
+ *      2. defStyleAttr（即defStyle）不为0且在当前Theme中可以找到这个attribute的定义时，defStyleRes不起作用
+ *         所以本例中attr_four虽然在defStyleRes（DefaultCustomizeStyle）中定义了，但取到的值仍为null。
