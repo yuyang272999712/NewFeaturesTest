@@ -41,7 +41,7 @@ public class GoogleWidgetActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-        timerButton = (Button) findViewById(R.id.button);
+        timerButton = (Button) findViewById(R.id.google_timer_button);
     }
 
     private void initData() {

@@ -480,7 +480,7 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
     }
 
     /**
-     * 裁剪图片
+     * TODO yuyang 裁剪图片
      * @return
      */
     public Bitmap clip(){

@@ -58,6 +58,7 @@
         <activity android:name=".userDefinedWidget.ClipImageResultActivity"/>
         <activity android:name=".userDefinedWidget.GamePintuActivity"/>
         <activity android:name=".userDefinedWidget.FlowLayoutActivity"/>
+        <activity android:name=".userDefinedWidget.CircleImageActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>

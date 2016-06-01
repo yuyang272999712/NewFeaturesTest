@@ -1,0 +1,9 @@
+只关心谁先谁后绘制的：
+      canvas.translate(x, y);
+      canvas.drawBitmap(mDstB, 0, 0, paint);
+      paint.setXfermode(sModes[i]);
+      canvas.drawBitmap(mSrcB, 0, 0, paint);
+      paint.setXfermode(null);
+      canvas.restoreToCount(sc);
+可以看出先绘制的Dst,再绘制的Src，最后的展示是SrcIn那个图：显示的区域是二者交集，展示的是Src(后者)。
+效果16种，大家可以自由组合展示不同的效果。

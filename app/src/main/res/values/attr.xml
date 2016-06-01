@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- 仿“探探”效果-->
+    <!-- 自定义Widget－仿“探探”效果-->
     <declare-styleable name="SwipeFlingAdapterView">
         <attr name="SwipeFlingStyle" format="reference" />
         <attr name="rotation_degrees" format="float" />
@@ -12,7 +12,7 @@
     <declare-styleable name="Follow">
         <attr name="target" format="reference"/>
     </declare-styleable>
-    <!-- FlowLayout属性-->
+    <!-- 自定义Widget—FlowLayout属性-->
     <declare-styleable name="TagFlowLayout">
         <attr name="auto_select_effect" format="boolean"></attr>
         <attr name="max_select" format="integer"></attr>
@@ -31,7 +31,7 @@
     </declare-styleable>
     <attr name="CustomizeStyle" format="reference" />
 
-    <!-- 自定义View－CustomTitleView-->
+    <!-- 自定义View－CustomVerificationCodeView-->
     <attr name="titleStyle" format="reference"/>
     <attr name="titleText" format="string"/>
     <attr name="titleColor" format="color"/>
@@ -77,7 +77,7 @@
         <attr name="splitSize" />
         <attr name="bg" />
     </declare-styleable>
-    <!-- 自定义view－手势密码－GestureLockView-->
+    <!-- 自定义Widget－手势密码－GestureLockView-->
     <attr name="color_no_finger_inner_circle" format="color"/><!--无手指触摸状态下的内圆颜色-->
     <attr name="color_no_finger_outer_circle" format="color"/><!--无手指触摸状态下的外圆颜色-->
     <attr name="color_finger_on" format="color"/><!--手指触摸的状态下内圆和外圆的颜色 -->
@@ -105,7 +105,7 @@
         <attr name="state_2"/>
         <attr name="state_3"/>
     </declare-styleable>
-    <!--自定义View－ArcMenu－圆弧动画菜单-->
+    <!--自定义Widget－ArcMenu－圆弧动画菜单-->
     <attr name="position" format="enum"><!--位置-->
         <enum name="left_top" value="0"/>
         <enum name="right_top" value="1"/>
@@ -117,16 +117,29 @@
         <attr name="position"/>
         <attr name="radius"/>
     </declare-styleable>
-    <!--自定义View－SlidingMenu－侧滑-->
+    <!--自定义Widget－SlidingMenu－侧滑-->
     <attr name="rightPadding" format="dimension"/><!--距屏幕右边距离-->
     <declare-styleable name="SlidingMenu">
         <attr name="rightPadding"/>
     </declare-styleable>
-    <!--自定义View－ClipImageLayout－裁剪Image-->
+    <!--自定义Widget－ClipImageLayout－裁剪Image-->
     <attr name="horizontal_padding" format="dimension"/>
     <attr name="src" format="reference"/>
     <declare-styleable name="ClipImageLayout">
         <attr name="horizontal_padding"/>
         <attr name="src"/>
     </declare-styleable>
+    <!--自定义Widget－ClipImageLayout－裁剪Image-->
+    <attr name="imageRadius" format="dimension"/><!--半径-->
+    <attr name="type" format="enum">
+        <enum name="circle" value="0"/><!--圆形-->
+        <enum name="round" value="1"/><!--圆角-->
+    </attr>
+    <attr name="imageSrc" format="reference"/>
+    <declare-styleable name="CircleImageView">
+        <attr name="imageRadius"/>
+        <attr name="type"/>
+        <attr name="imageSrc"/>
+    </declare-styleable>
+    
 </resources>

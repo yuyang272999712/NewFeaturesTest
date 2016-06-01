@@ -35,6 +35,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button qqDoubleSlidingBtn;
     private Button clipImgBtn;
     private Button gamePintuBtn;
+    private Button circleImgBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         qqDoubleSlidingBtn = (Button) findViewById(R.id.defind_qq_double_sliding);
         clipImgBtn = (Button) findViewById(R.id.defind_clip_image);
         gamePintuBtn = (Button) findViewById(R.id.defind_game_pintu);
+        circleImgBtn = (Button) findViewById(R.id.defind_circle_img);
     }
 
     private void initDatas() {}
@@ -129,6 +131,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, GamePintuActivity.class);
+                startActivity(intent);
+            }
+        });
+        circleImgBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, CircleImageActivity.class);
                 startActivity(intent);
             }
         });
