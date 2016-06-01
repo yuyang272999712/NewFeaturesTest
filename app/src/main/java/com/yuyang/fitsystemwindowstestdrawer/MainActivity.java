@@ -22,7 +22,7 @@ import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.googleWidget.FlexboxLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
@@ -254,7 +254,7 @@ public class MainActivity extends AppCompatActivity
         button18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, FlexboxLayoutActivity.class);
+                Intent intent = new Intent(MainActivity.this, GoogleWidgetActivity.class);
                 startActivity(intent);
             }
         });

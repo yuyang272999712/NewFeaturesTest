@@ -167,12 +167,6 @@
             android:text="自带清除按钮的edittext"/>
 
         <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="短信倒计时启动"/>
-
-        <Button
             android:id="@+id/defind_next_drag_helper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

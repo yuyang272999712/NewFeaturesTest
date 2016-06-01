@@ -2,7 +2,6 @@ package com.yuyang.fitsystemwindowstestdrawer.userDefinedViews;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,6 @@ import java.util.Set;
  * CountDownTimer定时工具的使用
  */
 public class DefinedViewActivity extends AppCompatActivity {
-    private Button timerButton;
     private Button nextButton;
     private Button verticalButton;
     private Button gestureLockButton;
@@ -40,10 +38,6 @@ public class DefinedViewActivity extends AppCompatActivity {
      * TODO yuyang 可以添加选中动作的FlowLayout
      */
     private TagFlowLayout tagFlowLayout;
-    /**
-     * TODO yuyang android提供的计时工具
-     */
-    private CountDownTimer countDownTimer;
     /**
      * TagFlowLayout 的适配器
      */
@@ -65,7 +59,6 @@ public class DefinedViewActivity extends AppCompatActivity {
     }
 
     private void findViews() {
-        timerButton = (Button) findViewById(R.id.button);
         nextButton = (Button) findViewById(R.id.defind_next_drag_helper);
         verticalButton = (Button) findViewById(R.id.defind_vertical_layout);
         gestureLockButton = (Button) findViewById(R.id.defind_gesture_lock);
@@ -79,21 +72,6 @@ public class DefinedViewActivity extends AppCompatActivity {
     }
 
     private void initDatas() {
-        //按键倒计时
-        countDownTimer = new CountDownTimer(60000, 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                timerButton.setClickable(false);
-                timerButton.setText("倒计时" + millisUntilFinished/1000 + "秒");
-            }
-
-            @Override
-            public void onFinish() {
-                timerButton.setClickable(true);
-                timerButton.setText("倒计时完成");
-            }
-        };
-
         final LayoutInflater mInflater = LayoutInflater.from(this);
         adapter = new TagAdapter<String>(mVals) {
             @Override
@@ -108,13 +86,6 @@ public class DefinedViewActivity extends AppCompatActivity {
     }
 
     private void initAction() {
-        timerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                countDownTimer.start();
-            }
-        });
-
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
