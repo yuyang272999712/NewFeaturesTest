@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="自定义继承HorizontalScrollView"/>
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.galleryEffect.MyHorizontalScrollView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.galleryEffect.MyHorizontalScrollView
             android:id="@+id/hualang_horizontalScrollView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
                 android:layout_gravity="center"
                 android:orientation="horizontal">
             </LinearLayout>
-        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.galleryEffect.MyHorizontalScrollView>
+        </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.galleryEffect.MyHorizontalScrollView>
 
         <TextView
             android:layout_width="wrap_content"

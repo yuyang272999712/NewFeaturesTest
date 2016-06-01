@@ -48,15 +48,16 @@
             android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
-        <activity android:name=".userDefinedViews.DefinedViewActivity"/>
-        <activity android:name=".userDefinedViews.ViewDragHelperActivity"/>
-        <activity android:name=".userDefinedViews.VerticalLinearLayoutActivity"/>
-        <activity android:name=".userDefinedViews.GestureLockActivity"/>
-        <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity1"/>
-        <activity android:name=".userDefinedViews.QQSlidingMenu.SlidingMenuActivity2"/>
-        <activity android:name=".userDefinedViews.ClipImageActivity"/>
-        <activity android:name=".userDefinedViews.ClipImageResultActivity"/>
-        <activity android:name=".userDefinedViews.GamePintuActivity"/>
+        <activity android:name=".userDefinedWidget.UserDefinedWidgetActivity"/>
+        <activity android:name=".userDefinedWidget.ViewDragHelperActivity"/>
+        <activity android:name=".userDefinedWidget.VerticalLinearLayoutActivity"/>
+        <activity android:name=".userDefinedWidget.GestureLockActivity"/>
+        <activity android:name=".userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1"/>
+        <activity android:name=".userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2"/>
+        <activity android:name=".userDefinedWidget.ClipImageActivity"/>
+        <activity android:name=".userDefinedWidget.ClipImageResultActivity"/>
+        <activity android:name=".userDefinedWidget.GamePintuActivity"/>
+        <activity android:name=".userDefinedWidget.FlowLayoutActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
@@ -100,8 +101,8 @@
         <activity android:name=".mediaPlayerAbout.MediaRecorderActivity"/>
         <activity android:name=".googleWidget.GoogleWidgetActivity"/>
         <activity android:name=".googleWidget.FlexboxLayoutActivity"/>
-        <activity android:name=".userDefinedViews.ArcMenuAndZoomImageActivity"/>
-        <activity android:name=".userDefinedViews.HuaLangActivity"/>
+        <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
+        <activity android:name=".userDefinedWidget.HuaLangActivity"/>
 
         <service android:name=".service.BackgroundService"/>
 

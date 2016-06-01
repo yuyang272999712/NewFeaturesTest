@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8133ff00"
+    android:gravity="center">
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:gravity="center"
+        android:background="#66111111">
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="Welcome" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="IT工程师" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="学习ing" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="恋爱ing" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="挣钱ing" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="努力ing" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:text="I thick i can" />
+
+    </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:background="#66111111"
+        app:gravity="right"
+        android:layout_marginTop="20dp" >
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_2"
+            android:text="Welcome"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_2"
+            android:text="IT工程师"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_2"
+            android:text="学习ing"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_2"
+            android:text="恋爱ing"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_3"
+            android:text="挣钱ing"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_3"
+            android:text="努力ing"
+            android:textColor="#43BBE7" />
+
+        <TextView
+            style="@style/flow_item_text_style"
+            android:background="@drawable/flow_item_bg_3"
+            android:text="I thick i can"
+            android:textColor="#43BBE7" />
+    </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagFlowLayout
+        android:id="@+id/defind_tag_flow_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:max_select="3"/>
+
+</LinearLayout>

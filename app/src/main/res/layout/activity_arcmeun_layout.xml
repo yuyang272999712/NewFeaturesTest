@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.zoomImageView.ZoomImageView
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.zoomImageView.ZoomImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@mipmap/zoom_img_2"/>
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ArcMenu.ArcMenu
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.ArcMenu.ArcMenu
         android:id="@+id/id_arcmenu1"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -58,5 +58,5 @@
             android:src="@mipmap/composer_sleep"
             android:tag="Sleep" />
 
-    </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ArcMenu.ArcMenu>
+    </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.ArcMenu.ArcMenu>
 </RelativeLayout>

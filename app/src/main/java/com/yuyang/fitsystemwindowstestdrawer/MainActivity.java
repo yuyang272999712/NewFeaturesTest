@@ -33,7 +33,7 @@ import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.DefinedViewActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.UserDefinedWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
 
 /**
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DefinedViewActivity.class);
+                Intent intent = new Intent(MainActivity.this, UserDefinedWidgetActivity.class);
                 startActivity(intent);
             }
         });

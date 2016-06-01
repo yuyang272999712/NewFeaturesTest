@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.dragHelperViews.VerticalDrawerLayout
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.VerticalDrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,98 +11,6 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:gravity="center"
-            android:background="#66111111">
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="Welcome" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="IT工程师" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="学习ing" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="恋爱ing" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="挣钱ing" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="努力ing" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:text="I thick i can" />
-
-        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout>
-
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:background="#66111111"
-            app:gravity="right"
-            android:layout_marginTop="20dp" >
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_2"
-                android:text="Welcome"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_2"
-                android:text="IT工程师"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_2"
-                android:text="学习ing"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_2"
-                android:text="恋爱ing"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_3"
-                android:text="挣钱ing"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_3"
-                android:text="努力ing"
-                android:textColor="#43BBE7" />
-
-            <TextView
-                style="@style/flow_item_text_style"
-                android:background="@drawable/flow_item_bg_3"
-                android:text="I thick i can"
-                android:textColor="#43BBE7" />
-        </com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout>
-
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.TagFlowLayout
-            android:id="@+id/defind_tag_flow_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:max_select="3"/>
-
     </LinearLayout>
 
     <LinearLayout
@@ -113,13 +20,19 @@
         android:orientation="vertical"
         android:gravity="center">
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.ClearEditTextView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.ClearEditTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:singleLine="true"
             android:text="自带清除按钮的edittext"/>
 
+        <Button
+            android:id="@+id/defind_flow_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义流式布局"
+            android:textAllCaps="false"/>
         <Button
             android:id="@+id/defind_next_drag_helper"
             android:layout_width="wrap_content"
@@ -176,4 +89,4 @@
 
     </LinearLayout>
 
-</com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.dragHelperViews.VerticalDrawerLayout>
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.VerticalDrawerLayout>

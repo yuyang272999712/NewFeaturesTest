@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.verticalLinearLayout.VerticalLinearLayout
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.verticalLinearLayout.VerticalLinearLayout
     android:id="@+id/defined_view_3_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -38,4 +38,4 @@
             android:textSize="25sp"/>
     </LinearLayout>
 
-</com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.verticalLinearLayout.VerticalLinearLayout>
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.verticalLinearLayout.VerticalLinearLayout>
