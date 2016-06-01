@@ -50,9 +50,9 @@ public class CustomVerificationCodeView extends View {
     public CustomVerificationCodeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomVerificationCodeView, defStyleAttr, R.style.DefaultCustomTitleStyle);
-        titleText = a.getString(R.styleable.CustomTitleView_titleText);
-        titleColor = a.getColor(R.styleable.CustomTitleView_titleColor, Color.BLACK);
-        titleSize = a.getDimensionPixelSize(R.styleable.CustomTitleView_titleSize,
+        titleText = a.getString(R.styleable.CustomVerificationCodeView_titleText);
+        titleColor = a.getColor(R.styleable.CustomVerificationCodeView_titleColor, Color.BLACK);
+        titleSize = a.getDimensionPixelSize(R.styleable.CustomVerificationCodeView_titleSize,
                 (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 16, getResources().getDisplayMetrics()));
         Log.i("－－CustomTitleView－－", titleText);
         a.recycle();
