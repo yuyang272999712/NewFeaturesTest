@@ -36,7 +36,7 @@
     <attr name="titleText" format="string"/>
     <attr name="titleColor" format="color"/>
     <attr name="titleSize" format="dimension"/>
-    <declare-styleable name="CustomTitleView">
+    <declare-styleable name="CustomVerificationCodeView">
         <attr name="titleText"/>
         <attr name="titleColor"/>
         <attr name="titleSize"/>

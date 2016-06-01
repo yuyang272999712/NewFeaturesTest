@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.googleNewWidget;
+package com.yuyang.fitsystemwindowstestdrawer.googleWidget;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,9 +11,8 @@ import android.widget.Toast;
 
 import com.google.android.flexbox.FlexboxLayout;
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.customFlexboxLayout.TagAdapter;
-import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.customFlexboxLayout.TagFlowLayout;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedViews.flowLayout.FlowLayout;
+import com.yuyang.fitsystemwindowstestdrawer.googleWidget.customFlexboxLayout.TagAdapter;
+import com.yuyang.fitsystemwindowstestdrawer.googleWidget.customFlexboxLayout.TagFlowLayout;
 
 import java.util.Set;
 

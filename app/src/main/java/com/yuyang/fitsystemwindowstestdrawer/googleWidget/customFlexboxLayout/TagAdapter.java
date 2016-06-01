@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.customFlexboxLayout;
+package com.yuyang.fitsystemwindowstestdrawer.googleWidget.customFlexboxLayout;
 
 import android.support.annotation.NonNull;
 import android.view.View;

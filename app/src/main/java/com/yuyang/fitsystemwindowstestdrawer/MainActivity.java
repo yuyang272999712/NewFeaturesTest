@@ -22,7 +22,7 @@ import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.googleNewWidget.FlexboxLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.googleWidget.FlexboxLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;

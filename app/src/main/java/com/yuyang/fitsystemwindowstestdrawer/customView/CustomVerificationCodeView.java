@@ -18,9 +18,9 @@ import java.util.Random;
 import java.util.Set;
 
 /**
- * 自定义View 文本View
+ * 验证码View
  */
-public class CustomTitleView extends View {
+public class CustomVerificationCodeView extends View {
 
     private String titleText;
     private int titleSize;
@@ -33,7 +33,7 @@ public class CustomTitleView extends View {
      * 用代码动态创建一个view而不使用布局文件xml inflate，那么此实现就可以了。
      * @param context
      */
-    public CustomTitleView(Context context) {
+    public CustomVerificationCodeView(Context context) {
         this(context, null);
     }
 
@@ -43,13 +43,13 @@ public class CustomTitleView extends View {
      * @param context
      * @param attrs
      */
-    public CustomTitleView(Context context, AttributeSet attrs) {
+    public CustomVerificationCodeView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public CustomTitleView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomVerificationCodeView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomTitleView, defStyleAttr, R.style.DefaultCustomTitleStyle);
+        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CustomVerificationCodeView, defStyleAttr, R.style.DefaultCustomTitleStyle);
         titleText = a.getString(R.styleable.CustomTitleView_titleText);
         titleColor = a.getColor(R.styleable.CustomTitleView_titleColor, Color.BLACK);
         titleSize = a.getDimensionPixelSize(R.styleable.CustomTitleView_titleSize,
@@ -69,12 +69,10 @@ public class CustomTitleView extends View {
         /**
          * 添加点击事件
          */
-        this.setOnClickListener(new OnClickListener()
-        {
+        this.setOnClickListener(new OnClickListener() {
 
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 titleText = randomText();
                 postInvalidate();
             }

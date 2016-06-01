@@ -98,7 +98,7 @@
         <activity android:name=".mediaPlayerAbout.CameraActivity"/>
         <activity android:name=".mediaPlayerAbout.CameraVideoIntentActivity"/>
         <activity android:name=".mediaPlayerAbout.MediaRecorderActivity"/>
-        <activity android:name=".googleNewWidget.FlexboxLayoutActivity"/>
+        <activity android:name=".googleWidget.FlexboxLayoutActivity"/>
         <activity android:name=".userDefinedViews.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedViews.HuaLangActivity"/>
 
