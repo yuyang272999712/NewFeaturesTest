@@ -36,6 +36,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button clipImgBtn;
     private Button gamePintuBtn;
     private Button circleImgBtn;
+    private Button guaguakaBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         clipImgBtn = (Button) findViewById(R.id.defind_clip_image);
         gamePintuBtn = (Button) findViewById(R.id.defind_game_pintu);
         circleImgBtn = (Button) findViewById(R.id.defind_circle_img);
+        guaguakaBtn = (Button) findViewById(R.id.defind_guaguaka);
     }
 
     private void initDatas() {}
@@ -138,6 +140,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, CircleImageActivity.class);
+                startActivity(intent);
+            }
+        });
+        guaguakaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, GuaguakaActivity.class);
                 startActivity(intent);
             }
         });
