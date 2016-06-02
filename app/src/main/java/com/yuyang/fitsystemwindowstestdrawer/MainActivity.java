@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.TabFragment;
 
 /**
  * tableLayout 相关属性设定：
@@ -60,8 +61,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         fragmentManager = getSupportFragmentManager();
-        MainFragment1 fragmet1 = new MainFragment1();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
+        MainFragment1 fragmet1 = new MainFragment1();
         transaction.replace(R.id.fragment_content, fragmet1);
         transaction.commit();
     }
@@ -111,9 +112,15 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            MainFragment1 fragment = new MainFragment1();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragment_content, fragment);
+            transaction.commit();
         } else if (id == R.id.nav_gallery) {
-
+            MainFragment2 fragment = new MainFragment2();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.fragment_content, fragment);
+            transaction.commit();
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
