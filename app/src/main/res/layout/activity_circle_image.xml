@@ -1,36 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:yy="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:scrollbars="none">
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        yy:type="circle"
-        yy:imageSrc="@mipmap/a"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        yy:type="circle"
-        yy:imageSrc="@mipmap/a"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CircleImageView"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="circle"
+            yy:imageSrc="@mipmap/a"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="circle"
+            yy:imageSrc="@mipmap/a"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            yy:imageSrc="@mipmap/a"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            yy:imageSrc="@mipmap/a"/>
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        yy:type="round"
-        yy:imageRadius="10dp"
-        yy:imageSrc="@mipmap/a"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#828423"/>
 
-    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView
-        android:layout_width="50dp"
-        android:layout_height="80dp"
-        yy:type="round"
-        yy:imageRadius="10dp"
-        yy:imageSrc="@mipmap/a"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CircleImageView2"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="circle"
+            android:src="@mipmap/b"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView2
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="circle"
+            android:src="@mipmap/b"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView2
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            android:src="@mipmap/b"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageView2
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            android:src="@mipmap/b"/>
 
-</LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="#828423"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CircleImageByXfermodeView"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageByXfermodeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="circle"
+            android:src="@mipmap/c"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageByXfermodeView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="circle"
+            android:src="@mipmap/c"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageByXfermodeView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            android:src="@mipmap/c"/>
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageByXfermodeView
+            android:layout_width="50dp"
+            android:layout_height="80dp"
+            yy:type="round"
+            yy:imageRadius="10dp"
+            android:src="@mipmap/c"/>
+
+    </LinearLayout>
+
+</ScrollView>

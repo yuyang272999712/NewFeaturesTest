@@ -129,7 +129,7 @@
         <attr name="horizontal_padding"/>
         <attr name="src"/>
     </declare-styleable>
-    <!--自定义Widget－ClipImageLayout－裁剪Image-->
+    <!--自定义Widget－CircleImageView－裁剪Image-->
     <attr name="imageRadius" format="dimension"/><!--半径-->
     <attr name="type" format="enum">
         <enum name="circle" value="0"/><!--圆形-->
