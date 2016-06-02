@@ -20,6 +20,10 @@
     <uses-permission android:name="android.permission.CAMERA"/>
     <!--录制视频权限-->
     <uses-permission android:name="android.permission.RECORD_VIDEO"/>
+    <!--拨打电话的权限-->
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <!--读取本机信息-->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -37,7 +41,6 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -108,6 +111,19 @@
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>
+        <activity android:name=".telephony_sms.TelephonyAndSmsActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.CALL_BUTTON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <action android:name="android.intent.action.DIAL"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="tel"/>
+            </intent-filter>
+        </activity>
         <!--网络状态变化广播接收器-->
         <receiver android:name=".internetAbout.manager.ConnectivityChangedReceiver">
             <intent-filter>

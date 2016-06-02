@@ -9,26 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
-import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
-import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
-import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
-import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
-import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
-import com.yuyang.fitsystemwindowstestdrawer.internetAbout.manager.ConnectivityStateActivity;
-import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
-import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
-import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
-import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
-import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.UserDefinedWidgetActivity;
-import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
+import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
 
 /**
  * Created by yuyang on 2016/6/2.
@@ -71,7 +52,7 @@ public class MainFragment2 extends Fragment {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), OptionsCompatActivity.class);
+                Intent intent = new Intent(getContext(), TelephonyAndSmsActivity.class);
                 startActivity(intent);
             }
         });
