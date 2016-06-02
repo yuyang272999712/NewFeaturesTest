@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/wechat_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffa9a7">
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            yy:bottom_icon="@mipmap/wechat_icon_1"
+            yy:text="标签1"
+            yy:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            yy:bottom_icon="@mipmap/wechat_icon_2"
+            yy:text="标签2"
+            yy:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            yy:bottom_icon="@mipmap/wechat_icon_3"
+            yy:text="标签3"
+            yy:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            yy:bottom_icon="@mipmap/wechat_icon_4"
+            yy:text="标签4"
+            yy:text_size="12sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

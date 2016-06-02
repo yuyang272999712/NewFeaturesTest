@@ -15,6 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagAdapter;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagFlowLayout;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
 
 import java.util.Set;
 
@@ -37,6 +38,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button gamePintuBtn;
     private Button circleImgBtn;
     private Button guaguakaBtn;
+    private Button wechatBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +63,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         gamePintuBtn = (Button) findViewById(R.id.defind_game_pintu);
         circleImgBtn = (Button) findViewById(R.id.defind_circle_img);
         guaguakaBtn = (Button) findViewById(R.id.defind_guaguaka);
+        wechatBtn = (Button) findViewById(R.id.defind_wechat);
     }
 
     private void initDatas() {}
@@ -147,6 +150,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, GuaguakaActivity.class);
+                startActivity(intent);
+            }
+        });
+        wechatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, WeChatActivity.class);
                 startActivity(intent);
             }
         });

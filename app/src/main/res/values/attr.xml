@@ -141,5 +141,16 @@
         <attr name="type"/>
         <attr name="imageSrc"/>
     </declare-styleable>
+    <!--自定义View－ChangeColorIconWithTextView－仿微信底部tab-->
+    <attr name="bottom_icon" format="reference"/>
+    <attr name="bottom_color" format="color"/>
+    <attr name="text" format="string"/>
+    <attr name="text_size" format="dimension"/>
+    <declare-styleable name="ChangeColorIconWithTextView">
+        <attr name="bottom_icon"/>
+        <attr name="bottom_color"/>
+        <attr name="text"/>
+        <attr name="text_size"/>
+    </declare-styleable>
     
 </resources>
