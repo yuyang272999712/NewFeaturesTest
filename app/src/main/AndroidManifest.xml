@@ -124,27 +124,18 @@
                 <data android:scheme="tel"/>
             </intent-filter>
         </activity>
+        <activity android:name=".ViewPagerIndicator.PagerIndicatorActivity"/>
+<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+
+        <!--一直运行在app生命过程中的service-->
+        <service android:name=".service.BackgroundService"/>
+<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+
         <!--网络状态变化广播接收器-->
         <receiver android:name=".internetAbout.manager.ConnectivityChangedReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
-        </receiver>
-        <!--一直运行在app生命过程中的service-->
-        <service android:name=".service.BackgroundService"/>
-
-        <receiver android:name=".broadcastReceiver.PresentReceiver">
-            <intent-filter>
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-            </intent-filter>
-            <!--<intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.MEDIA_MOUNTED" />
-                <action android:name="android.intent.action.MEDIA_EJECT" />
-                <data android:scheme="file" />
-            </intent-filter>-->
         </receiver>
 
         <!-- 添加桌面小控件-->
