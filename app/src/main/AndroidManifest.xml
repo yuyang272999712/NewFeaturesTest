@@ -24,6 +24,10 @@
     <uses-permission android:name="android.permission.CALL_PHONE"/>
     <!--读取本机信息-->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <!--发送短信的权限-->
+    <uses-permission android:name="android.permission.SEND_SMS"/>
+    <!--接收短信权限-->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
 
     <application
         android:allowBackup="true"

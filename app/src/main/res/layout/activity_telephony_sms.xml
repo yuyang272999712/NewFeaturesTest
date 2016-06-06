@@ -31,4 +31,26 @@
         android:background="#fff37c"
         android:text="本机信息"/>
 
+    <View
+        android:layout_height="1dp"
+        android:layout_width="match_parent"
+        android:background="#000000"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="短信服务"/>
+    <Button
+        android:id="@+id/tel_sms_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动其他应用发送短信"/>
+    <Button
+        android:id="@+id/tel_sms_sms_manager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="应用自身发送短息"/>
+
 </LinearLayout>
