@@ -167,6 +167,12 @@
         </receiver>
         <service android:name=".destWidget.MyRemoteViewService"
             android:permission="android.permission.BIND_REMOTEVIEWS"/>
+        <!--监听新短息到来-->
+        <receiver android:name=".telephony_sms.SmsReceiver" >
+            <intent-filter android:priority="800">
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
 
     </application>
 
