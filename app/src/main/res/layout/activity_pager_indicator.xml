@@ -33,9 +33,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="自定义的TabLayout,改自上面的Indicator"/>
-    <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.MyTabLayout
+    <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTabLayout.MyTabLayout
         android:id="@+id/indicator_my_tab_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="45dp"
         android:background="@color/colorPrimaryDark"
         android:scrollbars="none"

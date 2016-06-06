@@ -9,7 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.MyTabLayout;
+import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTabLayout.MyTabLayout;
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.ViewPagerIndicator;
 
 import java.util.ArrayList;
@@ -24,8 +24,9 @@ public class PagerIndicatorActivity extends AppCompatActivity {
     private FragmentPagerAdapter adapter;
     private ViewPager viewPager;
     private TabLayout tabLayout;
-    private List<String> mTitles = Arrays.asList("Fragment1", "Fragment2Fragment1", "Fragment3", "Fragment4",
+    private List<String> mTitles = Arrays.asList("Fragment1", "Fragment2Fragment1", "Fragment3", "F4",
             "Fragment5", "Fragment6", "Fragment7", "Fragment8", "Fragment9");
+    private List<String> mTitles2 = Arrays.asList("Fragment1", "Fragment2", "Fragment3");
 
     private ViewPagerIndicator myIndicator;
     private MyTabLayout myTabLayout;
@@ -65,10 +66,9 @@ public class PagerIndicatorActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
 
-        myIndicator.setTabItemTitles(mTitles);
+        myIndicator.setTabItemTitles(mTitles2);
         myIndicator.setViewPager(viewPager, 0);
 
-        myTabLayout.setTabItemTitles(mTitles);
         myTabLayout.setViewPager(viewPager, 0);
     }
 

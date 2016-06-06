@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab;
+package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTabLayout;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.CornerPathEffect;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -15,8 +16,6 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import java.util.List;
 
 /**
  * 类似TabLayout的ViewPager指示器
@@ -52,20 +51,12 @@ public class MyTabLinearLayout extends LinearLayout {
      * 初始位置，三角形指示器X偏移亮
      */
     private int mInitTranslationX;
-    /**
-     * 手指滑动时的偏移量
-     */
-    private float mTranslationX;
     //Tab相关参数
     /**
      * 默认的TAB显示数量
      */
     private static final int COUNT_DEFAULT_TAB = 4;
     private int mTabVisibleCount = COUNT_DEFAULT_TAB;
-    /**
-     * Tab上的内容
-     */
-    private List<String> mTabTitles;
     /**
      * 与Tab绑定的ViewPager
      */
@@ -78,6 +69,10 @@ public class MyTabLinearLayout extends LinearLayout {
      * 标题选中时的颜色
      */
     private static final int COLOR_TEXT_HIGHLIGHTCOLOR = 0xFFFFFFFF;
+    /**
+     * 父容器HorizontalScrollView的滚动回调
+     */
+    private ScrollToCallBack scrollCallBack;
 
     public MyTabLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -121,7 +116,7 @@ public class MyTabLinearLayout extends LinearLayout {
     @Override
     protected void dispatchDraw(Canvas canvas) {
         canvas.save();
-        canvas.translate(mInitTranslationX+mTranslationX, getHeight()+1);
+        canvas.translate(mInitTranslationX, getHeight()+1);
         canvas.drawPath(mPath, mPaint);
         canvas.restore();
         super.dispatchDraw(canvas);
@@ -182,6 +177,8 @@ public class MyTabLinearLayout extends LinearLayout {
         });
         // 设置当前页
         mViewPager.setCurrentItem(pos);
+        //设置tab
+        setTabItemTitles(viewPager);
         // 高亮
         highLightTextView(pos);
     }
@@ -197,18 +194,19 @@ public class MyTabLinearLayout extends LinearLayout {
             View view = getChildAt(i);
             translationX += view.getWidth();
         }
-        int preWidth = getChildAt(position).getWidth();
+        int preWidth = 0;
+        if(getChildAt(position)!=null) {
+            preWidth = getChildAt(position).getWidth();
+        }
         int nxtWidth = 0;
         if (getChildAt(position+1)!=null) {
             nxtWidth = getChildAt(position + 1).getWidth();
         }
         // 不断改变偏移量，invalidate
-        mInitTranslationX = (int) (translationX + (preWidth+nxtWidth)/2*offset);
-        int tabWidth = getChildAt(position).getWidth();
-        // 容器滚动，当移动到倒数最后一个的时候，开始滚动
-        /*if (offset>0 && position>=(mTabVisibleCount-2) && getChildCount()>mTabVisibleCount){
-            this.scrollTo((position - (mTabVisibleCount - 2)) * tabWidth + (int) (tabWidth * offset), 0);
-        }*/
+        mInitTranslationX = (int) (translationX + preWidth/2 + (preWidth+nxtWidth)/2*offset) - mTriangleWidth/2;
+        //让三角永远位于屏幕中间
+        int disX = mInitTranslationX - scrollCallBack.getWidth()/2 + mTriangleWidth/2;
+        scrollCallBack.smoothScrollTo(disX, 0);
         invalidate();
     }
 
@@ -238,16 +236,18 @@ public class MyTabLinearLayout extends LinearLayout {
     /**
      * 设置tab的标题内容 可选，可以自己在布局文件中写死
      *
-     * @param datas
+     * @param viewPager
      */
-    public void setTabItemTitles(List<String> datas) {
+    public void setTabItemTitles(ViewPager viewPager) {
         // 如果传入的list有值，则移除布局文件中设置的view
-        if (datas != null && datas.size() > 0) {
+        if (viewPager != null && viewPager.getAdapter() != null) {
             this.removeAllViews();
-            this.mTabTitles = datas;
-            for (String title : mTabTitles) {
-                // 添加view
-                addView(generateTextView(title));
+            final PagerAdapter adapter = viewPager.getAdapter();
+            if (adapter == null) {
+                throw new IllegalArgumentException("ViewPager does not have a PagerAdapter set");
+            }
+            for (int i=0; i<adapter.getCount(); i++){
+                addView(generateTextView(adapter.getPageTitle(i).toString()));
             }
             // 设置item的click事件
             setItemClickEvent();
@@ -283,6 +283,15 @@ public class MyTabLinearLayout extends LinearLayout {
         DisplayMetrics metrics = new DisplayMetrics();
         windowManager.getDefaultDisplay().getMetrics(metrics);
         return metrics.widthPixels;
+    }
+
+    public void setCallBack(ScrollToCallBack callBack){
+        this.scrollCallBack = callBack;
+    }
+
+    public interface ScrollToCallBack{
+        int getWidth();
+        void smoothScrollTo(int x,int y);
     }
 
 }

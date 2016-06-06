@@ -238,6 +238,7 @@ public class ViewPagerIndicator extends LinearLayout {
         // 如果传入的list有值，则移除布局文件中设置的view
         if (datas != null && datas.size() > 0) {
             this.removeAllViews();
+            this.mTabVisibleCount = datas.size();
             this.mTabTitles = datas;
             for (String title : mTabTitles) {
                 // 添加view
@@ -259,7 +260,6 @@ public class ViewPagerIndicator extends LinearLayout {
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         lp.width = getScreenWidth() / mTabVisibleCount;
-        tv.setPadding(10,0,10,0);
         tv.setGravity(Gravity.CENTER);
         tv.setTextColor(COLOR_TEXT_NORMAL);
         tv.setText(text);
