@@ -108,6 +108,7 @@
         <activity android:name=".mediaPlayerAbout.MediaRecorderActivity"/>
         <activity android:name=".googleWidget.GoogleWidgetActivity"/>
         <activity android:name=".googleWidget.FlexboxLayoutActivity"/>
+        <activity android:name=".googleWidget.DividerActivity"/>
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>

@@ -61,8 +61,14 @@ public class GoogleWidgetActivity extends AppCompatActivity {
         };
     }
 
+    //google流式布局Flexbox
     public void gotoFlexbox(View view){
         Intent intent = new Intent(this, FlexboxLayoutActivity.class);
+        startActivity(intent);
+    }
+    //divider属性及兼容处理
+    public void gotoDivider(View view){
+        Intent intent = new Intent(this, DividerActivity.class);
         startActivity(intent);
     }
 }

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="通过divider设置按钮指间的间隔，避免使用button的rightMargin,这样即使删除一个Button，也不用调整Margin"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:dividerPadding="2dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#89c1f7"
+            android:text="按钮1"/>
+        <Button
+            android:id="@+id/divider_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#c789f7"
+            android:text="按钮2"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#c0f789"
+            android:onClick="deleteBtn2"
+            android:text="按钮3"/>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="50dp"
+        android:background="#000000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="兼容3.0以下版本的LinearLayout"/>
+    <com.yuyang.fitsystemwindowstestdrawer.googleWidget.CompatDivider.IcsLinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:divider="@drawable/divider"
+        android:showDividers="middle"
+        android:dividerPadding="2dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#89c1f7"
+            android:text="按钮1"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#c789f7"
+            android:text="按钮2"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#c0f789"
+            android:text="按钮3"/>
+    </com.yuyang.fitsystemwindowstestdrawer.googleWidget.CompatDivider.IcsLinearLayout>
+
+</LinearLayout>

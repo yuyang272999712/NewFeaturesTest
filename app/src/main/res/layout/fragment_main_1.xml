@@ -174,7 +174,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="google新控件"/>
+                android:text="不常用控件"/>
 
         </TableRow>
 
