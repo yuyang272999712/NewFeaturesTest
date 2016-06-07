@@ -41,12 +41,20 @@ public class ViewTouchEventActivity extends AppCompatActivity {
                 switch (action){
                     case MotionEvent.ACTION_DOWN:
                         Log.e(TAG, "---onTouch ACTION_DOWN---");
+                        //return true; //TODO yuyang 如果在onTouch中的DOWN事件返回了true，那么接下来的所有事件onTouchEvent都接受不到
                         break;
                     case MotionEvent.ACTION_MOVE:
                         Log.e(TAG, "---onTouch ACTION_MOVE---");
+                        //return true; //TODO yuyang 如果在onTouch中的MOVE事件返回了true，那么接下来的onTouchEvent中的MOVE事件不会被触发
                         break;
                     case MotionEvent.ACTION_UP:
                         Log.e(TAG, "---onTouch ACTION_UP---");
+                        /*
+                         TODO yuyang 如果在onTouch中的UP事件返回了true，那么接下来的onTouchEvent中的UP事件不会被触发
+                          还有一种特殊情况，如果在onTouch中未拦截DOWN事件，那么onTouchEvent中接收到了DOWN事件，
+                          但是后续的UP事件接受不到，此时就会认为是发生了！！！长按事件！！！
+                         */
+                        //return true;
                         break;
                     default:
                         break;

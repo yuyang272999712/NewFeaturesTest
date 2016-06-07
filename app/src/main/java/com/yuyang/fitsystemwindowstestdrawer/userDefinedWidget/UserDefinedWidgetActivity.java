@@ -40,6 +40,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button guaguakaBtn;
     private Button wechatBtn;
     private Button luckyPanBtn;
+    private Button circleMenuBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         guaguakaBtn = (Button) findViewById(R.id.defind_guaguaka);
         wechatBtn = (Button) findViewById(R.id.defind_wechat);
         luckyPanBtn = (Button) findViewById(R.id.defind_lucky_pan);
+        circleMenuBtn = (Button) findViewById(R.id.defind_circle_menu);
     }
 
     private void initDatas() {}
@@ -166,6 +168,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, LuckyPanActivity.class);
+                startActivity(intent);
+            }
+        });
+        circleMenuBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, CircleMenuActivity.class);
                 startActivity(intent);
             }
         });

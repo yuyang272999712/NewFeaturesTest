@@ -58,7 +58,7 @@ ViewGroup
     DOWN时：
         a、判断disallowIntercept和onInterceptTouchEvent(ev)值
          disallowIntercept由requestDisallowInterceptTouchEvent()方法设置，用于判断当前ViewGroup是否不允许拦截；onInterceptTouchEvent(ev)是否拦截该事件
-         如果当前不允许拦截，即disallowIntercept =true，后者，当前允许拦截但是不拦截，即disallowIntercept =false,但是onInterceptTouchEvent(ev)返回false
+         如果当前不允许拦截，即disallowIntercept =true，或者，当前允许拦截但是不拦截，即disallowIntercept =false,但是onInterceptTouchEvent(ev)返回false
          则进入执行体，查找目标子View。
         b、如果子View的child.dispatchTouchEvent(ev)返回true，则为mMotionTarget=child;然后return true;
     MOVE时：
