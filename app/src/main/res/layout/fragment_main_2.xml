@@ -41,7 +41,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="FlabbyBird游戏"/>
 
             <Button
                 android:id="@+id/button4"

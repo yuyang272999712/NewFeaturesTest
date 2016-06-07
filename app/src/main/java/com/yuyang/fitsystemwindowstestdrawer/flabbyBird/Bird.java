@@ -13,13 +13,13 @@ import com.yuyang.fitsystemwindowstestdrawer.utils.DensityUtils;
  */
 public class Bird {
     /**
-     * 鸟在屏幕高度的2/3位置
+     * 鸟在屏幕高度的1/2位置
      */
-    private static final float RADIO_POS_HEIGHT = 2/3;
+    private static final float RADIO_POS_HEIGHT = 1/2f;
     /**
      * 鸟宽度默认30dp
      */
-    private static final int BIRE_SIZE = 30;
+    private static final int BIRD_SIZE = 30;
     /**
      * 鸟的横竖坐标
      */
@@ -38,15 +38,20 @@ public class Bird {
      * 鸟绘制的范围
      */
     private RectF rect = new RectF();
+    /**
+     * 游戏屏幕高度
+     */
+    private int gameHeight;
 
     public Bird(Context context, int gameWith, int gameHeight, Bitmap bitmap){
+        this.gameHeight = gameHeight;
         this.bitmap = bitmap;
         //鸟的位置
         this.x = gameWith/2 - bitmap.getWidth()/2;
         this.y = (int) (gameHeight*RADIO_POS_HEIGHT);
         //鸟的宽高
-        this.mWidth = DensityUtils.dp2px(context, BIRE_SIZE);
-        this.mHeight = (int) (mWidth*1.0/bitmap.getWidth()*bitmap.getHeight());
+        this.mWidth = DensityUtils.dp2px(context, BIRD_SIZE);
+        this.mHeight = (int) (mWidth*1.0f/bitmap.getWidth()*bitmap.getHeight());
     }
 
     /**
@@ -59,6 +64,10 @@ public class Bird {
         canvas.drawBitmap(bitmap, null, rect, null);
     }
 
+    public void resetY(){
+        setY((int) (gameHeight*RADIO_POS_HEIGHT));
+    }
+
     public int getY() {
         return y;
     }
@@ -67,11 +76,15 @@ public class Bird {
         this.y = y;
     }
 
-    public int getmWidth() {
+    public int getWidth() {
         return mWidth;
     }
 
-    public int getmHeight() {
+    public int getHeight() {
         return mHeight;
+    }
+
+    public int getX() {
+        return x;
     }
 }
