@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/progress_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动进度条"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="系统的进度条"/>
+    <ProgressBar
+        android:id="@+id/progress_system_1"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/progressbar_indeterminate"/>
+    <ProgressBar
+        android:id="@+id/progress_system_2"
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+    <ProgressBar
+        android:id="@+id/progress_system_3"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"/>
+    <ProgressBar
+        android:id="@+id/progress_system_4"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:indeterminateDrawable="@drawable/progressbar_webview_states"/>
+    <ProgressBar
+        android:id="@+id/progress_system_5"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:progress="1"
+        android:max="100"/>
+    <ProgressBar
+        android:id="@+id/progress_system_6"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:progressDrawable="@drawable/progressbar_webview_states"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#879943"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义的进度条"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.HorizontalProgressBarWithNumber
+        android:id="@+id/progress_horizontal_1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:indeterminate="false"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.HorizontalProgressBarWithNumber
+        android:id="@+id/progress_horizontal_2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        yy:progress_reached_bar_height="5dp"
+        yy:progress_reached_color="#8e75ff"
+        yy:progress_unreached_bar_height="8dp"
+        yy:progress_unreached_color="#7b9f48"
+        yy:progress_text_color="#000000"
+        yy:progress_text_size="15dp"
+        yy:progress_text_offset="10dp"
+        yy:progress_text_visibility="visible"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.HorizontalProgressBarWithNumber
+        android:id="@+id/progress_horizontal_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:padding="5dp"
+        android:progress="50"
+        android:max="200"
+        yy:progress_reached_bar_height="5dp"
+        yy:progress_reached_color="#93ec6c"
+        yy:progress_unreached_bar_height="8dp"
+        yy:progress_unreached_color="#ff836d"
+        yy:progress_text_color="#000000"
+        yy:progress_text_size="15dp"
+        yy:progress_text_offset="10dp"
+        yy:progress_text_visibility="invisible"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.RoundProgressBarWidthNumber
+        android:id="@+id/progress_round_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.RoundProgressBarWidthNumber
+        android:id="@+id/progress_round_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        yy:progress_reached_bar_height="5dp"
+        yy:progress_reached_color="#93ec6c"
+        yy:progress_unreached_bar_height="5dp"
+        yy:progress_unreached_color="#ff836d"
+        yy:progress_text_color="#000000"
+        yy:progress_text_size="25dp"
+        yy:progress_text_offset="10dp"
+        yy:progress_text_visibility="visible"
+        yy:progress_radius="50dp"/>
+
+</LinearLayout>
