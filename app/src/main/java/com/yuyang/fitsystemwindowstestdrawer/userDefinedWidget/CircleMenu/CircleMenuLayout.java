@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
@@ -33,18 +34,6 @@ public class CircleMenuLayout extends ViewGroup {
      */
     private float RADIO_PADDING_LAYOUT = 1/12f;
     /**
-     * 当每秒移动角度达到该值时，认为是快速移动
-     */
-    private final int FLINGABLE_VALUE = 300;
-    /**
-     * 如果移动角度达到该值，则屏蔽点击
-     */
-    private final int NOCLICK_VALUE = 3;
-    /**
-     * 当每秒移动角度达到该值时，认为是快速移动
-     */
-    private int mFlingableValue = FLINGABLE_VALUE;
-    /**
      * 该容器的内边距,无视padding属性，如需边距请用该变量
      */
     private float mPadding;
@@ -65,6 +54,25 @@ public class CircleMenuLayout extends ViewGroup {
      */
     private int mMenuItemCount;
     /**
+     * 设置item的点击监听
+     */
+    private OnMenuItemClickListener onMenuItemClickListener;
+    /**
+     * ＊＊＊＊＊＊＊＊＊＊＊＊＊滚动相关＊＊＊＊＊＊＊＊＊＊＊＊＊
+     */
+    /**
+     * 当每秒移动角度达到该值时，认为是快速移动
+     */
+    private final int FLINGABLE_VALUE = 300;
+    /**
+     * 如果移动角度达到该值，则屏蔽点击
+     */
+    private final int NOCLICK_VALUE = 3;
+    /**
+     * 当每秒移动角度达到该值时，认为是快速移动
+     */
+    private int mFlingableValue = FLINGABLE_VALUE;
+    /**
      * 检测按下到抬起时旋转的角度
      */
     private float mTmpAngle;
@@ -77,9 +85,14 @@ public class CircleMenuLayout extends ViewGroup {
      */
     private boolean isFling;
     /**
-     * 设置item的点击监听
+     * 记录上一次的x，y坐标
      */
-    private OnMenuItemClickListener onMenuItemClickListener;
+    private float mLastX;
+    private float mLastY;
+    /**
+     * 自动滚动的Runnable
+     */
+    private AutoFlingRunnable mFlingRunnable;
 
     public CircleMenuLayout(Context context) {
         this(context, null);
@@ -152,26 +165,28 @@ public class CircleMenuLayout extends ViewGroup {
         int left,top;
         //menuItem的尺寸
         int childWidth = (int) (layoutRadius*RADIO_DEFAULT_CHILD_DIMENSION);
-        //根据menuItem个数计算每个item所占的角度
-        float angleDelay = 360/mMenuItemCount;
-        for (int i=0; i<childCount; i++){
-            View child = getChildAt(i);
-            if (child.getId() == R.id.id_circle_menu_item_center){
-                continue;
+        if (mMenuItemCount != 0) {
+            //根据menuItem个数计算每个item所占的角度
+            float angleDelay = 360 / mMenuItemCount;
+            for (int i = 0; i < childCount; i++) {
+                View child = getChildAt(i);
+                if (child.getId() == R.id.id_circle_menu_item_center) {
+                    continue;
+                }
+                if (child.getVisibility() == GONE) {
+                    continue;
+                }
+                mStartAngle %= 360;
+                //计算布局中心点到menuItem中心点的距离
+                float tmp = layoutRadius / 2f - childWidth / 2f - mPadding;
+                //menuItem的横坐标
+                left = (int) (layoutRadius / 2 + Math.round(tmp * Math.cos(Math.toRadians(mStartAngle)) - 1 / 2f * childWidth));
+                //menuItem的纵坐标
+                top = (int) (layoutRadius / 2 + Math.round(tmp * Math.sin(Math.toRadians(mStartAngle)) - 1 / 2f * childWidth));
+                child.layout(left, top, left + childWidth, top + childWidth);
+                //叠加角度
+                mStartAngle += angleDelay;
             }
-            if (child.getVisibility() == GONE){
-                continue;
-            }
-            mStartAngle %= 360;
-            //计算布局中心点到menuItem中心点的距离
-            float tmp = layoutRadius/2f - childWidth/2f - mPadding;
-            //menuItem的横坐标
-            left = (int) (layoutRadius/2 + Math.round(tmp*Math.cos(Math.toRadians(mStartAngle))-1/2f*childWidth));
-            //menuItem的纵坐标
-            top = (int) (layoutRadius/2 + Math.round(tmp*Math.sin(Math.toRadians(mStartAngle))-1/2f*childWidth));
-            child.layout(left, top, left+childWidth, top+childWidth);
-            //叠加角度
-            mStartAngle += angleDelay;
         }
 
         //找到中心View
@@ -190,6 +205,100 @@ public class CircleMenuLayout extends ViewGroup {
             top = (int) (layoutRadius/2 - centerView.getMeasuredHeight()/2);
             centerView.layout(left, top, left+centerView.getMeasuredWidth(), top+centerView.getMeasuredHeight());
         }
+    }
+
+    /**
+     * 重写dispatchTouchEvent事件，在其中编写跟随手指移动的代码~~
+     *  什么不在onTouchEvent里面写，因为如果我在onTouchEvent里面写，用户触摸item时，我们的菜单无法移动，
+     *  因为item是可点击，会作为我们的targetView，然后消耗掉我们的MOVE事件
+     * @param ev
+     * @return
+     */
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        float x = ev.getX();
+        float y = ev.getY();
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mLastX = x;
+                mLastY = y;
+                mDownTime = System.currentTimeMillis();
+                mTmpAngle = 0;
+                //如果正在转动，停止转动，消费掉这个事件
+                if (isFling){
+                    // 移除快速滚动的回调
+                    removeCallbacks(mFlingRunnable);
+                    isFling = false;
+                    return true;
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+                /**
+                 * 获取开始时的角度（DOWN事件时手指触摸点的角度）
+                 */
+                float start = getAngle(mLastX,mLastY);
+                /**
+                 * 获取当前的角度
+                 */
+                float end = getAngle(x, y);
+                //如果是一、四象限，则直接end-start，角度值都是正值
+                if (getQuadrant(x,y)==1 || getQuadrant(x,y)==4){
+                    mStartAngle += end - start;//改变该值以后重新布局，画面就转动起来了
+                    mTmpAngle += end - start;
+                }else {
+                    mStartAngle += start - end;
+                    mTmpAngle += start - end;
+                }
+                //重新布局
+                requestLayout();
+
+                mLastX = x;
+                mLastY = y;
+                break;
+            case MotionEvent.ACTION_UP:
+                //计算每秒移动的角度
+                float anglePreSecond = mTmpAngle * 1000 / (System.currentTimeMillis() - mDownTime);
+                //如果达到该值认为是快速移动
+                if (Math.abs(anglePreSecond) > mFlingableValue && !isFling){
+                    //post一个任务去自动转动
+                    post(mFlingRunnable = new AutoFlingRunnable(anglePreSecond));
+                    return true;//消费掉此事件
+                }
+                //如果当前旋转角度超过 NOCLICK_VALUE，屏蔽掉点击事件
+                if (Math.abs(mTmpAngle) > NOCLICK_VALUE){
+                    return true;
+                }
+                break;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * 根据当前位置计算象限
+     * @param x
+     * @param y
+     * @return
+     */
+    private int getQuadrant(float x, float y) {
+        int tmpX = (int) (x - mRadius / 2);
+        int tmpY = (int) (y - mRadius / 2);
+        if (tmpX >= 0) {//x大于0，说明只可能在1、4象限
+            return tmpY >= 0 ? 4 : 1;
+        } else {
+            return tmpY >= 0 ? 3 : 2;
+        }
+    }
+
+    /**
+     * 根据触摸的位置计算角度
+     * @param xTouch
+     * @param yTouch
+     * @return
+     */
+    private float getAngle(float xTouch, float yTouch) {
+        double x = xTouch - (mRadius / 2d);
+        double y = yTouch - (mRadius / 2d);
+        return (float) (Math.asin(y / Math.hypot(x, y)) * 180 / Math.PI);
     }
 
     /**
@@ -267,5 +376,39 @@ public class CircleMenuLayout extends ViewGroup {
 
     public void setOnMenuItemClickListener(OnMenuItemClickListener onMenuItemClickListener) {
         this.onMenuItemClickListener = onMenuItemClickListener;
+    }
+
+    /**
+     * 手机放开后自动滚动的任务
+     */
+    private class AutoFlingRunnable implements Runnable {
+        //角速度
+        private float angelPerSecond;
+
+        public AutoFlingRunnable(float anglePreSecond) {
+            this.angelPerSecond = anglePreSecond;
+        }
+
+        /**
+         * 传入每秒移动的角度这个值，然后根据这个值去增加mStartAngle，然后requestLayout();
+         * 就是自动滚动了~~当然了需要越滚越慢和停止，所以需要逐渐减小这个值angelPerSecond /= 1.0666F;
+         * 以及最后移动很慢的时候，就停下来
+         */
+        @Override
+        public void run() {
+            // 如果小于20,则停止
+            if ((int) Math.abs(angelPerSecond) < 20) {
+                isFling = false;
+                return;
+            }
+            isFling = true;
+            // 不断改变mStartAngle，让其滚动，/30为了避免滚动太快
+            mStartAngle += (angelPerSecond / 30);
+            // 逐渐减小这个值
+            angelPerSecond /= 1.0666F;
+            postDelayed(this, 30);
+            // 重新布局
+            requestLayout();
+        }
     }
 }

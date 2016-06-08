@@ -13,7 +13,8 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.CircleMenu.Circle
  * 圆形菜单
  */
 public class CircleMenuActivity extends AppCompatActivity {
-    private CircleMenuLayout mCircleMenuLayout;
+    private CircleMenuLayout mCircleMenuLayout1;
+    private CircleMenuLayout mCircleMenuLayout2;
 
     private String[] mItemTexts = new String[] { "安全中心 ", "特色服务", "投资理财",
             "转账汇款", "我的账户", "信用卡" };
@@ -27,10 +28,11 @@ public class CircleMenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_circle_menu);
 
-        mCircleMenuLayout = (CircleMenuLayout) findViewById(R.id.circle_menu);
+        mCircleMenuLayout1 = (CircleMenuLayout) findViewById(R.id.circle_menu_1);
+        mCircleMenuLayout2 = (CircleMenuLayout) findViewById(R.id.circle_menu_2);
 
-        mCircleMenuLayout.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
-        mCircleMenuLayout.setOnMenuItemClickListener(new CircleMenuLayout.OnMenuItemClickListener() {
+        mCircleMenuLayout1.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
+        mCircleMenuLayout1.setOnMenuItemClickListener(new CircleMenuLayout.OnMenuItemClickListener() {
             @Override
             public void itemClick(View view, int pos) {
                 Toast.makeText(CircleMenuActivity.this,
@@ -43,5 +45,6 @@ public class CircleMenuActivity extends AppCompatActivity {
                         "点击中央菜单", Toast.LENGTH_SHORT).show();
             }
         });
+        mCircleMenuLayout2.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
     }
 }
