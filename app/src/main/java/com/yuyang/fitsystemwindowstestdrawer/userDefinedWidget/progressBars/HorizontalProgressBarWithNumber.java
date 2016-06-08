@@ -126,9 +126,6 @@ public class HorizontalProgressBarWithNumber extends ProgressBar {
                 mPaint.setStrokeWidth(mReachedProgressBarHeight);
                 canvas.drawLine(0, 0, endX, 0, mPaint);
             }
-            //绘制文本
-            mPaint.setColor(mTextColor);
-            canvas.drawText(text, progressPosX, -textHeight, mPaint);
             //绘制未到达的进度条
             if (!noNeedBg) {
                 float startX = progressPosX + mTextOffset / 2 + textWidth;
@@ -136,6 +133,9 @@ public class HorizontalProgressBarWithNumber extends ProgressBar {
                 mPaint.setStrokeWidth(mUnReachedProgressBarHeight);
                 canvas.drawLine(startX, 0, mRealWidth, 0, mPaint);
             }
+            //绘制文本
+            mPaint.setColor(mTextColor);
+            canvas.drawText(text, progressPosX, -textHeight, mPaint);
         }else {
             //如果到达最后，则未到达的进度条不需要绘制
             if (progressPosX >= mRealWidth) {
