@@ -95,7 +95,9 @@ public class MyTabLinearLayout extends LinearLayout {
         //初始化三角形
         initTriangle();
         //计算初始偏移量
-        mInitTranslationX = getChildAt(0).getMeasuredWidth()/2 - mTriangleWidth/2;
+        if (getChildAt(0) != null) {
+            mInitTranslationX = getChildAt(0).getMeasuredWidth() / 2 - mTriangleWidth / 2;
+        }
     }
 
     /**

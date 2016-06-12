@@ -13,6 +13,7 @@ public class MyTabLayout extends HorizontalScrollView implements MyTabLinearLayo
 
     public MyTabLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
+        setHorizontalScrollBarEnabled(false);
         linearLayout = new MyTabLinearLayout(context, attrs);
         addView(linearLayout);
         linearLayout.setCallBack(this);

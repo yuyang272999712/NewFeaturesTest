@@ -4,4 +4,9 @@
     <item name="id_circle_menu_item_image" type="id"/>
     <item name="id_circle_menu_item_text" type="id"/>
     <item name="id_circle_menu_item_center" type="id"/>
+    <!--StickyNavLayout 指定ID-->
+    <item name="id_stickynavlayout_topview" type="id"/>
+    <item name="id_stickynavlayout_viewpager" type="id"/>
+    <item name="id_stickynavlayout_indicator" type="id"/>
+    <item name="id_stickynavlayout_innerscrollview" type="id"/>
 </resources>

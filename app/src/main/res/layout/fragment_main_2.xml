@@ -34,7 +34,8 @@
                 android:textAllCaps="false"
                 android:text="ViewPager指示器"/>
         </TableRow>
-        <TableRow >
+        <TableRow
+            android:gravity="center">
             <Button
                 android:id="@+id/button3"
                 android:layout_weight="1"
@@ -49,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="360软件助手，软件详情页"/>
         </TableRow>
         <TableRow
             android:gravity="bottom">
