@@ -22,4 +22,11 @@
         android:onClick="gotoViewTouchEvent"
         android:text="View事件分发机制"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:onClick="gotoDrawableAboutActivity"
+        android:text="drawable相关解析"/>
+
 </LinearLayout>

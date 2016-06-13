@@ -21,7 +21,7 @@
     <TextView
         android:id="@+id/my_drawable_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:text="背景测试"
         android:textSize="20sp"
         android:gravity="center"

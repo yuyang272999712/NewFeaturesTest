@@ -169,5 +169,9 @@
     <declare-styleable name="RoundProgressBarWidthNumber">
         <attr name="progress_radius" format="dimension" />
     </declare-styleable>
+    <!--自定义属性－MyStateRelativeLayout-->
+    <declare-styleable name="MyStateRelativeLayout">
+        <attr name="state_message_readed" format="boolean"/>
+    </declare-styleable>
 
 </resources>

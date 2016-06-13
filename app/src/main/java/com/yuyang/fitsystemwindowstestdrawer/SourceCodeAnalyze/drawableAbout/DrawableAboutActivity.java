@@ -36,7 +36,7 @@ public class DrawableAboutActivity extends ListActivity {
                 intent = new Intent(this, RoundImageDrawableActivity.class);
                 break;
             case 2:
-//                intent = new Intent(this, CustomStateDrawableActivity.class);
+                intent = new Intent(this, CustomStateDrawableActivity.class);
                 break;
         }
 

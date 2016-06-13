@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.drawableAbout.DrawableAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflate.LayoutInflateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.ViewTouchEventActivity;
 
@@ -27,6 +28,11 @@ public class SourceCodeAnalyzeActivity extends AppCompatActivity {
 
     public void gotoViewTouchEvent(View view){
         Intent intent = new Intent(this, ViewTouchEventActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoDrawableAboutActivity(View view){
+        Intent intent = new Intent(this, DrawableAboutActivity.class);
         startActivity(intent);
     }
 }

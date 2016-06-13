@@ -94,6 +94,10 @@
         <activity android:name=".sourceCodeAnalyze.SourceCodeAnalyzeActivity"/>
         <activity android:name=".sourceCodeAnalyze.layoutInflate.LayoutInflateActivity"/>
         <activity android:name=".sourceCodeAnalyze.touchEventDispatch.ViewTouchEventActivity"/>
+        <activity android:name=".sourceCodeAnalyze.drawableAbout.DrawableAboutActivity"/>
+        <activity android:name=".sourceCodeAnalyze.drawableAbout.CircleImageDrawableActivity"/>
+        <activity android:name=".sourceCodeAnalyze.drawableAbout.RoundImageDrawableActivity"/>
+        <activity android:name=".sourceCodeAnalyze.drawableAbout.CustomStateDrawableActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
