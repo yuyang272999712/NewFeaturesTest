@@ -137,6 +137,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ViewPagerIndicator.PagerIndicatorActivity"/>
+        <activity android:name=".ViewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity"/>
         <activity android:name=".flabbyBird.FlabbyBirdActivity"/>
         <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>

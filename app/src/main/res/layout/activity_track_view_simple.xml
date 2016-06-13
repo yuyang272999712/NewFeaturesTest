@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yy="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+        android:id="@+id/track_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#44ff0000"
+        android:padding="10dp"
+        yy:color_track_progress="0"
+        yy:color_track_text="开发测试"
+        yy:color_track_change_color="@color/colorPrimaryDark"
+        yy:color_track_origin_color="#ffffff"
+        yy:color_track_text_size="60sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startLeftChange"
+            android:textAllCaps="false"
+            android:text="StartLeft" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="startRightChange"
+            android:textAllCaps="false"
+            android:text="StartRight" />
+    </LinearLayout>
+
+</LinearLayout>

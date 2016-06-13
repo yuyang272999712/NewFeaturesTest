@@ -39,6 +39,58 @@
         android:layout_height="45dp"
         android:background="@color/colorPrimaryDark"
         android:orientation="horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义的ColorTrackView,字体颜色变化"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textAllCaps="false"
+            android:onClick="gotoTrackViewSimpleActivity"
+            android:textSize="10sp"
+            android:text="ColorTrackView简单应用"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_progress="1"
+            app:color_track_text="简介"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_text="评价"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_text="相关"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+    </LinearLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/indicator_view_pager"

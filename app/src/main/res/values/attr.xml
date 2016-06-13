@@ -173,5 +173,23 @@
     <declare-styleable name="MyStateRelativeLayout">
         <attr name="state_message_readed" format="boolean"/>
     </declare-styleable>
+    <!--自定义View－ColorTrackView－仿今日头条的tab字体颜色切换-->
+    <attr name="color_track_text" format="string"/>
+    <attr name="color_track_text_size" format="dimension"/>
+    <attr name="color_track_origin_color" format="color|reference"/>
+    <attr name="color_track_change_color" format="color|reference"/>
+    <attr name="color_track_progress" format="float"/>
+    <attr name="color_track_direction" format="enum">
+        <enum name="left" value="0"/>
+        <enum name="right" value="1"/>
+    </attr>
+    <declare-styleable name="ColorTrackView">
+        <attr name="color_track_text"/>
+        <attr name="color_track_text_size"/>
+        <attr name="color_track_origin_color"/>
+        <attr name="color_track_change_color"/>
+        <attr name="color_track_progress"/>
+        <attr name="color_track_direction"/>
+    </declare-styleable>
 
 </resources>
