@@ -134,7 +134,9 @@
         </activity>
         <activity android:name=".ViewPagerIndicator.PagerIndicatorActivity"/>
         <activity android:name=".flabbyBird.FlabbyBirdActivity"/>
+        <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>
+        <activity android:name=".effect360AppIntroduce.AppIntroduceActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

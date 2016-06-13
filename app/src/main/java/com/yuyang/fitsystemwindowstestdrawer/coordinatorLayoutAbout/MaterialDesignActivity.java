@@ -22,12 +22,12 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * 二、CoordinatorLayout （[kəʊ'ɔ:dɪneɪtə] ）协调员
  *    CoordinatorLayout自己并不控制View，所有的控制权都在Behavior
  *      该布局会检测他的所有子View，传递Behavior事件。
- *      该布局类似于FrameLayout布局，普图部件可以通过设置“android:layout_gravity="bottom|right"”来设置在布局中的位置
+ *      该布局类似于FrameLayout布局，普通部件可以通过设置“android:layout_gravity="bottom|right"”来设置在布局中的位置
  *
  * 三、AppBarLayout
  *    CoordinatorLayout配合AppBarLayout布局使用可以实现滚动响应事件 （AppBarLayout布局必需是CoordinatorLayout布局中的第一个）
  *    （AppBarLayout的父类是LinearLayout竖直排版,即：AppBarLayout中可以竖直排版多个子View，
- *    但是如果第一个子View的app:layout_behavior属性没用设置“scroll”，那么下面的子View也不会滚动出屏幕,
+ *    但是如果第一个子View的app:layout_scrollFlags属性没用设置“scroll”，那么下面的子View也不会滚动出屏幕,
  *    !!!AppBarLayout不必非要配合toolbar使用，任何放在AppBarLayout中的子View都可以实现滚动）。
  *
  *      CoordinatorLayout中第二个控件设置“app:layout_behavior="@string/appbar_scrolling_view_behavior"”属性即可自动排版到AppBarLayout布局之下。
@@ -41,7 +41,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  *          1. scroll: 所有想滚动出屏幕的view都需要设置这个flag， 没有设置这个flag的view将被固定在屏幕顶部。例如，Toolbar 没有设置这个值，将会停留在屏幕顶部。
  *          2. enterAlways: 设置这个flag时，向下的滚动都会导致该view变为可见，启用快速“返回模式”。
  *          （以下三个值主要配合CollapsingToolbarLayout使用效果）
- *          3. enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能已最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。
+ *          3. enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能以最小高度进入，只有当滚动视图到达顶部时才扩大到完整高度。
  *          4. exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
  *          5. snap：滚动压缩到50%以后自动收缩，不到则会自动复原
  *
