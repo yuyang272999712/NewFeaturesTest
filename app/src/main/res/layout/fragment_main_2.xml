@@ -60,7 +60,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="各种通知类型"/>
 
             <Button
                 android:id="@+id/button6"

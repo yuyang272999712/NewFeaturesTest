@@ -142,6 +142,8 @@
         <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduceActivity"/>
+        <activity android:name=".notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity"/>
+        <activity android:name=".notificationDialogPopupWindowToast.notificationAbout.NotificationActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->
