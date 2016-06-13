@@ -15,6 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.utils.DensityUtils;
 
 /**
  * 渐变色彩的TextView，类似于今日头条APP的Tab
+ * 主要使用了canvas.clipRect方法对绘制区域进行截取
  */
 public class ColorTrackView extends View {
     private static final int DIRECTION_LEFT = 0;
