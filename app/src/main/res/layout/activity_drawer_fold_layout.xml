@@ -5,18 +5,6 @@
     android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="240dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:background="#ccab81"
-            android:text="左侧菜单栏，可以是一个fragment"/>
-    </LinearLayout>
-
-    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -33,7 +21,19 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="240dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#ccab81"
+            android:text="左侧菜单栏，可以是一个fragment"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end">
         <TextView
