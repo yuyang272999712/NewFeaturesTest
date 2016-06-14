@@ -12,4 +12,18 @@
         android:text="发送普通通知"
         android:onClick="sendNormalNotification"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送进度条通知，点击启动activity"
+        android:textAllCaps="false"
+        android:onClick="sendProgressNotification"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义样式的通知"
+        android:textAllCaps="false"
+        android:onClick="sendMyNotification"/>
+
 </LinearLayout>
