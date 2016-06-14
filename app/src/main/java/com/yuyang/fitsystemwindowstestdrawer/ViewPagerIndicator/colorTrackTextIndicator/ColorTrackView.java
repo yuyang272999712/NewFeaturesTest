@@ -22,7 +22,7 @@ public class ColorTrackView extends View {
     private static final int DIRECTION_RIGHT = 1;
     private int mTextStartX;
     public enum Direction{
-        LEFT,RIGHT;
+        LEFT,RIGHT, Gravity;
     }
     private int mDirection = DIRECTION_LEFT;
     public void setDirection(int direction){

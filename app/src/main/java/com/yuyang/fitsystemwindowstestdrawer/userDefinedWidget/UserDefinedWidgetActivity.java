@@ -3,21 +3,14 @@ package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagAdapter;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagFlowLayout;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
-
-import java.util.Set;
 
 /**
  * 自定义ViewDragHelper的布局
@@ -42,6 +35,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button luckyPanBtn;
     private Button circleMenuBtn;
     private Button progressBarBtn;
+    private Button foldingLayoutBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +64,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         luckyPanBtn = (Button) findViewById(R.id.defind_lucky_pan);
         circleMenuBtn = (Button) findViewById(R.id.defind_circle_menu);
         progressBarBtn = (Button) findViewById(R.id.defind_progress_bar);
+        foldingLayoutBtn = (Button) findViewById(R.id.defind_folding_layout);
     }
 
     private void initDatas() {}
@@ -184,6 +179,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, ProgressBarActivity.class);
+                startActivity(intent);
+            }
+        });
+        foldingLayoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, FoldingLayoutActivity.class);
                 startActivity(intent);
             }
         });

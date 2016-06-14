@@ -43,6 +43,12 @@
             android:layout_height="wrap_content"
             android:text="自定义进度条"/>
 
+        <Button
+            android:id="@+id/defind_folding_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="折叠布局"/>
+
     </LinearLayout>
 
     <LinearLayout

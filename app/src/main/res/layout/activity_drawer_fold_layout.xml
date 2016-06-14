@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.view.FoldDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#ccab81"
+            android:text="左侧菜单栏，可以是一个fragment"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="左右滑，出现菜单栏"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/folding_img"
+            android:scaleType="centerCrop"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#ccab81"
+            android:text="左侧菜单栏，可以是一个fragment"/>
+    </LinearLayout>
+
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.view.FoldDrawerLayout>

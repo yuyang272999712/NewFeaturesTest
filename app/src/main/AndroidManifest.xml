@@ -72,6 +72,13 @@
         <activity android:name=".userDefinedWidget.LuckyPanActivity"/>
         <activity android:name=".userDefinedWidget.CircleMenuActivity"/>
         <activity android:name=".userDefinedWidget.ProgressBarActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.FoldingLayoutActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.MatrixPolyToPolyActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.SimpleUseActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.FoldLayoutSimpleActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.TouchFoldLayoutSimpleActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.SlidingPanelLayoutSampleActivity"/>
+        <activity android:name=".userDefinedWidget.FoldingLayout.DrawerLayoutSampleActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
