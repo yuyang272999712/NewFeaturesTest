@@ -81,7 +81,7 @@ public class LayoutTransitionActivity extends AppCompatActivity implements Compo
 //                (appearing.isChecked() ? transition.getAnimator(LayoutTransition.APPEARING):null));
         //TODO yuyang 自定义LayoutTransition动画
         transition.setAnimator(LayoutTransition.APPEARING,
-                (disappearing.isChecked() ? ObjectAnimator.ofFloat(this, "scaleX", 0, 1):null));
+                (appearing.isChecked() ? ObjectAnimator.ofFloat(this, "scaleX", 0, 1):null));
         //当一个View在ViewGroup中出现时，对此View对其他View位置造成影响，对其他View设置的动画
         transition.setAnimator(LayoutTransition.CHANGE_APPEARING,
                 (change_appearing.isChecked() ? transition.getAnimator(LayoutTransition.CHANGE_APPEARING):null));

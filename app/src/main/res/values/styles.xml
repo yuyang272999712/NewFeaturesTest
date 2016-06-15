@@ -12,10 +12,24 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
-
+    <!--右滑退出当前界面的主题-->
     <style name="SwipeBackTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <!--Activity间切换动画，在主题中设置-->
+    <style name="TransitionTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowAnimationStyle">@style/WindowAnimationStyle</item>
+    </style>
+    <style name="WindowAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityCloseEnterAnimation">@anim/alpha_in_animation</item>
+        <item name="android:activityCloseExitAnimation">@anim/alpha_out_animation</item>
+        <item name="android:activityOpenEnterAnimation">@anim/alpha_in_animation</item>
+        <item name="android:activityOpenExitAnimation">@anim/alpha_out_animation</item>
+    </style>
+    <style name="WindowAnimationStyle" parent="@android:style/Animation.Translucent">
+        <item name="android:windowEnterAnimation">@anim/alpha_in_animation</item>
+        <item name="android:windowExitAnimation">@anim/alpha_out_animation</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
@@ -58,7 +72,7 @@
         <item name="attr_three">attr three from defalut style res</item>
         <item name="attr_four">attr four from defalut style res</item>
     </style>
-    <!-- CustomTitleView1 样式-->
+    <!-- CustomVerificationCodeView 样式-->
     <style name="DefaultCustomTitleStyle">
         <item name="titleText">测试1</item>
     </style>

@@ -50,11 +50,9 @@
         </activity>
         <activity android:name=".androidLAnimationAbout.OptionsCompatActivity"/>
         <activity android:name=".androidLAnimationAbout.AdapterDetailActivity"/>
-        <activity
-            android:name=".preferenceAbout.PreferenceDemo"/>
-        <activity
-            android:name=".MetricsAbout.MetricsActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".preferenceAbout.PreferenceDemo"/>
+        <activity android:name=".MetricsAbout.MetricsActivity"
+            android:theme="@style/TransitionTheme"/>
         <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".userDefinedWidget.UserDefinedWidgetActivity"/>
         <activity android:name=".userDefinedWidget.ViewDragHelperActivity"/>

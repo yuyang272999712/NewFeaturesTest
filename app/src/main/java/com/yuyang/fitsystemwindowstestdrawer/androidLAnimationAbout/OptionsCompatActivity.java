@@ -28,7 +28,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 一、ActivityOptionsCompat（也可使用ActivityOptions，但需要考虑兼容性）
+ * 一、Theme中设置切换动画（例如：styles.xml中 TransitionTheme）
+ *   这种方式太操蛋了！！！
+ *
+ * 二、overridePendingTransition()设置切换动画
+ *
+ * 三、ActivityOptionsCompat（也可使用ActivityOptions，但需要考虑兼容性）
  *  通过这个类来启动activity和添加动画
  *    常用方法：
  *      1、makeCustomAnimation(context, enterResId, exitResId)
@@ -47,7 +52,7 @@ import java.util.List;
  *      5、makeThumbnailScaleUpAnimation(source, thumbnail, startX, startY)
  *          将一个小块的Bitmap进行拉伸的动画
  *
- * 二、ViewAnimationUtils.createCircularReveal()
+ * 四、ViewAnimationUtils.createCircularReveal()
  *  圆形揭示效果
  *  createCircularReveal方法根据5个参数来创建一个RevealAnimator动画对象。
  *    这五个参数分别是：
