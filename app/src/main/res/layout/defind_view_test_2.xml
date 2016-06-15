@@ -33,4 +33,14 @@
         android:layout_width="100dp"
         android:layout_height="100dp"/>
 
+    <Button
+        android:layout_margin="10dp"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:onClick="gotoMyDrawerLayout"
+        android:textAllCaps="false"
+        android:text="启动自定义的DrawerLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.FreedomViewsLayout>

@@ -1,7 +1,9 @@
 package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -27,5 +29,14 @@ public class ViewDragHelperActivity extends AppCompatActivity {
     }
 
     private void initAction() {
+    }
+
+    /**
+     * 启动自定义的DrawerLayout，使用ViewDragHelper实现
+     * @param view
+     */
+    public void gotoMyDrawerLayout(View view){
+        Intent intent = new Intent(this, MyDrawerLayoutActivity.class);
+        startActivity(intent);
     }
 }

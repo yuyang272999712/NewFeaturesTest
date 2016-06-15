@@ -67,8 +67,8 @@ public class FreedomViewsLayout extends LinearLayout {
             /**
              * 当释放拖动的View时调用
              * @param releasedChild
-             * @param xvel
-             * @param yvel
+             * @param xvel x方向加速度
+             * @param yvel y方向加速度
              */
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {

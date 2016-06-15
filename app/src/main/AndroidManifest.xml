@@ -79,6 +79,7 @@
         <activity android:name=".userDefinedWidget.FoldingLayout.TouchFoldLayoutSimpleActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.SlidingPanelLayoutSampleActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.DrawerLayoutSampleActivity"/>
+        <activity android:name=".userDefinedWidget.MyDrawerLayoutActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.MyDrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--content-->
+    <RelativeLayout
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:background="#44ff0000"
+        android:layout_height="match_parent">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开／关闭菜单"
+            android:onClick="openOrCloseMenu"
+            android:layout_alignParentRight="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="hello world"
+            android:textSize="40sp"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <!--menu-->
+    <FrameLayout
+        android:background="#7cc685"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="左侧为菜单栏"
+            android:textSize="20sp"
+            android:layout_centerInParent="true"/>
+
+    </FrameLayout>
+
+</com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.MyDrawerLayout>
