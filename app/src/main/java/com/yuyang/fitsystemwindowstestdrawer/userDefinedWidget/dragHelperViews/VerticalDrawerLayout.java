@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 /**
- * Created by yuyang on 16/2/22.
  * 自定义view，类似于DrawerLayout,不过这个为竖直方向滑动
  */
 public class VerticalDrawerLayout extends ViewGroup{

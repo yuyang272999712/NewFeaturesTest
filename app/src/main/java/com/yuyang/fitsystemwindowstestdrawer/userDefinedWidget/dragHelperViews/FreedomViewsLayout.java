@@ -9,14 +9,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 /**
- * Created by yuyang on 16/5/12.
+ * ViewDragHelper的几种用法
  */
 public class FreedomViewsLayout extends LinearLayout {
     private ViewDragHelper dragHelper;
 
-    private View mDragView;
-    private View mAutoBackView;
-    private View mEdgeTrackerView;
+    private View mDragView;//随意拖拽
+    private View mAutoBackView;//拖拽后回弹
+    private View mEdgeTrackerView;//边界拖拽
     /**
      * mAutoBackView的原始位置
      */

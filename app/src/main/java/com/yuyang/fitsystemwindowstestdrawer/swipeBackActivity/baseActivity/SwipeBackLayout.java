@@ -56,10 +56,30 @@ public class SwipeBackLayout extends ViewGroup {
         BOTTOM
     }
 
-    private DragEdge dragEdge = DragEdge.TOP;
+    private DragEdge dragEdge = DragEdge.LEFT;
 
     public void setDragEdge(DragEdge dragEdge) {
         this.dragEdge = dragEdge;
+        /**
+         * 设置左边界可拖动
+         */
+        switch (dragEdge){
+            case LEFT:
+                viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
+                break;
+            case TOP:
+                viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_TOP);
+                break;
+            case RIGHT:
+                viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_RIGHT);
+                break;
+            case BOTTOM:
+                viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_BOTTOM);
+                break;
+            default:
+                viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
+                break;
+        }
     }
 
 
@@ -130,6 +150,10 @@ public class SwipeBackLayout extends ViewGroup {
         super(context, attrs);
 
         viewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelperCallBack());
+        /**
+         * 默认左边界可拖动
+         */
+        viewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_LEFT);
     }
 
     public void setScrollChild(View view) {
@@ -236,7 +260,7 @@ public class SwipeBackLayout extends ViewGroup {
             case RIGHT:
                 return horizontalDragRange;
             default:
-                return verticalDragRange;
+                return horizontalDragRange;
         }
     }
 
@@ -291,7 +315,7 @@ public class SwipeBackLayout extends ViewGroup {
 
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
-            return child == target && enablePullToBack;
+            return false;//child == target && enablePullToBack;
         }
 
         @Override
@@ -419,7 +443,19 @@ public class SwipeBackLayout extends ViewGroup {
                     smoothScrollToY(finalTop);
                     break;
             }
+        }
 
+        /**
+         * 边界拖动时调用
+         * 主动通过captureChildView对其进行捕获，该方法可以绕过tryCaptureView
+         * @param edgeFlags
+         * @param pointerId
+         */
+        @Override
+        public void onEdgeDragStarted(int edgeFlags, int pointerId) {
+            super.onEdgeDragStarted(edgeFlags, pointerId);
+            //TODO yuyang 手动设置mEdgeTrackerView为捕获对象
+            viewDragHelper.captureChildView(target, pointerId);
         }
     }
 
