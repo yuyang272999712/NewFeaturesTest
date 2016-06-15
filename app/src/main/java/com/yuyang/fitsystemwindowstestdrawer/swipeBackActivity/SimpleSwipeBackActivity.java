@@ -20,6 +20,6 @@ public class SimpleSwipeBackActivity extends SwipeBackActivity {
          * TODO yuyang
          * 该方式设置滑动退出方向，不设置的话默认是向右滑动退出
          */
-        setDragEdge(SwipeBackLayout.DragEdge.RIGHT);
+        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
     }
 }
