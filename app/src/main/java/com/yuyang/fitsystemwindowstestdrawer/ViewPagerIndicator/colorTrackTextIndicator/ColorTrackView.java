@@ -18,16 +18,13 @@ import com.yuyang.fitsystemwindowstestdrawer.utils.DensityUtils;
  * 主要使用了canvas.clipRect方法对绘制区域进行截取
  */
 public class ColorTrackView extends View {
-    private static final int DIRECTION_LEFT = 0;
-    private static final int DIRECTION_RIGHT = 1;
+    public static final int DIRECTION_LEFT = 0;
+    public static final int DIRECTION_RIGHT = 1;
+    //文字开始的坐标X
     private int mTextStartX;
-    public enum Direction{
-        LEFT,RIGHT, Gravity;
-    }
+    //颜色渐变的方向
     private int mDirection = DIRECTION_LEFT;
-    public void setDirection(int direction){
-        mDirection = direction;
-    }
+
     private String mText = "测试";
     private Paint mPaint;
     private int mTextSize = DensityUtils.sp2px(getContext(), 20);
@@ -35,7 +32,7 @@ public class ColorTrackView extends View {
     private int mTextChangeColor = 0xffff0000;
     private Rect mTextBound = new Rect();
     private int mTextWidth;
-    private int mTextHeight;
+    //颜色区移动的百分比
     private float mProgress;
 
     public ColorTrackView(Context context, AttributeSet attrs) {
@@ -57,7 +54,6 @@ public class ColorTrackView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         mTextWidth = (int) mPaint.measureText(mText);
         mPaint.getTextBounds(mText, 0, mText.length(), mTextBound);
-        mTextHeight = (int) (mPaint.ascent()+mPaint.descent());
 
         int width = measureWidth(widthMeasureSpec);
         int height = measureHeight(heightMeasureSpec);
@@ -137,6 +133,10 @@ public class ColorTrackView extends View {
         canvas.clipRect(startX, 0, endX, getMeasuredHeight());
         canvas.drawText(mText, mTextStartX, getMeasuredHeight()/2+mTextBound.height()/2, mPaint);
         canvas.restore();
+    }
+
+    public void setDirection(int direction){
+        mDirection = direction;
     }
 
     public float getProgress() {

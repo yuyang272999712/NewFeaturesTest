@@ -150,6 +150,9 @@
         <activity android:name=".effect360AppIntroduce.AppIntroduceActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.notificationAbout.NotificationActivity"/>
+        <activity android:name=".homeDemo.HomeDemoActivity"/>
+        <activity android:name=".homeDemo.TraditionalViewPagerActivity"/>
+        <activity android:name=".homeDemo.FragmentManagerActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

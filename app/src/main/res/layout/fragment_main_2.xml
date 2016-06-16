@@ -68,7 +68,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="常见的主页布局实现"/>
         </TableRow>
         <TableRow >
             <Button
