@@ -4,15 +4,19 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:statusBarColor">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorAccent</item>
+        <!-- 会使上面两个颜色的设置失效，变透明-->
+        <!--<item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowTranslucentStatus">true</item>-->
     </style>
 
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- 允许使用transitions -->
         <item name="android:windowContentTransitions">true</item>
         <!-- 指定进入和退出transitions -->
-        <item name="android:windowEnterTransition">@android:transition/slide_bottom</item>
-        <item name="android:windowExitTransition">@android:transition/explode</item>
+        <!--<item name="android:windowEnterTransition">@android:transition/slide_bottom</item>
+        <item name="android:windowExitTransition">@android:transition/explode</item>-->
         <!-- 指定shared element transitions -->
         <!--<item name="android:windowSharedElementEnterTransition">@android:transition/</item>-->
         <!-- Customize your theme here. -->

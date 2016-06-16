@@ -16,6 +16,7 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
+ * 通过Paint的Xfermode属性设置圆形image
  * 圆形／圆角 图片
  * 最好继承自ImageView
  */
