@@ -27,13 +27,15 @@
             android:layout_height="wrap_content"
             android:textColor="#000"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:text="自定义通知样式"/>
 
         <ProgressBar
             android:id="@+id/notification_progress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progress="20"
             android:indeterminate="false"
             android:indeterminateOnly="false"/>
 

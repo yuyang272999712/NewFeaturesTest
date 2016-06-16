@@ -26,4 +26,11 @@
         android:textAllCaps="false"
         android:onClick="sendMyNotification"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="更新自定义通知"
+        android:textAllCaps="false"
+        android:onClick="updateMyNotification"/>
+
 </LinearLayout>
