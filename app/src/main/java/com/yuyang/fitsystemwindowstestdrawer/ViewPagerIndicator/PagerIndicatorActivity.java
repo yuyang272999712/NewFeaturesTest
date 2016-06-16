@@ -21,7 +21,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * ViewPager指示器 Tab 和 原点指示器
+ * ViewPager指示器
+ *
+ * PagerTabStrip和PagerTitleStrip没人用，太难看了
  */
 public class PagerIndicatorActivity extends AppCompatActivity {
     private List<Fragment> fragments = new ArrayList<>();
