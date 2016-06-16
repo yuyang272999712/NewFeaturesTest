@@ -129,21 +129,25 @@ public class WeChatActivity extends AppCompatActivity implements ViewPager.OnPag
             case R.id.wechat_indicator_1:
             case R.id.wechat_tab0:
                 mTabIndicator1.get(0).setIconAlpha(1.0f);
+                mTabIndicator2.get(0).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(0, false);
                 break;
             case R.id.wechat_indicator_2:
             case R.id.wechat_tab1:
                 mTabIndicator1.get(1).setIconAlpha(1.0f);
+                mTabIndicator2.get(1).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(1, false);
                 break;
             case R.id.wechat_indicator_3:
             case R.id.wechat_tab2:
                 mTabIndicator1.get(2).setIconAlpha(1.0f);
+                mTabIndicator2.get(2).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(2, false);
                 break;
             case R.id.wechat_indicator_4:
             case R.id.wechat_tab3:
                 mTabIndicator1.get(3).setIconAlpha(1.0f);
+                mTabIndicator2.get(3).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(3, false);
                 break;
 

@@ -152,6 +152,7 @@
         <activity android:name=".notificationDialogPopupWindowToast.notificationAbout.NotificationActivity"/>
         <activity android:name=".homeDemo.HomeDemoActivity"/>
         <activity android:name=".homeDemo.TraditionalViewPagerActivity"/>
+        <activity android:name=".homeDemo.FragmentManagerActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

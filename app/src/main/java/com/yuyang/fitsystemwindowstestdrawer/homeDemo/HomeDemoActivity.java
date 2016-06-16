@@ -20,7 +20,8 @@ import java.util.List;
  * 常用的主界面布局实现
  */
 public class HomeDemoActivity extends ListActivity {
-    private List<String> homeDemos = Arrays.asList("传统的ViewPager实现","","");
+    private List<String> homeDemos = Arrays.asList("传统的ViewPager实现","FragmentManager+Fragment实现",
+            "");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +50,9 @@ public class HomeDemoActivity extends ListActivity {
         switch (position){
             case 0:
                 intent = new Intent(this, TraditionalViewPagerActivity.class);
+                break;
+            case 1:
+                intent = new Intent(this, FragmentManagerActivity.class);
                 break;
         }
         startActivity(intent);
