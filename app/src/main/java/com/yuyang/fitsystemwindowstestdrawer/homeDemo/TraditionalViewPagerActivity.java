@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -17,6 +17,8 @@ import java.util.List;
 
 /**
  * 传统的ViewPager实现
+ *
+ * 不推荐这么用，这样所有ViewPager的View事物都要放在这个Activity中，代码太过复杂了
  */
 public class TraditionalViewPagerActivity extends Activity implements View.OnClickListener {
     private ViewPager mViewPager;
@@ -38,8 +40,8 @@ public class TraditionalViewPagerActivity extends Activity implements View.OnCli
 
         mInflater = LayoutInflater.from(this);
         findViews();
-        initDatas();
         setAction();
+        initDatas();
     }
 
     private void setAction() {
@@ -52,19 +54,19 @@ public class TraditionalViewPagerActivity extends Activity implements View.OnCli
                 resetTabBtn();
                 switch (position) {
                     case 0:
-                        ((ImageButton) mTab0.findViewById(R.id.tab_img_chat))
+                        ((ImageView) mTab0.findViewById(R.id.tab_img_chat))
                                 .setImageResource(R.mipmap.tab_chat1);
                         break;
                     case 1:
-                        ((ImageButton) mTab1.findViewById(R.id.tab_img_contact))
+                        ((ImageView) mTab1.findViewById(R.id.tab_img_contact))
                                 .setImageResource(R.mipmap.tab_contact1);
                         break;
                     case 2:
-                        ((ImageButton) mTab2.findViewById(R.id.tab_img_found))
+                        ((ImageView) mTab2.findViewById(R.id.tab_img_found))
                                 .setImageResource(R.mipmap.tab_found1);
                         break;
                     case 3:
-                        ((ImageButton) mTab3.findViewById(R.id.tab_img_me))
+                        ((ImageView) mTab3.findViewById(R.id.tab_img_me))
                                 .setImageResource(R.mipmap.tab_me1);
                         break;
                 }
@@ -84,13 +86,13 @@ public class TraditionalViewPagerActivity extends Activity implements View.OnCli
      * 重置所有tab
      */
     private void resetTabBtn() {
-        ((ImageButton) mTab0.findViewById(R.id.tab_img_chat))
+        ((ImageView) mTab0.findViewById(R.id.tab_img_chat))
                 .setImageResource(R.mipmap.tab_chat2);
-        ((ImageButton) mTab1.findViewById(R.id.tab_img_contact))
+        ((ImageView) mTab1.findViewById(R.id.tab_img_contact))
                 .setImageResource(R.mipmap.tab_contact2);
-        ((ImageButton) mTab2.findViewById(R.id.tab_img_found))
+        ((ImageView) mTab2.findViewById(R.id.tab_img_found))
                 .setImageResource(R.mipmap.tab_found2);
-        ((ImageButton) mTab3.findViewById(R.id.tab_img_me))
+        ((ImageView) mTab3.findViewById(R.id.tab_img_me))
                 .setImageResource(R.mipmap.tab_me2);
     }
 
@@ -122,6 +124,10 @@ public class TraditionalViewPagerActivity extends Activity implements View.OnCli
         };
 
         mViewPager.setAdapter(mAdapter);
+
+        resetTabBtn();
+        ((ImageView) mTab0.findViewById(R.id.tab_img_chat))
+                .setImageResource(R.mipmap.tab_chat1);
     }
 
     private void findViews() {

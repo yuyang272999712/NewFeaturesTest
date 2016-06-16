@@ -15,7 +15,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="55dp" >
+        android:layout_height="55dp"
+        android:background="#c77290">
         <!--TODO yuyang descendantFocusability属性有三个参数：
               beforeDescendants：viewgroup会优先其子类控件而获取到焦点
               afterDescendants：viewgroup只有当其子类控件不需要获取焦点时才获取焦点
@@ -28,10 +29,12 @@
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
             android:orientation="vertical" >
-            <ImageButton
+            <ImageView
                 android:id="@+id/tab_img_chat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:background="#0000"
                 android:clickable="false"
                 android:src="@mipmap/tab_chat2" />
@@ -49,10 +52,12 @@
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
             android:orientation="vertical" >
-            <ImageButton
+            <ImageView
                 android:id="@+id/tab_img_contact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:background="#0000"
                 android:clickable="false"
                 android:src="@mipmap/tab_contact2" />
@@ -70,10 +75,12 @@
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
             android:orientation="vertical" >
-            <ImageButton
+            <ImageView
                 android:id="@+id/tab_img_found"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:background="#0000"
                 android:clickable="false"
                 android:src="@mipmap/tab_found2" />
@@ -91,10 +98,12 @@
             android:descendantFocusability="beforeDescendants"
             android:gravity="center"
             android:orientation="vertical" >
-            <ImageButton
+            <ImageView
                 android:id="@+id/tab_img_me"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
                 android:background="#0000"
                 android:clickable="false"
                 android:src="@mipmap/tab_me1" />
