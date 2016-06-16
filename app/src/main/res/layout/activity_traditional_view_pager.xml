@@ -106,7 +106,7 @@
                 android:layout_margin="5dp"
                 android:background="#0000"
                 android:clickable="false"
-                android:src="@mipmap/tab_me1" />
+                android:src="@mipmap/tab_me2" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
