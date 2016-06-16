@@ -27,14 +27,17 @@ public class PagerIndicatorActivity extends AppCompatActivity {
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentPagerAdapter adapter;
     private ViewPager viewPager;
-    private TabLayout tabLayout;
     private List<String> mTitles = Arrays.asList("Fragment1", "Fragment2Fragment1", "Fragment3", "F4",
             "Fragment5", "Fragment6", "Fragment7", "Fragment8", "Fragment9");
     private List<String> mTitles2 = Arrays.asList("Fragment1", "Fragment2", "Fragment3");
 
+    //系统的tabLayout
+    private TabLayout tabLayout;
+    //自定义的tab指示器
     private ViewPagerIndicator myIndicator;
+    //自定义的tab，类似于系统的tabLayout
     private MyTabLayout myTabLayout;
-
+    //类似于微信底部的
     private List<ColorTrackView> mTrackViewTabs = new ArrayList<ColorTrackView>();
 
     @Override
@@ -70,12 +73,12 @@ public class PagerIndicatorActivity extends AppCompatActivity {
         };
 
         viewPager.setAdapter(adapter);
-
+        //系统的tabLayout
         tabLayout.setupWithViewPager(viewPager);
-
+        //自定义的tab指示器，可以改成MyTabLayout那样不用指定标题的
         myIndicator.setTabItemTitles(mTitles2);
         myIndicator.setViewPager(viewPager, 0);
-
+        //自定义的tab，类似于系统的tabLayout
         myTabLayout.setViewPager(viewPager, 0);
     }
 
@@ -86,8 +89,8 @@ public class PagerIndicatorActivity extends AppCompatActivity {
                 if (positionOffset > 0 && position+1<mTrackViewTabs.size()) {
                     ColorTrackView left = mTrackViewTabs.get(position);
                     ColorTrackView right = mTrackViewTabs.get(position + 1);
-                    left.setDirection(1);
-                    right.setDirection(0);
+                    left.setDirection(ColorTrackView.DIRECTION_RIGHT);
+                    right.setDirection(ColorTrackView.DIRECTION_LEFT);
                     left.setProgress(1 - positionOffset);
                     right.setProgress(positionOffset);
                 }

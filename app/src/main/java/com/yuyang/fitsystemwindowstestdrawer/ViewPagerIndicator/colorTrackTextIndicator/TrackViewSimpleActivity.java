@@ -22,14 +22,14 @@ public class TrackViewSimpleActivity extends Activity {
     }
 
     public void startLeftChange(View view){
-        trackView.setDirection(0);
+        trackView.setDirection(ColorTrackView.DIRECTION_LEFT);
         //TODO yuyang 注意ColorTrackView中的setProgress()方法
         ObjectAnimator animator = ObjectAnimator.ofFloat(trackView, "progress", 0, 1);
         animator.setDuration(2000).start();
     }
 
     public void startRightChange(View view){
-        trackView.setDirection(1);
+        trackView.setDirection(ColorTrackView.DIRECTION_RIGHT);
         ObjectAnimator animator = ObjectAnimator.ofFloat(trackView, "progress", 0, 1);
         animator.setDuration(2000).start();
     }
