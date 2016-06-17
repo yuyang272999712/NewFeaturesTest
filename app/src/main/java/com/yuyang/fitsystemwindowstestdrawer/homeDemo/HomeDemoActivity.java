@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class HomeDemoActivity extends ListActivity {
     private List<String> homeDemos = Arrays.asList("传统的ViewPager实现","FragmentManager+Fragment实现",
-            "");
+            "ViewPager+Fragment实现");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +53,9 @@ public class HomeDemoActivity extends ListActivity {
                 break;
             case 1:
                 intent = new Intent(this, FragmentManagerActivity.class);
+                break;
+            case 2:
+                intent = new Intent(this, ViewPagerFragmentActivity.class);
                 break;
         }
         startActivity(intent);
