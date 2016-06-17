@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.dialogAbout.DialogActivity;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.notificationAbout.NotificationActivity;
 
 import java.util.Arrays;
@@ -20,7 +21,7 @@ import java.util.List;
  * 各种通知方式：Notification、Dialog、PopupWindow、Toast
  */
 public class NotificationDialogPopupToastActivity extends ListActivity {
-    private List<String> items = Arrays.asList("Notification-通知相关");
+    private List<String> items = Arrays.asList("Notification-通知相关","Dialog-对话框相关");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,9 @@ public class NotificationDialogPopupToastActivity extends ListActivity {
         switch (position){
             case 0:
                 intent = new Intent(this, NotificationActivity.class);
+                break;
+            case 1:
+                intent = new Intent(this, DialogActivity.class);
                 break;
         }
         startActivity(intent);

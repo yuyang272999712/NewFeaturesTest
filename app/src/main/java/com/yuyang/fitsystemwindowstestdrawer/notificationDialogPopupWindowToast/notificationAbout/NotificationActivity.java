@@ -116,7 +116,7 @@ public class NotificationActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void sendMyNotification(View view){
         //TODO yuyang 未通知添加自定义样式
-        RemoteViews myView = new RemoteViews(this.getPackageName(), R.layout.layout_custom_notification);
+        RemoteViews myView = new RemoteViews(this.getPackageName(), R.layout.notification_custom_layout);
 
         //TODO yuyang 为通知的局部控件添加监听事件（音乐播放的暂停，下一曲等）
         Intent newIntent = new Intent(MY_ACTION);

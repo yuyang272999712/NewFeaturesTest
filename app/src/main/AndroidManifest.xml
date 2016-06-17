@@ -150,6 +150,7 @@
         <activity android:name=".effect360AppIntroduce.AppIntroduceActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.notificationAbout.NotificationActivity"/>
+        <activity android:name=".notificationDialogPopupWindowToast.dialogAbout.DialogActivity"/>
         <activity android:name=".homeDemo.HomeDemoActivity"/>
         <activity android:name=".homeDemo.TraditionalViewPagerActivity"/>
         <activity android:name=".homeDemo.FragmentManagerActivity"/>
