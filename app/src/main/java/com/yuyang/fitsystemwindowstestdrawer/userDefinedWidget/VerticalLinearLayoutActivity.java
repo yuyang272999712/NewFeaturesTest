@@ -16,7 +16,7 @@ public class VerticalLinearLayoutActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.defind_view_test_3);
+        setContentView(R.layout.activity_my_vertical_view_pager);
 
         findViews();
         initDatas();

@@ -25,7 +25,7 @@ public class BitmapRegionTestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.bitmap_region_test);
+        setContentView(R.layout.activity_bitmap_region_test);
 
         regionView = (ImageView) findViewById(R.id.region_view);
         originView = (ImageView) findViewById(R.id.origin_view);

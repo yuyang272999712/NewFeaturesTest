@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <include layout="@layout/sliding_menu" />
+        <include layout="@layout/layout_sliding_menu" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
 
         </LinearLayout>
 
-        <include layout="@layout/sliding_menu" />
+        <include layout="@layout/layout_sliding_menu" />
 
     </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.DoubleSlidingMenu.MyLinearLayout>
 

@@ -28,7 +28,7 @@ public class TantanActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tantan_activity);
+        setContentView(R.layout.activity_tantan);
 
         left = (ImageView) findViewById(R.id.left);
         right = (ImageView) findViewById(R.id.right);

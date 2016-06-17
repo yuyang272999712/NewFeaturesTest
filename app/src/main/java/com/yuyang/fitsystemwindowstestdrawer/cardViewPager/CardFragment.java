@@ -12,7 +12,7 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/3/11.
+ * 模拟卡片效果的fragment
  */
 public class CardFragment extends Fragment {
 
@@ -39,7 +39,7 @@ public class CardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.card_fragment, null);
+        View view = inflater.inflate(R.layout.fragment_card, null);
         imageView = (ImageView) view.findViewById(R.id.image_cover);
         titleView = (TextView) view.findViewById(R.id.text_title);
         desView = (TextView) view.findViewById(R.id.text_author);

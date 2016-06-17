@@ -55,7 +55,7 @@ public class FlexboxLayoutActivity extends AppCompatActivity {
         adapter = new TagAdapter<String>(mVals) {
             @Override
             public View getView(ViewGroup parent, int position, String s) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.flow_tag_item, flowLayout, false);
+                TextView tv = (TextView) mInflater.inflate(R.layout.item_flow_tag, flowLayout, false);
                 tv.setText(s);
                 return tv;
             }

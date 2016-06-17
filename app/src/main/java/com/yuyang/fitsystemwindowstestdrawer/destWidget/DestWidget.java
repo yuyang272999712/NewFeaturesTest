@@ -26,7 +26,7 @@ public class DestWidget extends AppWidgetProvider {
         //为桌面小工具添加点击事件
         Intent intent = new Intent(context,DestWidgetActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-        RemoteViews views1 = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
+        RemoteViews views1 = new RemoteViews(context.getPackageName(), R.layout.layout_dest_widget);
         views1.setOnClickPendingIntent(R.id.dest_hour, pendingIntent);
         views1.setOnClickPendingIntent(R.id.dest_minute, pendingIntent);
         views1.setOnClickPendingIntent(R.id.dest_second, pendingIntent);
@@ -40,7 +40,7 @@ public class DestWidget extends AppWidgetProvider {
         final int N = appWidgetIds.length;
         for (int i = 0; i < N; i++){
             int appWidgetId = appWidgetIds[i];
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.layout_dest_widget);
             views.setTextViewText(R.id.dest_hour, hour+"");
             views.setTextViewText(R.id.dest_minute, minute+"");
             views.setTextViewText(R.id.dest_second, second+"");
@@ -70,7 +70,7 @@ public class DestWidget extends AppWidgetProvider {
         final int N = appWidgetIds.length;
         for (int i = 0; i < N; i++){
             int appWidgetId = appWidgetIds[i];
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dest_widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.layout_dest_widget);
             views.setTextViewText(R.id.dest_hour, hour+"");
             views.setTextViewText(R.id.dest_minute, minute+"");
             views.setTextViewText(R.id.dest_second, second+"");

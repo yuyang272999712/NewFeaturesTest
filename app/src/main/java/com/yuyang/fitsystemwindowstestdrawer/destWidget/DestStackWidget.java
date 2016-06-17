@@ -22,7 +22,7 @@ public class DestStackWidget extends AppWidgetProvider {
         for (int i = 0; i<N;i++){
             int appWidgetId = appWidgetIds[i];
             //创建一个RemoteView
-            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.dest_stack_view_widget);
+            RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.layout_dest_stack_view_widget);
             //将这个Widget绑定到一个RemoteViewService
             Intent intent = new Intent(context, MyRemoteViewService.class);
             intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);

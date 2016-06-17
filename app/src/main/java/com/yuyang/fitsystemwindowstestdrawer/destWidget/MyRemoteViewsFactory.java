@@ -3,7 +3,6 @@ package com.yuyang.fitsystemwindowstestdrawer.destWidget;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
-import android.widget.ListAdapter;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
@@ -59,7 +58,7 @@ public class MyRemoteViewsFactory implements RemoteViewsService.RemoteViewsFacto
 
     @Override
     public RemoteViews getViewAt(int position) {
-        RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.dest_stack_view_item);
+        RemoteViews rv = new RemoteViews(context.getPackageName(), R.layout.layout_dest_stack_view_item);
 
         rv.setTextViewText(R.id.dest_hour,myWidgetText.get(position));
         rv.setTextViewText(R.id.dest_minute,myWidgetText.get(position));

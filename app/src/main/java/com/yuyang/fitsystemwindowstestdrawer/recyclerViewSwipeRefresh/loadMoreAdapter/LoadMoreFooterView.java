@@ -37,7 +37,7 @@ public class LoadMoreFooterView extends FrameLayout{
     private void init(){
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         setLayoutParams(layoutParams);
-        LayoutInflater.from(getContext()).inflate(R.layout.layout_footer, this);
+        LayoutInflater.from(getContext()).inflate(R.layout.layout_load_more_footer, this);
         progressBar = (ProgressBar) findViewById(R.id.footer_progress);
         tipsTextView = (TextView) findViewById(R.id.footer_text);
     }

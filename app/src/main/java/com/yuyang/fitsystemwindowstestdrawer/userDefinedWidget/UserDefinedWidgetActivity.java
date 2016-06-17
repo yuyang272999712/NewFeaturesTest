@@ -40,7 +40,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.defind_view_test);
+        setContentView(R.layout.activity_defind_view_test);
 
         findViews();
         initDatas();

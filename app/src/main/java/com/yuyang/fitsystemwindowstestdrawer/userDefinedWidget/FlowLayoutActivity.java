@@ -52,7 +52,7 @@ public class FlowLayoutActivity extends AppCompatActivity {
         adapter = new TagAdapter<String>(mVals) {
             @Override
             public View getView(FlowLayout parent, int position, String s) {
-                TextView tv = (TextView) mInflater.inflate(R.layout.flow_tag_item,
+                TextView tv = (TextView) mInflater.inflate(R.layout.item_flow_tag,
                         tagFlowLayout, false);
                 tv.setText(s);
                 return tv;

@@ -86,7 +86,7 @@ public class BottomItemChangeColor extends LinearLayout {
      * 初始化页面
      */
     private void init() {
-        View view = inflater.inflate(R.layout.layout_bottom_item_change_color, null);
+        View view = inflater.inflate(R.layout.custom_layout_bottom_item_change_color, null);
         backLayout = (LinearLayout) view.findViewById(R.id.bottom_item_back);
         frontLayout = (LinearLayout) view.findViewById(R.id.bottom_item_front);
         backImgView = (ImageView) view.findViewById(R.id.bottom_item_back_img);

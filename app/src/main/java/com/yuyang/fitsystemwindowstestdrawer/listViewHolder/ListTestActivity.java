@@ -21,7 +21,7 @@ public class ListTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.list_activity);
+        setContentView(R.layout.activity_list);
 
         listView = (ListView) findViewById(R.id.list_view);
         initDatas();

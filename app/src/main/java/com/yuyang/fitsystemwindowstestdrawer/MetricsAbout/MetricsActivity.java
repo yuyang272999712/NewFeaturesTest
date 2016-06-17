@@ -29,7 +29,7 @@ public class MetricsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.metrics);
+        setContentView(R.layout.activity_metrics);
 
         toolbar = (Toolbar) findViewById(R.id.metrics_toolbar);
         toolbar.setTitle("开发");

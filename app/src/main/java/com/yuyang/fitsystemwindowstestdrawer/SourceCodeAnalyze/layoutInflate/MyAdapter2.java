@@ -51,7 +51,7 @@ public class MyAdapter2 extends BaseAdapter {
         {
             holder = new ViewHolder();
 //          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, null);
-            convertView = mInflater.inflate(R.layout.layout_button_for_inflate, parent ,false);
+            convertView = mInflater.inflate(R.layout.item_layout_button_for_inflate, parent ,false);
 //          convertView = mInflater.inflate(R.layout.layout_button_for_inflate, parent ,true);
             holder.mBtn = (Button) convertView.findViewById(R.id.layout_item_btn);
             convertView.setTag(holder);

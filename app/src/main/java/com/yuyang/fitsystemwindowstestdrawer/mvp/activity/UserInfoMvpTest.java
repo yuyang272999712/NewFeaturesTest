@@ -28,7 +28,7 @@ public class UserInfoMvpTest extends AppCompatActivity implements IUserInfoMvp,V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.userinfo);
+        setContentView(R.layout.activity_userinfo_mvp);
 
         presenter = new UserInfoPresenter(this, this);
     }

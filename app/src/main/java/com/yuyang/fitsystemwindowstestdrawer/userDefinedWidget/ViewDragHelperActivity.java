@@ -15,7 +15,7 @@ public class ViewDragHelperActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.defind_view_test_2);
+        setContentView(R.layout.activity_view_drag_helper_test);
 
         findViews();
         initDatas();

@@ -43,7 +43,7 @@ public class CardAdapter extends ViewHolderAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.tantan_item, parent, false);
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.item_tantan, parent, false);
         }
         ImageView mCardImageView = get(convertView,R.id.helloText);
         TextView mCardName = get(convertView, R.id.card_name);

@@ -332,7 +332,7 @@ public class CircleMenuLayout extends ViewGroup {
          */
         for (int i=0; i<mMenuItemCount; i++){
             final int index = i;
-            View view = inflater.inflate(R.layout.circle_menu_item, this, false);
+            View view = inflater.inflate(R.layout.custom_layout_circle_menu_item, this, false);
             ImageView imageView = (ImageView) view.findViewById(R.id.id_circle_menu_item_image);
             TextView textView = (TextView) view.findViewById(R.id.id_circle_menu_item_text);
             if (imageView != null){
