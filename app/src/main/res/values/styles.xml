@@ -79,7 +79,8 @@
     <style name="CustomTitleStyleInLayout">
         <item name="titleText">测试2</item>
     </style>
-    
+
+    <!--TODO yuyang Dialog常用样式，适用于自定义Dialog-->
     <style name="MyDialogStyle">
         <!--Dialog的标题-->
         <item name="android:windowNoTitle">true</item>
