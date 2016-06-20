@@ -12,16 +12,17 @@ import android.view.animation.Interpolator;
  * 这里的插值器主要是为了实现水波纹的越来越慢的效果
  */
 public class Circle {
-    private Interpolator mInterpolator = new LinearOutSlowInInterpolator();
-    private long mCreateTime;
+    private Interpolator mInterpolator;
+    public long mCreateTime;
     private long mDuration;//持续时间
     private float mRadius;//半径
     private float mMaxRadius;//最大半径
 
-    public Circle(long duration, float radius, float maxRadius){
+    public Circle(long duration, float radius, float maxRadius, Interpolator interpolator){
         this.mDuration = duration;
         this.mRadius = radius;
         this.mMaxRadius = maxRadius;
+        this.mInterpolator = interpolator;
         mCreateTime = System.currentTimeMillis();
     }
 
@@ -33,5 +34,10 @@ public class Circle {
     public float getCurrentRadius(){
         float parent = (System.currentTimeMillis() - mCreateTime)*1.0f/mDuration;
         return mRadius + mInterpolator.getInterpolation(parent)*(mMaxRadius-mRadius);
+    }
+
+    public float getStrokeWidthRate() {
+        float parent = (System.currentTimeMillis() - mCreateTime)*1.0f/mDuration;
+        return 1-mInterpolator.getInterpolation(parent);
     }
 }

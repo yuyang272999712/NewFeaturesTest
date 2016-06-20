@@ -206,5 +206,13 @@
         <attr name="color_track_progress"/>
         <attr name="color_track_direction"/>
     </declare-styleable>
-
+    <!--自定义View—WaveView-仿探探的水波为效果-->
+    <attr name="wave_color" format="color|reference"/><!--波纹颜色-->
+    <attr name="wave_auto" format="boolean"/><!--是否自动生成波纹-->
+    <attr name="wave_fill" format="boolean"/><!--波纹是否填充-->
+    <declare-styleable name="WaveView">
+        <attr name="wave_color"/>
+        <attr name="wave_auto"/>
+        <attr name="wave_fill"/>
+    </declare-styleable>
 </resources>

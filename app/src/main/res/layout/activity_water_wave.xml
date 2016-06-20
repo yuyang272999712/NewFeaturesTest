@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yy="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            yy:wave_auto="true"
+            yy:wave_fill="true"
+            yy:wave_color="#ff0000"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            yy:wave_auto="true"
+            yy:wave_fill="false"
+            yy:wave_color="#12a3cf"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+            android:id="@+id/water_wave_fill"
+            android:background="#ff08f7"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            yy:wave_auto="false"
+            yy:wave_fill="true"
+            yy:wave_color="#12a3cf"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+            android:id="@+id/water_wave_not_fill"
+            android:background="#32ff5b"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            yy:wave_auto="false"
+            yy:wave_fill="false"
+            yy:wave_color="#ff0000"/>
+
+    </LinearLayout>
+
+</ScrollView>

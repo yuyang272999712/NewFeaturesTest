@@ -36,6 +36,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button circleMenuBtn;
     private Button progressBarBtn;
     private Button foldingLayoutBtn;
+    private Button waterWaveBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         circleMenuBtn = (Button) findViewById(R.id.defind_circle_menu);
         progressBarBtn = (Button) findViewById(R.id.defind_progress_bar);
         foldingLayoutBtn = (Button) findViewById(R.id.defind_folding_layout);
+        waterWaveBtn = (Button) findViewById(R.id.defind_water_wave);
     }
 
     private void initDatas() {}
@@ -186,6 +188,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, FoldingLayoutActivity.class);
+                startActivity(intent);
+            }
+        });
+        waterWaveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterWaveActivity.class);
                 startActivity(intent);
             }
         });
