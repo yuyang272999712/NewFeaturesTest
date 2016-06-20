@@ -6,6 +6,115 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AlertDialog"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="2">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_rowWeight="1"
+            android:textAllCaps="false"
+            android:onClick="startAlertDialog"
+            android:text="AlertDialog 警告框"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startListDialog"
+            android:text="AlertDialog 列表对话框"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startRadioDialog"
+            android:text="AlertDialog 单选对话框"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startCheckDialog"
+            android:text="AlertDialog 多选对话框"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startCheckDialog"
+            android:text="AlertDialog 多选对话框"/>
+
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="功能性Dialog"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:columnCount="2">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startProgressDialog"
+            android:text="ProgressDialog"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startDatePickerDialog"
+            android:text="DatePickerDialog"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:onClick="startTimePickerDialog"
+            android:text="TimePickerDialog"/>
+    </GridLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DialogFragment"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,5 +128,27 @@
         android:textAllCaps="false"
         android:onClick="startDialogFragment"
         android:text="DialogFragment重写onCreateDialog"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/colorPrimaryDark"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义Dialog"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:onClick="startMyDialog"
+        android:text="自定义Dialog"/>
 
 </LinearLayout>
