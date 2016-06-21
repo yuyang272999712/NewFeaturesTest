@@ -9,9 +9,9 @@ import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -43,6 +43,7 @@ public class WaveView extends View{
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
+            Log.i("--yuyang--","自动生成波纹");
             if (isFill) {//如果是填充的效果，就是用越来越的渐变效果
                 circles.add(new Circle(mDuration, mInitRadius, mMaxRadius, outSlowInterpolator));
             }else {

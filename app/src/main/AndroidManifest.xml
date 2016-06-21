@@ -105,6 +105,9 @@
         <activity android:name=".sourceCodeAnalyze.drawableAbout.CircleImageDrawableActivity"/>
         <activity android:name=".sourceCodeAnalyze.drawableAbout.RoundImageDrawableActivity"/>
         <activity android:name=".sourceCodeAnalyze.drawableAbout.CustomStateDrawableActivity"/>
+        <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerAndMessageActivity"/>
+        <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerSimpleActivity"/>
+        <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerTreadSimpleActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
