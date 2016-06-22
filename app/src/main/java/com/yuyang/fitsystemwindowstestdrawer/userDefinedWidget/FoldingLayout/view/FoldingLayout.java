@@ -95,7 +95,7 @@ public class FoldingLayout extends ViewGroup {
         View child = getChildAt(0);
         child.layout(0, 0, child.getMeasuredWidth(), child.getMeasuredHeight());
         mBitmap = Bitmap.createBitmap(getMeasuredWidth(), getMeasuredHeight(), Bitmap.Config.ARGB_8888);
-        //Specify a bitmap for the canvas to draw into.
+        //TODO yuyang Specify a bitmap for the canvas to draw into.
         //这样他的子View就绘制在了mBitmap上
         mCanvas.setBitmap(mBitmap);
         updateFold();

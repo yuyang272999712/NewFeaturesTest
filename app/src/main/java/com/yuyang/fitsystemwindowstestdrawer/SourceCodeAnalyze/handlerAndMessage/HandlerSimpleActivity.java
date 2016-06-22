@@ -54,7 +54,7 @@ import java.lang.ref.WeakReference;
  *  否则直接调用Handler的handleMessage()方法，并将消息对象作为参数传递过去。
  *  3、结束MessageQueue消息队列阻塞死循环
  *      Looper类的quit方法，通过判断标记mQuitAllowed来决定该消息队列是否可以退出，
- *  然而当mQuitAllowed为fasle时抛出的异常竟然是”Main thread not allowed to quit.”，
+ *  然而当mQuitAllowed为false时抛出的异常竟然是”Main thread not allowed to quit.”，
  *  Main Thread：所以可以说明Main Thread关联的Looper一一对应的MessageQueue消息队列是不能通过该方法退出的。
  *
  * 三、Handler其它方法

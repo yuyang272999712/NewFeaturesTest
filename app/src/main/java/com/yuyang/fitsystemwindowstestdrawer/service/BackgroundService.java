@@ -35,7 +35,8 @@ public class BackgroundService extends Service {
                 }
             }
         };
-        task.execute();
+        //TODO yuyang 使这个任务在一个新的线程池中
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         return super.onStartCommand(intent, flags, startId);
     }
 
