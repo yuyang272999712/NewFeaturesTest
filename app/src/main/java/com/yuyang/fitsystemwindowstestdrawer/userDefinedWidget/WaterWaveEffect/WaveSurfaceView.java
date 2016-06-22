@@ -24,7 +24,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * 使用Surface实现水波纹效果
+ * 使用Surface实现水波纹效果，这种方式不好用，背景无法控制
  */
 public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHolder.Callback {
     private SurfaceHolder holder;
@@ -137,6 +137,8 @@ public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHold
         try {
             // 获得canvas
             canvas = holder.lockCanvas();
+            //TODO yuyang SurfaceView的Canvas如果不设置背景进行覆盖，那么会看到上次绘制的缓存
+            canvas.drawColor(Color.WHITE);
             if (canvas != null) {
                 Iterator<Circle> iterator = circles.iterator();
                 while (iterator.hasNext()){
@@ -152,7 +154,6 @@ public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHold
                         iterator.remove();
                     }
                 }
-                Log.v("--yuyang--", "圆个数："+circles.size());
             }
         } catch (Exception e) {
         } finally {

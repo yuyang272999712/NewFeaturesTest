@@ -43,7 +43,6 @@ public class WaveView extends View{
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            Log.i("--yuyang--","自动生成波纹");
             if (isFill) {//如果是填充的效果，就是用越来越的渐变效果
                 circles.add(new Circle(mDuration, mInitRadius, mMaxRadius, outSlowInterpolator));
             }else {
@@ -121,7 +120,7 @@ public class WaveView extends View{
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        handler.removeMessages(0);
+        handler.removeCallbacksAndMessages(null);
     }
 
     /**
