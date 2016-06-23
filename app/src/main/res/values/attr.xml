@@ -215,4 +215,19 @@
         <attr name="wave_auto"/>
         <attr name="wave_fill"/>
     </declare-styleable>
+    <!--自定义View－CustomCoordinateAxisView－雷达坐标图-->
+    <attr name="axis_color" format="color|reference"/><!--坐标轴线颜色-->
+    <attr name="axis_fill_color" format="color|reference"/><!--围成面积的填充色-->
+    <attr name="axis_text_bg_color" format="color|reference"/><!--文字颜色-->
+    <attr name="axis_text_color" format="color|reference"/><!--文字背景颜色-->
+    <attr name="axis_circle_color" format="color|reference"/><!--选中圆圈边色-->
+    <attr name="axis_text_size" format="dimension"/><!--文字大小-->
+    <declare-styleable name="AxisView">
+        <attr name="axis_color"/><!--坐标轴线颜色-->
+        <attr name="axis_fill_color"/><!--围成面积的填充色-->
+        <attr name="axis_text_bg_color"/><!--文字颜色-->
+        <attr name="axis_text_color"/><!--文字背景颜色-->
+        <attr name="axis_circle_color"/><!--选中圆圈边色-->
+        <attr name="axis_text_size"/><!--文字大小-->
+    </declare-styleable>
 </resources>

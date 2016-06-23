@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.yuyang.fitsystemwindowstestdrawer.customView.CustomBounceLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:state="http://schemas.android.com/apk/res-auto"
+    xmlns:yy="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,9 +17,9 @@
         android:textSize="20sp"
         android:text="自定义控件状态，点击状态变化－引起颜色变化"
         android:background="@drawable/selector_custom_state"
-        state:state_1="true"
-        state:state_2="false"
-        state:state_3="false"/>
+        yy:state_1="true"
+        yy:state_2="false"
+        yy:state_3="false"/>
 
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomLinearLayout
         android:layout_width="wrap_content"
@@ -90,5 +90,14 @@
         android:background="#8bc6f9"
         android:text="向下拉动后松开"
         android:textSize="25sp"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomCoordinateAxisView
+        android:id="@+id/custom_2_axis"
+        android:background="@color/white"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        yy:axis_color="#a2a2a2"
+        yy:axis_fill_color="#9000c1ab"
+        yy:axis_circle_color="#00b0b3"/>
 
 </com.yuyang.fitsystemwindowstestdrawer.customView.CustomBounceLinearLayout>
