@@ -160,6 +160,12 @@
         <activity android:name=".homeDemo.TraditionalViewPagerActivity"/>
         <activity android:name=".homeDemo.FragmentManagerActivity"/>
         <activity android:name=".homeDemo.ViewPagerFragmentActivity"/>
+        <activity android:name=".configChangesDatasAbout.ConfigChangesActivity"/>
+        <activity android:name=".configChangesDatasAbout.normalWay.SavedInstanceStateUsingActivity"/>
+        <activity android:name=".configChangesDatasAbout.normalWay.FragmentRetainDataActivity"/>
+        <activity android:name=".configChangesDatasAbout.normalWay.UserHandleChangesActivity"
+                  android:configChanges="orientation|screenSize"/>
+        <activity android:name=".configChangesDatasAbout.fixProblems.FixProblemsActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

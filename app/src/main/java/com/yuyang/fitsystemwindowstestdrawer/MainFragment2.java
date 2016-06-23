@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
+import com.yuyang.fitsystemwindowstestdrawer.configChangesDatasAbout.ConfigChangesActivity;
 import com.yuyang.fitsystemwindowstestdrawer.effect360AppIntroduce.Effect360AppIntroduceActivity;
 import com.yuyang.fitsystemwindowstestdrawer.flabbyBird.FlabbyBirdActivity;
 import com.yuyang.fitsystemwindowstestdrawer.homeDemo.HomeDemoActivity;
@@ -98,6 +99,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), HomeDemoActivity.class);
+                startActivity(intent);
+            }
+        });
+        button7 = (Button) mContentView.findViewById(R.id.button7);
+        button7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ConfigChangesActivity.class);
                 startActivity(intent);
             }
         });

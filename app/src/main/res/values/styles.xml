@@ -85,10 +85,10 @@
         <!--Dialog的标题-->
         <item name="android:windowNoTitle">true</item>
         <!--Dialog的内容的背景，默认是透明的-->
-        <item name="android:windowBackground">@android:color/holo_blue_dark</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <!--Dialog的内容的背景半透明(不起作用，真正的半透明是backgroundDimEnabled值)-->
         <item name="android:windowIsTranslucent">true</item>
-        <!--Dialog整体的边框，如果有Title的话包括Title(坚决不能要啊，除非填充是空的)-->
+        <!--Dialog整体的边框，如果有Title的话包括Title(坚决不能要啊，除非@Drawable填充是空的)-->
         <item name="android:windowFrame">@null</item>
         <!--Dialog的ContentView区域的覆盖-->
         <item name="android:windowContentOverlay">@null</item>

@@ -1,19 +1,17 @@
 package com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.dialogAbout;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
 
 /**
  * 使用DialogFragment"至少"需要实现onCreateView或者onCreateDialog方法。
@@ -25,6 +23,19 @@ public class LoginDialogFragment extends DialogFragment {
 
     public interface LoginInputListener {
         void onLoginInputComplete(String username, String password);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        LogUtils.i("于洋","我就是看看他是不是重建了一个onAttach");
+        //果真是由建了一个
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LogUtils.i("于洋","我就是看看他是不是重建了一个onCreate");
     }
 
     @Override

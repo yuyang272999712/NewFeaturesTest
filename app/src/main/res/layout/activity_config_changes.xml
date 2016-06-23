@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Android屏幕旋转 处理AsyncTask和ProgressDialog的最佳方案"
+        android:gravity="center"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:onClick="gotoAsyncTaskSaveInstanceState"
+        android:text="使用onSaveInstanceState()和onRestoreInstanceState()进行数据保存与恢复"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:onClick="gotoRetainedFragment"
+        android:text="使用持久的Fragment进行数据保存与恢复"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:onClick="gotoUserHandleChanges"
+        android:text="通过Manifest配置文件，并重写onConfigurationChanged方法，用户自己处理配置变化"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:onClick="gotoFixProblemsActivity"
+        android:text="Android屏幕旋转 处理AsyncTask和ProgressDialog的最佳方案"/>
+
+</LinearLayout>
