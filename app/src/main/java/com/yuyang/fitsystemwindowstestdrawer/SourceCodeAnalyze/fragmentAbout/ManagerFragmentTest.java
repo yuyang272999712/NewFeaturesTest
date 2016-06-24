@@ -1,6 +1,8 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -16,26 +18,64 @@ import java.util.Calendar;
 /**
  * 打印Fragment生命周期变化
  */
-public class FragmentTest extends Fragment {
+public class ManagerFragmentTest extends Fragment {
     private String title = "title";
 
-    public static FragmentTest getInstance(String text){
+    public static ManagerFragmentTest getInstance(String text){
         Bundle bundle = new Bundle();
         bundle.putString("title", text);
-        FragmentTest fragmentTest = new FragmentTest();
+        ManagerFragmentTest fragmentTest = new ManagerFragmentTest();
         fragmentTest.setArguments(bundle);
         return fragmentTest;
+    }
+
+    @Override
+    //TODO yuyang 坑爹啊，这个attach方法只有在6.0及以上版本才会被调用
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        LogUtils.e(title, "onAttach");
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        Calendar calendar = Calendar.getInstance();
+        title = getArguments().getString("title")+calendar.get(Calendar.MINUTE)+":"+ calendar.get(Calendar.SECOND);
+        LogUtils.e(title, "onAttach");
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        LogUtils.e(title, "onCreate");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        Calendar calendar = Calendar.getInstance();
-        title = getArguments().getString("title")+calendar.get(Calendar.MINUTE)+":"+ calendar.get(Calendar.SECOND);
+        LogUtils.e(title, "onCreateView");
         View view = inflater.inflate(R.layout.fragment_test, null);
         TextView textView = (TextView) view.findViewById(R.id.fragment_test_text);
         textView.setText(title);
         return view;
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LogUtils.e(title, "onActivityCreated");
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        LogUtils.e(title, "onStart");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        LogUtils.e(title, "onResume");
     }
 
     @Override
@@ -54,6 +94,12 @@ public class FragmentTest extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         LogUtils.e(title, "onDestroyView");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        LogUtils.e(title, "onSaveInstanceState");
     }
 
     @Override
