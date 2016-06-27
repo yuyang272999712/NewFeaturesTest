@@ -1,8 +1,8 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -17,13 +17,14 @@ import com.yuyang.fitsystemwindowstestdrawer.utils.ToastUtils;
  * 2、Fragment与Activity通信
  * 3、处理运行时配置发生变化
  * 4、Fragment与ActionBar和MenuItem集成
+ * TODO yuyang 注意！！AppCompatActivity必须使用getSupportFragmentManager()才能正常使用Fragment回退栈，如果继承自Activity，那么使用getFragmentManager()能够正常使用回退栈
  */
 public class FragmentBackStackActivity extends AppCompatActivity implements BackStackFragment1.FOneBtnClickListener, BackStackFragment2.FTwoBtnClickListener {
     private FragmentManager fragmentManager;
 
     private BackStackFragment1 mFOne;
     private BackStackFragment2 mFTwo;
-    private ManagerFragmentTest mFThree;
+    private BackStackFragment2 mFThree;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ public class FragmentBackStackActivity extends AppCompatActivity implements Back
         toolbar.setTitle("开发测试");
         setSupportActionBar(toolbar);
 
-        fragmentManager = getFragmentManager();
+        fragmentManager = getSupportFragmentManager();
 
         if(savedInstanceState == null) {//TODO 防止屏幕旋转等状态变化导致的Fragment重复创建
             mFOne = BackStackFragment1.getInstance("第一个返回栈Fragment");
@@ -88,7 +89,7 @@ public class FragmentBackStackActivity extends AppCompatActivity implements Back
     @Override
     public void onFTwoBtnClick() {
         if (mFThree == null){
-            mFThree = ManagerFragmentTest.getInstance("第三个返回栈Fragment");
+            mFThree = BackStackFragment2.getInstance("第三个返回栈Fragment");
         }
         FragmentTransaction tx = fragmentManager.beginTransaction();
         tx.hide(mFTwo);

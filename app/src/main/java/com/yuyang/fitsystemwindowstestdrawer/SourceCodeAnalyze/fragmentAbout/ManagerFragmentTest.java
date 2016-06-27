@@ -60,6 +60,13 @@ public class ManagerFragmentTest extends Fragment {
         return view;
     }
 
+    //TODO yuyang Fragment懒加载方法
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtils.e(title, "setUserVisibleHint:"+getUserVisibleHint()+";isVisibleToUser:"+isVisibleToUser);
+    }
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

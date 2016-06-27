@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
 
 /**
  * Created by yuyang on 16/6/16.
@@ -18,5 +19,12 @@ public class FragmentTab2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tab_02, container, false);
         return view;
+    }
+
+    //TODO yuyang Fragment懒加载方法
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtils.e("FragmentTab2", "setUserVisibleHint:"+getUserVisibleHint()+";isVisibleToUser:"+isVisibleToUser);
     }
 }

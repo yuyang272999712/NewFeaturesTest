@@ -1,11 +1,11 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -56,6 +56,13 @@ public class BackStackFragment1 extends Fragment {
         //TODO yuyang Fragment与ActionBar和MenuItem集成
         setHasOptionsMenu(true);
         return view;
+    }
+
+    //TODO yuyang Fragment懒加载方法
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        LogUtils.e(title, "setUserVisibleHint:"+getUserVisibleHint()+";isVisibleToUser:"+isVisibleToUser);
     }
 
     //TODO yuyang 设置Fragment的菜单
