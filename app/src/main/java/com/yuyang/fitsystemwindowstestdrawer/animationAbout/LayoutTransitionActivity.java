@@ -53,7 +53,7 @@ public class LayoutTransitionActivity extends AppCompatActivity implements Compo
         transition = new LayoutTransition();
         container.setLayoutTransition(transition);
 
-        //TODO yuyang 代码设置容器出现的动画
+        //TODO yuyang 代码设置容器出现的动画（这里使用的是布局中xml设置动画）
 //        Animation animation = AnimationUtils.loadAnimation(this, R.anim.alpha_in_animation);
 //        controller = new LayoutAnimationController(animation);
 //        controller.setOrder(LayoutAnimationController.ORDER_RANDOM);

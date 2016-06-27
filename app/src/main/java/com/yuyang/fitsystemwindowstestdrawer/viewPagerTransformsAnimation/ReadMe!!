@@ -1,0 +1,4 @@
+TODO yuyang ViewPager切换动画，例：ViewPagerFragmentActivity.java
+android3.0以后ViewPager新增加了一个
+    setPageTransformer(boolean reverseDrawingOrder, PageTransformer transformer)
+方法，设置该方法可未ViewPager添加自定义切换动画。

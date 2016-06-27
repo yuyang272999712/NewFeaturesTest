@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation.RotateDownTransformer;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation.StackTransformer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -109,6 +111,8 @@ public class ViewPagerFragmentActivity extends AppCompatActivity {
         };
 
         mViewPager.setAdapter(pagerAdapter);
+        //TODO yuyang 为ViewPager添加切换动画
+        mViewPager.setPageTransformer(true, new StackTransformer());
     }
 
     private void initViews() {
