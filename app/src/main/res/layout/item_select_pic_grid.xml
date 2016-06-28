@@ -16,14 +16,14 @@
         android:background="#6fff"
         android:visibility="gone"/>
 
-    <ImageView
+    <CheckBox
         android:id="@+id/rc_grid_item_check"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_margin="5dp"
-        android:background="@drawable/picture_select_item_check_selector"
+        android:button="@drawable/picture_select_item_check_selector"
         android:visibility="visible"/>
 
 </RelativeLayout>

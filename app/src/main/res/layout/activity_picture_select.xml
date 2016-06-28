@@ -9,14 +9,19 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary">
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
         <Button
+            android:id="@+id/picture_select_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_marginRight="17dp"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
             android:layout_gravity="right"
+            android:enabled="false"
             android:background="@drawable/dialog_positive_button_bg"
             android:text="发送"
             android:textColor="@color/selector_text_pressed"
@@ -36,6 +41,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:clickable="true"
             android:paddingLeft="17dp"
             android:paddingRight="17dp"
             android:paddingTop="5dp"
@@ -44,6 +50,7 @@
             android:layout_alignParentBottom="true">
 
             <Button
+                android:id="@+id/picture_select_bucket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical|left"
@@ -53,8 +60,10 @@
                 android:text="Camera"/>
 
             <TextView
+                android:id="@+id/picture_select_preview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:enabled="false"
                 android:textSize="18sp"
                 android:textColor="@color/selector_text_pressed"
                 android:text="预览"

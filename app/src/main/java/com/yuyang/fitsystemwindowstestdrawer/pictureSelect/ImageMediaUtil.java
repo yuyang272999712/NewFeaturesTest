@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * 系统图片抓取工具
  */
-public class ImageMediaHelper {
+public class ImageMediaUtil {
     final String TAG = getClass().getSimpleName();
     ContentResolver contentResolver;
     //所有照片（string-相册ID/imageBucket-相册中的图片图片）
@@ -25,7 +25,7 @@ public class ImageMediaHelper {
     //保存系统相册的相册ID
     String bucketCameraId = null;
 
-    public ImageMediaHelper(Context context) {
+    public ImageMediaUtil(Context context) {
         contentResolver = context.getContentResolver();
     }
 
@@ -68,9 +68,6 @@ public class ImageMediaHelper {
                 if(path.contains(dcim_dir) && this.bucketCameraId == null){
                     this.bucketCameraId = bucketId;
                 }
-                Log.i(TAG, _id + ", bucketId: " + bucketId + " name:" + name + " path:" + path
-                        + " size: " + size + " bucket: "
-                        + bucketName + "---");
 
                 ImageBucket bucket = bucketList.get(bucketId);
                 if (bucket == null) {
@@ -81,7 +78,7 @@ public class ImageMediaHelper {
                     // 获取该图片的父路径名
                     File parentFile = new File(path).getParentFile();
                     String bucketPath = parentFile.getAbsolutePath();
-                    bucket.bucketPath = bucketPath;
+                    bucket.bucketPath = bucketPath + File.separator;
                 }
                 bucket.count++;
                 ImageItem imageItem = new ImageItem();

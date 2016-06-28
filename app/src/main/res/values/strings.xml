@@ -7,4 +7,11 @@
     <string name="action_settings">Settings</string>
 
     <string name="transition_view_option">transition_view_option</string>
+
+    <string name="picture_select_preview">预览</string>
+    <string name="picture_select_preview_count">预览(%1$s)</string>
+    <string name="picture_select_send">发送</string>
+    <string name="picture_select_send_count">发送(%1$s/5)</string>
+    <string name="preview_pic_original">原图</string>
+    <string name="preview_pic_original_size">原图(%1$.2fM)</string>
 </resources>

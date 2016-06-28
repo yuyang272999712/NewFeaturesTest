@@ -3,7 +3,8 @@
 2 获取最终产出物目录的路径。这样,编译完的 apk 或者 jar 包将拷贝到这个最终产出物目录中
 3 获取 Android SDK 指定编译的版本
 */
-def initMinshengGradleEnvironment(){
+
+def initMinshengGradleEnvironment() {
     println "initialize Minsheng Gradle Environment ....."
     Properties properties = new Properties()
     //local.properites 也放在 posdevice 目录下
@@ -27,4 +28,4 @@ def initMinshengGradleEnvironment(){
 initMinshengGradleEnvironment()
 
 //添加子 Project 信息
-include ':app', ':testlibrary'
+include ':app', ':testlibrary', ':photoviewlibrary'

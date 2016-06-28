@@ -169,6 +169,8 @@
         <activity android:name=".configChangesDatasAbout.normalWay.UserHandleChangesActivity"
                   android:configChanges="orientation|screenSize"/>
         <activity android:name=".configChangesDatasAbout.fixProblems.FixProblemsActivity"/>
+        <activity android:name=".pictureSelect.PictureSelectActivity"/>
+        <activity android:name=".pictureSelect.PreviewPicActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

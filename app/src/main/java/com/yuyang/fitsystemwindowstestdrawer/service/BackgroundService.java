@@ -7,6 +7,8 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.concurrent.Executors;
+
 /**
  * Created by yuyang on 16/3/4.
  * 运行在指定进程中的service
@@ -36,7 +38,7 @@ public class BackgroundService extends Service {
             }
         };
         //TODO yuyang 使这个任务在一个新的线程池中
-        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        task.executeOnExecutor(Executors.newCachedThreadPool());
         return super.onStartCommand(intent, flags, startId);
     }
 

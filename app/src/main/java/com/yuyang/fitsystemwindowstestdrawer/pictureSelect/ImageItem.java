@@ -13,7 +13,6 @@ public class ImageItem implements Serializable {
     public String imagePath;//图片路径
     public String size;//图片大小（单位：b）
     public boolean isSelected = false;
-    public boolean is_upload_initial;//是否发送原图
 
     public String getImageName() {
         return imageName;
@@ -45,14 +44,6 @@ public class ImageItem implements Serializable {
 
     public void setSelected(boolean selected) {
         isSelected = selected;
-    }
-
-    public boolean is_upload_initial() {
-        return is_upload_initial;
-    }
-
-    public void setIs_upload_initial(boolean is_upload_initial) {
-        this.is_upload_initial = is_upload_initial;
     }
 
     public String getImagePath() {
