@@ -1,6 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer.flabbyBird;
 
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;

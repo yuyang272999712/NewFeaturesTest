@@ -171,6 +171,8 @@
         <activity android:name=".configChangesDatasAbout.fixProblems.FixProblemsActivity"/>
         <activity android:name=".pictureSelect.PictureSelectActivity"/>
         <activity android:name=".pictureSelect.PreviewPicActivity"/>
+        <activity android:name=".SQLiteAbout.SQLiteDbAboutActivity"/>
+        <activity android:name=".SQLiteAbout.sqliteOpenHelper.SQLiteOpenHelperActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->
