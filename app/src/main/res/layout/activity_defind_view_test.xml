@@ -56,6 +56,12 @@
             android:layout_height="wrap_content"
             android:text="水波纹效果"/>
 
+        <Button
+            android:id="@+id/defind_sloop_vertical_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="竖直无限循环滚动"/>
+
     </LinearLayout>
 
     <LinearLayout

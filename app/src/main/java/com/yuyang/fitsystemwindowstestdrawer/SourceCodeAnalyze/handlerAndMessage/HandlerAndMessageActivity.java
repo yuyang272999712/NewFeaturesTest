@@ -26,4 +26,9 @@ public class HandlerAndMessageActivity extends Activity {
         Intent intent = new Intent(this, HandlerTreadSimpleActivity.class);
         startActivity(intent);
     }
+
+    public void gotoHandlerTest(View view){
+        Intent intent = new Intent(this, LoadLocationAlbumActivity.class);
+        startActivity(intent);
+    }
 }
