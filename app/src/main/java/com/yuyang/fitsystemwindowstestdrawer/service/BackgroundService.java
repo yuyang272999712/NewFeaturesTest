@@ -7,6 +7,7 @@ import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
@@ -14,6 +15,7 @@ import java.util.concurrent.Executors;
  * 运行在指定进程中的service
  */
 public class BackgroundService extends Service {
+    private static final ExecutorService threadPool = Executors.newFixedThreadPool(1);
 
     @Nullable
     @Override
@@ -38,7 +40,7 @@ public class BackgroundService extends Service {
             }
         };
         //TODO yuyang 使这个任务在一个新的线程池中
-        task.executeOnExecutor(Executors.newCachedThreadPool());
+        task.executeOnExecutor(threadPool);
         return super.onStartCommand(intent, flags, startId);
     }
 

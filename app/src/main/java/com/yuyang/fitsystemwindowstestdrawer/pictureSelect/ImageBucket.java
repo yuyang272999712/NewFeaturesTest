@@ -4,8 +4,6 @@ import java.util.List;
 
 /**
  * 相册信息
- * @author yuyang 2015年7月15日
- *
  */
 public class ImageBucket {
     public int count = 0;//此相册中有多少图片

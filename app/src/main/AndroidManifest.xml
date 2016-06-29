@@ -108,6 +108,7 @@
         <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerAndMessageActivity"/>
         <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerSimpleActivity"/>
         <activity android:name=".sourceCodeAnalyze.handlerAndMessage.HandlerTreadSimpleActivity"/>
+        <activity android:name=".sourceCodeAnalyze.handlerAndMessage.LoadLocationAlbumActivity"/>
         <activity android:name=".sourceCodeAnalyze.asyncTask.AsyncTaskSimpleActivity"/>
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentManagerAboutActivity"/>
