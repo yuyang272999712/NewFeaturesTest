@@ -10,6 +10,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
 
 /**
@@ -37,6 +38,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button progressBarBtn;
     private Button foldingLayoutBtn;
     private Button waterWaveBtn;
+    private Button sloopVerticalScrollItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         progressBarBtn = (Button) findViewById(R.id.defind_progress_bar);
         foldingLayoutBtn = (Button) findViewById(R.id.defind_folding_layout);
         waterWaveBtn = (Button) findViewById(R.id.defind_water_wave);
+        sloopVerticalScrollItem = (Button) findViewById(R.id.defind_sloop_vertical_scroll);
     }
 
     private void initDatas() {}
@@ -195,6 +198,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterWaveActivity.class);
+                startActivity(intent);
+            }
+        });
+        sloopVerticalScrollItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, SingleItemScrollActivity.class);
                 startActivity(intent);
             }
         });
