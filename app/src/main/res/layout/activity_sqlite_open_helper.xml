@@ -20,4 +20,52 @@
         android:layout_marginTop="10dp"
         android:text="创建数据库"/>
 
+    <Button
+        android:id="@+id/sqlite_update_database"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="升级数据库"/>
+
+    <Button
+        android:id="@+id/sqlite_add_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="添加数据"/>
+
+    <Button
+        android:id="@+id/sqlite_update_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="更新数据"/>
+
+    <Button
+        android:id="@+id/sqlite_delete_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="删除数据"/>
+
+    <Button
+        android:id="@+id/sqlite_query_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="查询数据"/>
+
+    <Button
+        android:id="@+id/sqlite_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="数据库事务操作"/>
+
 </LinearLayout>

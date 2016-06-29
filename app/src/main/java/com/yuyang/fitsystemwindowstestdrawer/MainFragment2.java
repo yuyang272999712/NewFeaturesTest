@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
 import com.yuyang.fitsystemwindowstestdrawer.configChangesDatasAbout.ConfigChangesActivity;
 import com.yuyang.fitsystemwindowstestdrawer.effect360AppIntroduce.Effect360AppIntroduceActivity;
@@ -116,6 +117,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), PictureSelectActivity.class);
+                startActivity(intent);
+            }
+        });
+        button9 = (Button) mContentView.findViewById(R.id.button9);
+        button9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SQLiteDbAboutActivity.class);
                 startActivity(intent);
             }
         });
