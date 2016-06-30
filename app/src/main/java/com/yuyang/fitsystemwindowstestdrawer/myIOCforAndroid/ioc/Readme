@@ -1,0 +1,54 @@
+@Target表示该注解可以用于什么地方，可能的类型TYPE（类）,FIELD（成员变量）,可能的类型：
+public enum ElementType {
+    /**
+     * Class, interface or enum declaration.
+     */
+    TYPE,
+    /**
+     * Field declaration.
+     */
+    FIELD,
+    /**
+     * Method declaration.
+     */
+    METHOD,
+    /**
+     * Parameter declaration.
+     */
+    PARAMETER,
+    /**
+     * Constructor declaration.
+     */
+    CONSTRUCTOR,
+    /**
+     * Local variable declaration.
+     */
+    LOCAL_VARIABLE,
+    /**
+     * Annotation type declaration.
+     */
+    ANNOTATION_TYPE,
+    /**
+     * Package declaration.
+     */
+    PACKAGE
+}
+
+
+@Retention表示：表示需要在什么级别保存该注解信息；我们这里设置为运行时。
+public enum RetentionPolicy {
+    /**
+     * Annotation is only available in the source code.
+     */
+    SOURCE,
+    /**
+     * Annotation is available in the source code and in the class file, but not
+     * at runtime. This is the default policy.
+     */
+    CLASS,
+    /**
+     * Annotation is available in the source code, the class file and is
+     * available at runtime.
+     */
+    RUNTIME
+}
