@@ -15,6 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.configChangesDatasAbout.ConfigChang
 import com.yuyang.fitsystemwindowstestdrawer.effect360AppIntroduce.Effect360AppIntroduceActivity;
 import com.yuyang.fitsystemwindowstestdrawer.flabbyBird.FlabbyBirdActivity;
 import com.yuyang.fitsystemwindowstestdrawer.homeDemo.HomeDemoActivity;
+import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.MyIOCActivity;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity;
 import com.yuyang.fitsystemwindowstestdrawer.pictureSelect.PictureSelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
@@ -125,6 +126,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SQLiteDbAboutActivity.class);
+                startActivity(intent);
+            }
+        });
+        button10 = (Button) mContentView.findViewById(R.id.button10);
+        button10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MyIOCActivity.class);
                 startActivity(intent);
             }
         });

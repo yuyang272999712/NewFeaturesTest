@@ -10,13 +10,14 @@ import android.widget.Button;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.ViewInjectUtils;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ContentView;
+import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.OnClick;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ViewInject;
 import com.yuyang.fitsystemwindowstestdrawer.utils.ToastUtils;
 
 /**
  * 利用依赖注入机制查找控件（就像xUtils一样注入）
  */
-@ContentView(value = R.layout.activity_my_ioc)
+@ContentView(R.layout.activity_my_ioc)
 public class MyIOCActivity extends AppCompatActivity {
     @ViewInject(R.id.toolbar)
     private Toolbar toolbar;
@@ -39,12 +40,17 @@ public class MyIOCActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
 
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ToastUtils.showLong(MyIOCActivity.this, "依赖注入");
-            }
-        });
+    @OnClick({R.id.my_ioc_btn1,R.id.my_ioc_btn2})
+    public void myIOCBtn2(View view){
+        switch (view.getId()){
+            case R.id.my_ioc_btn1:
+                ToastUtils.showLong(MyIOCActivity.this, "点击事件依赖注入1");
+                break;
+            case R.id.my_ioc_btn2:
+                ToastUtils.showLong(MyIOCActivity.this, "点击事件依赖注入2");
+                break;
+        }
     }
 }

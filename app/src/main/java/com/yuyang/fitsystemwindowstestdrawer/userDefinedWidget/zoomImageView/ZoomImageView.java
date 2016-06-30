@@ -298,11 +298,17 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
         RectF rectF = getMatrixRectF();
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
+                /**
+                 * 解决ViewPager滑动冲突
+                 */
                 if (rectF.width() > getWidth() || rectF.height() > getHeight()) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }
                 break;
             case MotionEvent.ACTION_MOVE:
+                /**
+                 * 解决ViewPager滑动冲突
+                 */
                 if (rectF.width() > getWidth() || rectF.height() > getHeight()) {
                     getParent().requestDisallowInterceptTouchEvent(true);
                 }

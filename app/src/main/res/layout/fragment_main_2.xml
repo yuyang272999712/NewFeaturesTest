@@ -102,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="类似xUtils的依赖注入"/>
         </TableRow>
         <TableRow >
             <Button
