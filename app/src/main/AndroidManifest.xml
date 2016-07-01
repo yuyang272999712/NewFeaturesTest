@@ -178,6 +178,7 @@
         <activity android:name=".SQLiteAbout.SQLiteDbAboutActivity"/>
         <activity android:name=".SQLiteAbout.sqliteOpenHelper.SQLiteOpenHelperActivity"/>
         <activity android:name=".myIOCforAndroid.MyIOCActivity"/>
+        <activity android:name=".Game2048.Game2048Activity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->
