@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper;
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;

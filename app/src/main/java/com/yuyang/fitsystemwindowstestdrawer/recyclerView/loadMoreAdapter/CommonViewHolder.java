@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter;
 
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v7.widget.RecyclerView;

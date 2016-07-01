@@ -115,7 +115,7 @@
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentManagerAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentBackStackActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
-        <activity android:name=".recyclerViewSwipeRefresh.SwipeRefreshActivity"/>
+        <activity android:name=".recyclerView.SwipeRefreshActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
             android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
         <activity android:name=".customView.CustomActivity"

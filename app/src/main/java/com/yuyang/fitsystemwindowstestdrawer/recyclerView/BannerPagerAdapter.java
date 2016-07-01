@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

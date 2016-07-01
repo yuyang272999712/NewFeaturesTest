@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.recyclerItemClickListener;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.recyclerItemClickListener;
 
 import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.widget.RecyclerView;

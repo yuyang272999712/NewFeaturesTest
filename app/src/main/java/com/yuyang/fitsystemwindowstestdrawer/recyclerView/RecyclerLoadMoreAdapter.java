@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,10 +10,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.ItemTouchHelperAdapter;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.OnStartDragListener;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter.CommonViewHolder;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter.LoadMoreAdapter;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.ItemTouchHelperAdapter;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.OnStartDragListener;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.CommonViewHolder;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.LoadMoreAdapter;
 
 import java.util.Collections;
 import java.util.List;

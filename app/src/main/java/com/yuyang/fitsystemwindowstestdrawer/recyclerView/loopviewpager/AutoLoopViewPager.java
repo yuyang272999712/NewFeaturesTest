@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loopviewpager;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager;
 
 import android.content.Context;
 import android.os.Handler;

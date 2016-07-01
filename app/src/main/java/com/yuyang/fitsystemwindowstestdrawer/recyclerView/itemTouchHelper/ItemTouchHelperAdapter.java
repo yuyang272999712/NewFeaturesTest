@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper;
 
 /**
  * 用于通知adapter底层数据的更新的回调

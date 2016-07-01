@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="160dp">
 
-            <com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loopviewpager.AutoLoopViewPager
+            <com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager.AutoLoopViewPager
                 android:id="@+id/swipe_banner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

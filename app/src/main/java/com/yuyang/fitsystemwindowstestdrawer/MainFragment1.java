@@ -23,7 +23,7 @@ import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.SwipeRefreshActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;

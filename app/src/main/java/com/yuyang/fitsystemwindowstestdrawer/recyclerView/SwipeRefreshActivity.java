@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,16 +10,14 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.OnStartDragListener;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.itemTouchHelper.SimpleItemTouchHelperCallBack;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter.LoadMoreFooterView;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loopviewpager.AutoLoopViewPager;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.recyclerItemClickListener.OnRecyclerItemClickListener;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.OnStartDragListener;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.SimpleItemTouchHelperCallBack;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.LoadMoreFooterView;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager.AutoLoopViewPager;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.recyclerItemClickListener.OnRecyclerItemClickListener;
 
 import java.util.Arrays;
 import java.util.List;

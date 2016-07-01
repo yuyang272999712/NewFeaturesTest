@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;

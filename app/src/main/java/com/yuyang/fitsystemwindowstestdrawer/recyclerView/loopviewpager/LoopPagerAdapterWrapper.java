@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loopviewpager;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager;
 
 import android.os.Parcelable;
 import android.support.v4.app.FragmentPagerAdapter;
