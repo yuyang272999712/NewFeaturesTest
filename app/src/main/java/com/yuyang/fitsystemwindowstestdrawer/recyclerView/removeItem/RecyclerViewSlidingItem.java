@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.utils.DensityUtils;
+import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
 
 /**
  * 滑动删除item的RecyclerView
@@ -42,6 +43,8 @@ public class RecyclerViewSlidingItem extends RecyclerView {
     private Scroller mScroller;
     //图标只进行一次动画
     private boolean isFirst;
+    //是否正在侧滑
+    private boolean isSliding;
 
     public RecyclerViewSlidingItem(Context context) {
         this(context, null);
@@ -86,12 +89,14 @@ public class RecyclerViewSlidingItem extends RecyclerView {
                 itemLayout = holder.layout;
                 textView = (TextView) itemLayout.findViewById(R.id.item_delete_txt);
                 imageView = (ImageView) itemLayout.findViewById(R.id.item_delete_img);
+                mStartX = x;
                 break;
             case MotionEvent.ACTION_MOVE:
                 int dx = x - xDown;
                 int dy = y - yDown;
+                LogUtils.e("MOVE事件，x坐标："+x+"; 原始Down_x坐标："+xDown);
                 //判断是否是水平滑动
-                if (Math.abs(dy) < mTouchSlop * 2 && Math.abs(dx) > mTouchSlop) {
+                if (Math.abs(dy) < mTouchSlop * 2 && Math.abs(dx) > mTouchSlop || isSliding) {
                     //各种情况下停止水平滑动
                     int scrollX = itemLayout.getScrollX();
                     int newScrollX = mStartX - x;
@@ -117,6 +122,10 @@ public class RecyclerViewSlidingItem extends RecyclerView {
                         imageView.setVisibility(GONE);
                     }
                     itemLayout.scrollBy(newScrollX, 0);
+                    //使竖直方向的滑动为0
+                    isSliding = true;
+                    mStartX = x;
+                    return false;
                 }
                 break;
             case MotionEvent.ACTION_UP:
@@ -128,6 +137,7 @@ public class RecyclerViewSlidingItem extends RecyclerView {
                     invalidate();
                 }
                 isFirst = true;
+                isSliding = false;
                 break;
         }
         return super.onTouchEvent(e);

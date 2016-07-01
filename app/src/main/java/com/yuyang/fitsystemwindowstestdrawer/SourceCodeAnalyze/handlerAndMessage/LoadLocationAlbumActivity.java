@@ -19,7 +19,7 @@ import android.widget.ImageView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.pictureSelect.GridSpacingItemDecoration;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerViewSwipeRefresh.loadMoreAdapter.CommonViewHolder;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.CommonViewHolder;
 import com.yuyang.fitsystemwindowstestdrawer.utils.SDCardUtils;
 import com.yuyang.fitsystemwindowstestdrawer.utils.ToastUtils;
 

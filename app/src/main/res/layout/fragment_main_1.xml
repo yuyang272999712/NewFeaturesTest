@@ -147,7 +147,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="recycler_swipe"/>
+                android:text="RecyclerView"/>
 
             <Button
                 android:id="@+id/button16"

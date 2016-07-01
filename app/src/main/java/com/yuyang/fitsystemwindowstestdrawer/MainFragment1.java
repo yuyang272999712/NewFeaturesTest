@@ -23,7 +23,8 @@ import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.SwipeRefreshActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.RecyclerViewDemoActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
@@ -197,7 +198,7 @@ public class MainFragment1 extends Fragment {
         button15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SwipeRefreshActivity.class);
+                Intent intent = new Intent(getContext(), RecyclerViewDemoActivity.class);
                 startActivity(intent);
             }
         });

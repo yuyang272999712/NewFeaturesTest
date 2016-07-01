@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.recyclerView;
+package com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
