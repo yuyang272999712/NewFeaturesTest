@@ -17,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.TabFragment;
 
 /**
  * tableLayout 相关属性设定：

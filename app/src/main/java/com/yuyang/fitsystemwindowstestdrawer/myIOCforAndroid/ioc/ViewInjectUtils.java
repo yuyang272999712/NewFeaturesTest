@@ -16,7 +16,8 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- *
+ * 类似于xUtils的运行时注解
+ *  (ButterKnife是编译时注解)
  */
 public class ViewInjectUtils {
     private static final String METHOD_SET_CONTENT_VIEW = "setContentView";

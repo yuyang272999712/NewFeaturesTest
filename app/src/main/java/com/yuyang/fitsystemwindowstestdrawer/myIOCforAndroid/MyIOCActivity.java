@@ -15,7 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.View
 import com.yuyang.fitsystemwindowstestdrawer.utils.ToastUtils;
 
 /**
- * 利用依赖注入机制查找控件（就像xUtils一样注入）
+ * 利用依赖注入机制查找控件（就像xUtils一样运行时注入）
  */
 @ContentView(R.layout.activity_my_ioc)
 public class MyIOCActivity extends AppCompatActivity {
