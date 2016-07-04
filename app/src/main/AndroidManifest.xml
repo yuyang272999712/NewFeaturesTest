@@ -81,6 +81,7 @@
         <activity android:name=".userDefinedWidget.WaterWaveActivity"/>
         <activity android:name=".userDefinedWidget.singleItemScrollView.SingleItemScrollActivity"/>
         <activity android:name=".userDefinedWidget.ParallaxViewPagerActivity"/>
+        <activity android:name=".userDefinedWidget.ColourImageActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>

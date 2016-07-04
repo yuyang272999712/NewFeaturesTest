@@ -23,7 +23,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_margin="5dp"
-        android:button="@drawable/picture_select_item_check_selector"
+        android:button="@drawable/selector_picture_select_item_check"
         android:visibility="visible"/>
 
 </RelativeLayout>

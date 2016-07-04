@@ -230,4 +230,9 @@
         <attr name="axis_circle_color"/><!--选中圆圈边色-->
         <attr name="axis_text_size"/><!--文字大小-->
     </declare-styleable>
+    <!--自定义View－ColourImageView－填充颜色-->
+    <attr name="colour_border_color" format="color|reference"/><!--边界颜色-->
+    <declare-styleable name="ColourImageView">
+        <attr name="colour_border_color"/>
+    </declare-styleable>
 </resources>
