@@ -39,6 +39,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button foldingLayoutBtn;
     private Button waterWaveBtn;
     private Button sloopVerticalScrollItem;
+    private Button parallaxViewPagerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +71,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         foldingLayoutBtn = (Button) findViewById(R.id.defind_folding_layout);
         waterWaveBtn = (Button) findViewById(R.id.defind_water_wave);
         sloopVerticalScrollItem = (Button) findViewById(R.id.defind_sloop_vertical_scroll);
+        parallaxViewPagerBtn = (Button) findViewById(R.id.defind_parallax_view_pager);
     }
 
     private void initDatas() {}
@@ -205,6 +207,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, SingleItemScrollActivity.class);
+                startActivity(intent);
+            }
+        });
+        parallaxViewPagerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, ParallaxViewPagerActivity.class);
                 startActivity(intent);
             }
         });
