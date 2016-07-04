@@ -20,7 +20,7 @@
         android:id="@+id/item_recycler_drag_flag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_drag_handle_blue_a400_24dp"
+        android:src="@drawable/vector_ic_drag_handle_blue_a400_24dp"
         android:scaleType="centerCrop"/>
 
 </LinearLayout>

@@ -22,7 +22,7 @@
             android:paddingRight="5dp"
             android:layout_gravity="right"
             android:enabled="false"
-            android:background="@drawable/dialog_positive_button_bg"
+            android:background="@drawable/selector_dialog_positive_button_bg"
             android:text="发送"
             android:textColor="@color/selector_text_pressed"
             android:textSize="17sp"/>

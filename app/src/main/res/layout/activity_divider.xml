@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:divider="@drawable/divider"
+        android:divider="@drawable/shape_divider"
         android:showDividers="middle"
         android:dividerPadding="2dp">
         <Button
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:divider="@drawable/divider"
+        android:divider="@drawable/shape_divider"
         android:showDividers="middle"
         android:dividerPadding="2dp">
         <Button

@@ -23,7 +23,7 @@
             android:layout_height="46.0dip"
             android:layout_gravity="center"
             android:layout_marginBottom="10.0dip"
-            android:indeterminateDrawable="@drawable/progressbar_indeterminate"
+            android:indeterminateDrawable="@drawable/animation_progressbar_indeterminate"
             android:clickable="false"
             android:gravity="center" />
 

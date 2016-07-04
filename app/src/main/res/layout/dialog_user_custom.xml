@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/dialog_bg"
+    android:background="@drawable/shape_dialog_bg"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -40,7 +40,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/dialog_negative_button_bg"
+            android:background="@drawable/selector_dialog_negative_button_bg"
             android:gravity="center"
             android:text="取消"
             android:layout_marginRight="8dp"
@@ -53,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/dialog_positive_button_bg"
+            android:background="@drawable/selector_dialog_positive_button_bg"
             android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="确定"

@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/material_card"
+        android:background="@drawable/layer_list_material_card"
         android:orientation="vertical">
 
         <ImageView

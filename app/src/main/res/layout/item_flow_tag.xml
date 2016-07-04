@@ -3,7 +3,7 @@
           android:layout_width="wrap_content"
           android:layout_height="wrap_content"
           android:layout_margin="5dp"
-          android:background="@drawable/flow_item_bg_selector"
+          android:background="@drawable/selector_flow_item_bg"
           android:text="Helloworld"
           android:textColor="#9f6db6">
 

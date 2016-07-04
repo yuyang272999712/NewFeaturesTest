@@ -53,43 +53,43 @@
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_2"
+            android:background="@drawable/shape_flow_item_bg_2"
             android:text="Welcome"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_2"
+            android:background="@drawable/shape_flow_item_bg_2"
             android:text="IT工程师"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_2"
+            android:background="@drawable/shape_flow_item_bg_2"
             android:text="学习ing"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_2"
+            android:background="@drawable/shape_flow_item_bg_2"
             android:text="恋爱ing"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_3"
+            android:background="@drawable/shape_flow_item_bg_3"
             android:text="挣钱ing"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_3"
+            android:background="@drawable/shape_flow_item_bg_3"
             android:text="努力ing"
             android:textColor="#43BBE7" />
 
         <TextView
             style="@style/flow_item_text_style"
-            android:background="@drawable/flow_item_bg_3"
+            android:background="@drawable/shape_flow_item_bg_3"
             android:text="I thick i can"
             android:textColor="#43BBE7" />
     </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout>

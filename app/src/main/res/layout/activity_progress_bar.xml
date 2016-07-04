@@ -23,7 +23,7 @@
         android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:indeterminateDrawable="@drawable/progressbar_indeterminate"/>
+        android:indeterminateDrawable="@drawable/animation_progressbar_indeterminate"/>
     <ProgressBar
         android:id="@+id/progress_system_2"
         style="@style/Widget.AppCompat.ProgressBar"
@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        android:indeterminateDrawable="@drawable/progressbar_webview_states"/>
+        android:indeterminateDrawable="@drawable/layer_list_progressbar_webview_states"/>
     <ProgressBar
         android:id="@+id/progress_system_5"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:progressDrawable="@drawable/progressbar_webview_states"/>
+        android:progressDrawable="@drawable/layer_list_progressbar_webview_states"/>
 
     <View
         android:layout_width="match_parent"

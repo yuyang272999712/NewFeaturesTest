@@ -27,7 +27,7 @@ public class ProgressWebView extends WebView {
 		progressbar.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,
 				PROGRESS_BAR_WIDTH, 0, 0));
 		Drawable drawable = context.getResources().getDrawable(
-				R.drawable.progressbar_webview_states);
+				R.drawable.layer_list_progressbar_webview_states);
 		progressbar.setProgressDrawable(drawable);
 		addView(progressbar);
 

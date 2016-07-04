@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:background="@drawable/home_buttons_dislike"
+        android:background="@drawable/selector_home_buttons_dislike"
         android:onClick="left" />
 
     <ImageView
@@ -22,14 +22,14 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
 
-        android:background="@drawable/home_buttons_info" />
+        android:background="@drawable/selector_home_buttons_info" />
 
     <ImageView
         android:id="@+id/right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:background="@drawable/home_buttons_like"
+        android:background="@drawable/selector_home_buttons_like"
         />
 
 </LinearLayout>
