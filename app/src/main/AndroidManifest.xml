@@ -28,6 +28,8 @@
     <uses-permission android:name="android.permission.SEND_SMS"/>
     <!--接收短信权限-->
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <!--读取联系人的权限-->
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
 
     <application
         android:allowBackup="true"
@@ -179,6 +181,17 @@
         <activity android:name=".SQLiteAbout.sqliteOpenHelper.SQLiteOpenHelperActivity"/>
         <activity android:name=".myIOCforAndroid.MyIOCActivity"/>
         <activity android:name=".Game2048.Game2048Activity"/>
+        <activity android:name=".contentProvider.ContentProviderActivity"/>
+        <activity android:name=".contentProvider.ReadContactsActivity"/>
+<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+        <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
+            android:exported属性指定了该内容提供器可以被其他应用程序访问-->
+        <provider
+            android:name=".contentProvider.DatabaseProvider"
+            android:authorities="com.yuyang.database.provider"
+            android:exported="true"/>
+
+
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--一直运行在app生命过程中的service-->

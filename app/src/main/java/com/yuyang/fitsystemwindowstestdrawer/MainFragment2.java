@@ -13,6 +13,7 @@ import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
 import com.yuyang.fitsystemwindowstestdrawer.configChangesDatasAbout.ConfigChangesActivity;
+import com.yuyang.fitsystemwindowstestdrawer.contentProvider.ContentProviderActivity;
 import com.yuyang.fitsystemwindowstestdrawer.effect360AppIntroduce.Effect360AppIntroduceActivity;
 import com.yuyang.fitsystemwindowstestdrawer.flabbyBird.FlabbyBirdActivity;
 import com.yuyang.fitsystemwindowstestdrawer.homeDemo.HomeDemoActivity;
@@ -143,6 +144,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), Game2048Activity.class);
+                startActivity(intent);
+            }
+        });
+        button12 = (Button) mContentView.findViewById(R.id.button12);
+        button12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ContentProviderActivity.class);
                 startActivity(intent);
             }
         });
