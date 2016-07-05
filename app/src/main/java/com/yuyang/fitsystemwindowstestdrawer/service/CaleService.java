@@ -10,7 +10,9 @@ import com.yuyang.fitsystemwindowstestdrawer.aidl.ICalcAIDL;
 import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
 
 /**
- * Created by yuyang on 16/7/5.
+ * TODO yuyang 通过AIDL实现IPC通信-服务端
+ * android的AIDL实际上就是对Binder的封装，使用.aidl文件自动生成了服务端Binder类Sub，和客户端Proxy实现类
+ *  Service的作用其实就是为我们创建Binder驱动，即服务端与客户端连接的桥梁。
  */
 public class CaleService extends Service{
     private static final String TAG = "CaleService";

@@ -198,6 +198,20 @@
 
         <!--一直运行在app生命过程中的service-->
         <service android:name=".service.BackgroundService"/>
+        <!--使用AIDL实现IPC通讯-->
+        <service android:name=".service.CaleService">
+            <intent-filter>
+                <action android:name="com.yuyang.aidl.cale"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <!--直接使用Binder实现IPC-->
+        <service android:name=".service.CalcPlusService">
+            <intent-filter>
+                <action android:name="com.yuyang.aidl.caleplus"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->
