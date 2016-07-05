@@ -57,7 +57,7 @@ public class SQLiteOpenHelperActivity extends AppCompatActivity {
         });
 
         //创建数据库
-        dbHelper = new MySQLiteOpenHelper(this, "BookStore.db", null, 1);
+        dbHelper = new MySQLiteOpenHelper(this, "BookStore.db", null, 2);
         createDbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,7 +68,7 @@ public class SQLiteOpenHelperActivity extends AppCompatActivity {
         upDbBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MySQLiteOpenHelper helper = new MySQLiteOpenHelper(SQLiteOpenHelperActivity.this, "BookStore.db", null, 2);
+                MySQLiteOpenHelper helper = new MySQLiteOpenHelper(SQLiteOpenHelperActivity.this, "BookStore.db", null, 3);
                 ToastUtils.showLong(SQLiteOpenHelperActivity.this, "只能升级一次，点过之后就不能再点创建了");
             }
         });

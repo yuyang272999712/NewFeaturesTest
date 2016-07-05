@@ -41,6 +41,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         LogUtils.e("创建了Book表");
         db.execSQL(CREATE_BOOK);
+        db.execSQL(CREATE_CATEGORY);
     }
 
     //升级逻辑
