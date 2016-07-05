@@ -317,6 +317,7 @@ public class MyImageLoader {
 
     /**
      * 反射获得ImageView设置的最大宽度和高度
+     * 为了兼容API16以下的android版本
      * @param object
      * @param fieldName
      * @return

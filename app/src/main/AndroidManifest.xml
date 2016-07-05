@@ -185,6 +185,7 @@
         <activity android:name=".Game2048.Game2048Activity"/>
         <activity android:name=".contentProvider.ContentProviderActivity"/>
         <activity android:name=".contentProvider.ReadContactsActivity"/>
+        <activity android:name=".imageLoader.ImageLoaderActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->

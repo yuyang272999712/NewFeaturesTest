@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- * 浏览本地相册
+ * 浏览本地相册，类似开源的Imageloader图片加载器
  */
 public class LoadLocationAlbumActivity extends AppCompatActivity {
     private Toolbar toolbar;

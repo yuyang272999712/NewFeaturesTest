@@ -37,11 +37,12 @@ public class ViewInjectUtils {
     private static void injectContentView(Activity activity){
         LogUtils.e("java控制反转，调用Activity的 setContentView() 方法");
         Class<? extends Activity> clazz = activity.getClass();
-        // 查询类上是否存在ContentView注解
+        //TODO yuyang 查询类上是否存在ContentView注解
         ContentView contentView = clazz.getAnnotation(ContentView.class);
         if (contentView != null){
             int contentViewLayoutId = contentView.value();
             try {
+                //TODO yuyang 反射获取方法
                 Method method = clazz.getMethod(METHOD_SET_CONTENT_VIEW, int.class);
                 method.setAccessible(true);
                 method.invoke(activity, contentViewLayoutId);
