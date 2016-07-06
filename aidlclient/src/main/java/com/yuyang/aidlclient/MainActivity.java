@@ -1,15 +1,14 @@
 package com.yuyang.aidlclient;
 
-import android.annotation.TargetApi;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,6 +18,11 @@ import com.yuyang.fitsystemwindowstestdrawer.aidl.ICalcAIDL;
 
 /**
  * IPC通讯－客户端
+ * TODO yuyang 对于实现AIDL接口，官方还提醒我们：
+ *  1. 调用者是不能保证在主线程执行的，所以从一调用的开始就需要考虑多线程处理，以及确保线程安全；
+ *  2. IPC调用是同步的。如果你知道一个IPC服务需要超过几毫秒的时间才能完成地话，你应该避免在Activity的主线程中调用。
+ *      也就是IPC调用会挂起应用程序导致界面失去响应，这种情况应该考虑单独开启一个线程来处理。
+ *  3. 抛出的异常是不能返回给调用者（跨进程抛异常处理是不可取的）。
  */
 public class MainActivity extends AppCompatActivity {
     private Button bindBtn;
