@@ -28,4 +28,4 @@ def initMinshengGradleEnvironment() {
 initMinshengGradleEnvironment()
 
 //添加子 Project 信息
-include ':app', ':testlibrary', ':photoviewlibrary', ':aidlclient'
+include ':app', ':testlibrary', ':photoviewlibrary', ':aidlclient', ':actionbar'

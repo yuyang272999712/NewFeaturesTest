@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/main_camera"
+          android:icon="@drawable/ic_menu_camera"
+          android:title="camera"/>
+
+    <item android:id="@+id/main_gallery"
+          android:icon="@drawable/ic_menu_gallery"
+          android:title="gallery"
+          app:showAsAction="ifRoom"/>
+
+    <item android:id="@+id/main_manage"
+          android:icon="@drawable/ic_menu_manage"
+          android:title="manage"
+          app:showAsAction="never"/>
+
+    <item android:id="@+id/main_search"
+          android:icon="@drawable/ic_menu_send"
+          android:title="send"
+          app:actionViewClass="android.support.v7.widget.SearchView"
+          app:showAsAction="always"/>
+
+    <item android:id="@+id/main_share"
+          android:icon="@drawable/ic_menu_share"
+          android:title="share"
+          app:actionProviderClass="android.support.v7.widget.ShareActionProvider"
+          app:showAsAction="withText"/>
+
+    <item android:id="@+id/main_slide_show"
+          android:icon="@drawable/ic_menu_slideshow"
+          android:title="slideshow"
+          app:showAsAction="collapseActionView"/>
+
+</menu>

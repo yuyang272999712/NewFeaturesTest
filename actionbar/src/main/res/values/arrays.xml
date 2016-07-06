@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="menus">
+        <item>全部类别</item>
+        <item>类别_1</item>
+        <item>类别_2</item>
+        <item>类别_3</item>
+        <item>类别_4</item>
+        <item>类别_5</item>
+        <item>类别_6</item>
+    </array>
+</resources>

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.yuyang.fitsystemwindowstestdrawer.EventBus.EventBusActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
@@ -19,6 +20,7 @@ import com.yuyang.fitsystemwindowstestdrawer.flabbyBird.FlabbyBirdActivity;
 import com.yuyang.fitsystemwindowstestdrawer.homeDemo.HomeDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.imageLoader.ImageLoaderActivity;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.MyIOCActivity;
+import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.EventBase;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity;
 import com.yuyang.fitsystemwindowstestdrawer.pictureSelect.PictureSelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
@@ -161,6 +163,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), ImageLoaderActivity.class);
+                startActivity(intent);
+            }
+        });
+        button14 = (Button) mContentView.findViewById(R.id.button14);
+        button14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), EventBusActivity.class);
                 startActivity(intent);
             }
         });
