@@ -135,26 +135,29 @@ public class EventBus {
         synchronized (this){
             subscribeMethods = mSubscribeMethodsByEventType.get(eventType.getClass());
         }
-        for (final SubscribeMethod subscribeMethod:subscribeMethods){
-            if (subscribeMethod.threadMode == ThreadMode.UI){
-                if (postingThread.isMainThread){
-                    invokeMethod(eventType, subscribeMethod);
-                }else {
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            invokeMethod(eventType, subscribeMethod);
-                        }
-                    });
-                }
-            }else {
-                new AsyncTask<Void,Void,Void>(){
-                    @Override
-                    protected Void doInBackground(Void... params) {
+        //判断是否为空，因为可能在事件发布之前，原来的Activity就已经被销毁了
+        if (subscribeMethods != null) {
+            for (final SubscribeMethod subscribeMethod : subscribeMethods) {
+                if (subscribeMethod.threadMode == ThreadMode.UI) {
+                    if (postingThread.isMainThread) {
                         invokeMethod(eventType, subscribeMethod);
-                        return null;
+                    } else {
+                        mHandler.post(new Runnable() {
+                            @Override
+                            public void run() {
+                                invokeMethod(eventType, subscribeMethod);
+                            }
+                        });
                     }
-                }.execute();
+                } else {
+                    new AsyncTask<Void, Void, Void>() {
+                        @Override
+                        protected Void doInBackground(Void... params) {
+                            invokeMethod(eventType, subscribeMethod);
+                            return null;
+                        }
+                    }.execute();
+                }
             }
         }
     }
