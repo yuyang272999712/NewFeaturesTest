@@ -1,76 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.yuyang.aidlclient.MainActivity">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="使用AIDL实现IPC通讯"/>
+        android:layout_marginTop="5dp"
+        android:text="Messenger实现IPC通讯"/>
+
     <Button
-        android:id="@+id/bind_service"
+        android:id="@+id/bind_service_messenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/text"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:textAllCaps="false"
         android:text="BindService"/>
 
     <Button
-        android:id="@+id/un_bind_service"
+        android:id="@+id/un_bind_service_messenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/bind_service"
+        android:layout_below="@id/bind_service_messenger"
         android:layout_marginTop="10dp"
         android:textAllCaps="false"
         android:text="UnBindService"/>
 
     <Button
-        android:id="@+id/aidl_cale_add"
+        android:id="@+id/cale_add_messenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/un_bind_service"
+        android:layout_below="@id/un_bind_service_messenger"
         android:layout_marginTop="10dp"
         android:textAllCaps="false"
-        android:text="使用AIDL计算12+12"/>
+        android:text="使用AIDL计算10+10"/>
 
     <Button
-        android:id="@+id/aidl_cale_min"
+        android:id="@+id/cale_min_messenger"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/aidl_cale_add"
+        android:layout_below="@id/cale_add_messenger"
         android:layout_marginTop="10dp"
         android:textAllCaps="false"
-        android:text="使用AIDL计算78-10"/>
-
-    <Button
-        android:id="@+id/aidl_messenger"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerInParent="true"
-        android:onClick="gotoMessengerActivity"
-        android:textAllCaps="false"
-        android:text="使用Messenger实现IPC"/>
-
-    <Button
-        android:id="@+id/aidl_i_binder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/aidl_messenger"
-        android:layout_centerInParent="true"
-        android:onClick="gotoIBinderActivity"
-        android:textAllCaps="false"
-        android:text="直接使用IBinder实现IPC"/>
+        android:text="使用AIDL计算40-20"/>
 
 </RelativeLayout>

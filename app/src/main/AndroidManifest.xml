@@ -209,16 +209,23 @@
         <!--一直运行在app生命过程中的service-->
         <service android:name=".service.BackgroundService"/>
         <!--使用AIDL实现IPC通讯-->
-        <service android:name=".service.CaleService">
+        <service android:name=".IPC.CaleService">
             <intent-filter>
                 <action android:name="com.yuyang.aidl.cale"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
         <!--直接使用Binder实现IPC-->
-        <service android:name=".service.CalcPlusService">
+        <service android:name=".IPC.CalcPlusService">
             <intent-filter>
                 <action android:name="com.yuyang.aidl.caleplus"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name=".IPC.CaleMessengerService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.yuyang.aidl.cale.messenger"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>

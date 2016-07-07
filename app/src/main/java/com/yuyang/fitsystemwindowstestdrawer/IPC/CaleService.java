@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.service;
+package com.yuyang.fitsystemwindowstestdrawer.IPC;
 
 import android.app.Service;
 import android.content.Intent;
@@ -26,6 +26,12 @@ public class CaleService extends Service{
 
         @Override
         public int min(int x, int y) throws RemoteException {
+            try {
+                //TODO 耗时操作，应该起个新线程，这里犯懒了……Y(^_^)Y
+                Thread.sleep(6000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             return x-y;
         }
     };

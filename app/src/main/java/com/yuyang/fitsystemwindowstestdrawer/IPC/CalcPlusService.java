@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.service;
+package com.yuyang.fitsystemwindowstestdrawer.IPC;
 
 import android.app.Service;
 import android.content.Intent;

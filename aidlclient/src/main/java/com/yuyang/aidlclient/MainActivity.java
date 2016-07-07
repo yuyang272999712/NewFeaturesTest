@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.os.Parcel;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,7 +17,7 @@ import com.yuyang.fitsystemwindowstestdrawer.aidl.ICalcAIDL;
 
 /**
  * IPC通讯－客户端
- * TODO yuyang 对于实现AIDL接口，官方还提醒我们：
+ * TODO yuyang 对于实现AIDL接口，官方提醒我们：
  *  1. 调用者是不能保证在主线程执行的，所以从一调用的开始就需要考虑多线程处理，以及确保线程安全；
  *  2. IPC调用是同步的。如果你知道一个IPC服务需要超过几毫秒的时间才能完成地话，你应该避免在Activity的主线程中调用。
  *      也就是IPC调用会挂起应用程序导致界面失去响应，这种情况应该考虑单独开启一个线程来处理。
@@ -29,11 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private Button unBindBtn;
     private Button addBtn;
     private Button minBtn;
-
-    private Button bindBinderBtn;
-    private Button unBindBinderBtn;
-    private Button addBinderBtn;
-    private Button minBinderBtn;
 
     //TODO yuyang 通过AIDL实现IPC通信
     private ICalcAIDL mCalcAidl;
@@ -50,23 +44,6 @@ public class MainActivity extends AppCompatActivity {
             mCalcAidl = null;
         }
     };
-    //TODO yuyang 自定义Binder实现IPC通讯
-    private IBinder mPlusBinder;
-    private ServiceConnection mServiceConnPlus = new ServiceConnection() {
-        @Override
-        public void onServiceConnected(ComponentName name, IBinder service) {
-            Log.e("aidlClient", "onServiceConnected"+";"+name);
-            mPlusBinder = service;
-        }
-
-        @Override
-        public void onServiceDisconnected(ComponentName name) {
-            Log.e("aidlClient", "onServiceDisconnected"+";"+name);
-            mPlusBinder = null;
-        }
-    };
-    //TODO yuyang 自定义Binder服务的标识
-    private static final String DESCRIPTOR = "com.yuyang.CalcPlusService";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,70 +52,6 @@ public class MainActivity extends AppCompatActivity {
 
         findViews();
         setAIDLAction();
-        setBinderAction();
-    }
-
-    private void setBinderAction() {
-        bindBinderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setComponent(new ComponentName("com.yuyang.fitsystemwindowstestdrawer","com.yuyang.fitsystemwindowstestdrawer.service.CalcPlusService"));
-                bindService(intent, mServiceConnPlus, Context.BIND_AUTO_CREATE);
-            }
-        });
-        unBindBinderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                unbindService(mServiceConnPlus);
-            }
-        });
-        addBinderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPlusBinder == null){
-                    Toast.makeText(MainActivity.this, "未连接服务端或服务端被异常杀死", Toast.LENGTH_SHORT).show();
-                }else {
-                    Parcel _data = Parcel.obtain();
-                    Parcel _reply = Parcel.obtain();
-                    int _result;
-                    try {
-                        _data.writeInterfaceToken(DESCRIPTOR);
-                        _data.writeInt(13);
-                        _data.writeInt(13);
-                        mPlusBinder.transact(0x110, _data, _reply, 0);//TODO 服务端规定code＝0x110为加法操作
-                        _reply.readException();
-                        _result = _reply.readInt();
-                        Toast.makeText(MainActivity.this, "结果："+_result, Toast.LENGTH_LONG).show();
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-        minBinderBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (mPlusBinder == null){
-                    Toast.makeText(MainActivity.this, "未连接服务端或服务端被异常杀死", Toast.LENGTH_SHORT).show();
-                }else {
-                    Parcel _data = Parcel.obtain();
-                    Parcel _reply = Parcel.obtain();
-                    int _result;
-                    try {
-                        _data.writeInterfaceToken(DESCRIPTOR);
-                        _data.writeInt(78);
-                        _data.writeInt(20);
-                        mPlusBinder.transact(0x111, _data, _reply, 0);//TODO 服务端规定code＝0x111为减法操作
-                        _reply.readException();
-                        _result = _reply.readInt();
-                        Toast.makeText(MainActivity.this, "结果："+_result, Toast.LENGTH_LONG).show();
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
     }
 
     private void setAIDLAction() {
@@ -148,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setAction("com.yuyang.aidl.calc");
-                intent.setComponent(new ComponentName("com.yuyang.fitsystemwindowstestdrawer","com.yuyang.fitsystemwindowstestdrawer.service.CaleService"));
+                intent.setComponent(new ComponentName("com.yuyang.fitsystemwindowstestdrawer","com.yuyang.fitsystemwindowstestdrawer.IPC.CaleService"));
                 bindService(intent, mServiceConn, Context.BIND_AUTO_CREATE);
             }
         });
@@ -165,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (mCalcAidl != null){
                     try {
+                        //TODO yuyang 小心服务端是耗时任务，会造成应用无响应
                         int result = mCalcAidl.add(12, 12);
                         Toast.makeText(MainActivity.this, "结果："+result, Toast.LENGTH_LONG).show();
                     } catch (RemoteException e) {
@@ -198,10 +112,14 @@ public class MainActivity extends AppCompatActivity {
         unBindBtn = (Button) findViewById(R.id.un_bind_service);
         addBtn = (Button) findViewById(R.id.aidl_cale_add);
         minBtn = (Button) findViewById(R.id.aidl_cale_min);
+    }
 
-        bindBinderBtn = (Button) findViewById(R.id.bind_service_binder);
-        unBindBinderBtn = (Button) findViewById(R.id.un_bind_service_binder);
-        addBinderBtn = (Button) findViewById(R.id.cale_add_binder);
-        minBinderBtn = (Button) findViewById(R.id.cale_min_binder);
+    public void gotoMessengerActivity(View view){
+        Intent intent = new Intent(this, UseMessengerActivity.class);
+        startActivity(intent);
+    }
+    public void gotoIBinderActivity(View view){
+        Intent intent = new Intent(this, UseIBinderActivity.class);
+        startActivity(intent);
     }
 }
