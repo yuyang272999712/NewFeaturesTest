@@ -38,7 +38,7 @@ public class HandlerTreadSimpleActivity extends Activity {
         mainHandler = new Handler(){
             @Override
             public void handleMessage(Message msg) {
-                Log.i("--yuyang--", "在子线程中处理！--thread.id="+Thread.currentThread().getId());
+                Log.i("--yuyang--", "在主线程中处理！--thread.id="+Thread.currentThread().getId());
                 textView.setText("mCount="+mCount);
                 //handler接收到独立线程发送来的信息后，向mHandlerThread发送msg 1
                 threadHandler.sendEmptyMessage(1);

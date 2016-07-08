@@ -75,7 +75,7 @@ public class FileUtils {
      * Get a file path from a Uri. This will get the the path for Storage Access
      * Framework Documents, as well as the _data field for the MediaStore and
      * other file-based ContentProviders.
-     *
+     * TODO yuyang android4.4以后的图片选择返回路径做了修改
      * @param context The context.
      * @param uri The Uri to query.
      * @author paulburke
