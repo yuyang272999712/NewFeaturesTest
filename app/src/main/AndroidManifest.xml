@@ -144,6 +144,8 @@
         <activity android:name=".googleWidget.DividerActivity"/>
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
+        <activity android:name=".internetAbout.InternetAboutActivity"/>
+        <activity android:name=".internetAbout.httpAbout.HttpURLConnectionActivity"/>
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>
         <activity android:name=".telephony_sms.TelephonyAndSmsActivity">
             <intent-filter>
