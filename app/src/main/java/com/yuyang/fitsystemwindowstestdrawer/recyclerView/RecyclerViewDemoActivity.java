@@ -11,6 +11,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.ViewInjectUtils;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ContentView;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ViewInject;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator.SlideRecyclerListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.removeItem.RecyclerViewRemoveItemActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshActivity;
 
@@ -43,6 +44,15 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
      */
     public void gotoRecyclerViewRemoveItem(View view){
         Intent intent = new Intent(this, RecyclerViewRemoveItemActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * RecyclerView的item动画效果
+     * @param view
+     */
+    public void gotoSlideAnimator(View view){
+        Intent intent = new Intent(this, SlideRecyclerListActivity.class);
         startActivity(intent);
     }
 

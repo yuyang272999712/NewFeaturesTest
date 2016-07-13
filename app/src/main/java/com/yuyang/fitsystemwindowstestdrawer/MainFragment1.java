@@ -18,6 +18,7 @@ import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.InternetAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.manager.ConnectivityStateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
@@ -243,7 +244,7 @@ public class MainFragment1 extends Fragment {
         button20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ConnectivityStateActivity.class);
+                Intent intent = new Intent(getContext(), InternetAboutActivity.class);
                 startActivity(intent);
             }
         });

@@ -13,27 +13,16 @@
         android:theme="@style/AppTheme.AppBarOverlay"/>
 
     <Button
+        android:id="@+id/http_baidu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:onClick="gotoRecyclerViewRemoveItem"
-        android:text="侧滑删除Item"/>
+        android:text="请求百度主页"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:onClick="gotoSlideAnimator"
-        android:text="Item添加动画效果"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:textAllCaps="false"
-        android:onClick="gotoSwipeRefresh"
-        android:text="以上效果综合"/>
+    <TextView
+        android:id="@+id/http_text"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#58aeaeae"/>
 
 </LinearLayout>
