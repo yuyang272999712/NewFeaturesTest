@@ -68,6 +68,14 @@ public class OrientationSensorActivity extends AppCompatActivity {
         sensorManager.registerListener(listener, accelerometerSensor, SensorManager.SENSOR_DELAY_GAME);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (sensorManager != null){
+            sensorManager.unregisterListener(listener);
+        }
+    }
+
     private void findViews() {
         orientationImg = (ImageView) findViewById(R.id.sensor_orientation_img);
     }
