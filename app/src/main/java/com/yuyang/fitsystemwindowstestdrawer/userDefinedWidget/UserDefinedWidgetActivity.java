@@ -11,6 +11,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.Fol
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
 
 /**
@@ -41,6 +42,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button sloopVerticalScrollItem;
     private Button parallaxViewPagerBtn;
     private Button colourImageBtn;
+    private Button stereoBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         sloopVerticalScrollItem = (Button) findViewById(R.id.defind_sloop_vertical_scroll);
         parallaxViewPagerBtn = (Button) findViewById(R.id.defind_parallax_view_pager);
         colourImageBtn = (Button) findViewById(R.id.defind_colour_image);
+        stereoBtn = (Button) findViewById(R.id.defind_stereo);
     }
 
     private void initDatas() {}
@@ -226,6 +229,12 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        stereoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, StereoViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

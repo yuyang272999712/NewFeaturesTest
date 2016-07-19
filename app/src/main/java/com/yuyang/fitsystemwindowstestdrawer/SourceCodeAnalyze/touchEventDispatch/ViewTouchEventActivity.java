@@ -81,4 +81,26 @@ public class ViewTouchEventActivity extends AppCompatActivity {
     private void findViews() {
         myButton = (MyButton) findViewById(R.id.view_touch_my_btn);
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+    /**
+     * TODO yuyang 此方法是activity的方法，当此activity在栈顶时，触屏点击按home，back，menu键等都会触发此方法。
+     * 下拉statubar、旋转屏幕、锁屏不会触发此方法。所以它会用在屏保应用上，因为当你触屏机器 就会立马触发一个事件，
+     * 而这个事件又不太明确是什么，正好屏保满足此需求；或者对于一个Activity，控制多长时间没有用户点响应的时候，
+     * 自己消失等。
+     */
+    @Override
+    public void onUserInteraction() {
+        super.onUserInteraction();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        return super.onTouchEvent(event);
+    }
+
 }

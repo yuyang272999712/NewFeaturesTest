@@ -69,3 +69,12 @@ ViewGroup
         if (!disallowIntercept && onInterceptTouchEvent(ev)) 当前允许拦截且拦截了，进入执行体(执行ViewGroup代码逻辑)
         else  重置拦截标志位以及将DOWN赋值的mMotionTarget置为null，下一次DOWN时再赋值
               最后，修改坐标系统，然后调用child.dispatchTouchEvent(ev);
+
+Activity
+ 在Activity的触摸屏事件派发中：
+    1、首先会触发Activity的dispatchTouchEvent方法。
+    2、dispatchTouchEvent方法中如果是ACTION_DOWN的情况下会接着触发onUserInteraction方法。
+    3、接着在dispatchTouchEvent方法中会通过Activity的root View（id为content的FrameLayout），
+      实质是ViewGroup，通过super.dispatchTouchEvent把touchEvent派发给各个activity的子view，
+      也就是我们再Activity.onCreate方法中setContentView时设置的view。
+    4、若Activity下面的子view拦截了touchEvent事件(返回true)则Activity.onTouchEvent方法就不会执行。

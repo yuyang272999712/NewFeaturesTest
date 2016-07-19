@@ -75,6 +75,12 @@
             android:layout_height="wrap_content"
             android:text="着色器"/>
 
+        <Button
+            android:id="@+id/defind_stereo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3D上下循环翻页"/>
+
     </LinearLayout>
 
     <LinearLayout

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/stereoView_next_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一页"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoView
+        android:id="@+id/stereoView_texts"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#9ad197"
+            android:hint="3D滚动测试1"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#836be2"
+            android:hint="3D滚动测试2"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#e97d98"
+            android:hint="3D滚动测试3"/>
+
+    </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoView>
+
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoView
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img1"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img2"
+            android:scaleType="centerCrop"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/img3"
+            android:scaleType="centerCrop"/>
+
+    </com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoView>
+
+</LinearLayout>
