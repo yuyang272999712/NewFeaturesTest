@@ -5,6 +5,7 @@
     <uses-sdk
         android:targetSdkVersion="9"/>
 
+    <!--访问网络权限-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--网络状态访问权限-->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -30,6 +31,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <!--读取联系人的权限-->
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <!--震动权限-->
+    <uses-permission android:name="android.permission.VIBRATE"/>
 
     <application
         android:allowBackup="true"
@@ -193,6 +196,10 @@
         <activity android:name=".EventBus.EventBusActivity"/>
         <activity android:name=".service.ServiceActivity"/>
         <activity android:name=".service.UploadImgActivity"/>
+        <activity android:name=".SensorAbout.SensorAboutActivity"/>
+        <activity android:name=".SensorAbout.AccelerometerSensorActivity"/>
+        <activity android:name=".SensorAbout.LightSensorActivity"/>
+        <activity android:name=".SensorAbout.OrientationSensorActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->
