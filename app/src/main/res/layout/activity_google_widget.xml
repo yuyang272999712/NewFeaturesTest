@@ -26,4 +26,11 @@
         android:onClick="gotoDivider"
         android:text="divider属性及兼容处理"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:onClick="gotoSeekBar"
+        android:text="SeekBar应用"/>
+
 </LinearLayout>

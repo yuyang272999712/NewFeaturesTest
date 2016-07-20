@@ -71,4 +71,9 @@ public class GoogleWidgetActivity extends AppCompatActivity {
         Intent intent = new Intent(this, DividerActivity.class);
         startActivity(intent);
     }
+    //SeekBar
+    public void gotoSeekBar(View view){
+        Intent intent = new Intent(this, SeekBarActivity.class);
+        startActivity(intent);
+    }
 }

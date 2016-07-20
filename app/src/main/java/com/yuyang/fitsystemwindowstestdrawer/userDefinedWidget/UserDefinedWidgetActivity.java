@@ -43,6 +43,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button parallaxViewPagerBtn;
     private Button colourImageBtn;
     private Button stereoBtn;
+    private Button colorPicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         parallaxViewPagerBtn = (Button) findViewById(R.id.defind_parallax_view_pager);
         colourImageBtn = (Button) findViewById(R.id.defind_colour_image);
         stereoBtn = (Button) findViewById(R.id.defind_stereo);
+        colorPicker = (Button) findViewById(R.id.defind_color_picker);
     }
 
     private void initDatas() {}
@@ -233,6 +235,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, StereoViewActivity.class);
+                startActivity(intent);
+            }
+        });
+        colorPicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, ColorPickerActivity.class);
                 startActivity(intent);
             }
         });

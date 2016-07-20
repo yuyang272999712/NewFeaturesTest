@@ -235,4 +235,26 @@
     <declare-styleable name="ColourImageView">
         <attr name="colour_border_color"/>
     </declare-styleable>
+    <!--双向选择的SeekBar－MaterialRangeSlider-->
+    <declare-styleable name="MaterialRangeSlider">
+        <attr name="max" format="integer" />
+        <attr name="min" format="integer" />
+        <attr name="unpressedTargetRadius" format="dimension" />
+        <attr name="pressedTargetRadius" format="dimension" />
+        <attr name="targetColor" format="color" />
+        <attr name="insideRangeLineColor" format="color" />
+        <attr name="outsideRangeLineColor" format="color" />
+        <attr name="insideRangeLineStrokeWidth" format="dimension" />
+        <attr name="outsideRangeLineStrokeWidth" format="dimension" />
+    </declare-styleable>
+    <!--双向选择的SeekBar－RangeSeekBar-->
+    <declare-styleable name="RangeSeekBar">
+        <attr name="max_seek_bar" format="float"/>
+        <attr name="min_seek_bar" format="float"/>
+        <attr name="reserve" format="float"/><!--保留距离支持：如果cells值为1，那么reserve最小保留1；此处cells分隔的最小单元为5，reserve将四舍五入为5-->
+        <attr name="cells" format="integer"/><!--刻度支持：将最大值和最小值四等分，比如1-20分成5份即0，5，10，15，20-->
+        <attr name="lineColorSelected" format="color"/><!--选中范围颜色-->
+        <attr name="lineColorEdge" format="color"/><!--边缘配色-->
+        <attr name="seekBarResId" format="reference"/><!--按钮样式-->
+    </declare-styleable>
 </resources>

@@ -88,6 +88,7 @@
         <activity android:name=".userDefinedWidget.ParallaxViewPagerActivity"/>
         <activity android:name=".userDefinedWidget.ColourImageActivity"/>
         <activity android:name=".userDefinedWidget.stereoView.StereoViewActivity"/>
+        <activity android:name=".userDefinedWidget.ColorPickerActivity"/>
         <activity android:name=".mvp.activity.UserInfoMvpTest"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
@@ -147,6 +148,7 @@
         <activity android:name=".googleWidget.GoogleWidgetActivity"/>
         <activity android:name=".googleWidget.FlexboxLayoutActivity"/>
         <activity android:name=".googleWidget.DividerActivity"/>
+        <activity android:name=".googleWidget.SeekBarActivity"/>
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
         <activity android:name=".internetAbout.InternetAboutActivity"/>
