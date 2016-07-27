@@ -32,4 +32,6 @@ dependencies {
     compile 'com.google.android:flexbox:0.1.2'
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile 'com.android.support:support-v4:23.3.0'
+    //jsoup网络爬虫工具
+    compile 'org.jsoup:jsoup:1.9.2'
 }

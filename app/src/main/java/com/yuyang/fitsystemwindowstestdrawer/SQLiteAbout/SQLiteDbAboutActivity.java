@@ -9,6 +9,7 @@ import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.sqliteOpenHelper.SQLiteOpenHelperActivity;
+import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.sqliteTestAndJsoup.AddressSelectActivity;
 
 /**
  * 数据库操作
@@ -37,6 +38,15 @@ public class SQLiteDbAboutActivity extends AppCompatActivity {
      */
     public void gotoSQLiteOpenHelperActivity(View view){
         Intent intent = new Intent(this, SQLiteOpenHelperActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 网络爬虫与SQL实践
+     * @param view
+     */
+    public void gotoAddressSelectActivity(View view){
+        Intent intent = new Intent(this, AddressSelectActivity.class);
         startActivity(intent);
     }
 }

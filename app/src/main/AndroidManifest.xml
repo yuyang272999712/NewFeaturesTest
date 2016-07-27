@@ -190,6 +190,7 @@
         <activity android:name=".pictureSelect.PreviewPicActivity"/>
         <activity android:name=".SQLiteAbout.SQLiteDbAboutActivity"/>
         <activity android:name=".SQLiteAbout.sqliteOpenHelper.SQLiteOpenHelperActivity"/>
+        <activity android:name=".SQLiteAbout.sqliteTestAndJsoup.AddressSelectActivity"/>
         <activity android:name=".Game2048.Game2048Activity"/>
         <activity android:name=".contentProvider.ContentProviderActivity"/>
         <activity android:name=".contentProvider.ReadContactsActivity"/>

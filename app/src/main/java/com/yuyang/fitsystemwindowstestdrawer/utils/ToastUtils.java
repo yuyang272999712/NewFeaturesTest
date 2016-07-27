@@ -5,6 +5,8 @@ import android.widget.Toast;
 
 /**
  * Toast统一管理类，可以自定义Toast现实形式
+ *
+ * TODO yuyang Toast的Context最好使用Application的Context，避免内存泄露
  */
 public class ToastUtils {
 
