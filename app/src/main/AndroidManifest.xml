@@ -123,6 +123,9 @@
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentManagerAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.fragmentAbout.FragmentBackStackActivity"/>
+        <activity android:name=".sourceCodeAnalyze.loader.LoaderAboutActivity"/>
+        <activity android:name=".sourceCodeAnalyze.loader.LoaderContactActivity"/>
+        <activity android:name=".sourceCodeAnalyze.loader.AppListActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerView.RecyclerViewDemoActivity"/>
         <activity android:name=".recyclerView.removeItem.RecyclerViewRemoveItemActivity"/>

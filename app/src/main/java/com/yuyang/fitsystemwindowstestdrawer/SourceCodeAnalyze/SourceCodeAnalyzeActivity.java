@@ -12,6 +12,7 @@ import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.drawableAbout.Dra
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout.FragmentAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.handlerAndMessage.HandlerAndMessageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflate.LayoutInflateActivity;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.loader.LoaderAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.ViewTouchEventActivity;
 
 /**
@@ -46,6 +47,11 @@ public class SourceCodeAnalyzeActivity extends AppCompatActivity {
 
     public void gotoAsyncTaskUseActivity(View view){
         Intent intent = new Intent(this, AsyncTaskSimpleActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoLoaderUseActivity(View view){
+        Intent intent = new Intent(this, LoaderAboutActivity.class);
         startActivity(intent);
     }
 
