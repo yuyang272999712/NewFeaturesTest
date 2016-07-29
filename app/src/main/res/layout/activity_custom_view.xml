@@ -9,7 +9,7 @@
     
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomVerificationCodeView
         android:layout_width="wrap_content"
-        android:layout_height="80dp"
+        android:layout_height="60dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
         app:titleText="3456"
@@ -17,12 +17,19 @@
         app:titleSize="40sp"/>
 
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomTextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:attr_one="attr one in xml"
         style="@style/ThroughStyle"
         android:text="View构造函数测试，详情请看log"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomTextView2
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:text="对TextView进行拓展"/>
 
     <com.yuyang.fitsystemwindowstestdrawer.customView.CustomImageView
         android:layout_marginTop="20dp"
