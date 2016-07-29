@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.httpAbout.HttpURLConnectionActivity;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.manager.ConnectivityStateActivity;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.RetrofitActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +19,10 @@ import java.util.List;
  * 网络相关.
  */
 public class InternetAboutActivity extends ListActivity {
-    private List<String> items = Arrays.asList("获取网络状态","使用HttpURLConnection");
+    private List<String> items = Arrays.asList("获取网络状态",
+            "使用HttpURLConnection",
+            "OKHttp",
+            "Retrofit");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +40,10 @@ public class InternetAboutActivity extends ListActivity {
                 break;
             case 1:
                 intent = new Intent(this, HttpURLConnectionActivity.class);
+                break;
+            case 2:
+            case 3:
+                intent = new Intent(this, RetrofitActivity.class);
                 break;
         }
         startActivity(intent);

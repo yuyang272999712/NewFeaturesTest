@@ -29,7 +29,7 @@ public class ConnectivityStateActivity extends AppCompatActivity {
         //获取网络活动信息
         NetworkInfo activeNetwork = connectivityManager.getActiveNetworkInfo();
         boolean isConnected = activeNetwork!=null && activeNetwork.isConnectedOrConnecting();
-        boolean isWiFi = activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
+        boolean isWiFi = activeNetwork!=null && activeNetwork.getType() == ConnectivityManager.TYPE_WIFI;
         state.setText("是否有网络："+isConnected+";\n"+
                 "getExtraInfo："+activeNetwork.getExtraInfo()+";\n"+
                 "getReason："+activeNetwork.getReason()+";\n"+
