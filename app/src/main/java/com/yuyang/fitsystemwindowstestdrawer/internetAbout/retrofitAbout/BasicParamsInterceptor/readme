@@ -1,0 +1,19 @@
+BasicParamsInterceptor.java用于向请求中添加公共参数
+具体用法如下：
+
+BasicParamsInterceptor basicParamsInterceptor =
+        new BasicParamsInterceptor.Builder()
+                .addHeaderParam("device_id", DeviceUtils.getDeviceId())
+                .addParam("uid", UserModel.getInstance().getUid())
+                .addQueryParam("api_version", "1.1")
+                .build();
+
+OkHttpClient client = new OkHttpClient.Builder()
+        .addInterceptor(basicParamsInterceptor)
+        .build();
+
+Retrofit retrofit = new Retrofit.Builder()
+        .baseUrl("url")
+        .addConverterFactory(GsonConverterFactory.create())
+        .client(client)
+        .build();

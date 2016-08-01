@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.UserInfoBean;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.UserService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -19,7 +21,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * 使用Retrofit请求数据
  *
  */
-public class RetrofitActivity extends AppCompatActivity {
+public class RetrofitReqUserInfoActivity extends AppCompatActivity {
     public static final String BASE_URL = "https://api.github.com/";
 
     private Button requestData;
@@ -45,7 +47,7 @@ public class RetrofitActivity extends AppCompatActivity {
                         .addConverterFactory(GsonConverterFactory.create())//解析方法
                         .build();
                 //2、创建访问API的请求
-                ApiService apiService = retrofit.create(ApiService.class);//接口申明
+                UserService apiService = retrofit.create(UserService.class);//接口申明
                 Call<UserInfoBean> call = apiService.getUserInfo("yuyang");
                 /*
                 TODO 同步请求

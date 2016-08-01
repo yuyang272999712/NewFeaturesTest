@@ -157,7 +157,7 @@
         <activity android:name=".internetAbout.InternetAboutActivity"/>
         <activity android:name=".internetAbout.httpAbout.HttpURLConnectionActivity"/>
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>
-        <activity android:name=".internetAbout.retrofitAbout.RetrofitActivity"/>
+        <activity android:name=".internetAbout.retrofitAbout.RetrofitReqUserInfoActivity"/>
         <activity android:name=".telephony_sms.TelephonyAndSmsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL_BUTTON"/>

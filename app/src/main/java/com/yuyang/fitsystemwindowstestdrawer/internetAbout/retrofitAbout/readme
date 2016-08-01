@@ -1,0 +1,52 @@
+Retrofit接口申明
+ TODO yuyang Retrofit注解说明
+ @Path：所有在网址中的参数（URL的问号前面），如：
+      http://102.10.10.132/api/users/{user}/repos
+      @GET("users/{user}/repos")
+      Call<List<User>> listRepos(@Path("user") String user);
+
+ @Query：URL问号后面的参数，如：
+      http://102.10.10.132/api/Comments?access_token={access_token}
+      @GET("/Comments")
+      Call<NewsBean> getItem(@Query("access_token") int access_token);
+
+ @QueryMap：相当于多个@Query，如：
+      http://102.10.10.132/api/News?newsId={资讯id}&type={类型}...
+      @GET("News")
+      Call<NewsBean> getItem(@QueryMap Map<String, String> map);
+
+ @Field：用于POST请求，提交单个数据，如：
+      http://102.10.10.132/api/News/{newsId}?access_token={access_token}
+      @FormUrlEncoded
+      @POST("News/{newsId}")
+      Call<NewsBean> reportComment(@Path("newsId") String newsId,@Query("access_token") String access_token,@Field("reason") String reason);
+
+ @FieldMap：相当于多个@Field，如：
+      http://102.10.10.132/api/News/{newsId}?access_token={access_token}
+      @FormUrlEncoded
+      @POST("News/{newsId}")
+      Call<NewsBean> reportComment(@Path("newsId") String newsId,@Query("access_token") String access_token,@FieldMap Map<String, String> map);
+
+
+ @Body：相当于自定义数据类型，以对象的形式提交(CommentBean为自定义的类)，如：
+      http://102.10.10.132/api/News/{newsId}?access_token={access_token}
+      @POST("News/{newsId}")
+      Call<NewsBean> reportComment(@Path("newsId") String newsId,@Query("access_token") String access_token,@Body CommentBean bean);
+
+ @Part：可以携带的参数类型更加丰富，包括数据流。常用于上传文件
+      @Multipart
+      @POST("upload")
+      Call<ResponseBody> upload(@Part("description") RequestBody description, @Part MultipartBody.Part file);
+
+ TODO yuyang ！！！注：
+    Retrofit会判断 @Body 的参数类型，如果参数类型为okhttp3.RequestBody,则Retrofit不做包装处理，直接丢给okhttp3处理。
+  而MultipartBody是继承RequestBody，因此Retrofit不会自动包装这个对象。
+    同理，Retrofit会判断 @Part 的参数类型，如果参数类型为okhttp3.MultipartBody.Part,则Retrofit会把RequestBody
+  封装成MultipartBody，再把Part添加到MultipartBody。
+
+  1、使用@Field(即：@POST方式)时记得添加 @FormUrlEncoded
+  2、使用@Part(即：上传文件)时记得添加 @Multipart
+  3、若需要重新定义接口地址，可以使用@Url，将地址以参数的形式传入即可。如
+        @GET
+        Call<List<Activity>> getActivityList(@Url String url,@QueryMap Map<String, String> map);
+        Call<List<Activity>> call = service.getActivityList("http://115.159.198.162:3001/api/ActivitySubjects", map);
