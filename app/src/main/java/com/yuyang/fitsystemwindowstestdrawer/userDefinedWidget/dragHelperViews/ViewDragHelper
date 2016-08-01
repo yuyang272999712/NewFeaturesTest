@@ -8,9 +8,9 @@ ViewDragHelper常用方法：
     4、continueSettling
         在parentView的computeScroll中使用continueSettling方法（因为ViewDragHelper使用了scroller）
     5、captureChildView
-        手动设置捕获子View，即使tryCaptureView返回false该View也会被捕获
+        手动设置捕获子View，即使tryCaptureView返回false该View也会被捕获（经常使用在onEdgeTouched中，手动指定一个被拖拽对象）
     6、settleCapturedViewAt
-        设置captureView滚动至指定位置
+        设置captureView滚动至指定位置（只能在callback的onViewReleased方法中调用！！！！）
     7、setMinVelocity
         设置最小速率（当手指释放时速率大于这个值时，onViewReleased的速率才会大于0），详见代码实例
 
