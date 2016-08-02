@@ -1,0 +1,31 @@
+Paint
+    常用方法：
+       setAntiAlias();      //设置画笔的锯齿效果
+       setColor();          //设置画笔颜色
+       setARGB();           //设置画笔的A、R、G、B值
+       setAlpha();          //设置画笔的Alpha值
+       setTextSize();       //设置字体的大小
+       setStyle();          //设置画笔风格（实心或空心）
+       setStrokeWidth();    //设置空心边框的宽度
+
+Canvas
+    常用绘图方法：
+       drawPoint(x,y,paint);        //绘制点
+       drawLine(startX,startY,endX,endY,paint); //绘制线
+       drawLines(pts,paint);        //绘制多条线 float[] pts = {startX1,startY1,endX1,endY1, startX2,startY2,endX2,endY2}
+       drawRect(left,top,right,bottom,paint);   //绘制矩形
+       drawRoundRect(left,top,right,bottom,radiusX,radiusY,paint);  //绘制圆角矩形
+       drawCircle(circleX,circleY,radius,paint);    //绘制圆
+       drawArc(left,top,right,bottom,startAngle,sweepAngle,userCenter,paint);   //绘制弧形、扇形
+       drawOval(left,top,right,bottom,paint);   //绘制椭圆
+       drawText(text,startX,startY,paint);  //绘制文字
+       drawPosText(text, new float[]{X1,Y1,X2,Y2,...Xn,Yn},paint);  //在指定位置绘制文本
+       drawPath(path, paint);       //绘制路径  Path path = new Path(); path.moveTo(0,0); path.lineTo(50,50);
+
+    常用方法：
+       save();
+       restore();
+       translate();
+       rotate();
+       saveLayer();     //创建一个图层（详见：SaveLayerView.java）
+

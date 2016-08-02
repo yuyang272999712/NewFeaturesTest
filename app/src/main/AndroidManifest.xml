@@ -207,6 +207,8 @@
         <activity android:name=".SensorAbout.AccelerometerSensorActivity"/>
         <activity android:name=".SensorAbout.LightSensorActivity"/>
         <activity android:name=".SensorAbout.OrientationSensorActivity"/>
+        <activity android:name=".Canvas.CanvasAboutActivity"/>
+        <activity android:name=".Canvas.SaveLayerMethod.SaveLayerMethodActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->
