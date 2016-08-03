@@ -8,6 +8,16 @@ Paint
        setStyle();          //设置画笔风格（实心或空心）
        setStrokeWidth();    //设置空心边框的宽度
 
+ColorMatrix  颜色矩阵
+    ColorMatrix colorMatrix = new ColorMatrix();
+    常用方法：
+        setRotate(int axis, float degree);      //设置色调，axis-系统分别使用0、1、2来代表Red、Green、Blue三种颜色的处理；
+                                                          degree-需要处理的值 例如：colorMatrix.setRotate(0, hue0);
+        setSaturation(float sat);               //设置饱和度， sat取值范围[0,1]
+        setScale(float rScale, float gScale, float bScale, float aScale);   //设置亮度
+        postConcat(ColorMatrix postmatrix);     //加矩阵的作用混合
+
+
 Canvas
     常用绘图方法：
        drawPoint(x,y,paint);        //绘制点
