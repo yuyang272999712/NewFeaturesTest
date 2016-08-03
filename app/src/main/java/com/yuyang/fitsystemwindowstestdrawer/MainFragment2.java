@@ -12,6 +12,7 @@ import android.widget.Button;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.CanvasAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.EventBus.EventBusActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
+import com.yuyang.fitsystemwindowstestdrawer.RxAndroid.RxJavaActivity;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.SensorAbout.SensorAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
@@ -190,6 +191,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SensorAboutActivity.class);
+                startActivity(intent);
+            }
+        });
+        button17 = (Button) mContentView.findViewById(R.id.button17);
+        button17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), RxJavaActivity.class);
                 startActivity(intent);
             }
         });
