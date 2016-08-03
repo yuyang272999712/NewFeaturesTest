@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.CanvasAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.EventBus.EventBusActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
 import com.yuyang.fitsystemwindowstestdrawer.RxAndroid.RxJavaActivity;
@@ -198,6 +199,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), RxJavaActivity.class);
+                startActivity(intent);
+            }
+        });
+        button18 = (Button) mContentView.findViewById(R.id.button18);
+        button18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), CanvasAboutActivity.class);
                 startActivity(intent);
             }
         });
