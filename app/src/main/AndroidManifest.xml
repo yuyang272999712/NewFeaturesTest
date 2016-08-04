@@ -126,6 +126,7 @@
         <activity android:name=".sourceCodeAnalyze.loader.LoaderAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.loader.LoaderContactActivity"/>
         <activity android:name=".sourceCodeAnalyze.loader.AppListActivity"/>
+        <activity android:name=".sourceCodeAnalyze.layoutInflateFactory.LayoutInflateFactoryActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerView.RecyclerViewDemoActivity"/>
         <activity android:name=".recyclerView.removeItem.RecyclerViewRemoveItemActivity"/>

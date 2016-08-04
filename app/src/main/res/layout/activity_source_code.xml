@@ -15,6 +15,14 @@
         android:text="LayoutInflate方法解析"/>
 
     <Button
+        android:id="@+id/source_code_inflate_factory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:onClick="gotoLayoutInflateFactoryActivity"
+        android:text="LayoutInflate setFactory方法"/>
+
+    <Button
         android:id="@+id/source_code_view_touch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
