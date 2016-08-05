@@ -15,7 +15,7 @@ ColorMatrix  颜色矩阵
                                                           degree-需要处理的值 例如：colorMatrix.setRotate(0, hue0);
         setSaturation(float sat);               //设置饱和度， sat取值范围[0,1]
         setScale(float rScale, float gScale, float bScale, float aScale);   //设置亮度
-        postConcat(ColorMatrix postmatrix);     //加矩阵的作用混合
+        postConcat(ColorMatrix postmatrix);     //将矩阵的作用混合
 
 
 Canvas
