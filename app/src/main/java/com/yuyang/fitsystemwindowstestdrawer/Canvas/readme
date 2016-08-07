@@ -1,3 +1,5 @@
+Android 图像处理：
+
 Paint
     常用方法：
        setAntiAlias();      //设置画笔的锯齿效果
@@ -7,17 +9,57 @@ Paint
        setTextSize();       //设置字体的大小
        setStyle();          //设置画笔风格（实心或空心）
        setStrokeWidth();    //设置空心边框的宽度
-
+---------------------------------------------------------------------------------------------
 ColorMatrix  颜色矩阵
     ColorMatrix colorMatrix = new ColorMatrix();
-    常用方法：
+    常用方法：（例：ColorMatrixHelperActivity.java）
         setRotate(int axis, float degree);      //设置色调，axis-系统分别使用0、1、2来代表Red、Green、Blue三种颜色的处理；
                                                           degree-需要处理的值 例如：colorMatrix.setRotate(0, hue0);
         setSaturation(float sat);               //设置饱和度， sat取值范围[0,1]
         setScale(float rScale, float gScale, float bScale, float aScale);   //设置亮度
         postConcat(ColorMatrix postmatrix);     //将矩阵的作用混合
 
+    通过直接设置颜色矩阵值方法：（例：ColorMatrixActivity.java）
+        矩阵乘法运算：
+        |a b c d e||R|  |aR bG cB dA e|  |R1|
+        |f g h i j||G|  |fR gG hB iA j|  |G1|
+        |k l m n o||B|= |kR lG mB nA o|= |B1|
+        |p q r s t||1|  |pR qG rB sA t|  |A1|
+        R1 = aR + bG + cB + dA + e;
+        ....
+        矩阵第一行abcde值用来决定新的颜色值中的R--红色
+        矩阵第二行fghij值用来决定新的颜色值中的G--绿色
+        矩阵第三行klmno值用来决定新的颜色值中的B--蓝色
+        矩阵第四行pqrst值用来决定新的颜色值中的A--透明度
+        矩阵中第五列ejot值分别用来决定每个分量重的offset，即偏移量
 
+    最后通过：paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            canvas.drawBitmap(bitmap, 0, 0, paint);
+        实现效果。
+---------------------------------------------------------------------------------------------
+Matrix 变形矩阵
+    Matrix matrix = new Matrix();
+    常用方法：
+        matrix.setRotate();       //旋转变换
+        matrix.setTranslate();    //平移变换
+        matrix.setScale();        //缩放
+        matrix.setSkew();         //错切
+        matrix.pre()/.post();     //矩阵的前乘和后乘运算
+
+    通过直接设置变形矩阵值方法：
+        |a b c||X|  |X1|
+        |d e f||Y|= |Y1|
+        |g h i||1|  |1 |
+        X1 = aX + bY + c;
+        ...
+        a、e控制Scale--缩放
+        b、d控制Skew --错切
+        c、f控制Trans--平移
+        a、b、d、e共同控制Rotate--旋转
+
+    最后通过：canvas.drawBitmap(bitmap, matrix, null);
+            实现效果。
+---------------------------------------------------------------------------------------------
 Canvas
     常用绘图方法：
        drawPoint(x,y,paint);        //绘制点

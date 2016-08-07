@@ -1,11 +1,5 @@
 package com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.ColorMatrix;
-import android.graphics.ColorMatrixColorFilter;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -13,39 +7,33 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.GridLayout;
-import android.widget.ImageView;
-import android.widget.SeekBar;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * ColorMatrix 直接修改矩阵的各项数值来修改图片的样式
+ * Matrix 直接修改矩阵的各项数值来修改图片的变换
  */
-public class ColorMatrixActivity extends AppCompatActivity {
+public class MatrixValueSetActivity extends AppCompatActivity {
     private Toolbar mToolbar;
-    private ImageView mImageView;
+    private MatrixView matrixView;
     private GridLayout mGroup;
-    private Bitmap bitmap;
     private int mEtWidth, mEtHeight;
-    private EditText[] mEts = new EditText[20];//保存矩阵上的EditText
-    private float[] mColorMatrix = new float[20];//保存矩阵的值
+    private EditText[] mEts = new EditText[9];//保存矩阵上的EditText
+    private float[] mMatrix = new float[9];//保存矩阵的值
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_color_matrix);
+        setContentView(R.layout.activity_matrix_value_set);
         findViews();
-
-        bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.color_matrix_test1);
-        mImageView.setImageBitmap(bitmap);
     }
 
     private void findViews() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mImageView = (ImageView) findViewById(R.id.imageView);
         mGroup = (GridLayout) findViewById(R.id.group);
+        matrixView = (MatrixView) findViewById(R.id.matrixView);
 
-        mToolbar.setTitle("ColorMatrix值修改");
+        mToolbar.setTitle("Matrix值修改");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -58,8 +46,8 @@ public class ColorMatrixActivity extends AppCompatActivity {
         mGroup.post(new Runnable() {
             @Override
             public void run() {
-                mEtHeight = mGroup.getHeight()/4;
-                mEtWidth = mGroup.getWidth()/5;
+                mEtHeight = mGroup.getHeight()/3;
+                mEtWidth = mGroup.getWidth()/3;
                 addEts();
                 initMatrix();
             }
@@ -83,8 +71,8 @@ public class ColorMatrixActivity extends AppCompatActivity {
      * 初始化所有EditText的值，即初始化矩阵的值
      */
     private void initMatrix() {
-        for (int i=0; i<20; i++){
-            if (i%6 == 0){
+        for (int i=0; i<9; i++){
+            if (i%4 == 0){
                 mEts[i].setText(String.valueOf(1));
             }else {
                 mEts[i].setText(String.valueOf(0));
@@ -96,7 +84,7 @@ public class ColorMatrixActivity extends AppCompatActivity {
      * 向GridLayout中添加EditText
      */
     private void addEts() {
-        for (int i=0; i<20; i++){
+        for (int i=0; i<9; i++){
             EditText editText = new EditText(this);
             mEts[i] = editText;
             mGroup.addView(editText, mEtWidth, mEtHeight);
@@ -107,8 +95,8 @@ public class ColorMatrixActivity extends AppCompatActivity {
      * 获取矩阵的值
      */
     private void getMatrix(){
-        for (int i=0; i<20; i++){
-            mColorMatrix[i] = Float.valueOf(mEts[i].getText().toString());
+        for (int i=0; i<9; i++){
+            mMatrix[i] = Float.valueOf(mEts[i].getText().toString());
         }
     }
 
@@ -116,14 +104,7 @@ public class ColorMatrixActivity extends AppCompatActivity {
      * 将矩阵值设置到图像
      */
     private void setImageMatrix(){
-        Bitmap bmp = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), Bitmap.Config.ARGB_8888);
-        ColorMatrix colorMatrix = new ColorMatrix();
-        colorMatrix.set(mColorMatrix);
-        Canvas canvas = new Canvas(bmp);
-        Paint paint = new Paint();
-        paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
-        canvas.drawBitmap(bitmap, 0, 0, paint);
-        mImageView.setImageBitmap(bmp);
+        matrixView.setMatrix(mMatrix);
     }
 
 }

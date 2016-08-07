@@ -16,7 +16,7 @@ import java.util.concurrent.Future;
  submit方法的重载版本：
         <T> Future<T> submit(Callable<T> task);
         <T> Future<T> submit(Runnable task, T result);
-        Future<?> submit(Runnable task);
+        Future<T> submit(Runnable task);
     第一个submit方法里面的参数类型就是Callable。
     暂时只需要知道Callable一般是和ExecutorService配合来使用的，具体的使用方法讲在后面讲述。
     一般情况下我们使用第一个submit方法和第三个submit方法，第二个submit方法很少使用。

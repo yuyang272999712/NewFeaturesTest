@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix;
+package com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,7 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 /**
  * ColorMatrix设置图片色调、亮度、饱和度
  */
-public class ColorMatrixHelperActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
+public class ColorMatrixActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener {
     private static int MAX_VALUE = 255;
     private static int MID_VALUE = 127;
     private Toolbar mToolbar;

@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.ColorMatrixActivity;
-import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.ColorMatrixHelperActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.ColorMatrixValueSetActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.ColorMatrixActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.PixelsEffectActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixValueSetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.SaveLayerMethod.SaveLayerMethodActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -19,7 +22,8 @@ import java.util.List;
  * Canvas高阶用法
  */
 public class CanvasAboutActivity extends ListActivity {
-    private List<String> items = Arrays.asList("saveLayer()方法","ColorMatrix常用方法","直接设置矩阵的数值");
+    private List<String> items = Arrays.asList("saveLayer()方法","ColorMatrix常用方法","ColorMatrix直接设置矩阵的数值",
+            "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +40,19 @@ public class CanvasAboutActivity extends ListActivity {
                 intent = new Intent(this, SaveLayerMethodActivity.class);
                 break;
             case 1:
-                intent = new Intent(this, ColorMatrixHelperActivity.class);
+                intent = new Intent(this, ColorMatrixActivity.class);
                 break;
             case 2:
-                intent = new Intent(this, ColorMatrixActivity.class);
+                intent = new Intent(this, ColorMatrixValueSetActivity.class);
+                break;
+            case 3:
+                intent = new Intent(this, PixelsEffectActivity.class);
+                break;
+            case 4:
+                intent = new Intent(this, MatrixActivity.class);
+                break;
+            case 5:
+                intent = new Intent(this, MatrixValueSetActivity.class);
                 break;
         }
         startActivity(intent);
