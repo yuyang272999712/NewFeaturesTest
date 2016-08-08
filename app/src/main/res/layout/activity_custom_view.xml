@@ -62,7 +62,13 @@
         app:bg="@mipmap/home_buttons_info_pressed"/>
 
     <Button
-        android:id="@+id/custom_next_page"
+        android:id="@+id/custom_next_page_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="下一个页面"/>
+
+    <Button
+        android:id="@+id/custom_next_page_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="下一个页面"/>

@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
- * Created by yuyang on 2016/7/28.
+ * 色彩闪烁效果
  */
 public class CustomTextView2 extends TextView {
     int mViewWidth;

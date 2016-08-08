@@ -9,6 +9,16 @@ Paint
        setTextSize();       //设置字体的大小
        setStyle();          //设置画笔风格（实心或空心）
        setStrokeWidth();    //设置空心边框的宽度
+       setFakeBoldText (boolean fakeBoldText);//设置文本仿粗体。注意设置在小字体上效果会非常差。
+       setFilterBitmap(boolean filter); //如果该项设置为true，则图像在动画进行中会滤掉对Bitmap图像的优化操作，加快显示速度，本设置项依赖于dither和xfermode的设置。
+       setLetterSpacing(float letterSpacing);//设置行间距，默认是0.
+       setPathEffect(PathEffect effect);//设置绘制路径的效果，如点画线等
+       setShadowLayer(float radius, float dx, float dy, int shadowColor);//radius表示阴影的扩散半径；dx和dy表示阴影平面上的偏移值；shadowColor就不说了阴影颜色。
+       setStrokeCap(Paint.Cap cap);//该方法用来设置我们画笔的 笔触风格 ，比如：ROUND，表示是圆角的笔触。
+                                   //那么什么叫笔触呢，其实很简单，就像我们现实世界中的笔，如果你用圆珠笔在纸上
+                                   //戳一点，那么这个点一定是个圆，即便很小，它代表了笔的笔触形状，如果我们把一支
+                                   //铅笔笔尖削成方形的，那么画出来的线条会是一条弯曲的“矩形”，这就是笔触的意思。
+                                   //除了ROUND，Paint.Cap还提供了另外两种类型：SQUARE和BUTT
 ---------------------------------------------------------------------------------------------
 ColorMatrix  颜色矩阵
     ColorMatrix colorMatrix = new ColorMatrix();

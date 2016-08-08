@@ -17,18 +17,28 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  *  4、重写onDraw
  */
 public class CustomActivity extends AppCompatActivity {
-    private Button nextPage;
+    private Button nextPage1;
+    private Button nextPage2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_view);
 
-        nextPage = (Button) findViewById(R.id.custom_next_page);
-        nextPage.setOnClickListener(new View.OnClickListener() {
+        nextPage1 = (Button) findViewById(R.id.custom_next_page_1);
+        nextPage1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CustomActivity.this, CustomActivity2.class);
+                startActivity(intent);
+            }
+        });
+
+        nextPage2 = (Button) findViewById(R.id.custom_next_page_2);
+        nextPage2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CustomActivity.this, CustomActivity3.class);
                 startActivity(intent);
             }
         });
