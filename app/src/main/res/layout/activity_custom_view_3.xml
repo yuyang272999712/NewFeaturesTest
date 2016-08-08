@@ -15,4 +15,10 @@
         android:layout_marginRight="20dp"
         android:background="#b0e9e5"/>
 
+    <com.yuyang.fitsystemwindowstestdrawer.customView.CustomAreaChartsView
+        android:id="@+id/custom_area_charts_view"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_margin="10dp"/>
+
 </LinearLayout>
