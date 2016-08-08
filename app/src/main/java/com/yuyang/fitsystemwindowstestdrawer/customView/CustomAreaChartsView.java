@@ -93,7 +93,7 @@ public class CustomAreaChartsView extends View {
             canvas.drawText(String.valueOf(mXLevel.get(index)), mZeroPos[0]+(index*offsetX), mZeroPos[1] + mXYTitleTextSize, mPaint);
             //绘制Y轴的坐标区间点，不包含0点
             if (index != 0){
-                canvas.drawText(String.valueOf(mYLevel.get(index)), mZeroPos[0], mZeroPos[1]-(index*offsetY), mPaint);
+                canvas.drawText(String.valueOf(mYLevel.get(index)), mZeroPos[0], mZeroPos[1]-(index*offsetY)+(mXYTitleTextSize-5), mPaint);
             }
 
             if (index == mGridLevel) {
