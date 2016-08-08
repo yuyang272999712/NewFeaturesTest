@@ -43,20 +43,22 @@ ColorMatrix  颜色矩阵
         矩阵第四行pqrst值用来决定新的颜色值中的A--透明度
         矩阵中第五列ejot值分别用来决定每个分量重的offset，即偏移量
 
+    像素点分析修改图像色值：（例：PixelsEffectActivity.java）
+
     最后通过：paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
             canvas.drawBitmap(bitmap, 0, 0, paint);
         实现效果。
 ---------------------------------------------------------------------------------------------
 Matrix 变形矩阵
     Matrix matrix = new Matrix();
-    常用方法：
+    常用方法：（例：MatrixActivity.java）
         matrix.setRotate();       //旋转变换
         matrix.setTranslate();    //平移变换
         matrix.setScale();        //缩放
         matrix.setSkew();         //错切
         matrix.pre()/.post();     //矩阵的前乘和后乘运算
 
-    通过直接设置变形矩阵值方法：
+    通过直接设置变形矩阵值方法：（例：MatrixValueSetActivity.java）
         |a b c||X|  |X1|
         |d e f||Y|= |Y1|
         |g h i||1|  |1 |
@@ -66,6 +68,8 @@ Matrix 变形矩阵
         b、d控制Skew --错切
         c、f控制Trans--平移
         a、b、d、e共同控制Rotate--旋转
+
+    像素块分析修改图像图形：（例：PixelMatrixEffectActivity.java）
 
     最后通过：canvas.drawBitmap(bitmap, matrix, null);
             实现效果。

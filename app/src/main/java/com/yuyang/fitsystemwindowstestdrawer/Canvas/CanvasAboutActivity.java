@@ -12,6 +12,7 @@ import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.ColorMatrixActiv
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.PixelsEffectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixValueSetActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.PixelMatrixEffectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.SaveLayerMethod.SaveLayerMethodActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -23,7 +24,7 @@ import java.util.List;
  */
 public class CanvasAboutActivity extends ListActivity {
     private List<String> items = Arrays.asList("saveLayer()方法","ColorMatrix常用方法","ColorMatrix直接设置矩阵的数值",
-            "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值");
+            "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值","像素块分析");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,9 @@ public class CanvasAboutActivity extends ListActivity {
                 break;
             case 5:
                 intent = new Intent(this, MatrixValueSetActivity.class);
+                break;
+            case 6:
+                intent = new Intent(this, PixelMatrixEffectActivity.class);
                 break;
         }
         startActivity(intent);
