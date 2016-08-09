@@ -109,4 +109,10 @@ public class PorterDuffLoadingView extends View {
         mEnd = left;
         mDynamicRect = new Rect(left, mStart, left + mBitWidth, left + mBitHeight);
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBitmap.recycle();
+    }
 }

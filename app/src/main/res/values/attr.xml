@@ -215,6 +215,10 @@
         <attr name="ripple_auto"/>
         <attr name="ripple_fill"/>
     </declare-styleable>
+    <!--自定义View－DynamicWave－波浪效果-->
+    <declare-styleable name="DynamicWave">
+        <attr name="wave_color" format="color|reference"/><!--波浪颜色-->
+    </declare-styleable>
     <!--自定义View－CustomCoordinateAxisView－雷达坐标图-->
     <attr name="axis_color" format="color|reference"/><!--坐标轴线颜色-->
     <attr name="axis_fill_color" format="color|reference"/><!--围成面积的填充色-->

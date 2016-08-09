@@ -10,6 +10,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.DynamicWave;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
@@ -38,6 +39,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button circleMenuBtn;
     private Button progressBarBtn;
     private Button foldingLayoutBtn;
+    private Button waterRippleBtn;
     private Button waterWaveBtn;
     private Button sloopVerticalScrollItem;
     private Button parallaxViewPagerBtn;
@@ -73,6 +75,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         circleMenuBtn = (Button) findViewById(R.id.defind_circle_menu);
         progressBarBtn = (Button) findViewById(R.id.defind_progress_bar);
         foldingLayoutBtn = (Button) findViewById(R.id.defind_folding_layout);
+        waterRippleBtn = (Button) findViewById(R.id.defind_water_ripple);
         waterWaveBtn = (Button) findViewById(R.id.defind_water_wave);
         sloopVerticalScrollItem = (Button) findViewById(R.id.defind_sloop_vertical_scroll);
         parallaxViewPagerBtn = (Button) findViewById(R.id.defind_parallax_view_pager);
@@ -203,10 +206,17 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        waterWaveBtn.setOnClickListener(new View.OnClickListener() {
+        waterRippleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterRippleActivity.class);
+                startActivity(intent);
+            }
+        });
+        waterWaveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterWaveActivity.class);
                 startActivity(intent);
             }
         });

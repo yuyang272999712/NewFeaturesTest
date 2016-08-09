@@ -103,4 +103,12 @@ public class PorterDuffXfermodeView extends View {
         mPaint.setXfermode(null);
         canvas.restoreToCount(saveCount);
     }
+
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        mBottomBitmap.recycle();
+        mTopBitmap.recycle();
+    }
 }

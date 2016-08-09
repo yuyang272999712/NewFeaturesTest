@@ -12,80 +12,93 @@
         android:fitsSystemWindows="true"
         android:gravity="center">
 
-        <Button
-            android:id="@+id/defind_guaguaka"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="刮刮卡效果"/>
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2">
 
-        <Button
-            android:id="@+id/defind_wechat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="微信底部导航效果"/>
+            <Button
+                android:id="@+id/defind_guaguaka"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="刮刮卡效果"/>
 
-        <Button
-            android:id="@+id/defind_lucky_pan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="幸运转盘"/>
+            <Button
+                android:id="@+id/defind_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="微信底部导航效果"/>
 
-        <Button
-            android:id="@+id/defind_circle_menu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="圆形菜单"/>
+            <Button
+                android:id="@+id/defind_lucky_pan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="幸运转盘"/>
 
-        <Button
-            android:id="@+id/defind_progress_bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="自定义进度条"/>
+            <Button
+                android:id="@+id/defind_circle_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="圆形菜单"/>
 
-        <Button
-            android:id="@+id/defind_folding_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="折叠布局"/>
+            <Button
+                android:id="@+id/defind_progress_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义进度条"/>
 
-        <Button
-            android:id="@+id/defind_water_wave"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="水波纹效果"/>
+            <Button
+                android:id="@+id/defind_folding_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="折叠布局"/>
 
-        <Button
-            android:id="@+id/defind_sloop_vertical_scroll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="竖直无限循环滚动"/>
+            <Button
+                android:id="@+id/defind_water_ripple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="水波纹效果"/>
 
-        <Button
-            android:id="@+id/defind_parallax_view_pager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAllCaps="false"
-            android:text="背景视差效果的ViewPager"/>
+            <Button
+                android:id="@+id/defind_water_wave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="波浪效果"/>
 
-        <Button
-            android:id="@+id/defind_colour_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="着色器"/>
+            <Button
+                android:id="@+id/defind_sloop_vertical_scroll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="竖直无限循环滚动"/>
 
-        <Button
-            android:id="@+id/defind_stereo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="3D上下循环翻页"/>
+            <Button
+                android:id="@+id/defind_parallax_view_pager"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="背景视差效果的ViewPager"/>
 
-        <Button
-            android:id="@+id/defind_color_picker"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="色值选择器"/>
+            <Button
+                android:id="@+id/defind_colour_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="着色器"/>
+
+            <Button
+                android:id="@+id/defind_stereo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3D上下循环翻页"/>
+
+            <Button
+                android:id="@+id/defind_color_picker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="色值选择器"/>
+
+        </GridLayout>
 
     </LinearLayout>
 
