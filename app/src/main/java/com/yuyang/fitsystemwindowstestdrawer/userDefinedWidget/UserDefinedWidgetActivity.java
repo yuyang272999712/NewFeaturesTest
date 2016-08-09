@@ -206,7 +206,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         waterWaveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterWaveActivity.class);
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, WaterRippleActivity.class);
                 startActivity(intent);
             }
         });

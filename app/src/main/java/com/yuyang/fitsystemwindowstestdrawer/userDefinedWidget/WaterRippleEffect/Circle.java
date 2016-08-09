@@ -1,6 +1,5 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect;
 
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.view.animation.Interpolator;
 
 /**

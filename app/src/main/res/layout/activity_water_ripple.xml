@@ -10,48 +10,48 @@
         android:layout_height="match_parent"
         android:gravity="center">
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.RippleView
             android:layout_width="200dp"
             android:layout_height="200dp"
-            yy:wave_auto="true"
-            yy:wave_fill="true"
-            yy:wave_color="#ff0000"/>
+            yy:ripple_auto="true"
+            yy:ripple_fill="true"
+            yy:ripple_color="#ff0000"/>
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.RippleView
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
-            yy:wave_auto="true"
-            yy:wave_fill="false"
-            yy:wave_color="#12a3cf"/>
+            yy:ripple_auto="true"
+            yy:ripple_fill="false"
+            yy:ripple_color="#12a3cf"/>
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.RippleView
             android:id="@+id/water_wave_fill"
             android:background="#ff08f7"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
-            yy:wave_auto="false"
-            yy:wave_fill="true"
-            yy:wave_color="#12a3cf"/>
+            yy:ripple_auto="false"
+            yy:ripple_fill="true"
+            yy:ripple_color="#12a3cf"/>
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.RippleView
             android:id="@+id/water_wave_not_fill"
             android:background="#32ff5b"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_marginTop="10dp"
-            yy:wave_auto="false"
-            yy:wave_fill="false"
-            yy:wave_color="#ff0000"/>
+            yy:ripple_auto="false"
+            yy:ripple_fill="false"
+            yy:ripple_color="#ff0000"/>
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaveSurfaceView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.RippleSurfaceView
             android:id="@+id/water_wave_surface_fill"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            yy:wave_auto="true"
-            yy:wave_fill="true"
-            yy:wave_color="#ff0000"/>
+            yy:ripple_auto="true"
+            yy:ripple_fill="true"
+            yy:ripple_color="#ff0000"/>
 
     </LinearLayout>
 

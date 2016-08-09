@@ -83,7 +83,7 @@
         <activity android:name=".userDefinedWidget.FoldingLayout.SlidingPanelLayoutSampleActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.DrawerLayoutSampleActivity"/>
         <activity android:name=".userDefinedWidget.MyDrawerLayoutActivity"/>
-        <activity android:name=".userDefinedWidget.WaterWaveActivity"/>
+        <activity android:name=".userDefinedWidget.WaterRippleActivity"/>
         <activity android:name=".userDefinedWidget.singleItemScrollView.SingleItemScrollActivity"/>
         <activity android:name=".userDefinedWidget.ParallaxViewPagerActivity"/>
         <activity android:name=".userDefinedWidget.ColourImageActivity"/>

@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -10,7 +10,6 @@ import android.graphics.RadialGradient;
 import android.graphics.Shader;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -26,7 +25,7 @@ import java.util.List;
 /**
  * 使用Surface实现水波纹效果，这种方式不好用，背景无法控制
  */
-public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHolder.Callback {
+public class RippleSurfaceView extends SurfaceView implements Runnable,SurfaceHolder.Callback {
     private SurfaceHolder holder;
     private Canvas canvas;
     private Thread thread;
@@ -47,7 +46,7 @@ public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHold
     private Paint mPaint;
     private long lastAddTime;
 
-    public WaveSurfaceView(Context context, AttributeSet attrs) {
+    public RippleSurfaceView(Context context, AttributeSet attrs) {
         super(context, attrs);
         holder = getHolder();
         holder.addCallback(this);
@@ -57,10 +56,10 @@ public class WaveSurfaceView extends SurfaceView implements Runnable,SurfaceHold
         setFocusableInTouchMode(true);
 
         //TODO 获取给中属性值
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WaveView);
-        mColor = array.getColor(R.styleable.WaveView_wave_color, mColor);
-        isAuto = array.getBoolean(R.styleable.WaveView_wave_auto, false);
-        isFill = array.getBoolean(R.styleable.WaveView_wave_fill, false);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RippleView);
+        mColor = array.getColor(R.styleable.RippleView_ripple_color, mColor);
+        isAuto = array.getBoolean(R.styleable.RippleView_ripple_auto, false);
+        isFill = array.getBoolean(R.styleable.RippleView_ripple_fill, false);
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);

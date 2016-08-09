@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -11,7 +11,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -26,7 +25,7 @@ import java.util.List;
 /**
  * 支付宝咻一咻、探探的主界面搜索 的 水波纹效果
  */
-public class WaveView extends View{
+public class RippleView extends View{
     private long mDuration = 6000;//波纹持续时间，默认2000毫秒
     private float mMaxRadius;//波纹最大半径
     private float mInitRadius;//波纹初始半径
@@ -55,13 +54,13 @@ public class WaveView extends View{
     });
     private Paint mPaint;
 
-    public WaveView(Context context, AttributeSet attrs) {
+    public RippleView(Context context, AttributeSet attrs) {
         super(context, attrs);
         //TODO 获取给中属性值
-        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.WaveView);
-        mColor = array.getColor(R.styleable.WaveView_wave_color, mColor);
-        isAuto = array.getBoolean(R.styleable.WaveView_wave_auto, false);
-        isFill = array.getBoolean(R.styleable.WaveView_wave_fill, false);
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RippleView);
+        mColor = array.getColor(R.styleable.RippleView_ripple_color, mColor);
+        isAuto = array.getBoolean(R.styleable.RippleView_ripple_auto, false);
+        isFill = array.getBoolean(R.styleable.RippleView_ripple_fill, false);
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
