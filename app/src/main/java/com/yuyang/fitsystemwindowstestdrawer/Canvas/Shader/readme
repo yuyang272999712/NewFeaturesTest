@@ -1,0 +1,15 @@
+Shader
+    着色器、渲染器
+        BitmapShader —— 位图Shader
+        LinearGradient——线性Shader
+        RadialGradient——光束Shader
+        SweepGradient ——梯度Shader
+        ComposeGradient——混合Shader
+    它们的作用是通过Paint对画布进行指定Bitmap的填充，填充模式有一下几种：
+        CLAMP  拉伸——拉伸的是图片最后的那一个像素，不断重复
+        REPEAT 重复——横向、纵向不断重复
+        MIRROR 镜像——横向不断翻转重复，纵向不断翻转重复
+
+    使用：paint.setShader(BitmapShader/LinearGradient/RadialGradient..);
+
+ 也可参考CustomTextView2.java的用法

@@ -1,0 +1,15 @@
+PathEffect
+    笔触效果。常用的下过如下：
+        CornerPathEffect
+            将拐角处变得圆滑，具体圆滑的程度，由参数决定
+        DiscretePathEffect
+            使用这个效果线段上就会产生许多杂点
+        DashPathEffect
+            虚线效果，用一个数组来设置各个点之间的间隔，另一个参数phase则用来控制绘制时数组的一个偏移量，
+            通常可以用来改变这个值实现路径的动态效果。
+        PathDashPathEffect
+            效果与上一个类似，不过他的功能更强大，可以设置显示点的图形，即方形点、圆形点的虚线
+        ComposePathEffect
+            可以用来组合PathEffect，这个方法是将任意两种路径特性组合起来形成一个新的效果
+
+    使用：paint.setPathEffect(PathEffect effect);
