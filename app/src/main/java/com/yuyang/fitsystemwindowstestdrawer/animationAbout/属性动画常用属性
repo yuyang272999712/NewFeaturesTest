@@ -1,0 +1,28 @@
+视图动画中每个View都有的get、set方法：
+    1、translationX和translationY：控制View对象从它布局容器的左上角坐标偏移的位置
+    2、rotation、rotationX和rotationY：控制View对象围绕支点进行2D和3D旋转
+    3、scaleX和scaleY：控制View对象围绕他的支点进行2D缩放
+    4、pivotX和pivotY：控制View对象的支点位置，围绕这个支点进行旋转和缩放变换处理。默认情况下，该支点的位置是View的中心点
+    5、x和y：描述View对象在它的容器中的最终位置，它们是最初的左上角坐标和translationX、translationY值得累计和
+    6、alpha：它表示View对象的alpha透明度。默认是1（不透明），0代表完全透明
+
+如果一个属性没有get、set方法，可以通过一个包装类来间接的给这个属性增加一个get、set方法：
+    private static class WrapperView{
+        private View mTarget;
+
+        public WrapperView(View target){
+            mTarget = target;
+        }
+
+        public int getWidth(){
+            return mTarget.getLayoutParams().width;
+        }
+        public void setWidth(int width){
+            mTarget.getLayoutParams().width = width;
+            mTarget.requestLayout();
+        }
+    }
+    通过以上代码就给mTarget添加了width的设置方法：
+    WrapperView wrapper = new WrapperView(mButton);
+    ObjectAnimator.ofInt(wrapper, "width", 500).setDuration(5000).start();
+

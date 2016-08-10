@@ -55,6 +55,7 @@ public class PropertyAniActivity extends AppCompatActivity {
         objAni1 = ObjectAnimator.ofFloat(object1, "rotationX", 0f, 360f);
         objAni1.setRepeatCount(0);
         objAni1.setDuration(1000).setInterpolator(new AccelerateDecelerateInterpolator());
+        //TODO yuyang 为animator添加监听事件
         objAni1.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {}

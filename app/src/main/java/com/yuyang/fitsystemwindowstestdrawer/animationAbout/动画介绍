@@ -75,7 +75,7 @@ AnimatorSet与AnimationSet区别
         LayoutAnimationController.ORDER_RANDOM //随机显示
 
 三、ViewPropertyAnimator
- 在SDK11的时候，给View添加了animate方法，更加方便的实现动画效果。（详见ViewAnimateActivity.java类）
+ 在SDK11的时候，给View添加了animate方法(可以看做是属性动画的简写方式)，更加方便的实现动画效果。（详见ViewAnimateActivity.java类）
 
 四、View Animation／Tweened Animation 视图动画／补间动画
  View Animation相当简单，不过只能支持简单的缩放、平移、旋转、透明度基本的动画。
