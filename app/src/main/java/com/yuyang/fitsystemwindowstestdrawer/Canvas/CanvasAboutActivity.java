@@ -13,8 +13,11 @@ import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.PixelsEffectActi
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.MatrixValueSetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Matrix.PixelMatrixEffectActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.PathEffect.PathEffectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.SaveLayerMethod.SaveLayerMethodActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.Xfermode.XfermodeActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.Shader.ShaderActivity;
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.SurfaceView.DrawBoardActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 import java.util.Arrays;
@@ -25,7 +28,8 @@ import java.util.List;
  */
 public class CanvasAboutActivity extends ListActivity {
     private List<String> items = Arrays.asList("saveLayer()方法","ColorMatrix常用方法","ColorMatrix直接设置矩阵的数值",
-            "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值","像素块分析","Xfermode混合效果");
+            "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值","像素块分析","Xfermode混合效果","Shader着色器",
+            "PathEffect路径效果","SurfaceView实现画板");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +65,15 @@ public class CanvasAboutActivity extends ListActivity {
                 break;
             case 7:
                 intent = new Intent(this, XfermodeActivity.class);
+                break;
+            case 8:
+                intent = new Intent(this, ShaderActivity.class);
+                break;
+            case 9:
+                intent = new Intent(this, PathEffectActivity.class);
+                break;
+            case 10:
+                intent = new Intent(this, DrawBoardActivity.class);
                 break;
         }
         startActivity(intent);

@@ -222,6 +222,9 @@
         <activity android:name=".Canvas.Matrix.PixelMatrixEffectActivity"/>
         <activity android:name=".Canvas.Xfermode.XfermodeActivity"
             android:hardwareAccelerated="false"/><!--TODO yuyang 关闭硬件加速，因为某些Xfermode效果在硬件加速下无法实现-->
+        <activity android:name=".Canvas.Shader.ShaderActivity"/>
+        <activity android:name=".Canvas.PathEffect.PathEffectActivity"/>
+        <activity android:name=".Canvas.SurfaceView.DrawBoardActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->

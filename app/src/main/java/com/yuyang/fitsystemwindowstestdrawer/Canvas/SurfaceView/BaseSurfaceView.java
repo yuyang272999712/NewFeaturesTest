@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.flabbyBird;
+package com.yuyang.fitsystemwindowstestdrawer.Canvas.SurfaceView;
 
 import android.content.Context;
 import android.graphics.Canvas;
