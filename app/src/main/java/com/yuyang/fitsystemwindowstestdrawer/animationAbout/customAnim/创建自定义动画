@@ -1,0 +1,9 @@
+    创建自定义动画需要继承Animation类，只需要实现它的applyTransformation方法的逻辑就可以了，
+不过通常情况下，还需要覆盖付类的initialize方法来实现一些初始化工作。
+    applyTransformation(float interpolatedTime, Transformation t);
+    参数含义：
+        interpolatedTime 插值器的时间因子，这个因子是由动画当前完成的百分比和当前时间所对应的插值所计算得来的，
+                         取值范围为0到1.0。
+        t 矩阵的封装类，一般使用这个类来获得当前的矩阵对象： final Matrix matrix = t.getMatrix();
+          通过改变获得的matrix对象，可以将动画效果实现出来。
+例：CustomTVAnim.java、Custom3DAnim.java

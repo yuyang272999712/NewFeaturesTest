@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.customAnim.CustomAnimationActivity;
 
 /**
  * 动画相关
@@ -19,6 +20,7 @@ public class AnimationActivity extends AppCompatActivity {
     private Button propertyBtn4;
     private Button viewBtn5;
     private Button drawableBtn6;
+    private Button customAnimBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class AnimationActivity extends AppCompatActivity {
         propertyBtn4 = (Button) findViewById(R.id.animation_layout_view);
         viewBtn5 = (Button) findViewById(R.id.animation_view);
         drawableBtn6 = (Button) findViewById(R.id.animation_drawable);
+        customAnimBtn = (Button) findViewById(R.id.animation_custom);
     }
 
     private void initAction() {
@@ -78,6 +81,13 @@ public class AnimationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AnimationActivity.this, AnimationDrawableActivity.class);
+                startActivity(intent);
+            }
+        });
+        customAnimBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnimationActivity.this, CustomAnimationActivity.class);
                 startActivity(intent);
             }
         });
