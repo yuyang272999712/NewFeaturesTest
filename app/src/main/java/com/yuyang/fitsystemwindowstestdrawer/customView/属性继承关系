@@ -1,3 +1,4 @@
+CustomTextView.java
 View构造函数的自定属性继承关系测试（CustomTextView.java中进行了测试）
  public TypedArray obtainStyledAttributes (AttributeSet set, int[] attrs, int defStyleAttr, int defStyleRes)
  *      set：属性值的集合

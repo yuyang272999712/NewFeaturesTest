@@ -1,0 +1,8 @@
+图片模糊处理需要大量的计算，这里需要用到Android团队提供的 RenderScript支持库
+
+要想使用RenderScript支持库，需要在app的gradle文件中添加如下的支持：
+defaultConfig {
+    ......
+    renderscriptTargetApi 19
+    renderscriptSupportModeEnabled true
+}

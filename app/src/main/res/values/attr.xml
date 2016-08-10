@@ -261,4 +261,9 @@
         <attr name="lineColorEdge" format="color"/><!--边缘配色-->
         <attr name="seekBarResId" format="reference"/><!--按钮样式-->
     </declare-styleable>
+    <!--模糊渐变效果－BlurredView-->
+    <declare-styleable name="BlurredView">
+        <attr name="android:src"/><!--TODO yuyang 在自定义属性中使用Android自带的属性名字-->
+        <attr name="android:scaleType"/>
+    </declare-styleable>
 </resources>

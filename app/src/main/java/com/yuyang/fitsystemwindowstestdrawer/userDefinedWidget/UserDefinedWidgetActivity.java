@@ -11,6 +11,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.Fol
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.DynamicWave;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
@@ -46,6 +47,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button colourImageBtn;
     private Button stereoBtn;
     private Button colorPicker;
+    private Button blurredImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +84,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         colourImageBtn = (Button) findViewById(R.id.defind_colour_image);
         stereoBtn = (Button) findViewById(R.id.defind_stereo);
         colorPicker = (Button) findViewById(R.id.defind_color_picker);
+        blurredImage = (Button) findViewById(R.id.defind_blurred_image);
     }
 
     private void initDatas() {}
@@ -252,6 +255,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, ColorPickerActivity.class);
+                startActivity(intent);
+            }
+        });
+        blurredImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, BlurredImageActivity.class);
                 startActivity(intent);
             }
         });
