@@ -13,6 +13,7 @@ import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.Cont
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ViewInject;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator.SlideRecyclerListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.removeItem.RecyclerViewRemoveItemActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeader.StickyHeaderRecyclerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshActivity;
 
 /**
@@ -62,6 +63,15 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
      */
     public void gotoSwipeRefresh(View view){
         Intent intent = new Intent(this, SwipeRefreshActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 联系人列表固定Title样式
+     * @param view
+     */
+    public void gotoStickyHeaderRecyclerView(View view){
+        Intent intent = new Intent(this, StickyHeaderRecyclerActivity.class);
         startActivity(intent);
     }
 }

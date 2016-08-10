@@ -36,4 +36,12 @@
         android:onClick="gotoSwipeRefresh"
         android:text="以上效果综合"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textAllCaps="false"
+        android:onClick="gotoStickyHeaderRecyclerView"
+        android:text="联系人列表固定title样式"/>
+
 </LinearLayout>

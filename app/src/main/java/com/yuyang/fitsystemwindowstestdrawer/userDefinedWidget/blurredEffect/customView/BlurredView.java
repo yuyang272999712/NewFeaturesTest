@@ -15,6 +15,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.uti
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.util.BlurBitmap;
 
 /**
+ * ！！！有自定义属性
  * 实现渐变模糊
  */
 public class BlurredView extends RelativeLayout {
