@@ -4,7 +4,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 /**
-    Timer管理延时任务的缺陷
+    Timer管理延时任务的缺陷（可以参考ScheduledExecutorService.java来规避这种缺陷）
  a、以前在项目中也经常使用定时器，比如每隔一段时间清理项目中的一些垃圾文件，每个一段时间进行数据清洗；然而Timer是存在
 一些缺陷的，因为Timer在执行定时任务时只会创建一个线程，所以如果存在多个任务，且任务时间过长，超过了两个任务的间隔时间，
 会发生一些缺陷：因为Timer内部是一个线程，而任务1所需的时间超过了两个任务间的间隔导致，那么任务2就会延时执行。

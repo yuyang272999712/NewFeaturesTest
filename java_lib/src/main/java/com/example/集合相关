@@ -1,0 +1,28 @@
+在Java的集合容器框架中，主要有四大类别：List、Set、Queue、Map。
+    List、Set、Queue接口分别继承了Collection接口，Map本身是一个接口。
+    注意Collection和Map是一个顶层接口，而List、Set、Queue则继承了Collection接口，分别代表数组、集合和队列这三大类容器。
+    像ArrayList、LinkedList都是实现了List接口，HashSet实现了Set接口，而Deque（双向队列，允许在队首、队尾进行入队
+  和出队操作）继承了Queue接口，PriorityQueue实现了Queue接口。另外LinkedList（实际上是双向链表）实现了了Deque接口。
+    像ArrayList、LinkedList、HashMap这些容器都是非线程安全的。
+
+在Java中，同步容器主要包括2类：
+    1）Vector、Stack、HashTable
+    2）Collections类中提供的静态工厂方法创建的类
+
+在使用iterator遍历以上同步容器时也会出现错误（参见：http://www.cnblogs.com/dolphin0520/p/3933551.html）
+因此一般有2种解决办法：
+    1）在使用iterator迭代的时候使用synchronized或者Lock进行同步；
+    2）使用并发容器CopyOnWriteArrayList代替ArrayList和Vector。
+
+JDK5中添加了新的concurrent包，相对同步容器而言，并发容器通过一些机制改进了并发性能：（参见：http://www.cnblogs.com/dolphin0520/p/3932905.html）
+    ConcurrentHashMap代替同步的Map（Collections.synchronized（new HashMap()）），众所周知，HashMap是根据散列值分段存储的，同步Map在同步的时候锁住了所有的段，而ConcurrentHashMap加锁的时候根据散列值锁住了散列值锁对应的那段，因此提高了并发性能。ConcurrentHashMap也增加了对常用复合操作的支持，比如"若没有则添加"：putIfAbsent()，替换：replace()。这2个操作都是原子操作。
+    CopyOnWriteArrayList和CopyOnWriteArraySet分别代替List和Set，主要是在遍历操作为主的情况下来代替同步的List和同步的Set，这也就是上面所述的思路：迭代过程要保证不出错，除了加锁，另外一种方法就是"克隆"容器对象。
+    ConcurrentLinkedQuerue是一个先进先出的队列。它是非阻塞队列。
+    ConcurrentSkipListMap可以在高效并发中替代SoredMap（例如用Collections.synchronzedMap包装的TreeMap）。
+    ConcurrentSkipListSet可以在高效并发中替代SoredSet（例如用Collections.synchronzedSet包装的TreeMap）。
+
+Java 1.5之后，在java.util.concurrent包下提供了若干个阻塞队列，主要有以下几个：（参见：http://www.cnblogs.com/dolphin0520/p/3932906.html）
+    ArrayBlockingQueue：基于数组实现的一个阻塞队列，在创建ArrayBlockingQueue对象时必须制定容量大小。并且可以指定公平性与非公平性，默认情况下为非公平的，即不保证等待时间最长的队列最优先能够访问队列。
+    LinkedBlockingQueue：基于链表实现的一个阻塞队列，在创建LinkedBlockingQueue对象时如果不指定容量大小，则默认大小为Integer.MAX_VALUE。
+    PriorityBlockingQueue：以上2种队列都是先进先出队列，而PriorityBlockingQueue却不是，它会按照元素的优先级对元素进行排序，按照优先级顺序出队，每次出队的元素都是优先级最高的元素。注意，此阻塞队列为无界阻塞队列，即容量没有上限（通过源码就可以知道，它没有容器满的信号标志），前面2种都是有界队列。
+    DelayQueue：基于PriorityQueue，一种延时阻塞队列，DelayQueue中的元素只有当其指定的延迟时间到了，才能够从队列中获取到该元素。DelayQueue也是一个无界队列，因此往队列中插入数据的操作（生产者）永远不会被阻塞，而只有获取数据的操作（消费者）才会被阻塞。
