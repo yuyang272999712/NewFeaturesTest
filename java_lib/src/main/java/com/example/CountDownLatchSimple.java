@@ -15,7 +15,7 @@ import java.util.concurrent.CountDownLatch;
     CountDownLatch是一种灵活的闭锁实现，包含一个计数器，该计算器初始化为一个正数，表示需要等待事件的数量。
  countDown方法递减计数器，表示有一个事件发生，而await方法等待计数器到达0，表示所有需要等待的事情都已经完成。
  */
-public class LatchSimple {
+public class CountDownLatchSimple {
 
     private static CountDownLatch latch = new CountDownLatch(3);
 
