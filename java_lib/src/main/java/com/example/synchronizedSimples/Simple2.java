@@ -48,10 +48,24 @@ public class Simple2 {
                 }
             }
         };
-        //thread1与thread2同时调用同步方法，thread2会等待thread1执行完后才能获取锁
+
+        Thread thread4 = new Thread("线程4"){
+            @Override
+            public void run() {
+                try {
+                    dateOpt._insert(this);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        //thread1与thread2同时调用同步方法，但两个人的锁不是同一个，所以可以同时执行
         thread1.start();
         thread2.start();
         thread3.start();
+        //thread1与thread4同时调用同步方法,由于两个同步代码块争取的是同一个锁，所以两个线程必定有一个需要等待
+        thread4.start();
     }
 }
 
@@ -61,6 +75,15 @@ class DataOpt2 {
 
     public void insert(Thread thread) throws InterruptedException {
         System.out.println(thread.getName()+"在insert数据＋＋＋＋＋＋＋＋＋");
+        synchronized(arrayList) {
+            arrayList.add(1);
+            Thread.sleep(3000);
+        }
+        System.out.println(thread.getName()+"insert耗时：3秒"+",线程经历了："+(System.currentTimeMillis()-currentTime)+"毫秒");
+    }
+
+    public void _insert(Thread thread) throws InterruptedException {
+        System.out.println(thread.getName()+"在_insert数据＋＋＋＋＋＋＋＋＋");
         synchronized(arrayList) {
             arrayList.add(1);
             Thread.sleep(3000);
