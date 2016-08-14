@@ -8,6 +8,7 @@ import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.customAnim.CustomAnimationActivity;
+import com.yuyang.fitsystemwindowstestdrawer.animationAbout.svg.SVGdrawableActivity;
 
 /**
  * 动画相关
@@ -21,6 +22,7 @@ public class AnimationActivity extends AppCompatActivity {
     private Button viewBtn5;
     private Button drawableBtn6;
     private Button customAnimBtn;
+    private Button animatableSvg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +41,7 @@ public class AnimationActivity extends AppCompatActivity {
         viewBtn5 = (Button) findViewById(R.id.animation_view);
         drawableBtn6 = (Button) findViewById(R.id.animation_drawable);
         customAnimBtn = (Button) findViewById(R.id.animation_custom);
+        animatableSvg = (Button) findViewById(R.id.animatable_svg);
     }
 
     private void initAction() {
@@ -88,6 +91,13 @@ public class AnimationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AnimationActivity.this, CustomAnimationActivity.class);
+                startActivity(intent);
+            }
+        });
+        animatableSvg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AnimationActivity.this, SVGdrawableActivity.class);
                 startActivity(intent);
             }
         });

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--TODO yuyang height、width表示该SVG图形的具体大小，
+    viewportHeight、viewportWidth表示SVG图形划分的比例，在path绘制时使用的参数，就是根据这两个值来进行转换的
+    例如本例中：path如果使用坐标(50,50)，意味着该坐标位于SVG图形正中。
+    这两对值得比例必须相同-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:height="200dp"
+    android:width="200dp"
+    android:viewportHeight="100"
+    android:viewportWidth="100">
+    <group
+        android:name="test"
+        android:pivotX="50"
+        android:pivotY="50"
+        android:rotation="0">
+        <!--android:fillColor="@android:color/holo_blue_light"-->
+        <path
+            android:strokeColor="@android:color/holo_blue_light"
+            android:strokeWidth="2"
+            android:pathData="
+                M 25 50
+                a 25,25 0 1,0 50,0"/>
+    </group>
+</vector>

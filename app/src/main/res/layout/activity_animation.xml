@@ -47,4 +47,10 @@
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:text="自定义动画"/>
+    <Button
+        android:id="@+id/animatable_svg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="SVG动画"/>
 </LinearLayout>

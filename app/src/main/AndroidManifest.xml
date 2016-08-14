@@ -105,6 +105,7 @@
         <activity android:name=".animationAbout.ViewAnimationActivity"/>
         <activity android:name=".animationAbout.AnimationDrawableActivity"/>
         <activity android:name=".animationAbout.customAnim.CustomAnimationActivity"/>
+        <activity android:name=".animationAbout.svg.SVGdrawableActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity"/>
         <activity android:name=".coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".coordinatorLayoutAbout.BehaviorActivity1"/>

@@ -1,0 +1,30 @@
+<path>标签（例：vector_drawable_simple_1.xml）
+    <path>相当于一只画笔，用来控制画笔的坐标、直线、曲线等，常用指令：
+        M=moveto(M X,Y)：将画笔移动到指定位置
+        L=lineto(L X,Y)：画直线到指定的坐标位置
+        H=horizontal lineto(H X)：画水平线到指定的X坐标位置
+        V=vertical lineto(V Y)：画垂直线到指定的Y坐标位置
+        C=curveto(C X1,Y1,X2,Y2,ENDX,ENDY)：三次贝塞尔曲线
+        S=smooth curveto(S X2,Y2,ENDX,ENDY)：三次贝塞尔曲线
+        Q=quadratic Belzier curve(Q X,Y,ENDX,ENDY)：二次贝塞尔曲线
+        T=smooth quadratix Belzier curveto(T ENDX,ENDY)：映射前面路径后的终点
+        A=elliptical Arc(A RX,RY,XROTATION,FLAG1,FLAG2,X,Y)：弧线
+            参数：RX,RY 指所在椭圆的半径大小
+                 XROTATION 指椭圆的X轴与水平方向顺时针方向夹角
+                 FLAG1 只有两个值，1表示大角度弧线，0为小角度弧线
+                 FLAG2 只有两个值，确定从起点至终点的方向，1为顺时针，0为逆时针
+                 X,Y 轴为终点坐标
+        Z=closepaht()：关闭路径
+    使用时需注意：
+        1、坐标轴以（0,0）为中心，X轴水平向右，Y轴竖直向下
+        2、**指令区分大小写**。大写绝对定位，参照全局坐标系；小写相对定位，参照父容器坐标系
+        3、指令和数据间的空格可以省略
+        4、同一指令出现多次可以只用一个
+
+AnimatedVectorDrawable
+<animated_vector>标签（例：vector_animator_simple_1.xml）
+    <group>和<path>标签中添加rotation、fillColor、pathData等属性，那么在objectAnimator中，就可以通过
+   指定android:propertyName="XXXX"属性来选择控制哪一种属性，通过android:valueFrom="XXX"和
+   android:valueTo="XXX"属性，可以控制动画的起始值。
+    注意：如果指定属性为pathData，那么需要添加一个属性：Android:valueType="pathType"来告诉系统进行pathData
+   变换。
