@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -17,7 +17,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 public class SVGdrawableActivity extends AppCompatActivity {
     private ImageView imageView;
     private ImageView imageView2;
-    private TextView textView;
+    private EditText textView;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class SVGdrawableActivity extends AppCompatActivity {
             }
         });
 
-        textView = (TextView) findViewById(R.id.textView);
+        textView = (EditText) findViewById(R.id.textView);
         textView.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
