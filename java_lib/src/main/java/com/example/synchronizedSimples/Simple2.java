@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Simple2 {
     public static void main(String[] args){
-        DataOpt2 dateOpt = new DataOpt2();
+        final DataOpt2 dateOpt = new DataOpt2();
 
         Thread thread1 = new Thread("线程1"){
             @Override

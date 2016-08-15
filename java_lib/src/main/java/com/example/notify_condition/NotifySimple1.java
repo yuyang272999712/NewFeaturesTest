@@ -21,7 +21,7 @@ public class NotifySimple1 {
         thread1.start();
         thread2.start();
 
-        NotifySimple1 simple1 = new NotifySimple1();
+        final NotifySimple1 simple1 = new NotifySimple1();
         Thread thread3 = new Thread(){
             @Override
             public void run() {

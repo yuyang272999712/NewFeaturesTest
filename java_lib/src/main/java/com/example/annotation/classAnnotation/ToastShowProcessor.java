@@ -15,8 +15,6 @@ import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
-import javax.annotation.processing.SupportedAnnotationTypes;
-import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
@@ -34,7 +32,7 @@ import javax.tools.Diagnostic;
  */
 //@SupportedAnnotationTypes({ "com.example.annotation.classAnnotation.ToastShow" })
 //@SupportedSourceVersion(SourceVersion.RELEASE_8)
-public class MethodInfoProcessor extends AbstractProcessor {
+public class ToastShowProcessor extends AbstractProcessor {
     private static final String STRING_TYPE = "java.lang.String";
 
     private Types typeUtils;
@@ -79,7 +77,7 @@ public class MethodInfoProcessor extends AbstractProcessor {
             // 创建目标类
             TypeSpec helloWorld = TypeSpec.classBuilder("HelloWorld")
                     .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
-                    .addMethod(method)
+                    .addMethod(method.build())
                     .build();
         }
         return true;
