@@ -29,7 +29,7 @@ public class SemaphoreSimple {
     }
 
     public static void main(String[] args){
-        SemaphoreSimple simple = new SemaphoreSimple();
+        final SemaphoreSimple simple = new SemaphoreSimple();
 
         //开启10个耗时线程
         for (int i=0; i<10; i++){

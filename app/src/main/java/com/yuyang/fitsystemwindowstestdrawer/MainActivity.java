@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.annotation.classAnnotation.ToastShow;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 
 /**
@@ -24,6 +25,7 @@ import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
  *      android:shrinkColumns="1,2"         第1,2列皆可收缩
  *      android:collapseColumns="*"         隐藏所有行
  */
+@ToastShow(author = "于洋", date = "2015-03-04")//TODO yuyang 测试编译时注解
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 

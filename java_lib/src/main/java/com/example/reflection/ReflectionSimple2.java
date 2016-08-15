@@ -55,7 +55,7 @@ public class ReflectionSimple2 {
         /**
          * 获取Class中指定的public方法
          */
-        Method method2 = clazz.getMethod("takeAnExamination", null);
+        Method method2 = clazz.getMethod("takeAnExamination");
         method2.invoke(student);
 
     }

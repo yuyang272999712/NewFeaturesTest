@@ -1,0 +1,41 @@
+自定义注解的使用：
+    @Documented
+    @Retention(RetentionPolicy.RUNTIME)
+    @Target(ElementType.METHOD)
+    @Inherited
+    public @interface MethodInfo {
+
+        String author() default "trinea@gmail.com";
+
+        String date();
+
+        int version() default 1;
+    }
+    这里是 MethodInfo 的实现部分
+    (1). 通过 @interface 定义，注解名即为自定义注解名
+    (2). 注解配置参数名为注解类的方法名，且：
+        a. 所有方法没有方法体，没有参数没有修饰符，实际只允许 public & abstract 修饰符，默认为 public，不允许抛异常
+        b. 方法返回值只能是基本类型，String, Class, annotation, enumeration 或者是他们的一维数组
+        c. 若只有一个默认属性，可直接用 value() 函数。一个属性都没有表示该 Annotation 为 Mark Annotation
+    (3). 可以加 default 表示默认值
+
+元Annotation说明：
+    @Documented 是否会保存到 Javadoc 文档中
+    @Retention 保留时间，可选值 SOURCE（源码时），CLASS（编译时），RUNTIME（运行时），默认为 CLASS，
+        SOURCE 大都为 Mark Annotation，这类 Annotation 大都用来校验，比如 Override, SuppressWarnings
+    @Target 可以用来修饰哪些程序元素，如 TYPE, METHOD, CONSTRUCTOR, FIELD, PARAMETER 等，
+        未标注则表示可修饰所有
+    @Inherited 是否可以被继承，默认为 false
+
+运行时 Annotation 解析：
+    运行时 Annotation 指 @Retention 为 RUNTIME 的 Annotation，可手动调用下面常用 API 解析：
+        method.getAnnotation(AnnotationName.class);//得到该 Target 某个 Annotation 的信息，因为一个 Target 可以被多个 Annotation 修饰
+        method.getAnnotations();//得到该 Target 所有 Annotation
+        method.isAnnotationPresent(AnnotationName.class);//该 Target 是否被某个 Annotation 修饰
+    其他 @Target 如 Field，Class 方法类似
+
+编译时 Annotation 解析:
+    编译时 Annotation 指 @Retention 为 CLASS 的 Annotation，甴编译器自动解析。需要做的
+        a. 自定义类集成自 AbstractProcessor
+        b. 重写其中的 process 函数
+    实际是编译器在编译时自动查找所有继承自 AbstractProcessor 的类，然后调用他们的 process 方法去处理
