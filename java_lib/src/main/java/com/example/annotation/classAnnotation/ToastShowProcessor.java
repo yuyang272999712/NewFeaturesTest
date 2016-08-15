@@ -1,10 +1,6 @@
 package com.example.annotation.classAnnotation;
 
 
-import com.google.auto.common.SuperficialValidation;
-import com.squareup.javapoet.MethodSpec;
-import com.squareup.javapoet.TypeSpec;
-
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -18,7 +14,6 @@ import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
-import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
@@ -68,7 +63,7 @@ public class ToastShowProcessor extends AbstractProcessor {
             }
         }*/
         // 处理BindString
-        for (Element element : env.getElementsAnnotatedWith(ToastShow.class)) {
+        /*for (Element element : env.getElementsAnnotatedWith(ToastShow.class)) {
             //创建方法
             MethodSpec.Builder method = MethodSpec.methodBuilder("bind")
                     .addModifiers(Modifier.PUBLIC)
@@ -79,7 +74,7 @@ public class ToastShowProcessor extends AbstractProcessor {
                     .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                     .addMethod(method.build())
                     .build();
-        }
+        }*/
         return true;
     }
 
@@ -105,9 +100,9 @@ public class ToastShowProcessor extends AbstractProcessor {
      */
     private boolean _verifyElement(Element element, Class<? extends Annotation> annotationClass) {
         // 检测元素的有效性
-        if (!SuperficialValidation.validateElement(element)) {
+        /*if (!SuperficialValidation.validateElement(element)) {
             return false;
-        }
+        }*/
         // 获取最里层的外围元素
         TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
 
