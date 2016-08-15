@@ -33,7 +33,7 @@
         android:layout_gravity="center"
         android:src="@drawable/vector_animatable_two_line"/>
 
-    <EditText
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
