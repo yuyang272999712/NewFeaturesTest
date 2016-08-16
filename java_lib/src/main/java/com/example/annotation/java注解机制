@@ -39,3 +39,6 @@
         a. 自定义类集成自 AbstractProcessor
         b. 重写其中的 process 函数
     实际是编译器在编译时自动查找所有继承自 AbstractProcessor 的类，然后调用他们的 process 方法去处理
+
+TODO yuyang 编译时注解请查看博客：http://blog.csdn.net/github_35180164/article/details/52121038
+    非常详细！
