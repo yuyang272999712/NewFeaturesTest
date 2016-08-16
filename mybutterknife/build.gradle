@@ -1,11 +1,9 @@
 apply plugin: 'java'
 
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
     compile 'com.google.auto:auto-common:0.6'
     compile 'com.squareup:javapoet:1.7.0'
 }

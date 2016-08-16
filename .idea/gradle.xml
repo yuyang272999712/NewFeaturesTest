@@ -14,8 +14,8 @@
             <option value="$PROJECT_DIR$/aidlclient" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/java_lib" />
+            <option value="$PROJECT_DIR$/mybutterknife" />
             <option value="$PROJECT_DIR$/photoviewlibrary" />
-            <option value="$PROJECT_DIR$/testlibrary" />
           </set>
         </option>
         <option name="myModules">
@@ -25,8 +25,8 @@
             <option value="$PROJECT_DIR$/aidlclient" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/java_lib" />
+            <option value="$PROJECT_DIR$/mybutterknife" />
             <option value="$PROJECT_DIR$/photoviewlibrary" />
-            <option value="$PROJECT_DIR$/testlibrary" />
           </set>
         </option>
       </GradleProjectSettings>

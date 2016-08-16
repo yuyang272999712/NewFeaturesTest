@@ -1,10 +1,15 @@
-package com.example.annotation.classAnnotation;
+package com.example;
 
 
 import com.google.auto.common.SuperficialValidation;
+import com.squareup.javapoet.ClassName;
+import com.squareup.javapoet.JavaFile;
 import com.squareup.javapoet.MethodSpec;
+import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeSpec;
+import com.squareup.javapoet.TypeVariableName;
 
+import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
@@ -30,10 +35,14 @@ import javax.tools.Diagnostic;
     process 函数返回值表示这组 annotations 是否被这个 Processor 接受，如果接受后续子的 processor 不会再对这个
         Annotations 进行处理
  */
-//@SupportedAnnotationTypes({ "com.example.annotation.classAnnotation.ToastShow" })
+//@SupportedAnnotationTypes({ "com.example.annotation.classAnnotation.MyToastShowAnnotation" })
 //@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class ToastShowProcessor extends AbstractProcessor {
     private static final String STRING_TYPE = "java.lang.String";
+    public static final String subClassName = "$$yuyang";
+    private static final ClassName VIEW_BINDER = ClassName.get("com.example", "ViewBinder");
+    private static final ClassName LOG = ClassName.get("android.util", "Log");
+    private static final ClassName TOAST = ClassName.get("android.widget", "Toast");
 
     private Types typeUtils;
     private Elements elementUtils;
@@ -56,20 +65,64 @@ public class ToastShowProcessor extends AbstractProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment env) {
         System.out.println("编译时注解－－－－－－－－－－－－－－－－－－－");
-        // 保存包含注解元素的目标类，注意是使用注解的外围类，主要用来处理父类继承，例：MainActivity
-        Set<TypeElement> erasedTargetNames = new LinkedHashSet<>();
-        // 处理BindString
-        for (Element element : env.getElementsAnnotatedWith(ToastShow.class)) {
-            //创建方法
-            MethodSpec.Builder method = MethodSpec.methodBuilder("bind")
-                    .addModifiers(Modifier.PUBLIC)
-                    .addParameter(Object.class, "source");
+        // 处理MyToastShowAnnotation
+        for (Element element : env.getElementsAnnotatedWith(MyToastShowAnnotation.class)) {
+            //颜值元素有效性
+            if (!_verifyElement(element, MyToastShowAnnotation.class)){
+                return false;
+            }
 
-            // 创建目标类
-            TypeSpec helloWorld = TypeSpec.classBuilder("HelloWorld")
-                    .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
-                    .addMethod(method.build())
+            //注解中的方法返回值
+            String message = element.getAnnotation(MyToastShowAnnotation.class).message();
+
+            TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+            // 获取元素的完全限定名称：com.butterknife.MainActivity
+            String targetType = enclosingElement.getQualifiedName().toString();
+            // 获取元素所在包名：com.butterknife
+            String classPackage = elementUtils.getPackageOf(enclosingElement).getQualifiedName().toString();
+            // 获取要生成的Class的名称：MainActivity$$yuyang
+            int packageLen = classPackage.length() + 1;
+            String className = targetType.substring(packageLen).replace('.', '$') + subClassName;
+            // 生成Class的完全限定名称：com.butterknife.MainActivity$$yuyang
+            String classFqcn = classPackage + "." + className;
+
+            System.out.println("编译时注解－－className:"+className+"/n"+"classPackage:"+classPackage);
+            // 构建一个类
+            TypeSpec.Builder resultClassBuilder = TypeSpec.classBuilder(className)
+                    .addModifiers(Modifier.PUBLIC)
+                    .addTypeVariable(TypeVariableName.get("T", ClassName.bestGuess(targetType)));
+
+            // 实现 ViewBinder 接口
+            resultClassBuilder.addSuperinterface(ParameterizedTypeName.get(VIEW_BINDER, TypeVariableName.get("T")));
+
+            //　定义一个方法，其实就是实现 ViewBinder 的 doSomething 方法
+            MethodSpec.Builder method1 = MethodSpec.methodBuilder("doSomething")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PUBLIC)
+                    .addParameter(TypeVariableName.get("T"), "target", Modifier.FINAL);
+            method1.addStatement("$L.e(\"－－－编译时注解－－－\", \"$L\")", LOG, message);
+
+            //　定义一个方法，其实就是实现 ViewBinder 的 doSomething 方法
+            MethodSpec.Builder method2 = MethodSpec.methodBuilder("showToast")
+                    .addAnnotation(Override.class)
+                    .addModifiers(Modifier.PUBLIC)
+                    .addParameter(TypeVariableName.get("T"), "target", Modifier.FINAL);
+            method2.addStatement("$L.makeText(target, \"$L\", 1).show()", TOAST, message);
+
+            //添加方法
+            resultClassBuilder.addMethod(method1.build());
+            resultClassBuilder.addMethod(method2.build());
+
+            // 构建Java文件
+            JavaFile javaFile = JavaFile.builder(classPackage, resultClassBuilder.build())
+                    .addFileComment("Generated code from Butter Knife. Do not modify!")
                     .build();
+            try {
+                javaFile.writeTo(filer);
+            } catch (IOException e) {
+                _error(enclosingElement, "Unable to write view binder for type %s: %s", enclosingElement,
+                        e.getMessage());
+            }
         }
         return true;
     }
@@ -79,7 +132,7 @@ public class ToastShowProcessor extends AbstractProcessor {
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> set = new HashSet<>();
-        set.add(ToastShow.class.getCanonicalName());
+        set.add(MyToastShowAnnotation.class.getCanonicalName());
         return set;
     }
 
@@ -99,11 +152,13 @@ public class ToastShowProcessor extends AbstractProcessor {
         if (!SuperficialValidation.validateElement(element)) {
             return false;
         }
+        System.out.println("查找错误点－－－－－－－－－－－－－－－－－－－1");
         // 获取最里层的外围元素
         TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
+        System.out.println("查找错误点－－－－－－－－－－－－－－－－－－－2");
 
         // 检测使用该注解的元素类型是否正确
-        if (annotationClass == ToastShow.class) {
+        if (annotationClass == MyToastShowAnnotation.class) {
             if (!STRING_TYPE.equals(element.asType().toString())) {
                 _error(messager, element, "@%s field type must be 'String'. (%s.%s)",
                         annotationClass.getSimpleName(), enclosingElement.getQualifiedName(),
@@ -146,5 +201,18 @@ public class ToastShowProcessor extends AbstractProcessor {
             message = String.format(message, args);
         }
         messager.printMessage(Diagnostic.Kind.ERROR, message, element);
+    }
+
+    /**
+     * 输出错误信息
+     * @param element
+     * @param message
+     * @param args
+     */
+    private void _error(Element element, String message, Object... args) {
+        if (args.length > 0) {
+            message = String.format(message, args);
+        }
+        processingEnv.getMessager().printMessage(Diagnostic.Kind.ERROR, message, element);
     }
 }

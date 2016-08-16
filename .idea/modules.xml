@@ -7,8 +7,8 @@
       <module fileurl="file://$PROJECT_DIR$/aidlclient/aidlclient.iml" filepath="$PROJECT_DIR$/aidlclient/aidlclient.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/java_lib/java_lib.iml" filepath="$PROJECT_DIR$/java_lib/java_lib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybutterknife/mybutterknife.iml" filepath="$PROJECT_DIR$/mybutterknife/mybutterknife.iml" />
       <module fileurl="file://$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" filepath="$PROJECT_DIR$/photoviewlibrary/photoviewlibrary.iml" />
-      <module fileurl="file://$PROJECT_DIR$/testlibrary/testlibrary.iml" filepath="$PROJECT_DIR$/testlibrary/testlibrary.iml" />
     </modules>
   </component>
 </project>

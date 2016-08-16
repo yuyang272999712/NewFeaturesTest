@@ -1,4 +1,4 @@
-package com.example.annotation.classAnnotation;
+package com.example;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -9,13 +9,11 @@ import java.lang.annotation.Target;
 
 /**
  * 编译时注解
- *
- * 详情请看 mybutterknife 工程
  */
 @Documented
-@Target(ElementType.TYPE)//只可用语类的注解
+@Target(ElementType.FIELD)//只可用语类的注解
 @Retention(RetentionPolicy.CLASS)//编译时注解
 @Inherited
-public @interface ToastShow {
-    String message() default "编译时注解";
+public @interface MyToastShowAnnotation {
+    String message() default "注解的message值";
 }

@@ -16,6 +16,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.example.MyToastShowAnnotation;
+import com.example.ToastShow;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 
 /**
@@ -24,9 +26,11 @@ import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
  *      android:shrinkColumns="1,2"         第1,2列皆可收缩
  *      android:collapseColumns="*"         隐藏所有行
  */
-//@ToastShow//TODO yuyang 测试编译时注解
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    @MyToastShowAnnotation(message = "编译时注解，此时的编译时注解代码已经无用，因为在编译时已经生成了相应的.class文件")//TODO yuyang 测试编译时注解
+    private String test;
 
     private FragmentManager fragmentManager;
 
@@ -71,6 +75,9 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
         super.onStart();
         startService(new Intent(this, BackgroundService.class));
+        //TODO yuyang 测试编译时注解
+        ToastShow.doSomething(this);
+        ToastShow.showToast(this);
     }
 
     @Override
