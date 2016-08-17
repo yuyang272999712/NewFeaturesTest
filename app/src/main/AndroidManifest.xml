@@ -191,6 +191,7 @@
         <activity android:name=".homeDemo.TraditionalViewPagerActivity"/>
         <activity android:name=".homeDemo.FragmentManagerActivity"/>
         <activity android:name=".homeDemo.ViewPagerFragmentActivity"/>
+        <activity android:name=".homeDemo.SlidingPaneLayoutActivity"/>
         <activity android:name=".configChangesDatasAbout.ConfigChangesActivity"/>
         <activity android:name=".configChangesDatasAbout.normalWay.SavedInstanceStateUsingActivity"/>
         <activity android:name=".configChangesDatasAbout.normalWay.FragmentRetainDataActivity"/>

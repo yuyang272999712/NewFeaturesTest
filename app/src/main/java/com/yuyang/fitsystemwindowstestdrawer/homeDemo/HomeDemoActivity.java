@@ -21,7 +21,7 @@ import java.util.List;
  */
 public class HomeDemoActivity extends ListActivity {
     private List<String> homeDemos = Arrays.asList("传统的ViewPager实现","FragmentManager+Fragment实现",
-            "ViewPager+Fragment实现");
+            "ViewPager+Fragment实现","SlidingPaneLayout实现侧滑导航");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,9 @@ public class HomeDemoActivity extends ListActivity {
                 break;
             case 2:
                 intent = new Intent(this, ViewPagerFragmentActivity.class);
+                break;
+            case 3:
+                intent = new Intent(this, SlidingPaneLayoutActivity.class);
                 break;
         }
         startActivity(intent);
