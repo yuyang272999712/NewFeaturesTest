@@ -1,5 +1,9 @@
 apply plugin: 'java'
 
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     sourceCompatibility = 1.7
