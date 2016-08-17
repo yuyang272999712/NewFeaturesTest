@@ -48,9 +48,6 @@ public class BinarySlidingMenu extends HorizontalScrollView {
             content = (ViewGroup) wrapper.getChildAt(1);
             rightMenu = (ViewGroup) wrapper.getChildAt(2);
 
-            mMenuRightPadding = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
-                    mMenuRightPadding,
-                    content.getResources().getDisplayMetrics());
             mMenuWidth = mScreenWidth - mMenuRightPadding;
             mHalfMenuWidth = mMenuWidth/2;
             leftMenu.getLayoutParams().width = mMenuWidth;
