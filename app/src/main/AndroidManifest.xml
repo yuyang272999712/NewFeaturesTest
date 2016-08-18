@@ -184,6 +184,7 @@
         <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduceActivity"/>
+        <activity android:name=".effect360AppIntroduce.AppIntroduce360NestedScrollActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.notificationAbout.NotificationActivity"/>
         <activity android:name=".notificationDialogPopupWindowToast.dialogAbout.DialogActivity"/>

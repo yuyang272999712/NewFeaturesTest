@@ -29,8 +29,11 @@ public class Effect360AppIntroduceActivity extends AppCompatActivity {
         button1.setText("自定义Layout模拟360软件介绍");
         Button button2 = new Button(this);
         button2.setText("使用现有布局模拟360软件介绍");
+        Button button3 = new Button(this);
+        button3.setText("通过实现NestedScrollingParent");
         linearLayout.addView(button1);
         linearLayout.addView(button2);
+        linearLayout.addView(button3);
 
         setContentView(linearLayout);
 
@@ -45,6 +48,13 @@ public class Effect360AppIntroduceActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Effect360AppIntroduceActivity.this, AppIntroduceActivity.class);
+                startActivity(intent);
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Effect360AppIntroduceActivity.this, AppIntroduce360NestedScrollActivity.class);
                 startActivity(intent);
             }
         });
