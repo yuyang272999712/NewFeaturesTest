@@ -1,0 +1,5 @@
+恶汉模式，就是类加载就初始化了：
+    private static Singleton instance = new Singleton();
+
+懒汉模式，用到的时候再初始化：（注意双重判断）
+    private static Singleton instance;
