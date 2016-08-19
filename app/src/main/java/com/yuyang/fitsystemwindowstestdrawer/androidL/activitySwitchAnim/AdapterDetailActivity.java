@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

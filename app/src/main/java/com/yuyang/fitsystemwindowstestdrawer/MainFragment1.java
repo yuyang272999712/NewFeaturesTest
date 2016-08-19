@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.OptionsCompatActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.AndroidLActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
@@ -19,13 +19,11 @@ import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.horizontalFling.HorizontalFlingActivity;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.InternetAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.internetAbout.manager.ConnectivityStateActivity;
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.RecyclerViewDemoActivity;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
@@ -73,7 +71,7 @@ public class MainFragment1 extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), OptionsCompatActivity.class);
+                Intent intent = new Intent(getContext(), AndroidLActivity.class);
                 startActivity(intent);
             }
         });

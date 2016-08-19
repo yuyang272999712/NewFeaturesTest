@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.adapter;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

@@ -53,8 +53,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".androidLAnimationAbout.OptionsCompatActivity"/>
-        <activity android:name=".androidLAnimationAbout.AdapterDetailActivity"/>
+        <activity android:name=".androidL.activitySwitchAnim.OptionsCompatActivity"/>
+        <activity android:name=".androidL.activitySwitchAnim.AdapterDetailActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/TransitionTheme"/>
@@ -231,6 +231,8 @@
         <activity android:name=".Canvas.Shader.ShaderActivity"/>
         <activity android:name=".Canvas.PathEffect.PathEffectActivity"/>
         <activity android:name=".Canvas.SurfaceView.DrawBoardActivity"/>
+        <activity android:name=".androidL.AndroidLActivity"/>
+        <activity android:name=".androidL.PaletteActivity"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->

@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim;
 
 import android.animation.Animator;
 import android.content.Intent;
@@ -22,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.androidLAnimationAbout.adapter.RecyclerAdapter;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.adapter.RecyclerAdapter;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:textAllCaps="false"
-                android:text="android5界面切换效果"/>
+                android:text="android5中的新东西"/>
 
             <Button
                 android:id="@+id/button2"

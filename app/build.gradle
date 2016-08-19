@@ -46,4 +46,6 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.6'
     //json解析工具
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    //取色器
+    compile 'com.android.support:palette-v7:23.3.0'
 }
