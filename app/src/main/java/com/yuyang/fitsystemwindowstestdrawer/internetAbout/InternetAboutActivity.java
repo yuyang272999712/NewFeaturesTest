@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.httpAbout.HttpURLConnectionActivity;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.manager.ConnectivityStateActivity;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.okHttpAbout.OkHttpAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.RetrofitReqUserInfoActivity;
 
 import java.util.Arrays;
@@ -42,6 +43,8 @@ public class InternetAboutActivity extends ListActivity {
                 intent = new Intent(this, HttpURLConnectionActivity.class);
                 break;
             case 2:
+                intent = new Intent(this, OkHttpAboutActivity.class);
+                break;
             case 3:
                 intent = new Intent(this, RetrofitReqUserInfoActivity.class);
                 break;

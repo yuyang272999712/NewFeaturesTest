@@ -13,6 +13,8 @@ android {
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
+        //方法数超过64K
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -24,6 +26,8 @@ android {
 }
 
 dependencies {
+    //方法数超过64K
+    compile 'com.android.support:multidex:1.0.1'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':photoviewlibrary')
     compile project(':mybutterknife')
