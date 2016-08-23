@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionManager
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <transition
+        android:fromScene="@layout/activity_options_first"
+        android:toScene="@layout/activity_options_second"
+        android:transition="@transition/my_test_transition"/>
+
+</transitionManager>

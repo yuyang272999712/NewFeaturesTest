@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.transition.Fade;
 import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 import android.view.Window;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -36,6 +38,11 @@ public class SecondActivity extends AppCompatActivity {
                 getWindow().setReturnTransition(new Explode());
                 break;
             case 3:
+                break;
+            case 4:
+                Transition myTransition = TransitionInflater.from(this).inflateTransition(R.transition.my_test_transition);
+                getWindow().setEnterTransition(myTransition);
+                getWindow().setReturnTransition(myTransition);
                 break;
         }
         setContentView(R.layout.activity_options_second);

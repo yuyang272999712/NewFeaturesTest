@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<transitionSet
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:transitionOrdering="sequential">
+
+    <changeBounds />
+
+    <fade android:fadingMode="fade_in_out">
+        <targets>
+        <!--TODO yuyang target可设置过渡动画的对象-->
+            <target android:targetId="@id/transition_layout"/>
+        </targets>
+    </fade>
+
+    <explode/>
+
+</transitionSet>

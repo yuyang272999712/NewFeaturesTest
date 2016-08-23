@@ -3,6 +3,7 @@ package com.yuyang.fitsystemwindowstestdrawer;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,7 +73,8 @@ public class MainFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), AndroidLActivity.class);
-                startActivity(intent);
+                //TODO yuyang 此为兼容模式
+                startActivity(intent, ActivityOptionsCompat.makeSceneTransitionAnimation(getActivity()).toBundle());
             }
         });
 

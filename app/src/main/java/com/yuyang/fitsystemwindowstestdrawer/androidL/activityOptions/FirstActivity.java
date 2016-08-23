@@ -67,4 +67,11 @@ public class FirstActivity extends AppCompatActivity {
                 Pair.create(view, "share"),
                 Pair.create(fab, "fab")).toBundle());
     }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public void userDefineTransition(View view){
+        intent = new Intent(this, SecondActivity.class);
+        intent.putExtra("flag", 4);
+        startActivity(intent,  ActivityOptions.makeSceneTransitionAnimation(this).toBundle());
+    }
 }

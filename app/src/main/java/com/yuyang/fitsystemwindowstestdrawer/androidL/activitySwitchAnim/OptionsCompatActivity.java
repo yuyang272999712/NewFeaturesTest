@@ -178,6 +178,7 @@ public class OptionsCompatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    //TODO yuyang android5.0的圆形揭示效果
                     Animator animator = ViewAnimationUtils.createCircularReveal(
                             circularRevealImg,
                             circularRevealImg.getWidth()/2,

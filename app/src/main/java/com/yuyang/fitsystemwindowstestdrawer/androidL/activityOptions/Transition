@@ -1,0 +1,36 @@
+麻痹的！Transition只能用在Android4.4以上
+
+Android 历史上的转场动画框架
+    Android 4.0,引入了新的属性 Android:animateLayoutChanges=[true/false] ，所有派生自 ViewGroup 的控件都具
+  有此属性，只要在XML中添加上这个属性，就能实现添加/删除其中控件时，带有默认动画，如果要自定义动画，就需要使用
+  LayoutTransaction 了。实践证明，实际上这套机制使用起来并不是那么灵活。
+    Android 4.4 引入了 Scenes 和 Transitions（场景和变换），Scene 保存了布局的状态，包括所有的控件和控件的属性。
+  布局可以是一个简单的视图控件或者复杂的视图树和子布局。保存了这个布局状态到 Scene 后，我们就可以从另一个场景变化到该场景。
+  从一个场景到另一个场景的变换中会有动画效果，这些动画信息就保存在 Transition 对象中。要运行动画，我们要使用
+  TransitionManager 实例来应用 Transition。
+
+接下来让我们看看有哪些 Transition ：
+    1、ChangeBounds. 改变 View 的位置和大小。
+    2、Fade. 继承自 Visibility 类，可以用来做最常用的淡入和淡出动画-，上个例子中 TextView的出现和消失用的就是这个。
+    3、TransitionSet.用来驱动其他的 Transition .类似于 AnimationSet,能够让一组 Transition 有序，或者同时执行。
+    4、AutoTransition. TransitionSet 同时包含了 Fade out ，ChangeBounds 和 Fade in 效果，只不过是有序的执行，
+      首先 View 会在退场时，执行淡出，并伴随大小和位置的变化，然后在进场是执行淡入。 如果不指定 beginDelayedTransition
+      的第二个参数，默认的转场效果就是 AutoTransition 。
+-----------------------------------------------------------------------------------------------------
+
+android 5.0(api 21)提供以下进入和退出效果：
+    explode(爆裂) - 从场景中间移动视图进入或者退出
+    slide(滑动) - 视图从场景的一个边缘进入或者退出
+    fade(淡入淡出) - 从场景添加或者移除一个视图通过改变他的透明
+    所有过渡效果都继承 Visibility 类，因此支持作为一个进入或者退出过渡效果。
+
+Android5.0(api 21)也支持共享元素过渡效果：
+    ChangeBounds -捕获共享元素的layout bound，然后播放layout bound变化动画。ChangeBounds 是共享元素变换中用的最多的，因为前后两个activity中共享元素的大小和位置一般都是不同的。
+    ChangeTransform - 捕获共享元素的缩放（scale）与旋转（rotation）属性 ，然后播放缩放（scale）与旋转（rotation）属性变化动画。
+    ChangeClipBounds - 捕获共享元素clip bounds，然后播放clip bounds变化动画。
+    ChangeImageTransform - 捕获共享元素（ImageView）的transform matrices 属性，然后播放ImageViewtransform matrices 属性变化动画。与ChangeBounds相结合，这个变换可以让ImageView在动画中高效实现大小，形状或者ImageView.ScaleType 属性平滑过度。
+
+如果你为一个activity开启过渡并且设置了一个退出过渡效果，过渡效果会在你打开其他activity的时候激活，像这样：
+    //TODO yuyang 没有这句所有的过度动画都不会执行
+    startActivity(intent, ActivityOptions.makeSceneTransitionAnimation( this ).toBundle());
+
