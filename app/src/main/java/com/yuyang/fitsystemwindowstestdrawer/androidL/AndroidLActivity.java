@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.activityOptions.FirstActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.OptionsCompatActivity;
 
 import java.util.Arrays;
@@ -23,7 +24,7 @@ import java.util.List;
  * Android 5 中的新东西
  */
 public class AndroidLActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("Palette取色","Activity切换动画");
+    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -61,6 +62,12 @@ public class AndroidLActivity extends AppCompatActivity {
                         intent = new Intent(AndroidLActivity.this, PaletteActivity.class);
                         break;
                     case 1:
+                        intent = new Intent(AndroidLActivity.this, CardViewActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(AndroidLActivity.this, FirstActivity.class);
+                        break;
+                    case 3:
                         intent = new Intent(AndroidLActivity.this, OptionsCompatActivity.class);
                         break;
                 }
