@@ -1,0 +1,26 @@
+源码分析 参见博客：http://www.jianshu.com/p/aad5aacd79bf
+
+使用OkHttp3发送Http请求并获得响应的过程大体为：
+    1、创建OkHttpClient对象。OkHttpClient为网络请求执行的一个中心，它会管理连接池，缓存，SocketFactory，代理，各种超时时间，DNS，
+      请求执行结果的分发等许多内容。
+    2、创建Request对象。Request用于描述一个HTTP请求，比如请求的方法是"GET"还是"POST"，请求的URL，请求的header，请求的body，
+      请求的缓存策略等。
+    3、利用前面创建的OkHttpClient对象和Request对象创建Call对象。Call是一次HTTP请求的Task，它会执行网络请求以获得响应。OkHttp中的网络
+      请求执行Call既可以同步进行，也可以异步进行。调用call.execute()将直接执行网络请求，阻塞直到获得响应。而调用call.enqueue()传入回调，
+      则会将Call放入一个异步执行队列，由ExecutorService在后台执行。
+    4、执行网络请求并获取响应。
+
+
+拦截器：可参考博客：http://www.jiangwenrou.com/okhttp%E7%BC%93%E5%AD%98%E6%B5%85%E6%9E%90.html
+    GetRequestInterceptor.java OkHttp拦截器
+
+缓存机制：
+    Okhttp已经内置了缓存，默认是不使用的，如果想使用缓存我们需要手动设置。
+    一、服务器支持缓存
+        请求返回的Response会带有这样的Header:Cache-Control, max-age=xxx,
+     这种情况下我们只需要手动给okhttp设置缓存就可以让okhttp自动帮你缓存了
+    二、服务器不支持缓存
+        如果服务器不支持缓存就可能没有指定这个头部，或者指定的值是如no-store等。
+     这种情况下我们就需要使用Interceptor来重写Respose的头部信息，从而让okhttp支持缓存。
+
+Cookies管理 参见博客：https://segmentfault.com/a/1190000004345545
