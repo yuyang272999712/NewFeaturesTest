@@ -11,9 +11,36 @@
     tools:context="com.yuyang.actionbar.OldActionBar">
 
     <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
         android:onClick="gotoNewToolbarActivity"
         android:text="使用Toolbar"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button1"
+        android:textAllCaps="false"
+        android:onClick="gotoThemeStatusBarActivity"
+        android:text="使用theme配置状态栏透明"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button2"
+        android:textAllCaps="false"
+        android:onClick="gotoThemeStatusBarActivity2"
+        android:text="使用theme配置状态栏透明"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button3"
+        android:textAllCaps="false"
+        android:onClick="gotoTagStatusBarActivity"
+        android:text="代码动态配置状态栏透明"/>
 </RelativeLayout>

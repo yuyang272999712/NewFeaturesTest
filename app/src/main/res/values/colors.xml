@@ -9,6 +9,7 @@
     <color name="white">#ffffff</color>
     <color name="gray">#878787</color>
     <color name="black">#000000</color>
+    <color name="transparent">#00ffffff</color>
 
     <color name="state_1">#ff7979</color>
     <color name="state_2">#9dff79</color>

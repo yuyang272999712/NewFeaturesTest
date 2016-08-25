@@ -14,6 +14,11 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.yuyang.R;
+import com.yuyang.statusbar.TagStatusBar;
+import com.yuyang.statusbar.ThemeStatusBar;
+import com.yuyang.statusbar.ThemeStatusBar2;
+
 /**
  * ActionBar专题
  */
@@ -127,6 +132,21 @@ public class OldActionBar extends AppCompatActivity {
 
     public void gotoNewToolbarActivity(View view){
         Intent intent = new Intent(this, NewToolbar.class);
+        startActivity(intent);
+    }
+
+    public void gotoThemeStatusBarActivity(View view){
+        Intent intent = new Intent(this, ThemeStatusBar.class);
+        startActivity(intent);
+    }
+
+    public void gotoThemeStatusBarActivity2(View view){
+        Intent intent = new Intent(this, ThemeStatusBar2.class);
+        startActivity(intent);
+    }
+
+    public void gotoTagStatusBarActivity(View view){
+        Intent intent = new Intent(this, TagStatusBar.class);
         startActivity(intent);
     }
 }

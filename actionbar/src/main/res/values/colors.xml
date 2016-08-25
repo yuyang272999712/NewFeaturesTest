@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="background">#92a2d78b</color>
+
+    <color name="status_bar_bg">#9275a6ba</color>
 </resources>
