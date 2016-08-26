@@ -37,10 +37,19 @@
         android:text="使用theme配置状态栏透明"/>
 
     <Button
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/button3"
         android:textAllCaps="false"
         android:onClick="gotoTagStatusBarActivity"
         android:text="代码动态配置状态栏透明"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button4"
+        android:textAllCaps="false"
+        android:onClick="gotoWeixinStatusBarActivity"
+        android:text="微信漂流瓶状态栏隐藏"/>
 </RelativeLayout>

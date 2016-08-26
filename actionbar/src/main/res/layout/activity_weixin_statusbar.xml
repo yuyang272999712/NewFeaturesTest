@@ -2,18 +2,30 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/img2"
         android:scaleType="centerCrop" />
 
-    <FrameLayout
-        android:fitsSystemWindows="true"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+
+        android:background="#cdd98a"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -21,8 +33,8 @@
             android:textColor="@android:color/white"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:text="通过theme控制状态栏透明"/>
+            android:text="通过代码动态控制状态栏透明"/>
 
-    </FrameLayout>
+    </LinearLayout>
 
 </RelativeLayout>

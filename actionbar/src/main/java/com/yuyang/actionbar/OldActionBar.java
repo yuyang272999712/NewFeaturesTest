@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.ShareActionProvider;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,9 +14,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.yuyang.R;
-import com.yuyang.statusbar.TagStatusBar;
+import com.yuyang.statusbar.FlagStatusBar;
 import com.yuyang.statusbar.ThemeStatusBar;
 import com.yuyang.statusbar.ThemeStatusBar2;
+import com.yuyang.statusbar.WeixinStatusBar;
 
 /**
  * ActionBar专题
@@ -146,7 +146,12 @@ public class OldActionBar extends AppCompatActivity {
     }
 
     public void gotoTagStatusBarActivity(View view){
-        Intent intent = new Intent(this, TagStatusBar.class);
+        Intent intent = new Intent(this, FlagStatusBar.class);
+        startActivity(intent);
+    }
+
+    public void gotoWeixinStatusBarActivity(View view){
+        Intent intent = new Intent(this, WeixinStatusBar.class);
         startActivity(intent);
     }
 }

@@ -25,6 +25,7 @@
         <!--TODO yuyang windowDrawsSystemBarBackgrounds ，将它设置为true，系统将在你的window里面绘制status bar，
             默认为 TRUE ，之所以要写出来是因为你的theme有可能是继承过来的，确保为true。-->
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
         <item name="android:statusBarColor">@color/status_bar_bg</item>
     </style>
 
