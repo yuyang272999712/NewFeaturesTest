@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.RxAndroid;
+package com.yuyang.fitsystemwindowstestdrawer.rxJava;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.RxAndroid.Learn1.RxJavaLearnActivity1;
+import com.yuyang.fitsystemwindowstestdrawer.rxJava.learn1.RxJavaLearnActivity1;
 
 import java.util.Arrays;
 import java.util.List;

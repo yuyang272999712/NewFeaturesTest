@@ -26,7 +26,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
- * 简单模拟post请求
+ * TODO yuyang OkHttp中的get、post请求模拟，上传、下载模拟
  */
 public class OkHttpUtils {
     private static Handler handler = new Handler();
@@ -232,6 +232,11 @@ public class OkHttpUtils {
         return contentTypeFor;
     }
 
+    /**
+     * 下载文件
+     * @param url
+     * @param callBack
+     */
     public static void downFile(String url, final CallbackBase<File> callBack) {
         Request request = new Request.Builder().url(url).tag(url).build();
         Call call = okHttpClient.newCall(request);

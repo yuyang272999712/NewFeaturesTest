@@ -185,6 +185,7 @@ public class OkHttpAboutActivity extends AppCompatActivity {
                 FileOutputStream fos = null;
                 try {
                     is = response.body().byteStream();
+                    //TODO yuyang OkHttp获取下载文件的总大小
                     final long total = response.body().contentLength();
 
                     long sum = 0;

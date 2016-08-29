@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.RxAndroid.Learn1;
+package com.yuyang.fitsystemwindowstestdrawer.rxJava.learn1;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -15,7 +15,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -89,8 +88,8 @@ public class RxJavaLearnActivity1 extends AppCompatActivity implements View.OnCl
                     subscriber.onError(e);
                 }
             }
-        }).subscribeOn(Schedulers.newThread())//让Observable运行在新线程中
-        .observeOn(AndroidSchedulers.mainThread())////让subscriber运行在主线程中
+        }).subscribeOn(Schedulers.newThread())//TODO yuyang 让Observable运行在新线程中
+        .observeOn(AndroidSchedulers.mainThread())//TODO yuyang 让subscriber运行在主线程中
         .subscribe(new Subscriber<Weather>() {
             @Override
             public void onCompleted() {

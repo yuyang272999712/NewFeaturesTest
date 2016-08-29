@@ -222,8 +222,8 @@
         <activity android:name=".SensorAbout.AccelerometerSensorActivity"/>
         <activity android:name=".SensorAbout.LightSensorActivity"/>
         <activity android:name=".SensorAbout.OrientationSensorActivity"/>
-        <activity android:name=".RxAndroid.RxJavaActivity"/>
-        <activity android:name=".RxAndroid.Learn1.RxJavaLearnActivity1"/>
+        <activity android:name=".rxJava.RxJavaActivity"/>
+        <activity android:name=".rxJava.learn1.RxJavaLearnActivity1"/>
         <activity android:name=".Canvas.CanvasAboutActivity"/>
         <activity android:name=".Canvas.SaveLayerMethod.SaveLayerMethodActivity"/>
         <activity android:name=".Canvas.ColorMatrix.ColorMatrixActivity"/>

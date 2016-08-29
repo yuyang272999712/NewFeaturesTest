@@ -1,0 +1,106 @@
+一、Creating Observables(Observable的创建操作符)
+    1、create 操作符是所有创建型操作符的“根”，也就是说其他创建型操作符最后都是通过create操作符来创建Observable的
+    2、from 操作符是把其他类型的对象和数据类型转化成Observable。
+        from操作符接收Array, Iterable等集合数据类型。
+    3、just 操作符也是把其他类型的对象和数据类型转化成Observable，它和from操作符很像，只是方法的参数有所差别。
+        just操作符接收 T[]...的参数
+    4、defer 操作符是直到有订阅者订阅时，才通过Observable的工厂方法创建Observable并执行，defer操作符能够保证
+        Observable的状态是最新的。
+    5、timer 操作符是创建一串连续的数字，产生这些数字的时间间隔是一定的。
+    6、interval 操作符是每隔一段时间就产生一个数字，这些数字从0开始，一次递增1直至无穷大；interval操作符的实现效果跟
+        上面的timer操作符的第二种情形一样。
+       interval操作符默认情况下是运行在一个新线程上的，当然你可以通过传入参数来修改其运行的线程
+    7、range 操作符是创建一组在从n开始，个数为m的连续数字，比如range(3,10)，就是创建3、4、5…12的一组数字
+    8、repeat 操作符是对某一个Observable，重复产生多次结果
+    9、repeatWhen 操作符是对某一个Observable，有条件地重新订阅从而产生多次结果
+
+二、Transforming Observables(Observable的转换操作符)
+    1、map 操作符是把源Observable产生的结果，通过映射规则转换成另一个结果集，并提交给订阅者进行处理。
+    2、flatMap 操作符是把Observable产生的结果转换成多个Observable，然后把这多个Observable“扁平化”成一个Observable，
+        并依次提交产生的结果给订阅者。
+       flatMap操作符通过传入一个函数作为参数转换源Observable，在这个函数中，你可以自定义转换规则，最后在这个函数中
+      返回一个新的Observable，然后flatMap操作符通过合并这些Observable结果成一个Observable，并依次提交结果给订阅者。
+    3、cancatMap 操作符与flatMap操作符类似，都是把Observable产生的结果转换成多个Observable，然后把这多个Observable
+        “扁平化”成一个Observable，并依次提交产生的结果给订阅者。
+       与flatMap操作符不同的是，concatMap操作符在处理产生的Observable时，采用的是“连接(concat)”的方式，而不是
+      “合并(merge)”的方式，这就能保证产生结果的顺序性，也就是说提交给订阅者的结果是按照顺序提交的，不会存在交叉的情况。
+    4、switchMap 操作符与flatMap操作符类似，都是把Observable产生的结果转换成多个Observable，然后把这多个Observable
+        “扁平化”成一个Observable，并依次提交产生的结果给订阅者。
+       与flatMap操作符不同的是，switchMap操作符会保存最新的Observable产生的结果而舍弃旧的结果，举个例子来说，
+      比如源Observable产生A、B、C三个结果，通过switchMap的自定义映射规则，映射后应该会产生A1、A2、B1、B2、C1、C2，
+      但是在产生B2的同时，C1已经产生了，这样最后的结果就变成A1、A2、B1、C1、C2，B2被舍弃掉了！
+    5、groupBy 操作符是对源Observable产生的结果进行分组，形成一个类型为GroupedObservable的结果集，
+        GroupedObservable中存在一个方法为getKey()，可以通过该方法获取结果集的Key值（类似于HashMap的key)。
+      值得注意的是，由于结果集中的GroupedObservable是把分组结果缓存起来，如果对每一个GroupedObservable不进行处理
+     （既不订阅执行也不对其进行别的操作符运算），就有可能出现内存泄露。因此，如果你对某个GroupedObservable不进行处理，
+      最好是对其使用操作符take(0)处理。
+    6、buffer 操作符周期性地收集源Observable产生的结果到列表中，并把这个列表提交给订阅者，订阅者处理后，清空buffer列表，
+        同时接收下一次收集的结果并提交给订阅者，周而复始。
+      需要注意的是，一旦源Observable在产生结果的过程中出现异常，即使buffer已经存在收集到的结果，订阅者也会马上收到这个
+     异常，并结束整个过程。
+    7、cast 操作符类似于map操作符，不同的地方在于map操作符可以通过自定义规则，把一个值A1变成另一个值A2，A1和A2的类型
+        可以一样也可以不一样；而cast操作符主要是做类型转换的，传入参数为类型class，如果源Observable产生的结果不能
+        转成指定的class，则会抛出ClassCastException运行时异常。
+    8、scan 操作符通过遍历源Observable产生的结果，依次对每一个结果项按照指定规则进行运算，计算后的结果作为下一个迭代项
+        参数，每一次迭代项都会把计算结果输出给订阅者。
+    9、window 操作符非常类似于buffer操作符，区别在于buffer操作符产生的结果是一个List缓存，而window操作符产生的结果
+        是一个Observable，订阅者可以对这个结果Observable重新进行订阅处理。
+
+三、Filtering Observables(Observable的过滤操作符)
+    1、debounce 操作符对源Observable每产生一个结果后，如果在规定的间隔时间内没有别的结果产生，则把这个结果提交给订阅者
+        处理，否则忽略该结果。
+       值得注意的是，如果源Observable产生的最后一个结果后在规定的时间间隔内调用了onCompleted，那么通过debounce操作
+      符也会把这个结果提交给订阅者。
+    2、distinct 操作符对源Observable产生的结果进行过滤，把重复的结果过滤掉，只输出不重复的结果给订阅者，非常类似于SQL
+        里的distinct关键字。
+    3、elementAt 操作符在源Observable产生的结果中，仅仅把指定索引的结果提交给订阅者，索引是从0开始的。
+    4、filter 操作符是对源Observable产生的结果按照指定条件进行过滤，只有满足条件的结果才会提交给订阅者。
+    5、ofType 操作符类似于filter操作符，区别在于ofType操作符是按照类型对结果进行过滤。
+    6、first 操作符是把源Observable产生的结果的第一个提交给订阅者，first操作符可以使用elementAt(0)和take(1)替代。
+    7、single 操作符是对源Observable的结果进行判断，如果产生的结果满足指定条件的数量不为1，则抛出异常，否则把满足条件
+        的结果提交给订阅者
+    8、last 操作符把源Observable产生的结果的最后一个提交给订阅者，last操作符可以使用takeLast(1)替代。
+    9、ignoreElements 操作符忽略所有源Observable产生的结果，只把Observable的onCompleted和onError事件通知给
+        订阅者。ignoreElements操作符适用于不太关心Observable产生的结果，只是在Observable结束时(onCompleted)
+        或者出现错误时能够收到通知。
+    10、sample 操作符定期扫描源Observable产生的结果，在指定的时间间隔范围内对源Observable产生的结果进行采样。
+    11、skip 操作符针对源Observable产生的结果，跳过前面n个不进行处理，而把后面的结果提交给订阅者处理。
+    12、skipLast 操作符针对源Observable产生的结果，忽略Observable最后产生的n个结果，而把前面产生的结果提交给订阅者处理。
+    13、take 操作符是把源Observable产生的结果，提取前面的n个提交给订阅者，而忽略后面的结果。
+    14、takeFirst 操作符类似于take操作符，同时也类似于first操作符，都是获取源Observable产生的结果列表中符合指定条件
+        的前一个或多个，与first操作符不同的是，first操作符如果获取不到数据，则会抛出NoSuchElementException异常，
+        而takeFirst则会返回一个空的Observable，该Observable只有onCompleted通知而没有onNext通知。
+    15、takeLast操作符是把源Observable产生的结果的后n项提交给订阅者，提交时机是Observable发布onCompleted通知之时。
+
+四、Combining Observables(Observable的组合操作符)
+    1、combineLatest 操作符把两个Observable产生的结果进行合并，合并的结果组成一个新的Observable。这两个Observable
+        中任意一个Observable产生的结果，都和另一个Observable最后产生的结果，按照一定的规则进行合并。
+    2、join 操作符把类似于combineLatest操作符，也是两个Observable产生的结果进行合并，合并的结果组成一个新的Observable，
+        但是join操作符可以控制每个Observable产生结果的生命周期，在每个结果的生命周期内，可以与另一个Observable产生
+        的结果按照一定的规则进行合并。
+    3、groupJoin 操作符非常类似于join操作符，区别在于join操作符中第四个参数的传入函数不一致。
+    4、merge 操作符是按照两个Observable提交结果的时间顺序，对Observable进行合并。
+        如ObservableA每隔500毫秒产生数据为0,5,10,15,20；而ObservableB每隔500毫秒产生数据0,10,20,30,40，
+        其中第一个数据延迟500毫秒产生，最后合并结果为：0,0,5,10,10,20,15,30,20,40
+    5、mergeDelayError 操作符
+      从merge操作符的流程图可以看出，一旦合并的某一个Observable中出现错误，就会马上停止合并，并对订阅者回调执行onError
+      方法，而mergeDelayError操作符会把错误放到所有结果都合并完成之后才执行。
+    6、startWith 操作符是在源Observable提交结果之前，插入指定的某些数据。
+    7、switchOnNext 操作符是把一组Observable转换成一个Observable，转换规则为：对于这组Observable中的每一个
+        Observable所产生的结果，如果在同一个时间内存在两个或多个Observable提交的结果，只取最后一个Observable
+        提交的结果给订阅者。
+    8、zip 操作符是把两个observable提交的结果，严格按照顺序进行合并。
+
+五、Error Handling Operators(Observable的错误处理操作符)
+    1、onErrorReturn 操作符是在Observable发生错误或异常的时候（即将回调oError方法时），拦截错误并执行指定的逻辑，
+        返回一个跟源Observable相同类型的结果，最后回调订阅者的onComplete方法。
+    2、onErrorResumeNext 操作符跟onErrorReturn类似，只不过onErrorReturn只能在错误或异常发生时只返回一个和
+        源Observable相同类型的结果，而onErrorResumeNext操作符是在错误或异常发生时返回一个Observable，
+        也就是说可以返回多个和源Observable相同类型的结果。
+    3、onExceptionResumeNext 操作符和onErrorResumeNext操作符类似，不同的地方在于onErrorResumeNext操作符是当Observable发生错误或异常时触发，而onExceptionResumeNext是当Observable发生异常时才触发。
+    4、retry 操作符是当Observable发生错误或者异常时，重新尝试执行Observable的逻辑，如果经过n次重新尝试执行后仍然
+        出现错误或者异常，则最后回调执行onError方法；当然如果源Observable没有错误或者异常出现，则按照正常流程执行。
+    5、retryWhen 操作符类似于retry操作符，都是在源observable出现错误或者异常时，重新尝试执行源observable的逻辑，
+        不同在于retryWhen操作符是在源Observable出现错误或者异常时，通过回调第二个Observable来判断是否重新尝试执行
+        源Observable的逻辑，如果第二个Observable没有错误或者异常出现，则就会重新尝试执行源Observable的逻辑，
+        否则就会直接回调执行订阅者的onError方法。

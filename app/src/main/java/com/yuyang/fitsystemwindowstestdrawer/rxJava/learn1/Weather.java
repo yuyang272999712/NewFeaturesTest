@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.RxAndroid.Learn1;
+package com.yuyang.fitsystemwindowstestdrawer.rxJava.learn1;
 
 import android.util.Xml;
 
