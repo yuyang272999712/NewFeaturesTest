@@ -178,7 +178,7 @@ public class OkHttpAboutActivity extends AppCompatActivity {
                 mProgressBar.setProgress((int) (100 * progress));
             }
 
-            public File saveFile(Response response) throws IOException {
+            public File saveFile(Response response) throws Exception {
                 InputStream is = null;
                 byte[] buf = new byte[2048];
                 int len = 0;
@@ -187,6 +187,10 @@ public class OkHttpAboutActivity extends AppCompatActivity {
                     is = response.body().byteStream();
                     //TODO yuyang OkHttp获取下载文件的总大小
                     final long total = response.body().contentLength();
+
+                    if (total <= 0){
+                        throw new IOException("文件不存在");
+                    }
 
                     long sum = 0;
 

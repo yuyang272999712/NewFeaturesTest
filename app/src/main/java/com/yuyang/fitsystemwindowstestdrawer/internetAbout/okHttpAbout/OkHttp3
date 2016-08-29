@@ -10,6 +10,8 @@
       则会将Call放入一个异步执行队列，由ExecutorService在后台执行。
     4、执行网络请求并获取响应。
 
+okHttp3使用FormBody.Builder创建请求的参数键值对；
+
 
 拦截器：可参考博客：http://www.jiangwenrou.com/okhttp%E7%BC%93%E5%AD%98%E6%B5%85%E6%9E%90.html
     GetRequestInterceptor.java OkHttp拦截器

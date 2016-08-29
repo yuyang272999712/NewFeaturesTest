@@ -33,7 +33,7 @@ public class OkHttpUtils {
     //10M缓存
     private static Cache cache = new Cache(new File(Environment.getExternalStorageDirectory().getAbsoluteFile()+File.separator+"OkHttCache"), 10*1024*1024);
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .addInterceptor(new GetRequestInterceptor())//TODO yuyang 这里添加了一个拦截器
+            //.addInterceptor(new GetRequestInterceptor())//TODO yuyang 这里添加了一个拦截器
             .addInterceptor(new CacheInterceptor())//TODO yuyang 使百度支持缓存
             .cache(cache)//TODO yuyang OkHttp默认不使用缓存
             .build();
@@ -265,6 +265,7 @@ public class OkHttpUtils {
                     });
                 } catch (Exception e) {
                     e.printStackTrace();
+                    onFailure(call, (IOException) e);
                 }
             }
         });
