@@ -17,6 +17,7 @@
         </activity>
         <activity android:name=".UseIBinderActivity"/>
         <activity android:name=".UseMessengerActivity"/>
+        <activity android:name=".BookAidlActivity"/>
     </application>
 
 </manifest>

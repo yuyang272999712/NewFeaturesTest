@@ -274,10 +274,18 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+        <!--Messenger实现IPC-->
         <service android:name=".IPC.CaleMessengerService"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.yuyang.aidl.cale.messenger"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <!--使用AIDL实现IPC通讯-传递对象-->
+        <service android:name=".IPC.BookService">
+            <intent-filter>
+                <action android:name="com.yuyang.aidl.bookservice"/>
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>

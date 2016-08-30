@@ -80,7 +80,7 @@ public class UseMessengerActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 //TODO yuyang 当设置了Service的android:exported="true"后就可以直接使用action启动远程service了
-                intent.setAction("com.yuyang.aidl.cale.messenger");
+                intent.setComponent(new ComponentName("com.yuyang.fitsystemwindowstestdrawer","com.yuyang.fitsystemwindowstestdrawer.IPC.CaleMessengerService"));
                 bindService(intent, mServiceConn, Context.BIND_AUTO_CREATE);
             }
         });

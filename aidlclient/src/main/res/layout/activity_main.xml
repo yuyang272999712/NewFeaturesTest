@@ -73,4 +73,13 @@
         android:textAllCaps="false"
         android:text="直接使用IBinder实现IPC"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/aidl_i_binder"
+        android:layout_centerInParent="true"
+        android:onClick="gotoBookAidlActivity"
+        android:textAllCaps="false"
+        android:text="跨进程传递对象"/>
+
 </RelativeLayout>

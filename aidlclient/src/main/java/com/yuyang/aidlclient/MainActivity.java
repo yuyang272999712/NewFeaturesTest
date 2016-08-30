@@ -122,4 +122,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, UseIBinderActivity.class);
         startActivity(intent);
     }
+    public void gotoBookAidlActivity(View view){
+        Intent intent = new Intent(this, BookAidlActivity.class);
+        startActivity(intent);
+    }
 }
