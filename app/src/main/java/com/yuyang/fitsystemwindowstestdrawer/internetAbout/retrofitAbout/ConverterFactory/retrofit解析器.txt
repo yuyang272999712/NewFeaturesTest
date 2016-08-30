@@ -1,6 +1,14 @@
+自定义Converter.Factory主要工作：
+    1、responseBodyConverter 主要是对应@Body注解，完成ResponseBody到实际的返回类型的转化，这个类型对应
+        Call<XXX>里面的泛型XXX，其实@Part等注解也会需要responseBodyConverter，只不过我们的参数类型都是
+        RequestBody，由默认的converter处理了。
+    2、requestBodyConverter 完成对象到RequestBody的构造。
+    3、一定要注意，检查type如果不是自己能处理的类型，记得return null （因为可以添加多个，你不能处理return null,
+        还会去遍历后面的converter）.
+
+
 FileConverterFactory.java用于对Retrofit的请求／返回参数做处理
 具体用法如下：
-
 Retrofit retrofit = new Retrofit.Builder()
         .baseUrl("url")
         .addConverterFactory(FileConverterFactory.create())

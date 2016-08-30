@@ -52,6 +52,7 @@ public class RetrofitUploadActivity extends AppCompatActivity {
                 //构建要上传的文件
                 File file = new File(filename);
                 RequestBody requestFile =
+                        //!--yuyang 这里的"application/otcet-stream"可以参考OkHttpUtils.java中的guessMimeType()方法获取
                         RequestBody.create(MediaType.parse("application/otcet-stream"), file);
 
                 MultipartBody.Part body =

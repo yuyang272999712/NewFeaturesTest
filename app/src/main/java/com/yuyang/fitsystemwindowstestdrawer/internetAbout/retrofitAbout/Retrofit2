@@ -33,10 +33,12 @@ Retrofit接口申明
       @POST("News/{newsId}")
       Call<NewsBean> reportComment(@Path("newsId") String newsId,@Query("access_token") String access_token,@Body CommentBean bean);
 
- @Part：可以携带的参数类型更加丰富，包括数据流。常用于上传文件
+ @Part：可以携带的参数类型更加丰富，包括数据流。常用于上传文件(每个Part就是multipart/form-data中的一个数据块)
       @Multipart
       @POST("upload")
       Call<ResponseBody> upload(@Part("description") RequestBody description, @Part MultipartBody.Part file);
+
+ @Header：添加请求头
 
  TODO yuyang ！！！注：
     Retrofit会判断 @Body 的参数类型，如果参数类型为okhttp3.RequestBody,则Retrofit不做包装处理，直接丢给okhttp3处理。
@@ -44,8 +46,8 @@ Retrofit接口申明
     同理，Retrofit会判断 @Part 的参数类型，如果参数类型为okhttp3.MultipartBody.Part,则Retrofit会把RequestBody
   封装成MultipartBody，再把Part添加到MultipartBody。
 
-  1、使用@Field(即：@POST方式)时记得添加 @FormUrlEncoded
-  2、使用@Part(即：上传文件)时记得添加 @Multipart
+  1、使用表单的方式传递键值对时记得添加 !--yuyang @FormUrlEncoded，即：@Field与@FieldMap方式
+  2、使用@Part(即：上传文件)时记得添加 !--yuyang @Multipart
   3、若需要重新定义接口地址，可以使用@Url，将地址以参数的形式传入即可。如
         @GET
         Call<List<Activity>> getActivityList(@Url String url,@QueryMap Map<String, String> map);

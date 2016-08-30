@@ -1,0 +1,29 @@
+具体可参见博客：http://blog.csdn.net/jdsjlzx/article/details/52246114
+
+Http请求格式
+    当浏览器向Web服务器发出请求时，它向服务器传递了一个数据块，也就是请求信息，HTTP请求信息由3部分组成：
+    ① 请求方法 URI 协议/版本
+    ② 请求头(Request Header)
+    ③ 请求正文
+    （见图：Http请求报文.jpeg）
+
+HTTP multipart/form-data请求分析
+    http协议原始方法不支持multipart/form-data请求，那这个请求自然就是由这些原始的方法演变而来的，具体如何演变如下：
+        1、multipart/form-data的基础方法是post，也就是说是由post方法来组合实现的
+        2、multipart/form-data与post方法的不同之处：请求头，请求体。
+        3、multipart/form-data的请求头必须包含一个特殊的头信息：!--yuyang Content-Type，且其值也必须规定为
+          multipart/form-data，同时还需要规定一个内容分割符用于分割请求体中的多个post的内容，如文件内容和文本内容
+          自然需要分割开来，不然接收方就无法正常解析和还原这个文件了。具体的头信息如下：
+               !--yuyang Content-Type: multipart/form-data; boundary=${bound}
+               //其中${bound} 是一个占位符，代表我们规定的分割符，可以自己任意规定，但为了避免和正常文本重复了，
+               //尽量要使用复杂一点的内容。如：——————–56423498738365
+
+       multipart/form-data的请求体也是一个字符串，不过和post的请求体不同的是它的构造方式，post是简单的name=value
+    值连接，而multipart/form-data则是添加了分隔符等内容的构造体。
+    （具体格式见multipart_form-data请求数据格式.png)
+
+       上图中的抓包信息：
+        Content-Disposition: form-data; name="file000"; filename="Http协议详解.pdf"
+       实质上上传文件RequestBody对应的请求头就是 name=”file000”; filename=”Http协议详解.pdf”，只要拼对了就没有问题了。
+       注意：
+       name=“file000”; filename=“Http协议详解.pdf”这个请求头中filename=”Http协议详解.pdf”这个一般是指（你希望）保存在服务器的文件名字。

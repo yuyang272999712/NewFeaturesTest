@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.ConverterFactory.FileConverterFactory;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.UserInfoBean;
 import com.yuyang.fitsystemwindowstestdrawer.internetAbout.retrofitAbout.UserService;
 
@@ -45,6 +46,7 @@ public class RetrofitReqUserInfoActivity extends AppCompatActivity {
                         //TODO 这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())//解析方法
+                        .addConverterFactory(new FileConverterFactory())
                         .build();
                 //2、创建访问API的请求
                 UserService apiService = retrofit.create(UserService.class);//接口申明
