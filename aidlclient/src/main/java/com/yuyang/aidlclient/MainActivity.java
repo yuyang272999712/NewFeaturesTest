@@ -126,4 +126,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BookAidlActivity.class);
         startActivity(intent);
     }
+    public void gotoTCPClientActivity(View view){
+        Intent intent = new Intent(this, TCPClientActivity.class);
+        startActivity(intent);
+    }
 }

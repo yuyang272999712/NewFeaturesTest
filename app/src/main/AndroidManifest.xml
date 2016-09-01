@@ -296,6 +296,13 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+        <!--通过Socket实现进程间通讯-->
+        <service android:name=".IPC.socketService.TCPServerService">
+            <intent-filter>
+                <action android:name="com.yuyang.ipc.socketservice"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->

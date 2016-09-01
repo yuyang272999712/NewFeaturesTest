@@ -74,6 +74,7 @@
         android:text="直接使用IBinder实现IPC"/>
 
     <Button
+        android:id="@+id/aidl_object"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/aidl_i_binder"
@@ -81,5 +82,14 @@
         android:onClick="gotoBookAidlActivity"
         android:textAllCaps="false"
         android:text="跨进程传递对象"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/aidl_object"
+        android:layout_centerInParent="true"
+        android:onClick="gotoTCPClientActivity"
+        android:textAllCaps="false"
+        android:text="Socket通讯"/>
 
 </RelativeLayout>
