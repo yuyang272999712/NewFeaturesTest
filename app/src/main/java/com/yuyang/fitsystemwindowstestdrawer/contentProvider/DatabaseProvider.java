@@ -18,6 +18,7 @@ public class DatabaseProvider extends ContentProvider {
     public static final int BOOK_ITEM = 1;
     public static final int CATEGORY_DIR = 2;
     public static final int CATEGORY_ITEM = 3;
+    //TODO yuyang 外部访问此Provider的唯一表示——Uri，相当于系统通讯录的Uri：ContactsContract.CommonDataKinds.Phone.CONTENT_URI
     public static final String AUTHORITY = "com.yuyang.database.provider";
 
     private static UriMatcher uriMatcher;
