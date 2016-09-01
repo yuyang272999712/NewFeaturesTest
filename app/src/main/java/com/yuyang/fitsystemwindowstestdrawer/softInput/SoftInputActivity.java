@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.androidL;
+package com.yuyang.fitsystemwindowstestdrawer.softInput;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,17 +14,17 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.activityOptions.FirstActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.OptionsCompatActivity;
+import com.yuyang.fitsystemwindowstestdrawer.softInput.emotionMode.ChatActivity;
+import com.yuyang.fitsystemwindowstestdrawer.softInput.softInputMode.SoftInputModeActivity1;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Android 5 中的新东西
+ * 软键盘相关
  */
-public class AndroidLActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)");
+public class SoftInputActivity extends AppCompatActivity {
+    private List<String> items = Arrays.asList("windowSoftInputMode属性","聊天界面表情布局");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -59,16 +59,10 @@ public class AndroidLActivity extends AppCompatActivity {
                 Intent intent = null;
                 switch (position){
                     case 0:
-                        intent = new Intent(AndroidLActivity.this, PaletteActivity.class);
+                        intent = new Intent(SoftInputActivity.this, SoftInputModeActivity1.class);
                         break;
                     case 1:
-                        intent = new Intent(AndroidLActivity.this, CardViewActivity.class);
-                        break;
-                    case 2:
-                        intent = new Intent(AndroidLActivity.this, FirstActivity.class);
-                        break;
-                    case 3:
-                        intent = new Intent(AndroidLActivity.this, OptionsCompatActivity.class);
+                        intent = new Intent(SoftInputActivity.this, ChatActivity.class);
                         break;
                 }
                 startActivity(intent);
@@ -79,7 +73,7 @@ public class AndroidLActivity extends AppCompatActivity {
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Android 5 中的新东西");
+        toolbar.setTitle("软键盘");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

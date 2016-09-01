@@ -26,6 +26,7 @@ import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.MyIOCActivity;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity;
 import com.yuyang.fitsystemwindowstestdrawer.pictureSelect.PictureSelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.ServiceActivity;
+import com.yuyang.fitsystemwindowstestdrawer.softInput.SoftInputActivity;
 import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
 
 /**
@@ -206,6 +207,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), CanvasAboutActivity.class);
+                startActivity(intent);
+            }
+        });
+        button19 = (Button) mContentView.findViewById(R.id.button19);
+        button19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SoftInputActivity.class);
                 startActivity(intent);
             }
         });
