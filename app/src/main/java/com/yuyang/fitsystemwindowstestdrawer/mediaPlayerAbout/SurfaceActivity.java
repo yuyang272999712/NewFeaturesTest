@@ -1,6 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,7 @@ import android.view.SurfaceView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.MediaController;
+import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -55,6 +57,12 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         mediaPlayer = new MediaPlayer();
 
         surfaceView = (SurfaceView) findViewById(R.id.surface_view);
+        surfaceView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(SurfaceActivity.this, "点击测试", Toast.LENGTH_SHORT).show();
+            }
+        });
         //配置SurfaceView
         surfaceView.setKeepScreenOn(true);
         //配置SurfaceHolder并注册回调
@@ -143,7 +151,9 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         //创建Surface后，将其作为显示界面，并分配和准备一个数据源
         mediaPlayer.setDisplay(holder);
         try {
-            mediaPlayer.setDataSource("/sdcard/video_test.mp4");
+            //mediaPlayer.setDataSource("/sdcard/video_test.mp4");
+            Uri uri = Uri.parse("");
+            mediaPlayer.setDataSource(this, uri);
             mediaPlayer.prepare();
         } catch (IOException e) {
             e.printStackTrace();

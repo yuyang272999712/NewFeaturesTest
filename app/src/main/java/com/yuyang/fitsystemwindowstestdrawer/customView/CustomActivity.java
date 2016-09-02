@@ -19,6 +19,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 public class CustomActivity extends AppCompatActivity {
     private Button nextPage1;
     private Button nextPage2;
+    private Button nextPage3;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,6 +40,15 @@ public class CustomActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(CustomActivity.this, CustomActivity3.class);
+                startActivity(intent);
+            }
+        });
+
+        nextPage3 = (Button) findViewById(R.id.custom_next_page_3);
+        nextPage3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CustomActivity.this, CustomActivity4.class);
                 startActivity(intent);
             }
         });

@@ -149,6 +149,7 @@
         <activity android:name=".customView.CustomActivity2"/>
             android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".customView.CustomActivity3"/>
+        <activity android:name=".customView.CustomActivity4"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
         <activity android:name=".mediaPlayerAbout.VideoActivity"
             android:screenOrientation="landscape"/>

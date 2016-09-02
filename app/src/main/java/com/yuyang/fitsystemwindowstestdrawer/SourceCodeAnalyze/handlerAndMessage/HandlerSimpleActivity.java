@@ -177,7 +177,7 @@ public class HandlerSimpleActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        //TODO yuyang 移除所有消失以免内存泄露，因为mHandler中持有TextView对象
+        //TODO yuyang 移除所有消息以免内存泄露，因为mHandler中持有TextView对象
         mHandler.removeCallbacksAndMessages(null);
         mHandlerThread.getLooper().quit();//结束MessageQueue消息队列阻塞死循环,结束线程
     }
@@ -199,7 +199,7 @@ public class HandlerSimpleActivity extends Activity {
                     }
                 };
                 //不能在这个后面添加代码，程序是无法运行到这行之后的，除非quit消息队列
-                Looper.loop();// TODO yuyang 该方法会进入一个死循环，不断便利Looper消息队列中的消息
+                Looper.loop();// TODO yuyang 该方法会进入一个死循环，不断遍历Looper消息队列中的消息
             }
         }.start();
     }
