@@ -130,4 +130,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, TCPClientActivity.class);
         startActivity(intent);
     }
+    public void gotoBinderPoolActivity(View view){
+        Intent intent = new Intent(this, BinderPoolActivity.class);
+        startActivity(intent);
+    }
 }

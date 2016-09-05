@@ -22,6 +22,7 @@
         <activity android:name=".UseMessengerActivity"/>
         <activity android:name=".BookAidlActivity"/>
         <activity android:name=".TCPClientActivity"/>
+        <activity android:name=".BinderPoolActivity"/>
     </application>
 
 </manifest>

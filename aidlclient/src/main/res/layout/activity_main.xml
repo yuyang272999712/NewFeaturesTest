@@ -84,6 +84,7 @@
         android:text="跨进程传递对象"/>
 
     <Button
+        android:id="@+id/aidl_tcp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/aidl_object"
@@ -91,5 +92,14 @@
         android:onClick="gotoTCPClientActivity"
         android:textAllCaps="false"
         android:text="Socket通讯"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/aidl_tcp"
+        android:layout_centerInParent="true"
+        android:onClick="gotoBinderPoolActivity"
+        android:textAllCaps="false"
+        android:text="服务端通过Binder连接池减少service数量"/>
 
 </RelativeLayout>

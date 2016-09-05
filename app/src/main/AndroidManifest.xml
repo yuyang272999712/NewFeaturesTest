@@ -304,6 +304,12 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+        <service android:name=".IPC.binderpool.pool.BinderPoolService">
+            <intent-filter>
+                <action android:name="com.yuyang.ipc.binderpool"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->
