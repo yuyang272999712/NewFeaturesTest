@@ -120,6 +120,8 @@
         <activity android:name=".sourceCodeAnalyze.SourceCodeAnalyzeActivity"/>
         <activity android:name=".sourceCodeAnalyze.layoutInflate.LayoutInflateActivity"/>
         <activity android:name=".sourceCodeAnalyze.touchEventDispatch.ViewTouchEventActivity"/>
+        <activity android:name=".sourceCodeAnalyze.touchEventDispatch.eventConflict_1.EventConflictActivity1"/>
+        <activity android:name=".sourceCodeAnalyze.touchEventDispatch.eventConflict_2.EventConflictActivity2"/>
         <activity android:name=".sourceCodeAnalyze.drawableAbout.DrawableAboutActivity"/>
         <activity android:name=".sourceCodeAnalyze.drawableAbout.CircleImageDrawableActivity"/>
         <activity android:name=".sourceCodeAnalyze.drawableAbout.RoundImageDrawableActivity"/>

@@ -1,0 +1,35 @@
+ 外部拦截法常规处理模式：
+
+    父容器代码：
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        boolean intercept = false;
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                intercept = false;
+                if (!mScroller.isFinished()){
+                    mScroller.abortAnimation();
+                    intercept = true;
+                }
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (父容器需要当前点击事件){
+                    intercept = true;
+                }else {
+                    intercept = false;
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                intercept = false;
+                break;
+            default:
+                break;
+        }
+
+        mLastXIntercept = x;
+        mLastYIntercept = y;
+
+        return intercept;
+    }

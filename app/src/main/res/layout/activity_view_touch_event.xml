@@ -32,4 +32,16 @@
 
     </com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.MyLinearLayout>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoEventConflict1"
+        android:text="事件冲突处理-外部拦截法"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="gotoEventConflict2"
+        android:text="事件冲突处理-内部拦截法"/>
+
 </LinearLayout>

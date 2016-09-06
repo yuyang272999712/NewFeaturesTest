@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,8 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.eventConflict_1.EventConflictActivity1;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.eventConflict_2.EventConflictActivity2;
 
 /**
  * View的事件转发的流程（参考：http://blog.csdn.net/lmj623565791/article/details/38960443）
@@ -101,6 +104,24 @@ public class ViewTouchEventActivity extends AppCompatActivity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         return super.onTouchEvent(event);
+    }
+
+    /**
+     * 事件冲突处理-外部拦截法
+     * @param view
+     */
+    public void gotoEventConflict1(View view){
+        Intent intent = new Intent(this, EventConflictActivity1.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 事件冲突处理-外部拦截法
+     * @param view
+     */
+    public void gotoEventConflict2(View view){
+        Intent intent = new Intent(this, EventConflictActivity2.class);
+        startActivity(intent);
     }
 
 }

@@ -1,0 +1,38 @@
+ 外部拦截法常规处理模式：
+
+    父容器代码：
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        if (ev.getAction() == MotionEvent.ACTION_DOWN){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    子View代码：
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        int x = (int) ev.getX();
+        int y = (int) ev.getY();
+
+        switch (ev.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                //不允许父控件拦截
+                mHorizontalScrollViewEx2.requestDisallowInterceptTouchEvent(true);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                int deltaX = x - mLastX;
+                int deltaY = y - mLastY;
+                if (父容器需要此类点击事件){
+                    mHorizontalScrollViewEx2.requestDisallowInterceptTouchEvent(false);
+                }
+                break;
+            case MotionEvent.ACTION_UP:
+                break;
+            default:
+                break;
+        }
+
+        mLastX = x;
+        mLastY = y;
+        return super.dispatchTouchEvent(ev);
+    }
