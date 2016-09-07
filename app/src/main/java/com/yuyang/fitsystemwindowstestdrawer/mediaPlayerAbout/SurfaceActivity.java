@@ -1,10 +1,17 @@
 package com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout;
 
+import android.annotation.TargetApi;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
+import android.media.TimedMetaData;
+import android.media.TimedText;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -41,6 +48,7 @@ import java.io.IOException;
  *
  */
 public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.Callback {
+    private static final String TAG = "SurfaceActivity";
     private MediaPlayer mediaPlayer;
     private SurfaceView surfaceView;
     private Button play;
@@ -51,6 +59,7 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.e(TAG, "onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_surface_view);
 
@@ -60,6 +69,9 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         surfaceView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (!mediaController.isShowing()) {
+                    mediaController.show();
+                }
                 Toast.makeText(SurfaceActivity.this, "点击测试", Toast.LENGTH_SHORT).show();
             }
         });
@@ -68,6 +80,7 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         //配置SurfaceHolder并注册回调
         SurfaceHolder holder = surfaceView.getHolder();
         holder.addCallback(this);
+        //为了可以播放视频或者使用Camera预览，我们需要指定其Buffer类型
         holder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         holder.setFixedSize(400, 300);
 
@@ -146,19 +159,32 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
         mediaController.setAnchorView(surfaceView);
     }
 
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         //创建Surface后，将其作为显示界面，并分配和准备一个数据源
         mediaPlayer.setDisplay(holder);
         try {
-            //mediaPlayer.setDataSource("/sdcard/video_test.mp4");
-            Uri uri = Uri.parse("");
-            mediaPlayer.setDataSource(this, uri);
-            mediaPlayer.prepare();
+            mediaPlayer.setDataSource("/sdcard/video_test.mp4");
+            //Uri uri = Uri.parse("http://u.rui2.net/upload/13/2016/06/2016061614525418222p14p.mp4");
+            //mediaPlayer.setDataSource(this, uri);
+            mediaPlayer.prepareAsync();
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mediaController.show();
+                }
+            });
+            mediaPlayer.setOnInfoListener(new MediaPlayer.OnInfoListener() {
+                @Override
+                public boolean onInfo(MediaPlayer mp, int what, int extra) {
+                    Toast.makeText(SurfaceActivity.this, "OnInfoListener情况:"+what, Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mediaController.show();
     }
 
     @Override
@@ -168,6 +194,62 @@ public class SurfaceActivity extends AppCompatActivity implements SurfaceHolder.
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
+        Log.e(TAG, "SurfaceHolder销毁了");
         mediaPlayer.release();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.e(TAG, "onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.e(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.e(TAG, "onDestroy");
+        surfaceView.destroyDrawingCache();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.e(TAG, "onConfigurationChanged");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState, PersistableBundle outPersistentState) {
+        super.onSaveInstanceState(outState, outPersistentState);
+        Log.e(TAG, "onSaveInstanceState");
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.e(TAG, "onRestoreInstanceState");
     }
 }

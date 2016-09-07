@@ -158,7 +158,8 @@
         <activity android:name=".mediaPlayerAbout.AudioPlayerActivity"/>
         <activity android:name=".mediaPlayerAbout.RawAudioActivity"/>
         <activity android:name=".mediaPlayerAbout.SoundPoolActivity"/>
-        <activity android:name=".mediaPlayerAbout.SurfaceActivity"/>
+        <activity android:name=".mediaPlayerAbout.SurfaceActivity"
+            android:configChanges="keyboardHidden|keyboard|screenSize|orientation"/>
         <activity android:name=".mediaPlayerAbout.CameraIntentActivity"/>
         <activity android:name=".mediaPlayerAbout.CameraActivity"/>
         <activity android:name=".mediaPlayerAbout.CameraVideoIntentActivity"/>
