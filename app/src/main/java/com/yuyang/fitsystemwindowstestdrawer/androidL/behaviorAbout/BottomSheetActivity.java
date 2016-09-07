@@ -19,6 +19,13 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * BottomSheetBehavior/BottomSheetDialog的使用
+ *
+ * TODO yuyang BottomSheetBehavior
+ *  实现了CoordinatorLayout.Behavior类，内部通过ViewDragHelper类实现拖动效果，
+ *  可以在CoordinatorLayout中控制被标注空间的布局、位移等操作。
+ *  特殊属性：
+        app:behavior_peekHeight="10dp" //显示出来的部分的告诉
+        app:behavior_hideable="false"  //是否可以设置STATE_HIDDEN状态（如果可以即使设置了behavior_peekHeight属性，该控价也会被隐藏）
  */
 public class BottomSheetActivity extends AppCompatActivity {
     private ViewGroup bottomSheetLayout;

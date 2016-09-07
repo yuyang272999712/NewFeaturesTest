@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.myBehavior;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,7 +9,6 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/1.
  * 该behavior相当于系统提供的“ScrollingViewBehavior”
  * “ScrollingViewBehavior”使目标View永远在AppBarLayout的下面
  * “MyDefineLikeSysBehavior”使目标View永远在id为targetId的下面

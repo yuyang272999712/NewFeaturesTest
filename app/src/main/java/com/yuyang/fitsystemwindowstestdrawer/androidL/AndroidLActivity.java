@@ -17,6 +17,8 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.activityOptions.FirstActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.OptionsCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.BehaviorAboutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -25,7 +27,7 @@ import java.util.List;
  * Android 5 以后的新东西
  */
 public class AndroidLActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)","Behavior");
+    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)","Behavior","AppBarLayout","CollapsingToolbarLayout");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -73,6 +75,12 @@ public class AndroidLActivity extends AppCompatActivity {
                         break;
                     case 4:
                         intent = new Intent(AndroidLActivity.this, BehaviorAboutActivity.class);
+                        break;
+                    case 5:
+                        intent = new Intent(AndroidLActivity.this, MaterialDesignActivity.class);
+                        break;
+                    case 6:
+                        intent = new Intent(AndroidLActivity.this, MaterialDesignActivity2.class);
                         break;
                 }
                 startActivity(intent);

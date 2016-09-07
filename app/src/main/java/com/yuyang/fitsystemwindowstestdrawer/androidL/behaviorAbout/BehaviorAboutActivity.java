@@ -19,7 +19,7 @@ import java.util.List;
  * behavior使用
  */
 public class BehaviorAboutActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("BottomSheet","");
+    private List<String> items = Arrays.asList("系统的BottomSheet","系统的SwipeDismissBehavior","自定义Behavior_DependBehavior","自定义Behavior_LayoutBehavior");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -40,6 +40,15 @@ public class BehaviorAboutActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         intent = new Intent(BehaviorAboutActivity.this, BottomSheetActivity.class);
+                        break;
+                    case 1:
+                        intent = new Intent(BehaviorAboutActivity.this, SwipeDismissBehaviorActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(BehaviorAboutActivity.this, BehaviorActivity1.class);
+                        break;
+                    case 3:
+                        intent = new Intent(BehaviorAboutActivity.this, BehaviorActivity2.class);
                         break;
                 }
                 startActivity(intent);

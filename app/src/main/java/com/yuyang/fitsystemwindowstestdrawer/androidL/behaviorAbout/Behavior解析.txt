@@ -1,7 +1,12 @@
+Behavior只有是CoordinatorLayout的直接子View才有意义。
 ＊＊使用时必须要重载构造函数，因为在CoordinatorLayout里利用反射去获取这个Behavior的时候就是拿的这个构造。
+
+常用的Behavior：@string/appbar_scrolling_view_behavior，用于使其它布局位于AppBarLayout之下
 
 第一种使用情况－依赖
     只需关心以下方法：
+        //调整布局(必须重写该方法，并调用parent.onLayoutChild(child, layoutDirection)，然后在调整显示位置)
+        public boolean onLayoutChild(CoordinatorLayout parent, V child, int layoutDirection)
         //重写Behavior的这个方法来确定你依赖哪些View。
         public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency)；
         //处理View状态发生变化的时候，我们现在的View该做些什么
@@ -25,4 +30,6 @@
         //事件处理
         public boolean onTouchEvent(CoordinatorLayout parent, View child, MotionEvent ev)
 
+
 详细分析可见：http://blog.csdn.net/qibin0506/article/details/50290421
+原理分析可见：http://blog.csdn.net/qibin0506/article/details/50377592

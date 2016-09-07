@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.myBehavior;
 
 import android.content.Context;
 import android.graphics.Rect;

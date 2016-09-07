@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * Created by yuyang on 16/5/1.
  * 自定义behavior，详见布局文件
  * 本例主要使用了“MyDefineLikeSysBehavior”  该behavior相当于系统提供的“ScrollingViewBehavior”
  *

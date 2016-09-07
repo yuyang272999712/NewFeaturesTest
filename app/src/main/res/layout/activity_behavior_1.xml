@@ -52,7 +52,7 @@
         android:orientation="horizontal"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
-        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MyDefineDependBehavior">
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.myBehavior.MyDefineDependBehavior">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -2,44 +2,56 @@
 <android.support.design.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:theme="@style/AppTheme.AppBarOverlay"/>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:orientation="vertical"
-        android:layout_gravity="center_vertical"
         android:layout_height="wrap_content">
-
-        <Button
-            android:layout_gravity="center_horizontal"
-            android:onClick="showBehavior"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BottomSheetBehavior"/>
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/AppTheme.AppBarOverlay"/>
+    </android.support.design.widget.AppBarLayout>
 
-        <Button
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
             android:layout_gravity="center_horizontal"
-            android:onClick="showDialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="BottomSheetDialog"/>
+            android:layout_height="1000dp">
 
-    </LinearLayout>
+            <Button
+                android:layout_gravity="center_horizontal"
+                android:onClick="showBehavior"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BottomSheetBehavior"/>
+
+            <Button
+                android:layout_gravity="center_horizontal"
+                android:onClick="showDialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BottomSheetDialog"/>
+            
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1000dp"/>
+            
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:id="@+id/bottom_sheet_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:behavior_peekHeight="10dp"
+        app:behavior_peekHeight="50dp"
         app:behavior_hideable="false"
         app:layout_behavior="android.support.design.widget.BottomSheetBehavior">
         <TextView

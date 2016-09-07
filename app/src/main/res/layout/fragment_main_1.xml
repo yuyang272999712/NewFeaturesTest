@@ -118,7 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="android5.0新控件"/>
+                android:text=""/>
 
         </TableRow>
         <TableRow >

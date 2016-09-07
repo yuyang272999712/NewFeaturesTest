@@ -1,6 +1,5 @@
-package com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -10,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -81,10 +79,6 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 public class MaterialDesignActivity extends AppCompatActivity {
     FloatingActionButton actionButton;
     Toolbar toolbar;
-    Button btn_to_collapsing;
-    Button btn_to_behavior;
-    Button btn_to_behavior2;
-    Button btn_to_swipe_dismiss;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -110,10 +104,6 @@ public class MaterialDesignActivity extends AppCompatActivity {
     private void findView() {
         actionButton = (FloatingActionButton) findViewById(R.id.material_action_button);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        btn_to_collapsing = (Button) findViewById(R.id.material_button1);
-        btn_to_behavior = (Button) findViewById(R.id.material_button2);
-        btn_to_behavior2 = (Button) findViewById(R.id.material_button3);
-        btn_to_swipe_dismiss = (Button) findViewById(R.id.btn_to_swipe_dismiss);
     }
 
     private void initAction() {
@@ -128,34 +118,6 @@ public class MaterialDesignActivity extends AppCompatActivity {
                     }
                 });
                 snackbar.show();
-            }
-        });
-        btn_to_collapsing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MaterialDesignActivity.this, MaterialDesignActivity2.class);
-                startActivity(intent);
-            }
-        });
-        btn_to_behavior.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MaterialDesignActivity.this, BehaviorActivity1.class);
-                startActivity(intent);
-            }
-        });
-        btn_to_behavior2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MaterialDesignActivity.this, BehaviorActivity2.class);
-                startActivity(intent);
-            }
-        });
-        btn_to_swipe_dismiss.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MaterialDesignActivity.this, SwipeDismissBehaviorActivity.class);
-                startActivity(intent);
             }
         });
     }

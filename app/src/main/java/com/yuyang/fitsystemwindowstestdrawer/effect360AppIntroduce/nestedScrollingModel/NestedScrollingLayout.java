@@ -24,6 +24,8 @@ import android.widget.ScrollView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
+ * TODO yuyang NestedScroll相关处理可参考博客：
+ *  http://blog.csdn.net/lmj623565791/article/details/52204039
  * 使用嵌套滑动机制实现（与CoordinatorLayout.java类似）
  * 只能嵌套实现了NestedScrollingChild.java的类
  * 自定义360软件介绍页面布局

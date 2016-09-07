@@ -14,7 +14,7 @@ import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.AndroidLActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
-import com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout.MaterialDesignActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
@@ -172,8 +172,7 @@ public class MainFragment1 extends Fragment {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MaterialDesignActivity.class);
-                startActivity(intent);
+
             }
         });
 

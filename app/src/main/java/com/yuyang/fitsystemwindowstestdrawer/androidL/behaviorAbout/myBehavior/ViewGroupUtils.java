@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.coordinatorLayoutAbout;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.myBehavior;
 
 /*
  * Copyright (C) 2015 The Android Open Source Project
