@@ -60,9 +60,9 @@ public class CalcPlusService extends Service {
     private class MyBinder extends Binder {
         @Override
         protected boolean onTransact(int code, Parcel data, Parcel reply, int flags) throws RemoteException {
-            switch (code){//TODO code需要客户端与服务端事先约定好
+            switch (code){//ZHU yuyang code需要客户端与服务端事先约定好
                 case 0x110: {
-                    data.enforceInterface(DESCRIPTOR);//TODO DESCRIPTOR也需要双方约定好
+                    data.enforceInterface(DESCRIPTOR);//ZHU yuyang DESCRIPTOR也需要双方约定好
                     int _arg0;
                     _arg0 = data.readInt();
                     int _arg1;
@@ -73,7 +73,7 @@ public class CalcPlusService extends Service {
                     return true;
                 }
                 case 0x111: {
-                    data.enforceInterface(DESCRIPTOR);//TODO DESCRIPTOR也需要双方约定好
+                    data.enforceInterface(DESCRIPTOR);//ZHU yuyang DESCRIPTOR也需要双方约定好
                     int _arg0;
                     _arg0 = data.readInt();
                     int _arg1;

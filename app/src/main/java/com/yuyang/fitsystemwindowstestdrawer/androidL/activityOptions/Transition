@@ -1,4 +1,13 @@
-麻痹的！Transition只能用在Android4.4以上
+参考博客：
+    ActivityOptionsCompat兼容模式实现转场动画：
+        http://blog.csdn.net/qibin0506/article/details/48129139/
+    android5.0新的转场动画：
+        http://blog.csdn.net/u012702547/article/details/51289789
+    旧的转场动画方式：
+        http://jijiaxin89.com/2015/08/17/android%E8%BD%AC%E5%9C%BA%E5%8A%A8%E7%94%BB%E7%9A%84%E5%AE%9E%E7%8E%B0/?utm_source=tuicool&utm_medium=referral
+        http://www.cnblogs.com/sunzn/p/3854009.html
+
+麻痹的！Transition只能用在Android4.4以上（可以不看了，感觉框架不好）
 
 Android 历史上的转场动画框架
     Android 4.0,引入了新的属性 Android:animateLayoutChanges=[true/false] ，所有派生自 ViewGroup 的控件都具

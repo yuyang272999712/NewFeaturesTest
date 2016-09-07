@@ -56,7 +56,7 @@ public class RippleView extends View{
 
     public RippleView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        //TODO 获取给中属性值
+        //ZHU yuyang 获取给中属性值
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RippleView);
         mColor = array.getColor(R.styleable.RippleView_ripple_color, mColor);
         isAuto = array.getBoolean(R.styleable.RippleView_ripple_auto, false);

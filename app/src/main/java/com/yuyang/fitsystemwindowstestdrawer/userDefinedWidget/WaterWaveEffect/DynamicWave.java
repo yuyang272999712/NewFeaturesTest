@@ -109,7 +109,7 @@ public class DynamicWave extends View {
         //根据累计偏移量重新给第一、二条波浪的数组赋值
         resetPositonY();
         for (int i=0; i<mTotalWidth; i++) {
-            //TODO 减200只是为了控制波纹绘制的y的在屏幕的位置，大家可以改成一个变量，然后动态改变这个变量，从而形成波纹上升下降效果
+            //ZHU yuyang 减200只是为了控制波纹绘制的y的在屏幕的位置，大家可以改成一个变量，然后动态改变这个变量，从而形成波纹上升下降效果
             //绘制第一条波浪
             canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 400, i, mTotalHeight, mWavePaint);
             //绘制第二条波浪

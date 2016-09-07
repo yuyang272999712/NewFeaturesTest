@@ -68,7 +68,7 @@ public class MyDialog {
         positiveBtn = (Button) contextView.findViewById(R.id.dialog_positive);
         negativeBtn = (Button) contextView.findViewById(R.id.dialog_negative);
         mPromptText = (TextView) contextView.findViewById(R.id.promptText);
-        //TODO 固定dialog内容宽度
+        //ZHU yuyang 固定dialog内容宽度
         int width = context.getResources().getDisplayMetrics().widthPixels;
         ViewGroup.LayoutParams params = new ViewGroup.LayoutParams((int) (width*0.8),
                 ViewGroup.LayoutParams.WRAP_CONTENT);

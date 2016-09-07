@@ -65,7 +65,7 @@ public class LuckyPanView extends SurfaceView implements Callback,Runnable {
      */
     private RectF mRange = new RectF();
     /**
-     * TODO 圆的！直径！
+     * ZHU yuyang 圆的！直径！
      */
     private int mRadius;
     /**
@@ -139,14 +139,14 @@ public class LuckyPanView extends SurfaceView implements Callback,Runnable {
         mTextPaint = new Paint();
         mTextPaint.setTextSize(mTextSize);
         mTextPaint.setColor(Color.parseColor("#ffffffff"));
-        //圆弧绘制范围 TODO mRadius为直径！！
+        //圆弧绘制范围 ZHU yuyang mRadius为直径！！
         mRange = new RectF(getPaddingLeft(),getPaddingTop(),mRadius+getPaddingLeft(),mRadius+getPaddingTop());
         //初始化图片
         mImgsBitmap = new Bitmap[mItemCount];
         for (int i=0;i<mItemCount;i++){
             mImgsBitmap[i] = BitmapFactory.decodeResource(getResources(), mImgs[i]);
         }
-        //TODO 开启线程
+        //ZHU yuyang 开启线程
         isRunning = true;
         t = new Thread(this);
         t.start();
@@ -224,7 +224,7 @@ public class LuckyPanView extends SurfaceView implements Callback,Runnable {
 
     /**
      * 根据当前旋转的startAngle计算当前滚动到的区域
-     * TODO 然而并没用什么卵用，主要是为了打印log看看 oO(^_^)Oo
+     * ZHU yuyang 然而并没用什么卵用，主要是为了打印log看看 oO(^_^)Oo
      * @param startAngle
      */
     private void calInExactArea(float startAngle) {

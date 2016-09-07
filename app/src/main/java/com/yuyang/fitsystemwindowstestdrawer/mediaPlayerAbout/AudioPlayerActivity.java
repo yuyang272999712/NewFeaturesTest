@@ -183,13 +183,9 @@ public class AudioPlayerActivity extends AppCompatActivity {
     }
 
     public void skip() {
-        // TODO Move to the next audio file.
-        // TODO Use setRemoteControlMetadata to update the remote control metadata.
     }
 
     public void previous() {
-        // TODO Move to the previous audio file.
-        // TODO Use setRemoteControlMetadata to update the remote control metadata.
     }
 
     public class ActivityMediaControlReceiver extends BroadcastReceiver{

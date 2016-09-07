@@ -148,7 +148,7 @@ public class ColorTrackView extends View {
         invalidate();
     }
 
-    //TODO 注意状态保存
+    //ZHU yuyang 注意状态保存
     private static final String KEY_STATE_PROGRESS = "key_progress";
     private static final String KEY_DEFAULT_STATE = "key_default_state";
 

@@ -60,6 +60,8 @@
         <activity android:name=".androidL.CardViewActivity"/>
         <activity android:name=".androidL.activitySwitchAnim.OptionsCompatActivity"/>
         <activity android:name=".androidL.activitySwitchAnim.AdapterDetailActivity"/>
+        <activity android:name=".androidL.behaviorAbout.BehaviorAboutActivity"/>
+        <activity android:name=".androidL.behaviorAbout.BottomSheetActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/TransitionTheme"/>

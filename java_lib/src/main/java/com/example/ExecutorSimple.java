@@ -18,7 +18,7 @@ public class ExecutorSimple {
     private static final int THREAD_COUNT = 10;
     private static final ExecutorService exec = Executors.newFixedThreadPool(THREAD_COUNT);
 
-    //TODO 没事别运行这个，这是在服务器上跑的！！！
+    //ZHU yuyang 没事别运行这个，这是在服务器上跑的！！！
     public static void main(String[] args) throws IOException {
         //创建服务端的ServerSocket等待客户端的请求
         ServerSocket server = new ServerSocket(8080);

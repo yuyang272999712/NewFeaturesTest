@@ -50,7 +50,7 @@ public class PropertyAniActivity extends AppCompatActivity {
         findViews();
     }
 
-    //TODO mark 常规方式创建ObjectAnimator
+    //TODO yuyang 常规方式创建ObjectAnimator
     public void rotateObjAnim1(View view){
         objAni1 = ObjectAnimator.ofFloat(object1, "rotationX", 0f, 360f);
         objAni1.setRepeatCount(0);
@@ -71,7 +71,7 @@ public class PropertyAniActivity extends AppCompatActivity {
         objAni1.start();
     }
 
-    //TODO mark ObjectAnimator多属性变化
+    //TODO yuyang ObjectAnimator多属性变化
     public void noParamsObjAnim2(View view){
         //TODO yuyang 这里设置属性“yuyang”的变化，由于ImageView中找不到“yuyang”属性的get、set方法，所有需要自己更新变化
         objAni2 = ObjectAnimator.ofFloat(object2, "yuyang", 1f, 0f).setDuration(500);
@@ -94,7 +94,7 @@ public class PropertyAniActivity extends AppCompatActivity {
         objAni2.start();
     }
 
-    //TODO mark 使用propertyValuesHolder,设置多属性变化
+    //TODO yuyang 使用propertyValuesHolder,设置多属性变化
     public void propertyValuesHolderObjAnim3(View view){
         PropertyValuesHolder valuesHolder = PropertyValuesHolder.ofFloat("alpha", 0.5f, 1f);
         PropertyValuesHolder valuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1f, 1.1f);
@@ -103,7 +103,7 @@ public class PropertyAniActivity extends AppCompatActivity {
         objAni3.start();
     }
 
-    //TODO mark 使用Keyframe定义指定时间点的指定值
+    //TODO yuyang 使用Keyframe定义指定时间点的指定值
     public void keyframeObjAnim4(View view) {
         // 属性1：Y坐标运动：下落
         PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat("y", object4.getY(), object4.getY()+1000);

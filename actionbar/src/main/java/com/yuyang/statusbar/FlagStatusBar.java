@@ -20,7 +20,7 @@ public class FlagStatusBar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flag_status_bar);
 
-        //TODO 实现QQ样式的状态栏透明／半透明
+        //TODO yuyang 实现QQ样式的状态栏透明／半透明
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             View decorView = getWindow().getDecorView();
             int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN

@@ -53,7 +53,7 @@ public class OkHttpUtils {
         Request request = builder
                 .url(url)
                 .post(bodyBuilder.build())
-                .tag(url)//TODO 可以通过tag取消请求，call.cancel();
+                .tag(url)//TODO yuyang 可以通过tag取消请求，call.cancel();
                 .build();
         Call call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {

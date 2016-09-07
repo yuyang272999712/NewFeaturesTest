@@ -24,7 +24,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
             + "price real, "
             + "pages integer, "
             + "name text"
-//            + ",category_id integer" //TODO 数据库版本3需要在book表新加字段category_id
+//            + ",category_id integer" //ZHU yuyang 数据库版本3需要在book表新加字段category_id
             +")";
     private static final String CREATE_CATEGORY = "create table Category ("
             + "id integer primary key autoincrement, "
@@ -51,9 +51,9 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
         //TODO yuyang 注意：这里的case都没加break，这是为了保证在跨版本升级的时候，每一次的数据库修改都能被全部执行到
         //                  比如用户直接从版本一升级到版本三的应用，那么case 1和case 2中的逻辑都会执行
         switch (oldVersion){
-            case 1://TODO 数据库版本2需要在新增表Category表
+            case 1://ZHU yuyang 数据库版本2需要在新增表Category表
                 db.execSQL(CREATE_CATEGORY);
-            case 2://TODO 数据库版本3需要在book表新加字段category_id
+            case 2://ZHU yuyang 数据库版本3需要在book表新加字段category_id
                 db.execSQL("alter table Book add column category_id integer");
             default:
         }

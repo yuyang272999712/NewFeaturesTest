@@ -38,7 +38,7 @@ public class ExecutorSimple3 {
         }
 
         long s = System.currentTimeMillis();
-        //TODO invokeAll返回是等待所有线程执行完毕的，这样会阻塞主线程
+        //TODO yuyang invokeAll返回是等待所有线程执行完毕的，这样会阻塞主线程
         List<Future<String>> futures = exec.invokeAll(tasks);
         System.out.println("执行任务消耗了 ：" + (System.currentTimeMillis() - s) +"毫秒");
         for (int i=0; i<futures.size(); i++){

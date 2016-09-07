@@ -16,15 +16,16 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.activityOptions.FirstActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.OptionsCompatActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.BehaviorAboutActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Android 5 中的新东西
+ * Android 5 以后的新东西
  */
 public class AndroidLActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)");
+    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画","Activity切换动画(兼容模式)","Behavior");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -70,6 +71,9 @@ public class AndroidLActivity extends AppCompatActivity {
                     case 3:
                         intent = new Intent(AndroidLActivity.this, OptionsCompatActivity.class);
                         break;
+                    case 4:
+                        intent = new Intent(AndroidLActivity.this, BehaviorAboutActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }
@@ -79,7 +83,7 @@ public class AndroidLActivity extends AppCompatActivity {
     private void setToolbar() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("Android 5 中的新东西");
+        toolbar.setTitle("Android 5 以后的新东西");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

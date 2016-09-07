@@ -84,7 +84,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))//自定义通知铃音
                 .setVibrate(new long[]{1000,1000,1000,1000,1000})//自定义通知震动方式
                 .setLights(Color.RED, 0, 1)//自定义通知LED颜色
-                .setAutoCancel(true)//点击自后自动消失 TODO 尼玛不起作用！！！
+                .setAutoCancel(true)//点击自后自动消失 ZHU yuyang 尼玛不起作用！！！
                 .setOngoing(true);//用户不能取消，“正在进行的”通知使用户了解正在运行的后台进程。例如，音乐播放器可以显示正在播放的音乐。
         Notification notification = builder.build();
         notificationManager.notify(NOTIFICATION1, notification);

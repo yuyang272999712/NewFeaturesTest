@@ -102,7 +102,7 @@ public class ViewInjectUtils {
             //获取方法上的所有注解
             Annotation[] annotations = method.getAnnotations();
             for (Annotation annotation:annotations){
-//          //获取方法上的OnClick注解 TODO 这里不这么做是因为我们还可能会添加 长按事件 的注册
+//          //获取方法上的OnClick注解 ZHU yuyang 这里不这么做是因为我们还可能会添加 长按事件 的注册
 //          OnClick annotation = method.getAnnotation(OnClick.class);
 //          if (annotation != null) {
                 Class<? extends Annotation> annotationType = annotation.annotationType();

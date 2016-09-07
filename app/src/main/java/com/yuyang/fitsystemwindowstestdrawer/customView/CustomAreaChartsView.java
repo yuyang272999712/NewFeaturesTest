@@ -52,7 +52,7 @@ public class CustomAreaChartsView extends View {
         mPaint.setAntiAlias(true);
         mPaint.setFilterBitmap(true);//图像在动画进行中会滤掉对Bitmap图像的优化操作，加快显示速度
 
-        //TODO 可以写一个attr自己配置
+        //可以写一个attr自己配置
         initValues();
     }
 

@@ -79,7 +79,7 @@ public class UseIBinderActivity extends AppCompatActivity {
                         _data.writeInterfaceToken(DESCRIPTOR);
                         _data.writeInt(13);
                         _data.writeInt(13);
-                        mPlusBinder.transact(0x110, _data, _reply, 0);//TODO 服务端规定code＝0x110为加法操作
+                        mPlusBinder.transact(0x110, _data, _reply, 0);//ZHU yuyang 服务端规定code＝0x110为加法操作
                         _reply.readException();
                         _result = _reply.readInt();
                         Toast.makeText(UseIBinderActivity.this, "结果："+_result, Toast.LENGTH_LONG).show();
@@ -102,7 +102,7 @@ public class UseIBinderActivity extends AppCompatActivity {
                         _data.writeInterfaceToken(DESCRIPTOR);
                         _data.writeInt(78);
                         _data.writeInt(20);
-                        mPlusBinder.transact(0x111, _data, _reply, 0);//TODO 服务端规定code＝0x111为减法操作
+                        mPlusBinder.transact(0x111, _data, _reply, 0);//ZHU yuyang 服务端规定code＝0x111为减法操作
                         _reply.readException();
                         _result = _reply.readInt();
                         Toast.makeText(UseIBinderActivity.this, "结果："+_result, Toast.LENGTH_LONG).show();

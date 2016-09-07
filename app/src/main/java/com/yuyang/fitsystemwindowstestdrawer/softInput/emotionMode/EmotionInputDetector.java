@@ -128,7 +128,7 @@ public class EmotionInputDetector {
         mEditText.postDelayed(new Runnable() {
             @Override
             public void run() {
-                ////TODO 这里假设内容布局（mContentView）是包裹在LinearLayout中的
+                //ZHU yuyang 这里假设内容布局（mContentView）是包裹在LinearLayout中的
                 ((LinearLayout.LayoutParams) mContentView.getLayoutParams()).weight = 1.0F;//weight设置为1
             }
         }, 200L);
@@ -138,7 +138,7 @@ public class EmotionInputDetector {
      * 锁定内容高度，防止跳闪
      */
     private void lockContentHeight() {
-        //TODO 这里假设内容布局（mContentView）是包裹在LinearLayout中的
+        //ZHU yuyang 这里假设内容布局（mContentView）是包裹在LinearLayout中的
         LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) mContentView.getLayoutParams();
         params.height = mContentView.getHeight();
         params.weight = 0.0F;//weight设置为0
@@ -148,7 +148,7 @@ public class EmotionInputDetector {
      * 显示表情布局
      */
     private void showEmotionLayout() {
-        //TODO 获取软键盘高度－如果从来没打开过软键盘，此时的高度为0
+        //ZHU yuyang 获取软键盘高度－如果从来没打开过软键盘，此时的高度为0
         int softInputHeight = getSupportSoftInputHeight();
         if (softInputHeight == 0) {
             softInputHeight = sp.getInt(SHARE_PREFERENCE_TAG, 400);

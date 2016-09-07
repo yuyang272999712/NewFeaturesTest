@@ -18,14 +18,14 @@ public class JavaForJs {
 
     @JavascriptInterface
     public void callHandler(String optName,String loginJson,Object function){
-        //TODO 用于操作native
+        //TODO yuyang 用于操作native
         LoginBean bean = JSON.parseObject(loginJson,LoginBean.class);
         Toast.makeText(mContext, optName + "。" +bean.toString(), Toast.LENGTH_SHORT).show();
     }
 
     @JavascriptInterface
     public void login(String username,String password){//对应js中xxx.hello("")
-        //TODO 用于操作native
+        //TODO yuyang 用于操作native
         LoginBean loginBean = new LoginBean(username,password);
         String json = JSON.toJSONString(loginBean);
         Toast.makeText(mContext, loginBean.toString(), Toast.LENGTH_SHORT).show();

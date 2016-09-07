@@ -1,0 +1,28 @@
+＊＊使用时必须要重载构造函数，因为在CoordinatorLayout里利用反射去获取这个Behavior的时候就是拿的这个构造。
+
+第一种使用情况－依赖
+    只需关心以下方法：
+        //重写Behavior的这个方法来确定你依赖哪些View。
+        public boolean layoutDependsOn(CoordinatorLayout parent, View child, View dependency)；
+        //处理View状态发生变化的时候，我们现在的View该做些什么
+        public boolean onDependentViewChanged(CoordinatorLayout parent, View child, View dependency)；
+        //处理View被移除后，现在的View该做些什么
+        public void onDependentViewRemoved(CoordinatorLayout parent, V child, View dependency)
+
+第二种使用情况－滑动
+    只需关心以下方法：
+        //确定是否接收此滑动事件。nestedScrollAxes－滑动方向；target－手指落在的View，可以设置为依赖的View；directTargetChild－真正执行滑动的View，因为target可能嵌套在directTargetChild中
+        public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int nestedScrollAxes)；
+        //处理滑动事件
+        public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dx, int dy, int[] consumed)
+        //处理fling事件
+        public boolean onNestedFling(CoordinatorLayout coordinatorLayout, View child, View target, float velocityX, float velocityY, boolean consumed)
+
+第三种使用情况－事件处理（可参考SwipeDismissBehavior.java）
+    只需关心以下方法：
+        //是否拦截此事件
+        public boolean onInterceptTouchEvent(CoordinatorLayout parent, View child, MotionEvent ev)
+        //事件处理
+        public boolean onTouchEvent(CoordinatorLayout parent, View child, MotionEvent ev)
+
+详细分析可见：http://blog.csdn.net/qibin0506/article/details/50290421

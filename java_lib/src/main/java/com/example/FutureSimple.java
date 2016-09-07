@@ -62,7 +62,7 @@ public class FutureSimple {
         }
     });
 
-    //TODO 使用Callable+FutureTask的方式获取执行结果，也可以ExecutorService的submit(task);方式启动
+    //TODO yuyang 使用Callable+FutureTask的方式获取执行结果，也可以ExecutorService的submit(task);方式启动
     private final Thread thread = new Thread(futureTask);
 
     /**

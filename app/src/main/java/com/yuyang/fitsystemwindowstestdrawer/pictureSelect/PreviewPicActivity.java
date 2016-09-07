@@ -35,7 +35,7 @@ public class PreviewPicActivity extends AppCompatActivity {
     private CheckBox originalCheck;
     private CheckBox picCheck;
 
-    private int bucketPosition;//TODO 如果相册标示是-1，说明预览的是已选择图片列表
+    private int bucketPosition;//ZHU yuyang 如果相册标示是-1，说明预览的是已选择图片列表
     private int itemPosition;
     private List<ImageItem> imageItems;
     private int imageCount;

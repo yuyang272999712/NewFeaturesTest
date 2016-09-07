@@ -43,7 +43,7 @@ public class RetrofitReqUserInfoActivity extends AppCompatActivity {
                 //TODO yuyang Retrofit请求全过程
                 //1、初始化Retrofit
                 Retrofit retrofit = new Retrofit.Builder()
-                        //TODO 这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
+                        //ZHU yuyang 这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
                         .baseUrl(BASE_URL)
                         .addConverterFactory(GsonConverterFactory.create())//解析方法
                         .addConverterFactory(new FileConverterFactory())
@@ -52,13 +52,13 @@ public class RetrofitReqUserInfoActivity extends AppCompatActivity {
                 UserService apiService = retrofit.create(UserService.class);//接口申明
                 Call<UserInfoBean> call = apiService.getUserInfo("yuyang");
                 /*
-                TODO 同步请求
+                ZHU yuyang 同步请求
                 try {
                     call.execute();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                TODO 取消请求
+                ZHU yuyang 取消请求
                 call.cancel();
                 */
                 //3、异步请求

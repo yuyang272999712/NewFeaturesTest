@@ -112,7 +112,7 @@ public class PictureSelectActivity extends AppCompatActivity {
     }
 
     /**
-     * TODO 初始化图片加载器（可使用别的图片加载方式）
+     * ZHU yuyang 初始化图片加载器（可使用别的图片加载方式）
      */
     private void initImageLoader(){
         ImageLoader.getInstance().init(new ImageLoaderConfiguration.Builder(this)
@@ -195,7 +195,7 @@ public class PictureSelectActivity extends AppCompatActivity {
      */
     private void uploadImage(){
         if (ImageSelectHelper.selectedPicture.size() > 0) {
-            //TODO 启动service上传图片
+            //ZHU yuyang 启动service上传图片
             ToastUtils.showLong(this,"开始上传图片，共："+ImageSelectHelper.selectedPicture.size()+"张");
         }
         ImageSelectHelper.cleanAll();

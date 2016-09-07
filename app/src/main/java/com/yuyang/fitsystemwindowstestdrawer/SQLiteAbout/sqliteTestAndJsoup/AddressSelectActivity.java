@@ -32,7 +32,7 @@ import java.util.List;
 /**
  * 使用Jsoup抓取网页数据获取全国省市县的分级并保存至本地数据库
  *
- * TODO 逻辑与显示未分离，写得不好
+ * ZHU yuyang 逻辑与显示未分离，写得不好
  */
 public class AddressSelectActivity extends AppCompatActivity {
     private static final int PROVINCE_LEVEL = 0;

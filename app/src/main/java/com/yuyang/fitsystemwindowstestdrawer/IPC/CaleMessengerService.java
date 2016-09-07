@@ -33,7 +33,7 @@ public class CaleMessengerService extends Service {
             switch (msgFromClient.what){
                 case MSG_SUM:
                     try {
-                        //TODO 耗时操作，应该起个新线程，这里犯懒了……Y(^_^)Y
+                        //ZHU yuyang 耗时操作，应该起个新线程，这里犯懒了……Y(^_^)Y
                         Thread.sleep(6000);
                     } catch (InterruptedException e) {
                         e.printStackTrace();

@@ -12,7 +12,7 @@ public abstract class CallbackBase<T> {
      * @param request
      */
     public void onBefore(Request request) {
-        //TODO 显示加载对话框等操作
+        //ZHU yuyang 显示加载对话框等操作
     }
 
     /**
@@ -21,7 +21,7 @@ public abstract class CallbackBase<T> {
      * @param
      */
     public void onAfter() {
-        //TODO 隐藏加载对话框等操作
+        //ZHU yuyang 隐藏加载对话框等操作
     }
 
     /**
@@ -30,7 +30,7 @@ public abstract class CallbackBase<T> {
      * @param progress
      */
     public void inProgress(float progress, long total) {
-        //TODO 更新进度条
+        //ZHU yuyang 更新进度条
     }
 
     /**
@@ -59,18 +59,18 @@ public abstract class CallbackBase<T> {
 
         @Override
         public Object parseNetworkResponse(Response response) throws Exception {
-            //TODO 返回参数一般都有基类，可以将返回值通过gson工具转换为基类
+            //ZHU yuyang 返回参数一般都有基类，可以将返回值通过gson工具转换为基类
             return null;
         }
 
         @Override
         public void onError(Call call, Exception e) {
-            //TODO 统一的错误处理
+            //ZHU yuyang 统一的错误处理
         }
 
         @Override
         public void onResponse(Object response) {
-            //TODO 处理 parseNetworkResponse 方法返回的对象
+            //ZHU yuyang 处理 parseNetworkResponse 方法返回的对象
         }
     };
 
