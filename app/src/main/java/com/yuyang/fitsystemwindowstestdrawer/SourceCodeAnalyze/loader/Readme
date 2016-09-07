@@ -7,7 +7,7 @@
 
 二、Loader
     public Loader(Context context) {
-       //TODO 这里使用ApplicationContext可避免内存泄露等问题
+       //TODO yuyang 这里使用ApplicationContext可避免内存泄露等问题
        mContext = context.getApplicationContext();
     }
     继承关系： Loader 基类无非也就是一个方法接口的定义类，组织预留了一些方法供LoaderManager去调运处理，同时需要子类实现其提供的一些onXXX方法，以便LoaderManager调运Loader的方法时可以触发Loader子类的实现逻辑。

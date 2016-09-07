@@ -57,7 +57,7 @@ public class LayoutInflateFactoryActivity extends AppCompatActivity {
                     }
                 }*/
                 //所以我们在这里在AppCompatActivity之前调用setFactory就会顶替掉系统的factory，所以做如下操作：
-                //TODO 这里的getDelegate()是AppCompatActivity的方法，获取的是AppCompatDelegateImplV7类
+                //TODO yuyang 这里的getDelegate()是AppCompatActivity的方法，获取的是AppCompatDelegateImplV7类
                 //appcompat 创建view代码
                 AppCompatDelegate delegate = getDelegate();
                 View view = delegate.createView(parent, name, context, attrs);

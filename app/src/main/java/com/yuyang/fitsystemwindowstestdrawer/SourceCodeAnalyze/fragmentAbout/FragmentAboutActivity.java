@@ -18,7 +18,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  *  本身存在的Fragment会重新启动，然后当执行Activity的onCreate时，又会再次实例化一个新的Fragment。
  *  其实通过检查onCreate的参数Bundle savedInstanceState就可以判断，当前是否发生Activity的重新创建
  * 4、Fragment与ActionBar和MenuItem集成
- *  详见：BackStackFragment1.java中标注的 TODO。
+ *  详见：BackStackFragment1.java中标注的 TODO yuyang。
  * 5、没有布局的Fragment的作用
  *  google推荐的Activity运行时配置改变保存数据的最佳方式；
  *  详见：ConfigChangesActivity.java

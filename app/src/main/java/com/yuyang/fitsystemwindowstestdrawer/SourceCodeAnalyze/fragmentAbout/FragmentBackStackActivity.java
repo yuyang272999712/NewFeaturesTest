@@ -37,7 +37,7 @@ public class FragmentBackStackActivity extends AppCompatActivity implements Back
 
         fragmentManager = getSupportFragmentManager();
 
-        if(savedInstanceState == null) {//TODO 防止屏幕旋转等状态变化导致的Fragment重复创建
+        if(savedInstanceState == null) {//ZHU yuyang 防止屏幕旋转等状态变化导致的Fragment重复创建
             mFOne = BackStackFragment1.getInstance("第一个返回栈Fragment");
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.add(R.id.fragment_content_1, mFOne, "ONE");
@@ -81,7 +81,7 @@ public class FragmentBackStackActivity extends AppCompatActivity implements Back
         mFTwo.setTargetFragment(mFOne, 100);
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.fragment_content_1, mFTwo, "TWO");
-        //TODO 加入返回栈
+        //ZHU yuyang 加入返回栈
         transaction.addToBackStack(null);
         transaction.commit();
     }
