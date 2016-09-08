@@ -221,7 +221,9 @@
         <activity android:name=".contentProvider.ReadContactsActivity"/>
         <activity android:name=".myIOCforAndroid.MyIOCActivity"/>
         <activity android:name=".imageLoader.ImageLoaderActivity"/>
-        <activity android:name=".eventBus.myEventBusSimple.EventBusActivity"/>
+        <activity android:name=".eventBus.EventBusAboutActivity"/>
+        <activity android:name=".eventBus.myEventBusSimple.MyEventBusActivity"/>
+        <activity android:name=".eventBus.EventBusActivity"/>
         <activity android:name=".service.ServiceActivity"/>
         <activity android:name=".service.UploadImgActivity"/>
         <activity android:name=".SensorAbout.SensorAboutActivity"/>

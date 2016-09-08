@@ -35,7 +35,7 @@ public class UserInfoPresenter extends BaseMvpPresenter<IUserInfoView> {
             @Override
             protected void onPostExecute(Object o) {
                 super.onPostExecute(o);
-                //!--yuyang 先判断是否已经绑定了Activity，有可能用户已经推出了该Activity
+                //TODO yuyang 这里要小心Activity已经被销毁 !--yuyang 先判断是否已经绑定了Activity，有可能用户已经推出了该Activity
                 if (isViewAttached()) {
                     getView().setUserInfo(iUserInfoModel.getUserInfo());
                 }

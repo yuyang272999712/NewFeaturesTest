@@ -10,10 +10,10 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * 简单实现EventBus框架
  * 事件注册在fragment中
  */
-public class EventBusActivity extends AppCompatActivity {
+public class MyEventBusActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_bus);
+        setContentView(R.layout.activity_my_event_bus);
     }
 }
