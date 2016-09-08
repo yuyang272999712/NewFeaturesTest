@@ -3,12 +3,12 @@ package com.yuyang.fitsystemwindowstestdrawer.mvp.presenter;
 import android.content.Context;
 import android.os.AsyncTask;
 
-import com.yuyang.fitsystemwindowstestdrawer.mvp.BasePresenter;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.BaseMvpPresenter;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.IUserInfoView;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.model.IUserInfoModel;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.model.UserInfoModelImpl;
 
-public class UserInfoPresenter extends BasePresenter<IUserInfoView> {
+public class UserInfoPresenter extends BaseMvpPresenter<IUserInfoView> {
 
     //供UI调运
     public void saveUserInfo(Context context){

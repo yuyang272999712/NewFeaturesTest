@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * 基类
  */
-public abstract class BaseActivity<V, T extends BasePresenter<V>> extends AppCompatActivity {
+public abstract class BaseMvpActivity<V, T extends BaseMvpPresenter<V>> extends AppCompatActivity {
     /**
      * Presenter 对象
      */

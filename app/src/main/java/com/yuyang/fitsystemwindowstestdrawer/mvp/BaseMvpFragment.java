@@ -9,11 +9,11 @@ import android.support.v4.app.Fragment;
  *  <li>Activity基类，所有Activity继承此Fragment进行统一管理 </li>
  *  <li>泛型V ：为当前Fragment实现的ViewInterface类</li>
  *  <li>泛型T ：为当前View与之关联的Presenter类</li>
- *  <li>与{@link com.yuyang.fitsystemwindowstestdrawer.mvp.BasePresenter}建立抽象关联</li>
+ *  <li>与{@link BaseMvpPresenter}建立抽象关联</li>
  *  <li>UI统一化</li>
  * </ul>
  */
-public abstract class BaseFragment<V , T extends BasePresenter<V>> extends Fragment{
+public abstract class BaseMvpFragment<V , T extends BaseMvpPresenter<V>> extends Fragment{
     /**
      * Presenter 对象
      */
@@ -37,7 +37,7 @@ public abstract class BaseFragment<V , T extends BasePresenter<V>> extends Fragm
 
     /**
      * 创建Presenter对象
-     * @return 返回一个继承自 {@link BasePresenter} 的Presenter对象
+     * @return 返回一个继承自 {@link BaseMvpPresenter} 的Presenter对象
      */
     protected abstract T createPresenter();
 

@@ -3,7 +3,7 @@ package com.yuyang.fitsystemwindowstestdrawer.mvp;
 import java.lang.ref.Reference;
 import java.lang.ref.WeakReference;
 
-public class BasePresenter<T> {
+public class BaseMvpPresenter<T> {
     /**
      * View 接口类型的弱引用
      */

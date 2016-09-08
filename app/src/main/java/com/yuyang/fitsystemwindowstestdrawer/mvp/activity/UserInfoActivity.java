@@ -7,11 +7,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.mvp.BaseActivity;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.BaseMvpActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.bean.UserInfo;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.presenter.UserInfoPresenter;
 
-public class UserInfoActivity extends BaseActivity<IUserInfoView, UserInfoPresenter> implements IUserInfoView,View.OnClickListener {
+public class UserInfoActivity extends BaseMvpActivity<IUserInfoView, UserInfoPresenter> implements IUserInfoView,View.OnClickListener {
     private EditText mUserName;
     private EditText mUserAge;
     private EditText mUserInfo;
