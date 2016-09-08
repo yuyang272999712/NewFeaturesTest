@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.EventBus.MyEventBus;
+package com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus;
 
 import android.os.AsyncTask;
 import android.os.Handler;

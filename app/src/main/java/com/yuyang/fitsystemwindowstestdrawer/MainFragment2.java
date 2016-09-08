@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.CanvasAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.EventBus.EventBusActivity;
+import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple.EventBusActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
 import com.yuyang.fitsystemwindowstestdrawer.rxJava.RxJavaActivity;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;

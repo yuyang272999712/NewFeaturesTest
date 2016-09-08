@@ -10,13 +10,13 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="3"
-        android:name="com.yuyang.fitsystemwindowstestdrawer.EventBus.ItemListFragment"/>
+        android:name="com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple.ItemListFragment"/>
 
     <fragment
         android:id="@+id/item_detail_list"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="7"
-        android:name="com.yuyang.fitsystemwindowstestdrawer.EventBus.ItemDetailFragment"/>
+        android:name="com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple.ItemDetailFragment"/>
 
 </LinearLayout>

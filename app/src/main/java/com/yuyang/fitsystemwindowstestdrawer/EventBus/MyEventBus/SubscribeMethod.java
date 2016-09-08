@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.EventBus.MyEventBus;
+package com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus;
 
 import java.lang.reflect.Method;
 

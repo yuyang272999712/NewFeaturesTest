@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.EventBus;
+package com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.EventBus;
+package com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple;
 
 import android.app.ListFragment;
 import android.os.AsyncTask;
@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.yuyang.fitsystemwindowstestdrawer.EventBus.EventBeans.ItemListEvent;
-import com.yuyang.fitsystemwindowstestdrawer.EventBus.MyEventBus.EventBus;
+import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple.EventBeans.ItemListEvent;
+import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus.EventBus;
 
 /**
  * 注册EventBus事件监听

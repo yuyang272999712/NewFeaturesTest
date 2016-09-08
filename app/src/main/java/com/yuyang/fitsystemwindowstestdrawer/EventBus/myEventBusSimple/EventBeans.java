@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.EventBus;
+package com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple;
 
 import java.util.List;
 
