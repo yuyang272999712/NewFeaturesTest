@@ -1,20 +1,17 @@
 package com.yuyang.fitsystemwindowstestdrawer.mvp.activity;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.BaseActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.bean.UserInfo;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.presenter.UserInfoPresenter;
 
-/**
- * Created by yuyang on 16/3/1.
- */
-public class UserInfoMvpTest extends AppCompatActivity implements IUserInfoMvp,View.OnClickListener {
+public class UserInfoActivity extends BaseActivity<IUserInfoView, UserInfoPresenter> implements IUserInfoView,View.OnClickListener {
     private EditText mUserName;
     private EditText mUserAge;
     private EditText mUserInfo;
@@ -22,15 +19,10 @@ public class UserInfoMvpTest extends AppCompatActivity implements IUserInfoMvp,V
     private Button mSave;
     private Button mGet;
 
-    private UserInfoPresenter presenter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_userinfo_mvp);
-
-        presenter = new UserInfoPresenter(this, this);
     }
 
     @Override
@@ -45,6 +37,11 @@ public class UserInfoMvpTest extends AppCompatActivity implements IUserInfoMvp,V
 
         mSave.setOnClickListener(this);
         mGet.setOnClickListener(this);
+    }
+
+    @Override
+    protected UserInfoPresenter createPresenter() {
+        return new UserInfoPresenter();
     }
 
     @Override
@@ -69,10 +66,10 @@ public class UserInfoMvpTest extends AppCompatActivity implements IUserInfoMvp,V
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.saveUserInfo:
-                presenter.saveUserInfo();
+                mPresenter.saveUserInfo(this);
                 break;
             case R.id.getUserInfo:
-                presenter.setUserInfo();
+                mPresenter.getUserInfo(this);
                 break;
         }
     }

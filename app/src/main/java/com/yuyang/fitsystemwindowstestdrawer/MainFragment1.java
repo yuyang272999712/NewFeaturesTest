@@ -14,7 +14,6 @@ import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.AndroidLActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
@@ -23,7 +22,7 @@ import com.yuyang.fitsystemwindowstestdrawer.internetAbout.InternetAboutActivity
 import com.yuyang.fitsystemwindowstestdrawer.largeImage.LargeImageTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.listViewHolder.ListTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mediaPlayerAbout.MediaAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoMvpTest;
+import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.RecyclerViewDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
@@ -118,7 +117,7 @@ public class MainFragment1 extends Fragment {
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), UserInfoMvpTest.class);
+                Intent intent = new Intent(getContext(), UserInfoActivity.class);
                 startActivity(intent);
             }
         });
