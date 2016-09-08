@@ -31,6 +31,7 @@ public class NotificationActivity extends AppCompatActivity {
     public static final int NOTIFICATION1 = 1;
     public static final int NOTIFICATION2 = 2;
     public static final int NOTIFICATION3 = 3;
+    public static final int NOTIFICATION4 = 4;
 
     NotificationManager notificationManager;
     private int progress = 20;
@@ -58,8 +59,9 @@ public class NotificationActivity extends AppCompatActivity {
         registerReceiver(new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
+                String name = intent.getStringExtra("name");
                 //取消普通通知
-                Toast.makeText(context, "点击了通知的图标", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "点击了通知的图标:"+name, Toast.LENGTH_LONG).show();
             }
         }, new IntentFilter(MY_ACTION));
     }
@@ -109,6 +111,8 @@ public class NotificationActivity extends AppCompatActivity {
         notificationManager.notify(NOTIFICATION2, notification);
     }
 
+
+    Intent newIntent = new Intent(MY_ACTION);
     /**
      * 发送自动以样式的通知
      * @param view
@@ -119,7 +123,7 @@ public class NotificationActivity extends AppCompatActivity {
         RemoteViews myView = new RemoteViews(this.getPackageName(), R.layout.notification_custom_layout);
 
         //TODO yuyang 为通知的局部控件添加监听事件（音乐播放的暂停，下一曲等）
-        Intent newIntent = new Intent(MY_ACTION);
+        newIntent.putExtra("name", "第一个通知");
         PendingIntent myPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION3, newIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         myView.setOnClickPendingIntent(R.id.notification_icon, myPendingIntent);
 
@@ -128,7 +132,7 @@ public class NotificationActivity extends AppCompatActivity {
                 .setTicker("进度条通知")
                 .setWhen(System.currentTimeMillis())
                 .setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE)
-                .setContentIntent(PendingIntent.getBroadcast(this, 0, new Intent().setAction(ACTION), 0))
+                .setContentIntent(PendingIntent.getBroadcast(this, NOTIFICATION3, new Intent().setAction(ACTION), PendingIntent.FLAG_UPDATE_CURRENT))
                 .setContent(myView)
                 .setAutoCancel(true);
         myNotification = builder.build();
@@ -145,5 +149,31 @@ public class NotificationActivity extends AppCompatActivity {
         myNotification.contentView.setTextViewText(R.id.notification_title, "更新标题");
         myNotification.contentView.setProgressBar(R.id.notification_progress, 100, 50, false);
         notificationManager.notify(NOTIFICATION3, myNotification);
+    }
+
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+    public void sendMyNotificationFlags(View view){
+        //TODO yuyang 未通知添加自定义样式
+        RemoteViews myView = new RemoteViews(this.getPackageName(), R.layout.notification_custom_layout_flags);
+
+        //TODO yuyang 为通知的局部控件添加监听事件（音乐播放的暂停，下一曲等）
+        newIntent.putExtra("name", "第二个通知");
+        //!--yuyang 这里使用的是newIntent的，并更改了extra中的值，
+        // PendingIntent.FLAG_CANCEL_CURRENT会取消上一个通知的Intent，
+        // PendingIntent.FLAG_UPDATE_CURRENT标记会更新上一个通知的Intent
+        PendingIntent myPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION3, newIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        myView.setOnClickPendingIntent(R.id.notification_icon, myPendingIntent);
+
+        Notification.Builder builder = new Notification.Builder(this);
+        builder.setSmallIcon(R.mipmap.circle_menu_item_2_normal)
+                .setTicker("进度条通知")
+                .setWhen(System.currentTimeMillis())
+                .setDefaults(Notification.DEFAULT_SOUND|Notification.DEFAULT_VIBRATE)
+                .setContentIntent(PendingIntent.getBroadcast(this, NOTIFICATION3, new Intent().setAction(ACTION), PendingIntent.FLAG_UPDATE_CURRENT))
+                .setContent(myView)
+                .setAutoCancel(true);
+        Notification myNotification = builder.build();
+
+        notificationManager.notify(NOTIFICATION4, myNotification);
     }
 }

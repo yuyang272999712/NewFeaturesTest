@@ -143,7 +143,7 @@ public class CircleMenuLayout extends ViewGroup {
         for (int i=0; i<count; i++){
             View child = getChildAt(i);
             if (child.getVisibility() == GONE){
-                return;
+                continue;
             }
             //通过计算menu item的尺寸以及和设置好的模式，去对item进行测量
             int makeMeasureSpec = -1;

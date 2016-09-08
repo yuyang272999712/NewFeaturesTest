@@ -33,4 +33,11 @@
         android:textAllCaps="false"
         android:onClick="updateMyNotification"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义样式的通知-验证PendingIntent的flags"
+        android:textAllCaps="false"
+        android:onClick="sendMyNotificationFlags"/>
+
 </LinearLayout>
