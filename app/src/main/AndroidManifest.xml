@@ -113,6 +113,8 @@
         <activity android:name=".animationAbout.AnimationDrawableActivity"/>
         <activity android:name=".animationAbout.customAnim.CustomAnimationActivity"/>
         <activity android:name=".animationAbout.svg.SVGdrawableActivity"/>
+        <activity android:name=".animationAbout.coinWalletAnimator.CoinWalletAnimatorActivity"/>
+        <activity android:name=".animationAbout.shoppingCartAnimator.ShoppingCartActivity"/>
         <activity android:name=".androidL.coordinatorLayoutAbout.MaterialDesignActivity"/>
         <activity android:name=".androidL.coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".androidL.behaviorAbout.BehaviorActivity1"/>
@@ -245,6 +247,8 @@
         <activity android:name=".Canvas.Shader.ShaderActivity"/>
         <activity android:name=".Canvas.PathEffect.PathEffectActivity"/>
         <activity android:name=".Canvas.SurfaceView.DrawBoardActivity"/>
+        <activity android:name=".Canvas.Bezier.BezierActivity"
+            android:hardwareAccelerated="false"/>
         <activity android:name=".softInput.SoftInputActivity"/>
         <activity android:name=".softInput.softInputMode.SoftInputModeActivity1"
             android:windowSoftInputMode="adjustResize|stateHidden"/>

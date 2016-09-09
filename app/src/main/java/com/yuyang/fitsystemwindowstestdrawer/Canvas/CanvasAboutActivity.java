@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.yuyang.fitsystemwindowstestdrawer.Canvas.Bezier.BezierActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.ColorMatrixValueSetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.ColorMatrixActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Canvas.ColorMatrix.PixelsEffectActivity;
@@ -29,7 +30,7 @@ import java.util.List;
 public class CanvasAboutActivity extends ListActivity {
     private List<String> items = Arrays.asList("saveLayer()方法","ColorMatrix常用方法","ColorMatrix直接设置矩阵的数值",
             "直接修改像素位置的色值","Matrix常用方法","Matrix直接设置矩阵的数值","像素块分析","Xfermode混合效果","Shader着色器",
-            "PathEffect路径效果","SurfaceView实现画板");
+            "PathEffect路径效果","SurfaceView实现画板","贝塞尔曲线");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +75,9 @@ public class CanvasAboutActivity extends ListActivity {
                 break;
             case 10:
                 intent = new Intent(this, DrawBoardActivity.class);
+                break;
+            case 11:
+                intent = new Intent(this, BezierActivity.class);
                 break;
         }
         startActivity(intent);

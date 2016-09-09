@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="二阶贝塞曲线，先点击设置起始点"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.Canvas.Bezier.Bezier2View
+        android:id="@+id/bezier2View"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#a7ecff"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="三阶贝塞曲线，先点击设置六个点"/>
+
+    <com.yuyang.fitsystemwindowstestdrawer.Canvas.Bezier.Bezier3View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#d593fc"/>
+
+</LinearLayout>

@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBusSimple.EventBeans.ItemListEvent;
-import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus.EventBus;
+import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus.MyEventBus;
 
 /**
  * 注册EventBus事件监听
@@ -17,13 +17,13 @@ public class ItemListFragment extends ListFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getInstance().register(this);
+        MyEventBus.getInstance().register(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getInstance().unregister(this);
+        MyEventBus.getInstance().unregister(this);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class ItemListFragment extends ListFragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                EventBus.getInstance().post(new ItemListEvent(Item.ITEMS));
+                MyEventBus.getInstance().post(new ItemListEvent(Item.ITEMS));
                 return null;
             }
         }.execute();
@@ -53,6 +53,6 @@ public class ItemListFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         super.onListItemClick(l, v, position, id);
-        EventBus.getInstance().post(getListView().getItemAtPosition(position));
+        MyEventBus.getInstance().post(getListView().getItemAtPosition(position));
     }
 }

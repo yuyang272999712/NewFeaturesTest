@@ -1,0 +1,12 @@
+ 二阶贝塞尔曲线：
+    mPath.moveTo(startPoint.x, startPoint.y);
+    mPath.quadTo(assistPoint.x, assistPoint.y, endPoint.x, endPoint.y);
+    其中startPoint为起点，endPoint为终点，assistPoint为辅助点
+
+ 三阶贝塞尔曲线:
+    mPath.cubicTo(mControlPoints.get(2*i-1).x,mControlPoints.get(2*i-1).y,// 控制点
+                            mControlPoints.get(2*i).x,mControlPoints.get(2*i).y,// 控制点
+                            mPoints.get(i+1).x,mPoints.get(i+1).y);// 终点
+
+
+具体参考：http://blog.csdn.net/qq_17250009/article/details/51027183

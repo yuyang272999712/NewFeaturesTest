@@ -14,8 +14,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 /**
  * TODO yuyang 简单实现EventBus框架
  */
-public class EventBus {
-    private static EventBus mInstance = new EventBus();
+public class MyEventBus {
+    private static MyEventBus mInstance = new MyEventBus();
     //UI线程上的Handler
     private Handler mHandler;
     /**
@@ -36,11 +36,11 @@ public class EventBus {
         }
     };
 
-    private EventBus(){
+    private MyEventBus(){
         mHandler = new Handler(Looper.getMainLooper());
     }
 
-    public static EventBus getInstance(){
+    public static MyEventBus getInstance(){
         return mInstance;
     }
 

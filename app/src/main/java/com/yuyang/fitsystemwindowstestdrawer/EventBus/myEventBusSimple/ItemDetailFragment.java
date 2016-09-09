@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus.EventBus;
+import com.yuyang.fitsystemwindowstestdrawer.eventBus.myEventBus.MyEventBus;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
@@ -20,13 +20,13 @@ public class ItemDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getInstance().register(this);
+        MyEventBus.getInstance().register(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        EventBus.getInstance().unregister(this);
+        MyEventBus.getInstance().unregister(this);
     }
 
     @Nullable
