@@ -39,7 +39,7 @@ public class Bezier2View extends View {
         mPaint.setDither(true);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setStrokeWidth(DensityUtils.dp2px(getContext(), 5));
-        mPaint.setMaskFilter(new BlurMaskFilter(1, BlurMaskFilter.Blur.SOLID));
+        mPaint.setMaskFilter(new BlurMaskFilter(15, BlurMaskFilter.Blur.SOLID));
 
         mPath = new Path();
     }

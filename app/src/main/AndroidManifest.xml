@@ -179,6 +179,7 @@
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>
         <activity android:name=".internetAbout.retrofitAbout.RetrofitReqUserInfoActivity"/>
         <activity android:name=".internetAbout.okHttpAbout.OkHttpAboutActivity"/>
+        <activity android:name=".internetAbout.downFileService.DownLoadFileActivity"/>
         <activity android:name=".telephony_sms.TelephonyAndSmsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.CALL_BUTTON"/>
@@ -321,6 +322,8 @@
                 <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </service>
+
+        <service android:name=".internetAbout.downFileService.DownLoadFileService"/>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->

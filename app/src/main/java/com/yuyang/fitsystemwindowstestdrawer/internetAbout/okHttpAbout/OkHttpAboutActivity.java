@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.internetAbout.okHttpAbout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.internetAbout.downFileService.DownLoadFileActivity;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -152,8 +154,8 @@ public class OkHttpAboutActivity extends AppCompatActivity {
      */
     public void downFile(View view){
         final String destFileDir = Environment.getExternalStorageDirectory().getAbsolutePath();
-        final String destFileName = "OkHttp_"+ new Date()+".jar";
-        String url = "https://codeload.github.com/hongyangAndroid/okhttputils/zip/master";
+        final String destFileName = "Tomcat_"+ new Date()+".zip";
+        String url = "http://mirrors.cnnic.cn/apache/tomcat/tomcat-9/v9.0.0.M10/bin/apache-tomcat-9.0.0.M10.zip";
         OkHttpUtils.downFile(url, new CallbackBase<File>(){
 
             @Override
@@ -229,6 +231,15 @@ public class OkHttpAboutActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    /**
+     * 多文件下载
+     * @param view
+     */
+    public void downFiles(View view){
+        Intent intent = new Intent(this, DownLoadFileActivity.class);
+        startActivity(intent);
     }
 
 }

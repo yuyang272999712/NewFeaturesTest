@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <ProgressBar
+        android:id="@+id/progress_1"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#b47fe9"
+        android:progress="0"
+        android:max="100"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/begin1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="beginDown"
+            android:text="开始"/>
+        <Button
+            android:id="@+id/cancel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancelDown"
+            android:text="取消"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_2"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e9c67f"
+        android:progress="0"
+        android:max="100"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/begin2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="beginDown"
+            android:text="开始"/>
+        <Button
+            android:id="@+id/cancel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancelDown"
+            android:text="取消"/>
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_3"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7fe9c6"
+        android:progress="0"
+        android:max="100"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/begin3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="beginDown"
+            android:text="开始"/>
+        <Button
+            android:id="@+id/cancel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="cancelDown"
+            android:text="取消"/>
+    </LinearLayout>
+
+</LinearLayout>

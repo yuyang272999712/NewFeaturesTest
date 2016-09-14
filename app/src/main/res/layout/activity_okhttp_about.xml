@@ -37,6 +37,12 @@
         android:onClick="downFile"
         android:text="DownFile"/>
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="downFiles"
+        android:text="多文件下载"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
