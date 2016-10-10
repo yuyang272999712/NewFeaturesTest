@@ -44,7 +44,7 @@ public class SoftInputModeActivity2 extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         context = (TextView) findViewById(R.id.context);
         editText = (EditText) findViewById(R.id.editText);
-        button = (Button) findViewById(R.id.button);
+        button = (Button) findViewById(R.id.btn_send);
 
         toolbar.setTitle("软键盘Mode_2");
         setSupportActionBar(toolbar);
