@@ -10,8 +10,8 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.DynamicWave;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
@@ -48,6 +48,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button stereoBtn;
     private Button colorPicker;
     private Button blurredImage;
+    private Button clockBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +86,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         stereoBtn = (Button) findViewById(R.id.defind_stereo);
         colorPicker = (Button) findViewById(R.id.defind_color_picker);
         blurredImage = (Button) findViewById(R.id.defind_blurred_image);
+        clockBtn = (Button) findViewById(R.id.defind_clock);
     }
 
     private void initDatas() {}
@@ -262,6 +264,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, BlurredImageActivity.class);
+                startActivity(intent);
+            }
+        });
+        clockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, MyClockActivity.class);
                 startActivity(intent);
             }
         });

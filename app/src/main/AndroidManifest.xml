@@ -98,6 +98,7 @@
         <activity android:name=".userDefinedWidget.ColorPickerActivity"/>
         <activity android:name=".userDefinedWidget.WaterWaveActivity"/>
         <activity android:name=".userDefinedWidget.blurredEffect.BlurredImageActivity"/>
+        <activity android:name=".userDefinedWidget.clockView.MyClockActivity"/>
         <activity android:name=".mvp.activity.UserInfoActivity"/>
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>

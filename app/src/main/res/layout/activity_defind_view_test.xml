@@ -104,6 +104,12 @@
                 android:layout_height="wrap_content"
                 android:text="图片模糊效果"/>
 
+            <Button
+                android:id="@+id/defind_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="自定义钟表效果"/>
+
         </GridLayout>
 
     </LinearLayout>

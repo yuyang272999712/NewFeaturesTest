@@ -1,3 +1,5 @@
+参考博客：http://blog.csdn.net/yanbober/article/details/48861457
+
 一、LoaderManager
     每个Activity／Fragment持有切仅有一个LoaderManager（LoaderManagerImpl的实现类），LoaderManager帮助我们管理
  Loader的生命周期。

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion "23.0.2"
 
     defaultConfig {
@@ -32,11 +32,11 @@ dependencies {
     compile project(':photoviewlibrary')
     compile project(':mybutterknife')
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.3.0'
-    compile 'com.android.support:design:23.3.0'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile 'com.android.support:design:24.2.0'
     compile 'com.github.bumptech.glide:glide:3.5.2'
-    compile 'com.android.support:recyclerview-v7:23.3.0'
-    compile 'com.android.support:support-v4:23.3.0'
+    compile 'com.android.support:recyclerview-v7:24.2.0'
+    compile 'com.android.support:support-v4:24.2.0'
     //viewpager小圆点指示器
     compile 'me.relex:circleindicator:1.1.8@aar'
     //google流式布局
@@ -53,9 +53,9 @@ dependencies {
     //json解析工具
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //取色器
-    compile 'com.android.support:palette-v7:23.3.0'
+    compile 'com.android.support:palette-v7:24.2.0'
     //卡片效果
-    compile 'com.android.support:cardview-v7:23.+'
+    compile 'com.android.support:cardview-v7:24.+'
     //EventBus:3.0
     compile 'org.greenrobot:eventbus:3.0.0'
 }

@@ -28,7 +28,7 @@ public class MySQLiteOpenHelper extends SQLiteOpenHelper {
             +")";
     private static final String CREATE_CATEGORY = "create table Category ("
             + "id integer primary key autoincrement, "
-            + "category_name test, "
+            + "category_name text, "
             + "category_code integer"
             +")";
 
