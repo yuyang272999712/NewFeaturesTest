@@ -12,6 +12,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;

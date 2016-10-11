@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -40,6 +40,7 @@ public class ProgressBarActivity extends AppCompatActivity {
     private HorizontalProgressBarWithNumber myHorProgressBar3;
     private RoundProgressBarWidthNumber myRoundProgressBar1;
     private RoundProgressBarWidthNumber myRoundProgressBar2;
+    private FlikerProgressBar myFlikerProgressBar;
 
     private Button start;
 
@@ -64,6 +65,7 @@ public class ProgressBarActivity extends AppCompatActivity {
         myHorProgressBar3.setProgress(progress);
         myRoundProgressBar1.setProgress(progress);
         myRoundProgressBar2.setProgress(progress);
+        myFlikerProgressBar.setProgress(progress);
     }
 
     @Override
@@ -89,6 +91,7 @@ public class ProgressBarActivity extends AppCompatActivity {
         myHorProgressBar3 = (HorizontalProgressBarWithNumber) findViewById(R.id.progress_horizontal_3);
         myRoundProgressBar1 = (RoundProgressBarWidthNumber) findViewById(R.id.progress_round_1);
         myRoundProgressBar2 = (RoundProgressBarWidthNumber) findViewById(R.id.progress_round_2);
+        myFlikerProgressBar = (FlikerProgressBar) findViewById(R.id.progress_fliker);
 
         start = (Button) findViewById(R.id.progress_start);
     }

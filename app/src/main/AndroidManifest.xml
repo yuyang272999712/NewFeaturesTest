@@ -81,7 +81,7 @@
         <activity android:name=".userDefinedWidget.weChatTabIndicator.WeChatActivity"/>
         <activity android:name=".userDefinedWidget.LuckyPanActivity"/>
         <activity android:name=".userDefinedWidget.CircleMenuActivity"/>
-        <activity android:name=".userDefinedWidget.ProgressBarActivity"/>
+        <activity android:name=".userDefinedWidget.progressBars.ProgressBarActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.FoldingLayoutActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.MatrixPolyToPolyActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.SimpleUseActivity"/>
