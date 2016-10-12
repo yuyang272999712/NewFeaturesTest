@@ -1,6 +1,5 @@
 package com.yuyang.fitsystemwindowstestdrawer;
 
-import android.app.Application;
 import android.content.Context;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
@@ -29,6 +28,8 @@ public class MyApplication extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
+
+        CrashHandler.getInstance().start(this);
     }
 
     @Override

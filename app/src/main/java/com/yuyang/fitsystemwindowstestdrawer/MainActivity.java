@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CrashHandler.getInstance().start(getApplicationContext());
 
         MyApplication.getInstance().setName("wocao");
 
