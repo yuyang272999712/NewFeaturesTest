@@ -11,6 +11,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.ViewInjectUtils;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ContentView;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ViewInject;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.diffUtil.DiffUtilRecyclerViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator.SlideRecyclerListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.removeItem.RecyclerViewRemoveItemActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeader.StickyHeaderRecyclerActivity;
@@ -72,6 +73,15 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
      */
     public void gotoStickyHeaderRecyclerView(View view){
         Intent intent = new Intent(this, StickyHeaderRecyclerActivity.class);
+        startActivity(intent);
+    }
+
+    /**
+     * 使用DiffUtil工具更新RecyclerView内容
+     * @param view
+     */
+    public void gotoDiffUtilRecyclerView(View view){
+        Intent intent = new Intent(this, DiffUtilRecyclerViewActivity.class);
         startActivity(intent);
     }
 }
