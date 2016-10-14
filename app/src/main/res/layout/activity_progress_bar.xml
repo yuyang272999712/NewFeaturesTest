@@ -131,7 +131,7 @@
             yy:progress_unreached_bar_height="5dp"
             yy:progress_unreached_color="#ff836d"
             yy:progress_text_color="#000000"
-            yy:progress_text_size="25dp"
+            yy:progress_text_size="25sp"
             yy:progress_text_offset="10dp"
             yy:progress_text_visibility="visible"
             yy:progress_radius="50dp"/>
@@ -142,6 +142,14 @@
             android:layout_height="35dp"
             android:layout_marginTop="10dp"
             android:max="100"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.PointerCircleProgressBar
+            android:id="@+id/progress_pointer_circle"
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_height="300dp"
+            android:max="100"
+            android:progress="3"/>
 
     </LinearLayout>
 

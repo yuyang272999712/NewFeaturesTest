@@ -41,6 +41,7 @@ public class ProgressBarActivity extends AppCompatActivity {
     private RoundProgressBarWidthNumber myRoundProgressBar1;
     private RoundProgressBarWidthNumber myRoundProgressBar2;
     private FlikerProgressBar myFlikerProgressBar;
+    private PointerCircleProgressBar myPointerCirclrPrg;
 
     private Button start;
 
@@ -66,6 +67,7 @@ public class ProgressBarActivity extends AppCompatActivity {
         myRoundProgressBar1.setProgress(progress);
         myRoundProgressBar2.setProgress(progress);
         myFlikerProgressBar.setProgress(progress);
+        myPointerCirclrPrg.setProgress(progress);
     }
 
     @Override
@@ -92,6 +94,7 @@ public class ProgressBarActivity extends AppCompatActivity {
         myRoundProgressBar1 = (RoundProgressBarWidthNumber) findViewById(R.id.progress_round_1);
         myRoundProgressBar2 = (RoundProgressBarWidthNumber) findViewById(R.id.progress_round_2);
         myFlikerProgressBar = (FlikerProgressBar) findViewById(R.id.progress_fliker);
+        myPointerCirclrPrg = (PointerCircleProgressBar) findViewById(R.id.progress_pointer_circle);
 
         start = (Button) findViewById(R.id.progress_start);
     }
