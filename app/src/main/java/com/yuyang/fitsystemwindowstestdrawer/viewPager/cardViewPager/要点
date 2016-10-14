@@ -1,0 +1,4 @@
+通过设置ViewPager的两个属性：
+    android:clipToPadding="false"
+    android:clipChildren="false"
+使ViewPager的padding区域也可以绘制adapter内容

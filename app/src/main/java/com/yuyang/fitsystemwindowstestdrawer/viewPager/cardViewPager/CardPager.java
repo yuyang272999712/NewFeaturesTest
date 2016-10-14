@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.cardViewPager;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager;
 
 import java.io.Serializable;
 

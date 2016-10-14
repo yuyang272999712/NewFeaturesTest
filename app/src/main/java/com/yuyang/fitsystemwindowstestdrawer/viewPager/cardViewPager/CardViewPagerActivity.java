@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.cardViewPager;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * Created by yuyang on 16/3/11.
- * 这里不是新空间CardView
+ * 这里不是新控件CardView
  * 使用的时ViewPager，关键是使用如下两个属性：
  *      android:clipToPadding="false"
  *      android:clipChildren="false"

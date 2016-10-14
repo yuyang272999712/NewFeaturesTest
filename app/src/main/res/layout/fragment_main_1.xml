@@ -93,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="卡片viewpager效果"/>
+                android:text="ViewPager综合"/>
 
             <Button
                 android:id="@+id/button10"

@@ -13,7 +13,6 @@ import android.widget.Button;
 import com.yuyang.fitsystemwindowstestdrawer.MetricsAbout.MetricsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.AndroidLActivity;
 import com.yuyang.fitsystemwindowstestdrawer.animationAbout.AnimationActivity;
-import com.yuyang.fitsystemwindowstestdrawer.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.customView.CustomActivity;
 import com.yuyang.fitsystemwindowstestdrawer.destWidget.DestWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.GoogleWidgetActivity;
@@ -28,6 +27,7 @@ import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyze
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.UserDefinedWidgetActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.ViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
 
 /**
@@ -144,7 +144,7 @@ public class MainFragment1 extends Fragment {
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CardViewPagerActivity.class);
+                Intent intent = new Intent(getContext(), ViewPagerActivity.class);
                 startActivity(intent);
             }
         });

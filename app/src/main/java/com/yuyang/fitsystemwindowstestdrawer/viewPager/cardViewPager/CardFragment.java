@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.cardViewPager;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -103,7 +103,8 @@
         <activity android:name=".listViewHolder.ListTestActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
         <activity android:name=".largeImage.LargeImageTestActivity"/>
-        <activity android:name=".cardViewPager.CardViewPagerActivity"/>
+        <activity android:name=".viewPager.cardViewPager.CardViewPagerActivity"/>
+        <activity android:name=".viewPager.ViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>
