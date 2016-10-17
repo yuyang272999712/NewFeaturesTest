@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,11 +25,13 @@ import java.util.List;
 public class GridViewPagerActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ViewPager mViewPager4Grid;
+    private ViewPager mViewPager4Recycler;
 
     private String[] titles = {"美食", "电影", "酒店住宿", "休闲娱乐", "外卖", "自助餐", "KTV", "机票/火车票", "周边游", "美甲美睫",
             "火锅", "生日蛋糕", "甜品饮品", "水上乐园", "汽车服务", "美发", "丽人", "景点", "足疗按摩", "运动健身", "健身", "超市", "买菜",
             "今日新单", "小吃快餐", "面膜", "洗浴/汗蒸", "母婴亲子", "生活服务", "婚纱摄影", "学习培训", "家装", "结婚", "全部分配"};
-    private List<View> mViewPagers;
+    private List<View> mGridViews;
+    private List<View> mRecyclerViews;
     private List<GridItem> mDatas;
     private LayoutInflater inflater;
     /**
@@ -50,16 +54,21 @@ public class GridViewPagerActivity extends AppCompatActivity {
         setToolbar();
 
         mViewPager4Grid = (ViewPager) findViewById(R.id.view_pager_1);
+        mViewPager4Recycler = (ViewPager) findViewById(R.id.view_pager_2);
         initDatas();//初始化数据（相当于数据加载）
 
         inflater = LayoutInflater.from(this);
 
         pageCount = (int) Math.ceil(titles.length*1.0d/pageSize);
-        mViewPagers = new ArrayList<>();
+        mGridViews = new ArrayList<>();
+        mRecyclerViews = new ArrayList<>();
         for (int i=0; i<pageCount; i++){
+            /**
+             * GridView布局
+             */
             GridView pageView = (GridView) inflater.inflate(R.layout.layout_grid_view, mViewPager4Grid, false);
             pageView.setAdapter(new GridAdapter(this, mDatas, pageSize, i));
-            mViewPagers.add(pageView);
+            mGridViews.add(pageView);
 
             pageView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -67,8 +76,15 @@ public class GridViewPagerActivity extends AppCompatActivity {
                     Toast.makeText(GridViewPagerActivity.this, mDatas.get((int) id).getTitle(), Toast.LENGTH_SHORT).show();
                 }
             });
+            /**
+             * RecyclerView布局
+             */
+            RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.layout_recycler_view, mViewPager4Recycler, false);
+            recyclerView.setLayoutManager(new GridLayoutManager(this, 4));
+            recyclerView.setAdapter(new RecyclerAdapter(this, mDatas, pageSize, i));
+            mRecyclerViews.add(recyclerView);
         }
-        mViewPager4Grid.setAdapter(new ViewPagerAdapter(mViewPagers));
+        mViewPager4Grid.setAdapter(new ViewPagerAdapter(mGridViews));
         mViewPager4Grid.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -85,6 +101,7 @@ public class GridViewPagerActivity extends AppCompatActivity {
 
             }
         });
+        mViewPager4Recycler.setAdapter(new ViewPagerAdapter(mRecyclerViews));
     }
 
     private void initDatas() {
