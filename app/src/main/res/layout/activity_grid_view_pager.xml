@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="GridView实现"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:background="#99e0ff">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="RecyclerView实现"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="245dp"
+        android:background="#99e0ff">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+</LinearLayout>

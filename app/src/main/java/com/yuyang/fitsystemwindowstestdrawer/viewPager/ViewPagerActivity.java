@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager.CardViewPagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.gridViewPager.GridViewPagerActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,7 +25,7 @@ import java.util.List;
  */
 
 public class ViewPagerActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("卡片效果");
+    private List<String> items = Arrays.asList("卡片效果","GridView配合ViewPager");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -60,6 +61,9 @@ public class ViewPagerActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         intent = new Intent(ViewPagerActivity.this, CardViewPagerActivity.class);
+                        break;
+                    case 1:
+                        intent = new Intent(ViewPagerActivity.this, GridViewPagerActivity.class);
                         break;
                 }
                 startActivity(intent);
