@@ -1,0 +1,26 @@
+Recycler对象
+    当你的 LayoutManager 需要一个新的子视图时，只要调用
+  !--yuyang getViewForPosition() 这个方法，Recycler 会决定到底是从头创建一个新的视图 还是重用一个已存在的废弃视图。
+  你的 LayoutManager 需要及时将不再显示的视图传递给 Recycler， 避免 Recycler 创建不必要的 view 对象。
+
+    在Recycler 中，有两个缓存：!--yuyang Scrap和Recycle。Scrap中文就是废料的意思，Recycle对应是回收的意思。
+  首先Scrap缓存是指里面缓存的View是接下来需要用到的，即里面的绑定的数据无需更改，可以直接拿来用的，是一个轻量级的缓存集合；
+  而Recycle的缓存的View为里面的数据需要重新绑定，即需要通过Adapter的onBindViewHolder()方法重新绑定数据。
+    当我们去获取一个新的View时，Recycler首先去检查Scrap缓存是否有对应的position的View，如果有，则直接拿出来可以直接用，不用去重新绑定数据；
+  如果没有，则从Recycle缓存中取，并且会回调Adapter的onBindViewHolder方法（当然了，如果Recycle缓存为空，还会调用onCreateViewHolder方法），
+  最后再将绑定好新数据的View返回。
+
+    我们有两种选择的方式：Detach和Remove来决定View缓存到哪里，Detach的View放在Scrap缓存中，Remove掉的View放在Recycle缓存中。
+    Detach使用场景：主要是在我们的代码执行结束之前，我们需要反复去将View移除并且马上又要添加进去时，选择Datach方式，
+  比如：当我们对View进行重新排序的时候，可以选择Detach，因为屏幕上显示的就是这些position对应的View，我们并不需要重新去绑定数据，
+  这明显可以提高效率。使用Detach方式可以通过函数!--yuyang detachAndScrapView()实现。
+    Remove使用场景：当View不在屏幕中有任何显示的时候，你需要将它Remove掉，以备后面循环利用。
+  可以通过函数!--yuyang removeAndRecycleView()实现。
+
+
+LayoutManager类
+    常用方法：
+        1、generateDefaultLayoutParams()     必须重写
+        2、onLayoutChildren()        布局子View（ViewGroup类都需要重写onLayout方法来布局子View，这里的作用相同）
+        3、canScrollVertically()／canScrollHorizontally()     是否可以竖直／水平滑动
+        4、scrollVerticallyBy()／scrollHorizontallyBy()       用于实现垂直／水平方向滑动

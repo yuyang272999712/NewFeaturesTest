@@ -3,6 +3,9 @@ package com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeader;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 测试数据生成类
+ */
 public class DataUtil {
   public static final int MODEL_COUNT = 30;
 

@@ -148,10 +148,11 @@
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerView.RecyclerViewDemoActivity"/>
         <activity android:name=".recyclerView.removeItem.RecyclerViewRemoveItemActivity"/>
-        <activity android:name=".recyclerView.totalEffect.SwipeRefreshActivity"/>
+        <activity android:name=".recyclerView.totalEffect.SwipeRefreshTouchHelperActivity"/>
         <activity android:name=".recyclerView.itemAnimator.SlideRecyclerListActivity"/>
         <activity android:name=".recyclerView.stickyHeader.StickyHeaderRecyclerActivity"/>
         <activity android:name=".recyclerView.diffUtil.DiffUtilRecyclerViewActivity"/>
+        <activity android:name=".recyclerView.customLayoutManager.CustomLayoutManagerActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
             android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
         <activity android:name=".customView.CustomActivity"

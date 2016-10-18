@@ -28,7 +28,7 @@ import me.relex.circleindicator.CircleIndicator;
  * ItemTouchHelper实现RecyclerView上添加拖动排序与滑动删除的事情
  * RecyclerLoadMoreAdapter 自带加载更多的adapter
  */
-public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDragListener {
+public class SwipeRefreshTouchHelperActivity extends AppCompatActivity implements OnStartDragListener {
     private SwipeRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
     private AutoLoopViewPager bannerViewPager;
@@ -113,13 +113,13 @@ public class SwipeRefreshActivity extends AppCompatActivity implements OnStartDr
             @Override
             public void onItemClick(RecyclerView.ViewHolder viewHolder) {
                 long itemId = viewHolder.getAdapterPosition();
-                Toast.makeText(SwipeRefreshActivity.this, "单击了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipeRefreshTouchHelperActivity.this, "单击了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onItemLongClick(RecyclerView.ViewHolder viewHolder) {
                 long itemId = viewHolder.getAdapterPosition();
-                Toast.makeText(SwipeRefreshActivity.this, "长按了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SwipeRefreshTouchHelperActivity.this, "长按了第"+itemId+"个item", Toast.LENGTH_SHORT).show();
             }
         });
     }

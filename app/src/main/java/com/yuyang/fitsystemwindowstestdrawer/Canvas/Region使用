@@ -1,0 +1,69 @@
+Region用来表示Canvas图层上的某个封闭的区域。
+
+1. Region内部类
+    Region.Op：两个Region组合的方式，有下面6中方式，每种方式对应不同的结果：
+    DIFFERENCE：在第一个Region的基础上减掉和第二个Region重合的区域。
+    INTERSECT：两个Region交集部分。
+    UNION：全集 两个Region的全集。
+    XOR：补集，全集减去交集。
+    REVERSE_DIFFERENCE：第二个Region的基础上减掉和第一个Region重合的部分。
+    REPLACE: 第二个Region区域。
+
+2. Region API
+    四个构造函数，这个好说。
+        Region()
+        Region(Region region)
+        Region(Rect r)
+        Region(int left, int top, int right, int bottom)
+
+    当前Region是否包含指定的点（x，y）。!--yuyang 可用于判断点击是否在Region区域
+        contains(int x, int y)
+
+    获取Region的Path边界区域。第一个函数获取到的Path边界区域放在path中，第二个函数直接返回Path边界区域。
+        getBoundaryPath(Path path)
+        getBoundaryPath()
+
+    获取Region的矩形边界区域。第一个函数获取到的矩形边界区域放在r中，第二个函数直接返回矩形边界区域。（用Rect去框Region）
+        getBounds(Rect r)
+        getBounds()
+
+    Region是否包含多个矩形。
+        isComplex()
+
+    Region是否为空。
+        isEmpty()
+
+    Region是否是一个矩形。
+        isRect()
+
+    设置Region为两个Region进行Op的结果。(注意如果参数里面只是指定了一个Region那么就是和当前的Region Op)。
+        op(Region region1, Region region2, Region.Op op)
+        op(Rect r, Region.Op op)
+        op(Rect rect, Region region, Region.Op op)
+        op(Region region, Region.Op op)
+        op(int left, int top, int right, int bottom, Region.Op op)
+
+    Region是否是一个矩形，并且包含r。(只能是一个矩形，单数)。
+        quickContains(Rect r)
+        quickContains(int left, int top, int right, int bottom)
+
+    Region是否是空或者和参数里面的区域不相交。（如果Region是空返回值也是true）
+        quickReject(Region rgn)
+        quickReject(Rect r)
+        quickReject(int left, int top, int right, int bottom)
+
+    设置Region，最后一个函数取的是共同的区域。
+        set(int left, int top, int right, int bottom)
+        set(Region region)
+        set(Rect r)
+        setEmpty()
+        setPath(Path path, Region clip)
+
+    Region做dx，dy的平移变换，第一个函数同时把结果放在dst中。
+        translate(int dx, int dy, Region dst)
+        translate(int dx, int dy)
+
+    Region和r合并。（取两者的交集）
+        union(Rect r)
+
+
