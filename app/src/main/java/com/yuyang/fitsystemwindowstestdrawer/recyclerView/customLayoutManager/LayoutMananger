@@ -20,7 +20,35 @@ Recycler对象
 
 LayoutManager类
     常用方法：
-        1、generateDefaultLayoutParams()     必须重写
+        1、generateDefaultLayoutParams()     !--yuyang 必须重写
         2、onLayoutChildren()        布局子View（ViewGroup类都需要重写onLayout方法来布局子View，这里的作用相同）
         3、canScrollVertically()／canScrollHorizontally()     是否可以竖直／水平滑动
         4、scrollVerticallyBy()／scrollHorizontallyBy()       用于实现垂直／水平方向滑动
+
+    1、onLayoutChildren()
+        它会在 view 需要初始化布局时调用，当适配器的数据改变时(或者整个适配器被换掉时)会再次调用。
+        !--yuyang 注意！这个方法不是在每次你对布局作出改变时调用的。它是 初始化布局 或者 在数据改变时重置子视图布局的位置。
+
+        通常的设计是在onLayoutChildren()方法的最后调用一个!--yuyang fill()方法，来完成ChildView的布局绘制工作
+        !--yuyang fill()方法通常来说，在这个方法之中你需要完成的主要步骤如下：
+            a、在滚动事件结束后检查所有附加视图当前的偏移位置。
+            b、判断是否需要添加新视图填充由滚动屏幕产生的空白部分。并从 Recycler 中获取视图。
+            c、判断当前视图是否不再显示。移除它们并放置到 Recycler 中。
+            d、判断剩余视图是否需要整理。发生上述变化后可能 需要你修改视图的子索引来更好地和它们的适配器位置校准。
+
+    2、scrollHorizontallyBy() & scrollVerticallyBy()
+        在这里你应该实现 content 移动的逻辑。RecyclerView 已经处理了 scrolling 和 flinging触摸操作，
+      不需要处理 MotionEvents 或者 GestureDetectors 这些麻烦事。 你只需要完成下面这三个任务：
+        a、将所有的子视图移动适当的位置 (对的，你得自己做这个)。
+            判断按照所给的距离(标志给了滚动方向)滚动会不会超过边界。如果会，需要计算出视图实际滚动的距离。
+            根据滚动距离自己手工移动这些视图。offsetChildrenVertical() 和 offsetChildrenHorizontal() 这两个方法可以帮助我们处理匀速
+          移动。如果你不实现它，你的视图就不会滚动。
+        b、决定移动视图后 添加/移除 视图。
+            移动视图操作完成后，我们触发另一个填充操作（即：!--yuyang 调用fill()方法），根据滚动的距离替换视图。
+        c、返回滚动的实际距离。框架会根据它判断你是否触碰到边界。
+            最后，将实际位移距离应用给子视图。RecyclerView 根据这个值判断是否 绘制到达边界的效果。一般意义上，如果返回值不等于传入的值就意味着
+          需要绘制边缘的发光效果了。 如果你返回了一个带有错误方向的值，框架的函数会把这个当做一个大的变化 你将不能获得正确的边缘发光特效。
+            除了用来判断绘制边界特效外，返回值还被用来决定什么时候取消 flings。 返回错误的值会让你失去对 content fling 的控制。框架会认为你
+          已经提前 触碰到边缘并取消了 fling。
+
+

@@ -83,7 +83,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 				+ "_" + android.os.Build.MODEL + "\n");//手机版本信息
 		exceptionStr.append("Vendor: " + Build.MANUFACTURER + "\n");//手机制造商
 		exceptionStr.append("Model: " + Build.MODEL + "\n");//手机型号
-		exceptionStr.append("CUP ABI: " + Build.CPU_ABI);//CUP架构
+		exceptionStr.append("CUP ABI: " + Build.CPU_ABI + "\n");//CUP架构
 		exceptionStr.append(log);
 		Log.e(TAG, exceptionStr.toString());
 		try {

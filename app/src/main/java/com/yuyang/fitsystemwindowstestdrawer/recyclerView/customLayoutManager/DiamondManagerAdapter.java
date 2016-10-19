@@ -11,17 +11,15 @@ import android.widget.Toast;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.CommonViewHolder;
 
-import java.util.Random;
-
 /**
- * Created by yuyang on 16/10/18.
+ * 菱形的自定义布局
  */
 
-public class CustomManagerAdapter extends RecyclerView.Adapter<CommonViewHolder> {
+public class DiamondManagerAdapter extends RecyclerView.Adapter<CommonViewHolder> {
     private int totalSize;
     private Context mContext;
 
-    public CustomManagerAdapter(Context context, int totalSize){
+    public DiamondManagerAdapter(Context context, int totalSize){
         this.mContext = context;
         this.totalSize = totalSize;
     }

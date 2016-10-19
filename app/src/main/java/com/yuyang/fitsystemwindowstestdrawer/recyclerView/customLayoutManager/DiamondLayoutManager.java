@@ -108,13 +108,16 @@ public class DiamondLayoutManager extends RecyclerView.LayoutManager {
             // 每一组的第一行
             if (isItemInFirstLine(i)) {
                 int offsetInLine = i < firstLineSize ? i : i % mGroupSize;
-                item.set(mGravityOffset + offsetInLine * itemWidth, offsetHeight, mGravityOffset + offsetInLine * itemWidth + itemWidth,
+                item.set(mGravityOffset + offsetInLine * itemWidth,
+                        offsetHeight,
+                        mGravityOffset + offsetInLine * itemWidth + itemWidth,
                         itemHeight + offsetHeight);
             }else {
                 int lineOffset = itemHeight / 2;
                 int offsetInLine = (i < secondLineSize ? i : i % mGroupSize) - firstLineSize;
                 item.set(mGravityOffset + offsetInLine * itemWidth + itemWidth / 2,
-                        offsetHeight + lineOffset, mGravityOffset + offsetInLine * itemWidth + itemWidth  + itemWidth / 2,
+                        offsetHeight + lineOffset,
+                        mGravityOffset + offsetInLine * itemWidth + itemWidth  + itemWidth / 2,
                         itemHeight + offsetHeight + lineOffset);
             }
             mItemFrames.put(i, item);
@@ -140,17 +143,40 @@ public class DiamondLayoutManager extends RecyclerView.LayoutManager {
         //标记当前显示的区域, 因为RecyclerView是可滑动的, 所以这个区域不能简单的是0~高度/宽度这么一个值,
         //还要加上当前滑动的偏移量.
         Log.e("绘制","fill进行了绘制，绘制时mVerticalOffset＝"+mVerticalOffset);
-        Rect displayRect = new Rect(mHorizontalOffset, mVerticalOffset,
+        Rect displayRect1 = new Rect(mHorizontalOffset, mVerticalOffset,
                 getHorizontalSpace() + mHorizontalOffset,
                 getVerticalSpace() + mVerticalOffset);
+        Rect displayRect2 = new Rect(getPaddingLeft(), getPaddingTop(), getHorizontalSpace(), getVerticalSpace());
 
+        //子View移动后会有些View移出了屏幕
+        //接下来, 通过getChildCount获取RecyclerView中的所有子view, 并且依次判断这些view是否在当前显示范围内,
+        //如果不在, 就通过removeAndRecycleView将它移除并回收掉, recycle的作用是回收一个view, 并等待下次使用,
+        //这里可能会被重新绑定新的数据. 而scrap的作用是缓存一个view, 并等待下次显示, 这里的view会被直接显示出来.
+        List<View> removeViews = new ArrayList<>();//记录需要回收的childView
+        Rect rect = new Rect();
+        for (int i = 0; i < getChildCount(); i++) {
+            View item = getChildAt(i);
+            rect.left = getDecoratedLeft(item);
+            rect.top = getDecoratedTop(item);
+            rect.right = getDecoratedRight(item);
+            rect.bottom = getDecoratedBottom(item);
+            if (!Rect.intersects(displayRect2, rect)) {
+                removeViews.add(item);
+            }
+        }
+        for (View view:removeViews){
+            removeAndRecycleView(view, recycler);
+        }
+
+        //回收所有经过上面步骤后屏幕上还剩下的View，由于接下来直接显示
+        detachAndScrapAttachedViews(recycler);
         //这里是循环的getItemCount, 也就是所有的item个数, 依然判断它是不是在显示区域, 如果在,
         //则通过recycler.getViewForPosition(i)拿到这个view, 并且通过addView添加到RecyclerView中,
         //添加进去了还没完, 还需要调用measureChildWithMargins方法对这个view进行测量.
         //最后调用layoutDecorated对item view进行layout操作.
         for (int i=0; i<getItemCount(); i++){
             Rect frame = mItemFrames.get(i);
-            if (Rect.intersects(displayRect, frame)){
+            if (Rect.intersects(displayRect1, frame)){
                 View scrap = recycler.getViewForPosition(i);
                 addView(scrap);
                 //!--yuyang 子View的测量
@@ -159,25 +185,6 @@ public class DiamondLayoutManager extends RecyclerView.LayoutManager {
                 layoutDecorated(scrap, frame.left-mHorizontalOffset, frame.top-mVerticalOffset, frame.right-mHorizontalOffset, frame.bottom-mVerticalOffset);
             }
         }
-
-        //接下来, 通过getChildCount获取RecyclerView中的所有子view, 并且依次判断这些view是否在当前显示范围内,
-        //如果不再, 就通过removeAndRecycleView将它移除并回收掉, recycle的作用是回收一个view, 并等待下次使用,
-        //这里可能会被重新绑定新的数据. 而scrap的作用是缓存一个view, 并等待下次显示, 这里的view会被直接显示出来.
-        /*List<View> removeViews = new ArrayList<>();//记录需要回收的childView
-        Rect rect = new Rect();
-        for (int i = 0; i < getChildCount(); i++) {
-            View item = getChildAt(i);
-            rect.left = getDecoratedLeft(item);
-            rect.top = getDecoratedTop(item);
-            rect.right = getDecoratedRight(item);
-            rect.bottom = getDecoratedBottom(item);
-            if (!Rect.intersects(displayRect, rect)) {
-                removeViews.add(item);
-            }
-        }
-        for (View view:removeViews){
-            removeAndRecycleView(view, recycler);
-        }*/
     }
 
     /**
@@ -207,13 +214,19 @@ public class DiamondLayoutManager extends RecyclerView.LayoutManager {
         mHorizontalOffset += dx;
 
         if (dx != 0) {
-            detachAndScrapAttachedViews(recycler);
             fill(recycler, state);
         }
 
         return dx;
     }
 
+    /**
+     * 先计算偏移量，然后重新布局子View
+     * @param dy
+     * @param recycler
+     * @param state
+     * @return
+     */
     @Override
     public int scrollVerticallyBy(int dy, RecyclerView.Recycler recycler, RecyclerView.State state) {
         if (mVerticalOffset + dy < 0) {
@@ -224,10 +237,10 @@ public class DiamondLayoutManager extends RecyclerView.LayoutManager {
         Log.e("测量1","偏移量："+dy
                 +"\nmVerticalOffset+dy:"+(mVerticalOffset + dy)
                 +"\nmTotalHeight - getVerticalSpace():"+(mTotalHeight - getVerticalSpace()));
+        //子View整体移动
         offsetChildrenVertical(-dy);
         mVerticalOffset += dy;
         if (dy != 0) {
-            detachAndScrapAttachedViews(recycler);
             fill(recycler, state);
         }
         Log.e("测量2","mVerticalOffset："+mVerticalOffset);
