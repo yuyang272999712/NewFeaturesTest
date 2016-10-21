@@ -32,7 +32,7 @@ public class ReflectView extends View {
         super(context, attrs);
         mSrcBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.color_matrix_test1);
         Matrix matrix = new Matrix();
-        matrix.setScale(1F,-1F);
+        matrix.setScale(1F,-1F);//翻转（特殊技巧，通过缩放来上下旋转翻转图片）
         mRefBitmap = Bitmap.createBitmap(mSrcBitmap, 0, 0, mSrcBitmap.getWidth(), mSrcBitmap.getHeight(), matrix, true);
 
         mPaint = new Paint();

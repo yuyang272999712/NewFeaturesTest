@@ -1,18 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main_view"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:padding="30dp"
         android:layout_marginBottom="20dp"
         android:layout_marginTop="20dp"
         android:clipToPadding="false"
         android:clipChildren="false"/>
 
-</RelativeLayout>
+    <FrameLayout
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:clipToPadding="false"
+        android:padding="5dp"
+        android:background="#f49993">
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/a"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</LinearLayout>

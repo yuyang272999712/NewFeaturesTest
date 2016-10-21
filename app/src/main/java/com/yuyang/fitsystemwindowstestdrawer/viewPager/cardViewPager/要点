@@ -2,3 +2,8 @@
     android:clipToPadding="false"
     android:clipChildren="false"
 使ViewPager的padding区域也可以绘制adapter内容
+
+clipToPadding设置是否在padding区域绘制子View
+clipChildren设置是否剪裁子View（如果图片宽50，显示它的ImageView宽20，那么父ViewGroup会绘制出整个图片，但是ImageView的宽度依然是20）
+
+可以修改activity_card_view_pager.xml中最下面的FrameLayout的属性试试看

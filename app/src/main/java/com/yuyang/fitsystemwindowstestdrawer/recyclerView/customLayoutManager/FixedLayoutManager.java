@@ -1,8 +1,11 @@
 package com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager;
 
 import android.content.Context;
+import android.graphics.PointF;
+import android.support.v7.widget.LinearSmoothScroller;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.SparseArray;
 import android.util.SparseIntArray;
 import android.view.View;
@@ -16,6 +19,7 @@ import java.util.List;
  */
 
 public class FixedLayoutManager extends RecyclerView.LayoutManager {
+    private static final String TAG = FixedLayoutManager.class.getSimpleName();
     /* 默认列数 */
     private static final int DEFAULT_COUNT = 1;
 
@@ -109,8 +113,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
 
         SparseIntArray removedCache = null;
         /*
-         * During pre-layout, we need to take note of any views that are
-         * being removed in order to handle predictive animations
+         * 预布局阶段我们需要判断所有会被移除的View，以便Predictive功能能够正确的执行动画
          */
         if (state.isPreLayout()) {
             removedCache = new SparseIntArray(getChildCount());
@@ -124,7 +127,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
                 }
             }
 
-            //Track view removals that happened out of bounds (i.e. off-screen)
+            //如果移除的View发生在可见屏幕之外
             if (removedCache.size() == 0 && mChangedPositionCount > 0) {
                 for (int i = mFirstChangedPosition; i < (mFirstChangedPosition + mChangedPositionCount); i++) {
                     removedCache.put(i, REMOVE_INVISIBLE);
@@ -135,35 +138,32 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
         /* 重置ChildView位置 */
         int childLeft = 0;
         int childTop = 0;
-        if (getChildCount() == 0) { //First or empty layout
-            //Reset the visible and scroll positions
+        if (getChildCount() == 0) { //当前没有ChildView，说明是一次新的布局操作
             mFirstVisiblePosition = 0;
             childLeft = getPaddingLeft();
             childTop = getPaddingTop();
         } else if (!state.isPreLayout()
-                && getVisibleChildCount() >= state.getItemCount()) {
-            //Data set is too small to scroll fully, just reset position
+                && getVisibleChildCount() >= state.getItemCount()) {//一个数据集adapter更新操作notifyDataSetChange()
+            //数据集过小，无法满足滚动操作
             mFirstVisiblePosition = 0;
             childLeft = getPaddingLeft();
             childTop = getPaddingTop();
-        } else { //Adapter data set changes
+        } else { //一个数据集adapter更新操作notifyDataSetChange()
             /*
-             * Keep the existing initial position, and save off
-             * the current scrolled offset.
+             * 保持现在的position，并保持现在的偏移量
              */
             final View topChild = getChildAt(0);
             childLeft = getDecoratedLeft(topChild);
             childTop = getDecoratedTop(topChild);
 
             /*
-             * When data set is too small to scroll vertically, adjust vertical offset
-             * and shift position to the first row, preserving current column
+             * 如果新的数据太小以至于无法满足竖直方向上的滑动，重置竖直偏移量和第一个位置的position
              */
             if (!state.isPreLayout() && getVerticalSpace() > (getTotalRowCount() * mDecoratedChildHeight)) {
                 mFirstVisiblePosition = mFirstVisiblePosition % getTotalColumnCount();
                 childTop = getPaddingTop();
 
-                //If the shift overscrolls the column max, back it off
+                //如果水平方向也无法满足滚动的需要，同样重置水平偏移量和第一个位置的position
                 if ((mFirstVisiblePosition + mVisibleColumnCount) > state.getItemCount()) {
                     mFirstVisiblePosition = Math.max(state.getItemCount() - mVisibleColumnCount, 0);
                     childLeft = getPaddingLeft();
@@ -171,10 +171,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             }
 
             /*
-             * Adjust the visible position if out of bounds in the
-             * new layout. This occurs when the new item count in an adapter
-             * is much smaller than it was before, and you are scrolled to
-             * a location where no items would exist.
+             * 如果新的数据集很小，保持当前位置会使滚动超出边界。 我们就应该调整第一个 item 的位置，以便和右下角对齐。
              */
             int maxFirstRow = getTotalRowCount() - (mVisibleRowCount-1);
             int maxFirstCol = getTotalColumnCount() - (mVisibleColumnCount-1);
@@ -209,10 +206,10 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             }
         }
 
-        //清理所有的ChildView，放入Scrap集合中
+        //TODO yuyang 关键步骤 清理所有的ChildView，放入Scrap集合中
         detachAndScrapAttachedViews(recycler);
 
-        //布局绘制
+        //TODO yuyang 关键步骤 布局绘制
         fillGrid(DIRECTION_NONE, childLeft, childTop, recycler, state, removedCache);
 
         //Evaluate any disappearing views that may exist
@@ -260,7 +257,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
         if (mFirstVisiblePosition >= getItemCount()) {
             mFirstVisiblePosition = (getItemCount() - 1);
         }
-        /*
+        /*TODO yuyang 关键步骤
           第一步：清点目前我们所有的视图。将他们 Detach 以便稍后重新连接。
          */
         SparseArray<View> viewCache = new SparseArray<>();
@@ -299,7 +296,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             }
         }
 
-        /*
+        /*TODO yuyang 关键步骤
          第二步：测量/布局每一个当前可见的子视图。重新连接已有的视图，新的视图是从 Recycler 之中获取的。
          */
         //根据移动的方向改变mFirstVisiblePosition的值
@@ -379,11 +376,14 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
                 viewCache.remove(nextPosition);
             }
 
+            /*
+            这里给 N 个 appearing views 布局，N 是被移除的可见视图个数。 这些 view 永远是从右侧进入的，
+            所以他们被安排在最后一列 可见 view 的后面。
+             */
             if (i % mVisibleColumnCount == (mVisibleColumnCount - 1)) {
                 leftOffset = startLeftOffset;
                 topOffset += mDecoratedChildHeight;
 
-                //During pre-layout, on each column end, apply any additional appearing views
                 if (state.isPreLayout()) {
                     layoutAppearingViews(recycler, view, nextPosition, removedPositions.size(), offsetPositionDelta);
                 }
@@ -392,13 +392,13 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             }
         }
 
-        /**
+        /*
+         * TODO yuyang 关键步骤
          * 最后一步：将之前缓存的但没有再添加回布局中的View回收至Recycle缓存中，以便Recycler对象可以回收利用
          */
         for (int i=0; i < viewCache.size(); i++) {
             recycler.recycleView(viewCache.valueAt(i));
         }
-
     }
 
     /**
@@ -437,6 +437,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             return 0;
         }
 
+        //TODO yuyang 关键步骤 计算真正的位置距离
         int delta;
         boolean leftBoundReached = getFirstVisibleColumn() == 0;//是否到达第一例
         boolean rightBoundReached = getLastVisibleColumn() >= getTotalColumnCount();//是否到达最后一列
@@ -457,6 +458,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
             }
         }
 
+        //TODO yuyang 关键步骤
         offsetChildrenHorizontal(delta);
 
         if (dx > 0) {
@@ -555,8 +557,82 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
         return -delta;
     }
 
+    @Override
+    public void onAdapterChanged(RecyclerView.Adapter oldAdapter, RecyclerView.Adapter newAdapter) {
+        //移除所有子视图，触发重新布局操作
+        removeAllViews();
+    }
+
+    /**
+     * 跳转至制定位置
+     */
+    @Override
+    public void scrollToPosition(int position) {
+        if (position >= getItemCount()) {
+            Log.e(TAG, "Cannot scroll to "+position+", item count is "+getItemCount());
+            return;
+        }
+        //重置初始位置为指定的position
+        mFirstVisiblePosition = position;
+        //移除所有View
+        removeAllViews();
+        requestLayout();
+    }
+
+    /**
+     * 如果想实现带动画过程的滚动必须实现这个方法
+     */
+    @Override
+    public void smoothScrollToPosition(RecyclerView recyclerView, RecyclerView.State state, final int position) {
+        if (position >= getItemCount()) {
+            Log.e(TAG, "Cannot scroll to "+position+", item count is "+getItemCount());
+            return;
+        }
+
+        LinearSmoothScroller scroller = new LinearSmoothScroller(recyclerView.getContext()) {
+            @Override
+            public PointF computeScrollVectorForPosition(int targetPosition) {
+                final int rowOffset = getGlobalRowOfPosition(targetPosition)
+                        - getGlobalRowOfPosition(mFirstVisiblePosition);
+                final int columnOffset = getGlobalColumnOfPosition(targetPosition)
+                        - getGlobalColumnOfPosition(mFirstVisiblePosition);
+
+                return new PointF(columnOffset * mDecoratedChildWidth, rowOffset * mDecoratedChildHeight);
+            }
+        };
+        scroller.setTargetPosition(position);
+        startSmoothScroll(scroller);
+    }
+
+    /**
+     * 如果希望LayoutManager支持item位置变更的动画效果，你需要返回true
+     * 如果返回true，动画执行的时候onLayoutChildren()方法会调用两次，
+     * 第一次是预布局阶段，第二次是真正的布局
+     */
+    @Override
+    public boolean supportsPredictiveItemAnimations() {
+        return true;
+    }
+
+    /*
+     * Called by RecyclerView when a view removal is triggered. This is called
+     * before onLayoutChildren() in pre-layout if the views removed are not visible. We
+     * use it in this case to inform pre-layout that a removal took place.
+     *
+     * This method is still called if the views removed were visible, but it will
+     * happen AFTER pre-layout.
+     */
+    @Override
+    public void onItemsRemoved(RecyclerView recyclerView, int positionStart, int itemCount) {
+        mFirstChangedPosition = positionStart;
+        mChangedPositionCount = itemCount;
+    }
+
     /**－－－－－－－－－－－－－－动画相关－－－－－－－－－－－－－－*/
-    /* Helper to obtain and place extra appearing views */
+    /*
+    * 在这个方法里，每一个 appearing view 被布局到它的"全局"位置(就是它在这个网格中
+    * 占据的行/列)。虽然位置在屏幕之外，但是为框架创建滑入 view 动画的起始点提供了 必要的数据。
+    */
     private void layoutAppearingViews(RecyclerView.Recycler recycler, View referenceView, int referencePosition, int extraCount, int offset) {
         //Nothing to do...
         if (extraCount < 1) return;
@@ -671,7 +747,7 @@ public class FixedLayoutManager extends RecyclerView.LayoutManager {
     }
 
     /**
-     * 后去当前屏幕可以显示下多少ChildView
+     * 获取当前屏幕可以显示下多少ChildView
      * @return
      */
     private int getVisibleChildCount() {

@@ -2,3 +2,10 @@ TODO yuyang ViewPager切换动画，例：ViewPagerFragmentActivity.java
 android3.0以后ViewPager新增加了一个
     setPageTransformer(boolean reverseDrawingOrder, PageTransformer transformer)
 方法，设置该方法可为ViewPager添加自定义切换动画。
+
+    PageTransformer接口需要实现一个方法：
+        public void transformPage(View page, float position);
+
+    position的取值有如下说明：
+    position是指的是页面相对于中间页面的位置参数，根据位置不同，0的时候在中间最前面，1的时候页面完全在右边，
+  -1的时候页面完全在左边。如图PageTransFormer_position.png：

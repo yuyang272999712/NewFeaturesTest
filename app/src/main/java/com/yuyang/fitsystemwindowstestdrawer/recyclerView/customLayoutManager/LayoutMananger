@@ -24,6 +24,11 @@ LayoutManager类
         2、onLayoutChildren()        布局子View（ViewGroup类都需要重写onLayout方法来布局子View，这里的作用相同）
         3、canScrollVertically()／canScrollHorizontally()     是否可以竖直／水平滑动
         4、scrollVerticallyBy()／scrollHorizontallyBy()       用于实现垂直／水平方向滑动
+        5、onAdapterChanged()        设置新的 adapter 会触发这个事件 (在这，setAdapter会被再次调用)
+        6、scrollToPosition()        !--yuyang 如果要实现滚动必须实现这个方法。
+                                     RecyclerView的scrollToPosition()方法会调用LayoutManager的这个方法，直接跳转至指定位置
+        7、smoothScrollToPosition()  !--yuyang 如果要实现带动画的滚动必须实现这个方法。
+        8、supportsPredictiveItemAnimations()  !--yuyang 告诉RecyclerView是否支持item动画效果
 
     1、onLayoutChildren()
         它会在 view 需要初始化布局时调用，当适配器的数据改变时(或者整个适配器被换掉时)会再次调用。
@@ -51,4 +56,66 @@ LayoutManager类
             除了用来判断绘制边界特效外，返回值还被用来决定什么时候取消 flings。 返回错误的值会让你失去对 content fling 的控制。框架会认为你
           已经提前 触碰到边缘并取消了 fling。
 
+    3、Item Decorations 支持
+        RecyclerView 有一个很好的特性 RecyclerView.ItemDecoration，它可以给 子视图添加自定义样式，还可以在不修改子视图布局参数的情况下
+      插入布局属性(margins)。后者就是 LayoutManager 必须提供的约束子视图布局方式。
 
+        !--yuyang LayoutManager 中提供了一些辅助方法操作 decorations ，不需要我们自己实现：
+            a、用getDecoratedLeft()代替child.getLeft()获取子视图的 left 边缘。
+            b、用getDecoratedTop()代替getTop()获取子视图的 top 边缘。
+            c、用getDecoratedRight()代替getRight()获取子视图的 right 边缘。
+            d、用getDecoratedBottom()代替getBottom()获取子视图的 bottom 边缘。
+            e、使用 measureChild() 或 measureChildWithMargins() 代替child.measure() 测量来自 Recycler 的新视图。
+            f、使用layoutDecorated()代替 child.layout() 布局来自 Recycler 的新视图。
+            g、使用 getDecoratedMeasuredWidth()或 getDecoratedMeasuredHeight() 代替 child.getMeasuredWidth()
+               或child.getMeasuredHeight()获取 子视图的测量数据。
+        只要你使用了正确的方法去获取视图的属性和测量数据，RecyclerView 会自己搞定细节部分的处理。
+
+    4、当使用 notifyDataSetChanged()触发 RecyclerView.Adapter 的更新操作时， LayoutManager 负责更新布局中的视图。
+  这时，onLayoutChildren()会被再次调用。 实现这个功能需要我们调整代码，判断出当前状态是生成一个新的视图 还是 adapter 更新期间的视图改变。
+
+    5、onAdapterChanged()
+        这个方法提供了另一个重置布局的场所，设置新的 adapter 会触发这个事件 (在这，setAdapter会被再次调用)。 这个阶段你可以安全的返回一个
+      与之前 adapter 完全不同的视图。所以，我们可以移除所有当前视图(并没有回收它们)。
+        @Override
+        public void onAdapterChanged(RecyclerView.Adapter oldAdapter, RecyclerView.Adapter newAdapter) {
+            removeAllViews();
+        }
+        移除视图会触发一个新的布局过程，当 onLayoutChildren() 被再次调用时， 代码会执行创建新视图的布局过程，因为现在没有attched 的子视图。
+
+    6、smoothScrollToPosition()
+        在带有动画的情况下，我们需要使用一些稍微不同的方法。 在这方法里我们需要创建一个!--yuyang RecyclerView.SmoothScroller实例，
+      然后在方法返回前请求!--yuyang startSmoothScroll()启动动画。
+        !--yuyang RecyclerView.SmoothScroller 是提供 API 的抽象类，含有四个方法：
+        a、onStart()：当滑动动画开始时被触发。
+        b、onStop()：当滑动动画停止时被触发。
+        c、onSeekTargetStep()：当 scroller 搜索目标 view 时被重复调用，这个方法负责读取提供的 dx/dy ，然后更新应该在这两个方向移动的距离。
+            这个方法有一个RecyclerView.SmoothScroller.Action实例做参数。 通过向 action 的 update()方法传递新的 dx, dy, duration
+          和 Interpolator ， 告诉 view 在下一个阶段应该执行怎样的动画。
+            NOTE： 如果动画耗时过长，框架会对你发出警告， 应该调整动画的步骤，尽量和框架标准的动画耗时相同。
+        d、onTargetFound()：只在目标视图被 attach 后调用一次。 这是将目标视图要通过动画移动到准确位置最后的场所。
+            在内部，当 view 被 attach 时使用 LayoutManager 的 findViewByPosition() 方法 查找对象。如果你的 LayoutManager 可以
+          有效匹配 view 和 position ， 可以覆写这个方法来优化性能。默认提供的实现是通过每次遍历所有子视图查找。
+
+        系统有实现好的RecyclerView.SmoothScroller的子类!--yuyang LinearSmoothScroller，使用它只需实现一个方法computeScrollVectorForPosition()，
+      然后告诉 scroller 初始方向还有从当前位置滚动到目标位置的大概距离。
+
+    7、supportsPredictiveItemAnimations()
+        告诉RecyclerView支持Predictive Item Animations特性，这个特性允许我们给 view (基于数据改变产生)
+      的过渡动画提供更多有用的信息。
+        !--yuyang 有了这个改动，onLayoutChildren()会在每次数据集改变后被调用两次，
+      !--yuyang 一次是"预布局"(pre-layout)阶段，一次是真实布局(real layout)。
+        在onLayoutChildren()的 pre-layout 阶段， 你应该运行你的布局逻辑设置动画的初始状态。这需要你在动画
+      执行前布局所有 当前可见的 view 和 在动画后会可见的 view (被称为 APPEARING view)。Appearing views
+      应该被布局在 屏幕之外，用户期望它进入的位置。框架会捕获他们的位置， 籍此创建更合适的动画效果。
+        我们可以使用!--yuyang RecyclerView.State.isPreLayout() 来检测当前处于哪一阶段。
+        预布局阶段如果你想要判断视图是否会被移除，可以使用LayoutParams.isViewRemoved() 这个方法。
+
+        如果变化出现在可视边界之外,Adapter 会将这个变化 post 给你的 LayoutManager。你可以覆写
+      onItemsRemoved(), onItemsMoved(), onItemsAdded() 或者 onItemsChanged() 响应 item 的这些事件，
+      无论 item 在当前布局中是否可见。
+        如果被移除的范围在可视边界之外， 调用 pre-layout 之前会调用 onItemRemoved()。我们可以利用它收集和这个
+      变化有关的数据，为这个事件可能触发的 appearing view 改变提供更好的支持。
+
+
+TODO yuyang 具体可参考：https://github.com/hehonghui/android-tech-frontier/blob/master/issue-13/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Redux.md
