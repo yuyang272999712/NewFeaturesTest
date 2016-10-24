@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.listView.listViewCommonViewHolder.ListCommonViewHolderActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflateFactory.LayoutInflateFactoryActivity;
+import com.yuyang.fitsystemwindowstestdrawer.listView.swipeListView.SwipeListViewActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -63,7 +63,7 @@ public class ListViewAboutActivity extends AppCompatActivity {
                         intent = new Intent(ListViewAboutActivity.this, ListCommonViewHolderActivity.class);
                         break;
                     case 1:
-                        intent = new Intent(ListViewAboutActivity.this, LayoutInflateFactoryActivity.class);
+                        intent = new Intent(ListViewAboutActivity.this, SwipeListViewActivity.class);
                         break;
                 }
                 startActivity(intent);

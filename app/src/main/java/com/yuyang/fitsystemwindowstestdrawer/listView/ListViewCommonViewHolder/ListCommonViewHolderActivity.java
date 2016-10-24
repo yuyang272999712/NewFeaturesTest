@@ -45,20 +45,12 @@ public class ListCommonViewHolderActivity extends AppCompatActivity {
 
     private void initDatas() {
         items = new ArrayList<>();
-        Item item1 = new Item();
-        item1.setmTitle("item1");
-        item1.setmDescription("item1Description");
-        item1.setmImgId(R.drawable.ic_menu_send);
-        Item item2 = new Item();
-        item2.setmTitle("item2");
-        item2.setmDescription("item2Description");
-        item2.setmImgId(R.drawable.ic_menu_camera);
-        Item item3 = new Item();
-        item3.setmTitle("item3");
-        item3.setmDescription("item3Description");
-        item3.setmImgId(R.drawable.ic_menu_gallery);
-        items.add(item1);
-        items.add(item2);
-        items.add(item3);
+        for (int i=0; i<30; i++){
+            Item item1 = new Item();
+            item1.setmTitle("item"+i);
+            item1.setmDescription("item"+i+"_description");
+            item1.setmImgId(R.drawable.ic_menu_send);
+            items.add(item1);
+        }
     }
 }

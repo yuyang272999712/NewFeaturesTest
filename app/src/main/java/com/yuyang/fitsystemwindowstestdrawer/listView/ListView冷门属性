@@ -1,0 +1,8 @@
+    android:fadingEdgeLength="50dp" //边缘阴影效果的大小
+    android:requiresFadingEdge="vertical"   //竖直方向显示边缘阴影效果
+    android:overScrollMode="never"  //禁用listview回弹或下拉悬停
+    android:fastScrollEnabled="true"    //加速滑动效果(滑动条右边会出现一个可拖动的滑块)
+    android:scrollbars="none"   //是否显示滚动条
+    android:stackFromBottom="true"  //是否直接定位到最下面
+    android:cacheColorHint="#00000000"  //背景颜色
+    android:listSelector="#00000000"    //选中时颜色

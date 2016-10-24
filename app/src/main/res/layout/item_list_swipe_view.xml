@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.yuyang.fitsystemwindowstestdrawer.listView.swipeListView.swipeLib.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:swipe="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    swipe:clickToClose="true"
+    swipe:drag_edge="right"
+    swipe:show_mode="pull_out">
+
+    <LinearLayout
+        android:id="@+id/delete_layout"
+        android:layout_width="62dp"
+        android:layout_height="match_parent"
+        android:background="#ff9193"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/delete_white"/>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/item_imageView"
+            android:background="@android:color/darker_gray"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="5dp"
+            android:scaleType="centerCrop"/>
+        <TextView
+            android:id="@+id/item_titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_imageView"
+            android:layout_marginTop="5dp"
+            android:text="title text"/>
+        <TextView
+            android:id="@+id/item_descriptionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/item_imageView"
+            android:layout_below="@id/item_titleTextView"
+            android:layout_marginTop="5dp"
+            android:text="description text"/>
+
+    </RelativeLayout>
+
+</com.yuyang.fitsystemwindowstestdrawer.listView.swipeListView.swipeLib.SwipeLayout>
