@@ -41,8 +41,6 @@ public class SourceCodeAnalyzeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_source_code);
-
         setContentView(R.layout.activity_just_list);
 
         setToolbar();

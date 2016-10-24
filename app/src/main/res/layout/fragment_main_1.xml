@@ -76,7 +76,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="ListViewHolder"/>
+                android:text="ListView"/>
 
             <Button
                 android:id="@+id/button8"
