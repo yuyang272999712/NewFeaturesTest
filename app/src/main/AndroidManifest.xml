@@ -65,7 +65,6 @@
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".MetricsAbout.MetricsActivity"
             android:theme="@style/TransitionTheme"/>
-        <activity android:name=".horizontalFling.HorizontalFlingActivity"/>
         <activity android:name=".userDefinedWidget.UserDefinedWidgetActivity"/>
         <activity android:name=".userDefinedWidget.ViewDragHelperActivity"/>
         <activity android:name=".userDefinedWidget.VerticalLinearLayoutActivity"/>
@@ -146,6 +145,7 @@
         <activity android:name=".sourceCodeAnalyze.loader.LoaderContactActivity"/>
         <activity android:name=".sourceCodeAnalyze.loader.AppListActivity"/>
         <activity android:name=".sourceCodeAnalyze.layoutInflateFactory.LayoutInflateFactoryActivity"/>
+        <activity android:name=".sourceCodeAnalyze.childThreadUpdateUI.ChildThreadUpdateUIActivity"/>
         <activity android:name=".webview.WebViewActivity"/>
         <activity android:name=".recyclerView.RecyclerViewDemoActivity"/>
         <activity android:name=".recyclerView.removeItem.RecyclerViewRemoveItemActivity"/>

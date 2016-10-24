@@ -49,7 +49,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="水平拖拽"/>
+                android:text=""/>
         </TableRow>
         <TableRow
             android:gravity="bottom">
