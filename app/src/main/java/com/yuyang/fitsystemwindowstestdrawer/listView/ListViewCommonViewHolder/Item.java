@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.listView.ListViewCommonViewHolder;
+package com.yuyang.fitsystemwindowstestdrawer.listView.listViewCommonViewHolder;
 
 /**
  * Created by yuyang on 16/3/3.

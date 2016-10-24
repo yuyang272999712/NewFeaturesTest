@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.listView.ListViewCommonViewHolder;
+package com.yuyang.fitsystemwindowstestdrawer.listView.listViewCommonViewHolder;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -100,7 +100,7 @@
         <activity android:name=".userDefinedWidget.clockView.MyClockActivity"/>
         <activity android:name=".mvp.activity.UserInfoActivity"/>
         <activity android:name=".listView.ListViewAboutActivity"/>
-        <activity android:name=".listView.ListViewCommonViewHolder.ListCommonViewHolderActivity"/>
+        <activity android:name=".listView.listViewCommonViewHolder.ListCommonViewHolderActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
         <activity android:name=".largeImage.LargeImageTestActivity"/>
         <activity android:name=".viewPager.cardViewPager.CardViewPagerActivity"/>

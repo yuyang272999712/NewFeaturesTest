@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.listView.ListViewCommonViewHolder.ListCommonViewHolderActivity;
+import com.yuyang.fitsystemwindowstestdrawer.listView.listViewCommonViewHolder.ListCommonViewHolderActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflateFactory.LayoutInflateFactoryActivity;
 
 import java.util.Arrays;
