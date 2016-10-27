@@ -39,7 +39,7 @@ public class PagerIndicatorActivity extends AppCompatActivity {
     private ViewPagerIndicator myIndicator;
     //自定义的tab，类似于系统的tabLayout
     private MyTabLayout myTabLayout;
-    //类似于微信底部的
+    //类似于今日头条的
     private List<ColorTrackView> mTrackViewTabs = new ArrayList<ColorTrackView>();
 
     @Override

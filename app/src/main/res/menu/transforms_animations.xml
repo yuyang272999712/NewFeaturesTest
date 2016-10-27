@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/default_transformer"
+          android:title="DefaultTransformer"/>
+    <item android:id="@+id/accordion_transformer"
+          android:title="AccordionTransformer"/>
+    <item android:id="@+id/background_to_foreground_transformer"
+          android:title="BackgroundToForegroundTransformer"/>
+    <item android:id="@+id/foreground_to_background_transformer"
+          android:title="ForegroundToBackgroundTransformer"/>
+    <item android:id="@+id/depth_page_transformer"
+          android:title="DepthPageTransformer"/>
+    <item android:id="@+id/cube_in_transformer"
+          android:title="CubeInTransformer"/>
+    <item android:id="@+id/cube_out_transformer"
+          android:title="CubeOutTransformer"/>
+    <item android:id="@+id/flip_horizontal_transformer"
+          android:title="FlipHorizontalTransformer"/>
+    <item android:id="@+id/flip_vertical_transformer"
+          android:title="FlipVerticalTransformer"/>
+    <item android:id="@+id/rotate_down_transformer"
+          android:title="RotateDownTransformer"/>
+    <item android:id="@+id/rotate_up_transformer"
+          android:title="RotateUpTransformer"/>
+    <item android:id="@+id/scale_in_out_transformer"
+          android:title="ScaleInOutTransformer"/>
+    <item android:id="@+id/stack_transformer"
+          android:title="StackTransformer"/>
+    <item android:id="@+id/tablet_transformer"
+          android:title="TabletTransformer"/>
+    <item android:id="@+id/zoom_in_transformer"
+          android:title="ZoomInTransformer"/>
+    <item android:id="@+id/zoom_out_transformer"
+          android:title="ZoomOutTransformer"/>
+    <item android:id="@+id/zoom_out_slide_transformer"
+          android:title="ZoomOutSlideTransformer"/>
+</menu>

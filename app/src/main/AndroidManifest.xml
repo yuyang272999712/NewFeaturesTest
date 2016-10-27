@@ -108,6 +108,7 @@
         <activity android:name=".viewPager.ViewPagerActivity"/>
         <activity android:name=".viewPager.gridViewPager.GridViewPagerActivity"/>
         <activity android:name=".viewPager.galleryViewPager.GalleryViewPagerActivity"/>
+        <activity android:name=".viewPager.transformsAnimations.TransformsAnimationActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>

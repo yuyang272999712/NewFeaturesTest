@@ -1,0 +1,26 @@
+java类	                            xml id值     	                                    描述
+AccelerateDecelerateInterpolator	@android:anim/accelerate_decelerate_interpolator    动画始末速率较慢，中间加速
+AccelerateInterpolator	            @android:anim/accelerate_interpolator	            动画开始速率较慢，之后慢慢加速
+AnticipateInterpolator	            @android:anim/anticipate_interpolator	            开始的时候从后向前甩
+AnticipateOvershootInterpolator	    @android:anim/anticipate_overshoot_interpolator	    类似上面AnticipateInterpolator
+BounceInterpolator	                @android:anim/bounce_interpolator	                动画结束时弹起
+CycleInterpolator	                @android:anim/cycle_interpolator	                循环播放速率改变为正弦曲线
+DecelerateInterpolator	            @android:anim/decelerate_interpolator	            动画开始快然后慢
+LinearInterpolator	                @android:anim/linear_interpolator	                动画匀速改变
+OvershootInterpolator	            @android:anim/overshoot_interpolator	            向前弹出一定值之后回到原来位置
+PathInterpolator		                                                                新增，定义路径坐标后按照路径坐标来跑。
+
+效果可参考：http://blog.csdn.net/cquwentao/article/details/51324687
+
+通过xml自定义差值器（例如本包中的：my_accelerate_interpolator.xml）
+有些插值器却不具备修改属性，具体如下：
+    <accelerateDecelerateInterpolator>：无可自定义的attribute。
+    <accelerateInterpolator>：android:factor 浮点值，加速速率（默认值为1）。
+    <anticipateInterpolator>：android:tension 浮点值，起始点后拉的张力数（默认值为2）。
+    <anticipateOvershootInterpolator>：android:tension 浮点值，起始点后拉的张力数（默认值为2）。
+                                       android:extraTension 浮点值，拉力的倍数（默认值为1.5）。
+    <bounceInterpolator>：无可自定义的attribute。
+    <cycleInterpolator>：android:cycles 整形，循环的个数（默认为1）。
+    <decelerateInterpolator>：android:factor 浮点值，减速的速率（默认为1）。
+    <linearInterpolator>：无可自定义的attribute。
+    <overshootInterpolator>：android:tension 浮点值，超出终点后的张力（默认为2）。
