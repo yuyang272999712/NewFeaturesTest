@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
 
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.view.View;

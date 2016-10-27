@@ -10,8 +10,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation.RotateDownTransformer;
-import com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation.StackTransformer;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation.StackTransformer;
 
 import java.util.ArrayList;
 import java.util.List;

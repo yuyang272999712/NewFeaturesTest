@@ -14,16 +14,23 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
 
 import android.view.View;
 
-public class AccordionTransformer extends ABaseTransformer {
+public class CubeInTransformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {
-		view.setPivotX(position < 0 ? 0 : view.getWidth());
-		view.setScaleX(position < 0 ? 1f + position : 1f - position);
+		// Rotate the fragment on the left or right edge
+		view.setPivotX(position > 0 ? 0 : view.getWidth());
+		view.setPivotY(0);
+		view.setRotationY(-90f * position);
+	}
+
+	@Override
+	public boolean isPagingEnabled() {
+		return true;
 	}
 
 }

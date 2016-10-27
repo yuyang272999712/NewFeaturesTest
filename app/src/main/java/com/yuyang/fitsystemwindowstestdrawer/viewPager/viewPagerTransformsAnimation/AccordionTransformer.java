@@ -14,15 +14,16 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
 
 import android.view.View;
 
-public class StackTransformer extends ABaseTransformer {
+public class AccordionTransformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {
-		view.setTranslationX(position < 0 ? 0f : -view.getWidth() * position);
+		view.setPivotX(position < 0 ? 0 : view.getWidth());
+		view.setScaleX(position < 0 ? 1f + position : 1f - position);
 	}
 
 }

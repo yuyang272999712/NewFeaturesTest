@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
 
 import android.view.View;
 
-public class BackgroundToForegroundTransformer extends ABaseTransformer {
+public class ZoomOutTranformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {
-		final float height = view.getHeight();
-		final float width = view.getWidth();
-		final float scale = min(position < 0 ? 1f : Math.abs(1f - position), 0.5f);
-
+		final float scale = 1f + Math.abs(position);
 		view.setScaleX(scale);
 		view.setScaleY(scale);
-		view.setPivotX(width * 0.5f);
-		view.setPivotY(height * 0.5f);
-		view.setTranslationX(position < 0 ? width * position : -width * position * 0.25f);
+		view.setPivotX(view.getWidth() * 0.5f);
+		view.setPivotY(view.getHeight() * 0.5f);
+		view.setAlpha(position < -1f || position > 1f ? 0f : 1f - (scale - 1f));
+		if(position == -1){
+			view.setTranslationX(view.getWidth() * -1);
+		}
 	}
 
 }
