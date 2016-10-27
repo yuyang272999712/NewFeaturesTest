@@ -25,13 +25,6 @@
                 android:text="刮刮卡效果"/>
 
             <Button
-                android:id="@+id/defind_wechat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="微信底部导航效果"/>
-
-            <Button
                 android:id="@+id/defind_lucky_pan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.transformsAnimations.transforms;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;

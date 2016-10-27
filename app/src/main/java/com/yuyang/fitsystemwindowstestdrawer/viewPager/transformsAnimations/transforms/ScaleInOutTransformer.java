@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.transformsAnimations.transforms;
 
 import android.view.View;
 

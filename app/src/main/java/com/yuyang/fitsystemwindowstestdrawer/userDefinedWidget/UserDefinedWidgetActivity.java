@@ -15,7 +15,6 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClock
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.WeChatActivity;
 
 /**
  * 自定义ViewDragHelper的布局
@@ -36,7 +35,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button gamePintuBtn;
     private Button circleImgBtn;
     private Button guaguakaBtn;
-    private Button wechatBtn;
     private Button luckyPanBtn;
     private Button circleMenuBtn;
     private Button progressBarBtn;
@@ -74,7 +72,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         gamePintuBtn = (Button) findViewById(R.id.defind_game_pintu);
         circleImgBtn = (Button) findViewById(R.id.defind_circle_img);
         guaguakaBtn = (Button) findViewById(R.id.defind_guaguaka);
-        wechatBtn = (Button) findViewById(R.id.defind_wechat);
         luckyPanBtn = (Button) findViewById(R.id.defind_lucky_pan);
         circleMenuBtn = (Button) findViewById(R.id.defind_circle_menu);
         progressBarBtn = (Button) findViewById(R.id.defind_progress_bar);
@@ -174,13 +171,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, GuaguakaActivity.class);
-                startActivity(intent);
-            }
-        });
-        wechatBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserDefinedWidgetActivity.this, WeChatActivity.class);
                 startActivity(intent);
             }
         });

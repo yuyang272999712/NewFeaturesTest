@@ -14,28 +14,23 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.viewPager.viewPagerTransformsAnimation;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.transformsAnimations.transforms;
 
 import android.view.View;
 
-public class RotateDownTransformer extends ABaseTransformer {
-
-	private static final float ROT_MOD = -15f;
+public class ZoomOutTranformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {
-		final float width = view.getWidth();
-		final float height = view.getHeight();
-		final float rotation = ROT_MOD * position * -1.25f;
-
-		view.setPivotX(width * 0.5f);
-		view.setPivotY(height);
-		view.setRotation(rotation);
-	}
-	
-	@Override
-	protected boolean isPagingEnabled() {
-		return true;
+		final float scale = 1f + Math.abs(position);
+		view.setScaleX(scale);
+		view.setScaleY(scale);
+		view.setPivotX(view.getWidth() * 0.5f);
+		view.setPivotY(view.getHeight() * 0.5f);
+		view.setAlpha(position < -1f || position > 1f ? 0f : 1f - (scale - 1f));
+		if(position == -1){
+			view.setTranslationX(view.getWidth() * -1);
+		}
 	}
 
 }

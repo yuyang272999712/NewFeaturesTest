@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorIcon;
+package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorIcon;
 
 import android.content.Context;
 import android.content.res.TypedArray;

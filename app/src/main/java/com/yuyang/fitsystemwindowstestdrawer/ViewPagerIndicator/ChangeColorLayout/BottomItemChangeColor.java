@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.weChatTabIndicator.ChangeColorLayout;
+package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
