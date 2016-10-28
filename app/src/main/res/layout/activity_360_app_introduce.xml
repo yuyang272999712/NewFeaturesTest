@@ -37,13 +37,13 @@
                 android:textStyle="bold" />
         </RelativeLayout>
 
-        <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.ViewPagerIndicator
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTab.ViewPagerIndicator
             android:id="@id/id_stickynavlayout_indicator"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:background="@color/colorPrimaryDark"
             android:orientation="horizontal" >
-        </com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.ViewPagerIndicator>
+        </com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTab.ViewPagerIndicator>
 
         <android.support.v4.view.ViewPager
             android:id="@id/id_stickynavlayout_viewpager"

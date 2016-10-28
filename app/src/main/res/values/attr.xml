@@ -284,4 +284,34 @@
         </attr>
         <attr name="clickToClose" format="boolean"/>
     </declare-styleable>
+    <!--Banner指示器-->
+    <declare-styleable name="CircleIndicator">
+        <attr name="ci_width" format="dimension"/><!--drawable宽高-->
+        <attr name="ci_height" format="dimension"/>
+        <attr name="ci_margin" format="dimension"/><!--drawable的间距-->
+        <attr name="ci_animator" format="reference"/><!--选中是的动画-->
+        <attr name="ci_animator_reverse" format="reference"/><!--恢复为选中时的动画-->
+        <attr name="ci_drawable" format="reference"/><!--选中时的drawable-->
+        <attr name="ci_drawable_unselected" format="reference"/><!--为选中时现实的drawable-->
+        <attr name="ci_orientation" format="enum"><!--设置指示器如何排列-->
+            <enum name="horizontal" value="0"/>
+            <enum name="vertical" value="1"/>
+        </attr>
+        <attr name="ci_gravity"><!--设置指示器的布局分布（相当于在LinearLayout中的布局分布）-->
+            <flag name="top" value="0x30"/>
+            <flag name="bottom" value="0x50"/>
+            <flag name="left" value="0x03"/>
+            <flag name="right" value="0x05"/>
+            <flag name="center_vertical" value="0x10"/>
+            <flag name="fill_vertical" value="0x70"/>
+            <flag name="center_horizontal" value="0x01"/>
+            <flag name="fill_horizontal" value="0x07"/>
+            <flag name="center" value="0x11"/>
+            <flag name="fill" value="0x77"/>
+            <flag name="clip_vertical" value="0x80"/>
+            <flag name="clip_horizontal" value="0x08"/>
+            <flag name="start" value="0x00800003"/>
+            <flag name="end" value="0x00800005"/>
+        </attr>
+    </declare-styleable>
 </resources>

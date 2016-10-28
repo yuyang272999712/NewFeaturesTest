@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTabLayout;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTabLayout;
 
 import android.content.Context;
 import android.graphics.Canvas;

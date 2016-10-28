@@ -13,7 +13,6 @@ import com.yuyang.fitsystemwindowstestdrawer.Canvas.CanvasAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.Game2048.Game2048Activity;
 import com.yuyang.fitsystemwindowstestdrawer.SQLiteAbout.SQLiteDbAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.SensorAbout.SensorAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.PagerIndicatorActivity;
 import com.yuyang.fitsystemwindowstestdrawer.configChangesDatasAbout.ConfigChangesActivity;
 import com.yuyang.fitsystemwindowstestdrawer.contentProvider.ContentProviderActivity;
 import com.yuyang.fitsystemwindowstestdrawer.effect360AppIntroduce.Effect360AppIntroduceActivity;
@@ -28,6 +27,7 @@ import com.yuyang.fitsystemwindowstestdrawer.rxJava.RxJavaActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.ServiceActivity;
 import com.yuyang.fitsystemwindowstestdrawer.softInput.SoftInputActivity;
 import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.ViewPagerIndicatorActivity;
 
 /**
  * Created by yuyang on 2016/6/2.
@@ -78,7 +78,7 @@ public class MainFragment2 extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), PagerIndicatorActivity.class);
+                Intent intent = new Intent(getContext(), ViewPagerIndicatorActivity.class);
                 startActivity(intent);
             }
         });

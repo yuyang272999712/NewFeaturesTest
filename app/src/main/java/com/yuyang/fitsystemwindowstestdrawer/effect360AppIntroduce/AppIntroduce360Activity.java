@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.ViewPagerIndicator;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTab.ViewPagerIndicator;
 
 import java.util.Arrays;
 import java.util.List;

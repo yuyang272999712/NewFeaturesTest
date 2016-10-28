@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorLayout;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

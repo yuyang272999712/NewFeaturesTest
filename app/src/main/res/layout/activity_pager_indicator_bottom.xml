@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/indicator_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#ffa9a7">
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:bottom_icon="@mipmap/wechat_icon_1"
+            app:text="标签1"
+            app:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:bottom_icon="@mipmap/wechat_icon_2"
+            app:text="标签2"
+            app:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:bottom_icon="@mipmap/wechat_icon_3"
+            app:text="标签3"
+            app:text_size="12sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon.ChangeColorIconWithTextView
+            android:id="@+id/wechat_indicator_4"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:padding="5dp"
+            app:bottom_icon="@mipmap/wechat_icon_4"
+            app:text="标签4"
+            app:text_size="12sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#88000000"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout.BottomItemChangeColor
+            android:id="@+id/wechat_tab0"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            app:bottom_item_front_icons="@mipmap/tab_found2"
+            app:bottom_item_front_color="#ff919191"
+            app:bottom_item_back_icons="@mipmap/tab_found1"
+            app:bottom_item_back_color="#ff45C01A"
+            app:bottom_item_text="主页"
+            app:bottom_item_text_size="12sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout.BottomItemChangeColor
+            android:id="@+id/wechat_tab1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            app:bottom_item_front_icons="@mipmap/tab_contact2"
+            app:bottom_item_front_color="#ff919191"
+            app:bottom_item_back_icons="@mipmap/tab_contact1"
+            app:bottom_item_back_color="#ff45C01A"
+            app:bottom_item_text="联系人"
+            app:bottom_item_text_size="12sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout.BottomItemChangeColor
+            android:id="@+id/wechat_tab2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            app:bottom_item_front_icons="@mipmap/tab_found2"
+            app:bottom_item_front_color="#ff919191"
+            app:bottom_item_back_icons="@mipmap/tab_found1"
+            app:bottom_item_back_color="#ff45C01A"
+            app:bottom_item_text="发现"
+            app:bottom_item_text_size="12sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout.BottomItemChangeColor
+            android:id="@+id/wechat_tab3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            app:bottom_item_front_icons="@mipmap/tab_me2"
+            app:bottom_item_front_color="#ff919191"
+            app:bottom_item_back_icons="@mipmap/tab_me1"
+            app:bottom_item_back_color="#ff45C01A"
+            app:bottom_item_text="我"
+            app:bottom_item_text_size="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

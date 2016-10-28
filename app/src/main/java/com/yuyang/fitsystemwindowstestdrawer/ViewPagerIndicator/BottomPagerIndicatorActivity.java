@@ -1,48 +1,34 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorIcon.ChangeColorIconWithTextView;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorLayout.BottomItemChangeColor;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTab.ViewPagerIndicator;
-import com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.userDefinedTabLayout.MyTabLayout;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon.ChangeColorIconWithTextView;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorLayout.BottomItemChangeColor;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * ViewPager指示器
- *
- * PagerTabStrip和PagerTitleStrip没人用，太难看了
+ * ViewPager指示器(类似微信底部tab)
  */
-public class PagerIndicatorActivity extends AppCompatActivity implements View.OnClickListener {
+public class BottomPagerIndicatorActivity extends AppCompatActivity implements View.OnClickListener {
     private List<Fragment> fragments = new ArrayList<>();
     private FragmentPagerAdapter adapter;
     private ViewPager viewPager;
-    private List<String> mTitles = Arrays.asList("Fragment1", "Fragment2Fragment1", "Fragment3", "F4",
-            "Fragment5", "Fragment6", "Fragment7", "Fragment8", "Fragment9");
-    private List<String> mTitles2 = Arrays.asList("Fragment1", "Fragment2", "Fragment3");
+    private List<String> mTitles = Arrays.asList("Fragment1", "Fragment2", "Fragment3", "Fragment4");
+    private Toolbar mToolbar;
 
-    //系统的tabLayout
-    private TabLayout tabLayout;
-    //自定义的tab指示器
-    private ViewPagerIndicator myIndicator;
-    //自定义的tab，类似于系统的tabLayout
-    private MyTabLayout myTabLayout;
-    //类似于今日头条的
-    private List<ColorTrackView> mTrackViewTabs = new ArrayList<ColorTrackView>();
     //类似于微信底部的
     private List<ChangeColorIconWithTextView> mTabIndicator1 = new ArrayList<ChangeColorIconWithTextView>();
     private List<BottomItemChangeColor> mTabIndicator2 = new ArrayList<BottomItemChangeColor>();
@@ -50,8 +36,9 @@ public class PagerIndicatorActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pager_indicator);
+        setContentView(R.layout.activity_pager_indicator_bottom);
 
+        setToolbar();
         findViews();
         initDatas();
         setAction();
@@ -80,27 +67,12 @@ public class PagerIndicatorActivity extends AppCompatActivity implements View.On
         };
 
         viewPager.setAdapter(adapter);
-        //系统的tabLayout
-        tabLayout.setupWithViewPager(viewPager);
-        //自定义的tab指示器，可以改成MyTabLayout那样不用指定标题的
-        myIndicator.setTabItemTitles(mTitles2);
-        myIndicator.setViewPager(viewPager, 0);
-        //自定义的tab，类似于系统的tabLayout
-        myTabLayout.setViewPager(viewPager, 0);
     }
 
     private void setAction() {
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (positionOffset > 0 && position+1<mTrackViewTabs.size()) {
-                    ColorTrackView left = mTrackViewTabs.get(position);
-                    ColorTrackView right = mTrackViewTabs.get(position + 1);
-                    left.setDirection(ColorTrackView.DIRECTION_RIGHT);
-                    right.setDirection(ColorTrackView.DIRECTION_LEFT);
-                    left.setProgress(1 - positionOffset);
-                    right.setProgress(positionOffset);
-                }
                 //!--yuyang 设置PagerView变化tab也要跟着变化
                 if (positionOffset > 0 && position+1<mTabIndicator1.size()) {
                     ChangeColorIconWithTextView left = mTabIndicator1.get(position);
@@ -125,22 +97,6 @@ public class PagerIndicatorActivity extends AppCompatActivity implements View.On
 
     private void findViews() {
         viewPager = (ViewPager) findViewById(R.id.indicator_view_pager);
-        tabLayout = (TabLayout) findViewById(R.id.indicator_tab_layout);
-        myIndicator = (ViewPagerIndicator) findViewById(R.id.indicator_my_indicator);
-        myTabLayout = (MyTabLayout) findViewById(R.id.indicator_my_tab_layout);
-        mTrackViewTabs.add((ColorTrackView) findViewById(R.id.indicator_color_track_1));
-        mTrackViewTabs.add((ColorTrackView) findViewById(R.id.indicator_color_track_2));
-        mTrackViewTabs.add((ColorTrackView) findViewById(R.id.indicator_color_track_3));
-
-        ColorTrackView tabOne = (ColorTrackView) findViewById(R.id.indicator_color_track_1);
-        ColorTrackView tabTwo = (ColorTrackView) findViewById(R.id.indicator_color_track_2);
-        ColorTrackView tabThree = (ColorTrackView) findViewById(R.id.indicator_color_track_3);
-        mTrackViewTabs.add(tabOne);
-        mTrackViewTabs.add(tabTwo);
-        mTrackViewTabs.add(tabThree);
-        tabOne.setOnClickListener(this);
-        tabTwo.setOnClickListener(this);
-        tabThree.setOnClickListener(this);
 
         ChangeColorIconWithTextView one = (ChangeColorIconWithTextView) findViewById(R.id.wechat_indicator_1);
         ChangeColorIconWithTextView two = (ChangeColorIconWithTextView) findViewById(R.id.wechat_indicator_2);
@@ -182,26 +138,20 @@ public class PagerIndicatorActivity extends AppCompatActivity implements View.On
     public void onClick(View v) {
         resetOtherTabs();
         switch (v.getId()) {
-            case R.id.indicator_color_track_1:
             case R.id.wechat_indicator_1:
             case R.id.wechat_tab0:
-                mTrackViewTabs.get(0).setProgress(1.0f);
                 mTabIndicator1.get(0).setIconAlpha(1.0f);
                 mTabIndicator2.get(0).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(0, false);
                 break;
-            case R.id.indicator_color_track_2:
             case R.id.wechat_indicator_2:
             case R.id.wechat_tab1:
-                mTrackViewTabs.get(1).setProgress(1.0f);
                 mTabIndicator1.get(1).setIconAlpha(1.0f);
                 mTabIndicator2.get(1).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(1, false);
                 break;
-            case R.id.indicator_color_track_3:
             case R.id.wechat_indicator_3:
             case R.id.wechat_tab2:
-                mTrackViewTabs.get(2).setProgress(1.0f);
                 mTabIndicator1.get(2).setIconAlpha(1.0f);
                 mTabIndicator2.get(2).setIconAlpha(1.0f);
                 viewPager.setCurrentItem(2, false);
@@ -221,9 +171,21 @@ public class PagerIndicatorActivity extends AppCompatActivity implements View.On
      */
     private void resetOtherTabs() {
         for (int i = 0; i < mTabIndicator1.size(); i++) {
-            mTrackViewTabs.get(i).setProgress(0);
             mTabIndicator1.get(i).setIconAlpha(0);
             mTabIndicator2.get(i).setIconAlpha(0);
         }
+    }
+
+    private void setToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("ViewPager头部指示器");
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 }

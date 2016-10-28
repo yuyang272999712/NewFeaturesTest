@@ -1,0 +1,4 @@
+使用时请注意：
+    需要自定义属性中的：<declare-styleable name="CircleIndicator">
+    需要图片资源：banner_indicator_white_radius.xml（可自行定义）
+    需要动画资源：banner_indicator_default_animator.xml（可自行定义）

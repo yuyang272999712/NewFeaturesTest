@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.ChangeColorIcon;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.changeColorIcon;
 
 import android.content.Context;
 import android.content.res.TypedArray;

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="系统的TabLayout"/>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/indicator_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:tabMode="scrollable"
+        app:tabBackground="@color/colorPrimaryDark"
+        app:tabIndicatorColor="@color/colorAccent"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/colorAccent"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义的Indicator"/>
+    <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTab.ViewPagerIndicator
+        android:id="@+id/indicator_my_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="自定义的TabLayout,改自上面的Indicator"/>
+    <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.userDefinedTabLayout.MyTabLayout
+        android:id="@+id/indicator_my_tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义的ColorTrackView,字体颜色变化"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:textAllCaps="false"
+            android:onClick="gotoTrackViewSimpleActivity"
+            android:textSize="10sp"
+            android:text="ColorTrackView简单应用"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary">
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_progress="1"
+            app:color_track_text="简介"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_text="评价"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+            android:id="@+id/indicator_color_track_3"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:color_track_text="相关"
+            app:color_track_change_color="@color/colorAccent"
+            app:color_track_origin_color="#ffffff"
+            app:color_track_text_size="18sp" />
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/indicator_view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <android.support.v4.view.PagerTabStrip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="#c170c0"/>
+
+        <!--<android.support.v4.view.PagerTitleStrip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"/>-->
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

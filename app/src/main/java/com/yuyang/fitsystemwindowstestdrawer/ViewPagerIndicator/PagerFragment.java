@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="默认的Indicator"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPager.loopViewPager.AutoLoopViewPager
+            android:id="@+id/loop_view_pager_auto_1"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.bannerIndicator.CircleIndicator
+            android:id="@+id/indicator_default"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="自定义样式的Indicator"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.yuyang.fitsystemwindowstestdrawer.viewPager.loopViewPager.AutoLoopViewPager
+            android:id="@+id/loop_view_pager_auto_2"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"/>
+        <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.bannerIndicator.CircleIndicator
+            android:id="@+id/indicator_custom"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="10dp"
+            app:ci_animator="@animator/banner_indicator_animator"
+            app:ci_animator_reverse="@animator/banner_indicator_animator_reverse"
+            app:ci_drawable="@drawable/banner_indicator_black_radius_square"
+            app:ci_margin="6dp"
+            app:ci_height="4dp"
+            app:ci_width="10dp"
+            app:ci_orientation="horizontal"
+            app:ci_gravity="right"/>
+    </FrameLayout>
+
+</LinearLayout>

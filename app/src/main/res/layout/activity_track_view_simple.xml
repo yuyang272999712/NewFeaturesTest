@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator.ColorTrackView
+    <com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator.ColorTrackView
         android:id="@+id/track_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

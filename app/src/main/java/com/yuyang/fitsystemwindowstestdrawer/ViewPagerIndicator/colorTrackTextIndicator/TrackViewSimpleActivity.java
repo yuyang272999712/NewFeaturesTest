@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.ViewPagerIndicator.colorTrackTextIndicator;
+package com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.colorTrackTextIndicator;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;

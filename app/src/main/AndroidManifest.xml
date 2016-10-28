@@ -202,8 +202,11 @@
                 <data android:scheme="tel"/>
             </intent-filter>
         </activity>
-        <activity android:name=".ViewPagerIndicator.PagerIndicatorActivity"/>
-        <activity android:name=".ViewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity"/>
+        <activity android:name=".viewPagerIndicator.ViewPagerIndicatorActivity"/>
+        <activity android:name=".viewPagerIndicator.TopPagerIndicatorActivity"/>
+        <activity android:name=".viewPagerIndicator.BottomPagerIndicatorActivity"/>
+        <activity android:name=".viewPagerIndicator.BannerIndicatorActivity"/>
+        <activity android:name=".viewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity"/>
         <activity android:name=".flabbyBird.FlabbyBirdActivity"/>
         <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>
@@ -238,12 +241,12 @@
         <activity android:name=".eventBus.EventBusActivity"/>
         <activity android:name=".service.ServiceActivity"/>
         <activity android:name=".service.UploadImgActivity"/>
+        <activity android:name=".rxJava.RxJavaActivity"/>
+        <activity android:name=".rxJava.learn1.RxJavaLearnActivity1"/>
         <activity android:name=".SensorAbout.SensorAboutActivity"/>
         <activity android:name=".SensorAbout.AccelerometerSensorActivity"/>
         <activity android:name=".SensorAbout.LightSensorActivity"/>
         <activity android:name=".SensorAbout.OrientationSensorActivity"/>
-        <activity android:name=".rxJava.RxJavaActivity"/>
-        <activity android:name=".rxJava.learn1.RxJavaLearnActivity1"/>
         <activity android:name=".Canvas.CanvasAboutActivity"/>
         <activity android:name=".Canvas.SaveLayerMethod.SaveLayerMethodActivity"/>
         <activity android:name=".Canvas.ColorMatrix.ColorMatrixActivity"/>
