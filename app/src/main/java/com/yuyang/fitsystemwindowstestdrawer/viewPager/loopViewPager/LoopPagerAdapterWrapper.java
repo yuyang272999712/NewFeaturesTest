@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.loopViewPager;
 
 import android.os.Parcelable;
 import android.support.v4.app.FragmentPagerAdapter;

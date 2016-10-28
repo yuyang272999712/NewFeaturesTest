@@ -5,42 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <FrameLayout
+        <View
+            android:background="#79b9f7"
             android:layout_width="match_parent"
-            android:layout_height="160dp">
-
-            <com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager.AutoLoopViewPager
-                android:id="@+id/swipe_banner"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="5dp"/>
-
-            <me.relex.circleindicator.CircleIndicator
-                android:id="@+id/swipe_indicator"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_gravity="bottom"
-                android:layout_marginBottom="10dp"/>
-
-        </FrameLayout>
-
-        <FrameLayout
+            android:layout_height="match_parent"/>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/swipe_recycler_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <View
-                android:background="#79b9f7"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/swipe_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-        </FrameLayout>
-    </LinearLayout>
+            android:layout_height="match_parent"/>
+    </FrameLayout>
 
 </android.support.v4.widget.SwipeRefreshLayout>

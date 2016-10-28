@@ -17,6 +17,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.galleryViewPager.GalleryViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.gridViewPager.GridViewPagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.loopViewPager.LoopViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.transformsAnimations.TransformsAnimationActivity;
 
 import java.util.Arrays;
@@ -28,7 +29,7 @@ import java.util.List;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("卡片效果","GridView配合ViewPager","画廊效果",
-            "pager切换动画");
+            "pager切换动画","无限循环的ViewPager");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -73,6 +74,9 @@ public class ViewPagerActivity extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(ViewPagerActivity.this, TransformsAnimationActivity.class);
+                        break;
+                    case 4:
+                        intent = new Intent(ViewPagerActivity.this, LoopViewPagerActivity.class);
                         break;
                 }
                 startActivity(intent);

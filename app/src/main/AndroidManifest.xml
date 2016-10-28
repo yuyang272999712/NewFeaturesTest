@@ -77,7 +77,6 @@
         <activity android:name=".userDefinedWidget.FlowLayoutActivity"/>
         <activity android:name=".userDefinedWidget.CircleImageActivity"/>
         <activity android:name=".userDefinedWidget.GuaguakaActivity"/>
-        <activity android:name=".userDefinedWidget.weChatTabIndicator.WeChatActivity"/>
         <activity android:name=".userDefinedWidget.LuckyPanActivity"/>
         <activity android:name=".userDefinedWidget.CircleMenuActivity"/>
         <activity android:name=".userDefinedWidget.progressBars.ProgressBarActivity"/>
@@ -104,11 +103,12 @@
         <activity android:name=".listView.swipeListView.SwipeListViewActivity"/>
         <activity android:name=".largeImage.BitmapRegionTestActivity"/>
         <activity android:name=".largeImage.LargeImageTestActivity"/>
-        <activity android:name=".viewPager.cardViewPager.CardViewPagerActivity"/>
         <activity android:name=".viewPager.ViewPagerActivity"/>
+        <activity android:name=".viewPager.cardViewPager.CardViewPagerActivity"/>
         <activity android:name=".viewPager.gridViewPager.GridViewPagerActivity"/>
         <activity android:name=".viewPager.galleryViewPager.GalleryViewPagerActivity"/>
         <activity android:name=".viewPager.transformsAnimations.TransformsAnimationActivity"/>
+        <activity android:name=".viewPager.loopViewPager.LoopViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>

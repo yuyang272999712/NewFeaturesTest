@@ -16,13 +16,10 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.OnStartDragListener;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemTouchHelper.SimpleItemTouchHelperCallBack;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loadMoreAdapter.LoadMoreFooterView;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.loopviewpager.AutoLoopViewPager;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.recyclerItemClickListener.OnRecyclerItemClickListener;
 
 import java.util.Arrays;
 import java.util.List;
-
-import me.relex.circleindicator.CircleIndicator;
 
 /**
  * ItemTouchHelper实现RecyclerView上添加拖动排序与滑动删除的事情
@@ -31,8 +28,6 @@ import me.relex.circleindicator.CircleIndicator;
 public class SwipeRefreshTouchHelperActivity extends AppCompatActivity implements OnStartDragListener {
     private SwipeRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
-    private AutoLoopViewPager bannerViewPager;
-    private CircleIndicator indicator;//banner指示器
 
     /**
      * 拖动操作helper
@@ -67,8 +62,6 @@ public class SwipeRefreshTouchHelperActivity extends AppCompatActivity implement
     private void findViews() {
         refreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_layout);
         recyclerView = (RecyclerView) findViewById(R.id.swipe_recycler_view);
-        bannerViewPager = (AutoLoopViewPager) findViewById(R.id.swipe_banner);
-        indicator = (CircleIndicator) findViewById(R.id.swipe_indicator);
     }
 
     private void initDatas() {
@@ -84,9 +77,6 @@ public class SwipeRefreshTouchHelperActivity extends AppCompatActivity implement
         SimpleItemTouchHelperCallBack callBack = new SimpleItemTouchHelperCallBack(adapter);
         itemTouchHelper = new ItemTouchHelper(callBack);
         itemTouchHelper.attachToRecyclerView(recyclerView);
-
-        bannerViewPager.setAdapter(new BannerPagerAdapter());
-        indicator.setViewPager(bannerViewPager);
     }
 
     private void setAction() {
