@@ -3,3 +3,6 @@
   切换监听，来更改ParallaxContainer中的底层元素动画。
     ParallaxFactory.java通过LayoutInflater.Factory的View加载过程，将自定义属性添加至View的Tag中，供
   ParallaxContainer动画使用。
+
+
+看不明白的话可以参考博客：http://blog.csdn.net/qq_21430549/article/details/50066295
