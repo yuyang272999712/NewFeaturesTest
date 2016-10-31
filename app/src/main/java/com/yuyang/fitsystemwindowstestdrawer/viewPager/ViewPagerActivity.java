@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.customParallaxViewPager.ParallaxViewPagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.elementAnimationViewPager.ElementAnimationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.galleryViewPager.GalleryViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.gridViewPager.GridViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.loopViewPager.LoopViewPagerActivity;
@@ -30,9 +31,9 @@ import java.util.List;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("卡片效果","GridView配合ViewPager","画廊效果",
-            "pager切换动画","无限循环的ViewPager","小红书欢迎页");
+            "pager切换动画","无限循环的ViewPager","小红书欢迎页","ViewPager切换页面元素进出");
 
-    private Toolbar toolbar;
+    private Toolbar mToolbar;
     private ListView listView;
 
     @Override
@@ -82,6 +83,9 @@ public class ViewPagerActivity extends AppCompatActivity {
                     case 5:
                         intent = new Intent(ViewPagerActivity.this, ParallaxViewPagerActivity.class);
                         break;
+                    case 6:
+                        intent = new Intent(ViewPagerActivity.this, ElementAnimationActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }
@@ -89,11 +93,11 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     private void setToolbar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        toolbar.setTitle("ViewPager应用");
-        setSupportActionBar(toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("ViewPager应用");
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();

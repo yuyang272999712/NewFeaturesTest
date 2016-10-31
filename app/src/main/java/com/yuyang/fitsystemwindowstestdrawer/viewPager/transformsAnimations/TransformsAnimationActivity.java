@@ -52,7 +52,7 @@ public class TransformsAnimationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_transforms_animation);
+        setContentView(R.layout.activity_just_view_pager);
 
         setToolbar();
         initDatas();
