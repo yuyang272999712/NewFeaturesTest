@@ -132,8 +132,12 @@ public class ParallaxContainer extends FrameLayout {
                         continue;
                     }
 
+                    /**
+                     * 这里的滑入滑出是不正确的（滑入和滑出正好是index－1=＝position条件的颠倒，所以这里可以这么写动画过程）
+                     */
                     if ((position == tag.index - 1 || (isLooping && (position == tag.index - 1 + pageCount)))
                             && containerWidth != 0) {
+                        Log.w(TAG, "滑入页面：index:"+tag.index+";positionOffsetPixels:"+positionOffsetPixels);
                         // make visible
                         view.setVisibility(VISIBLE);
                         // slide in from right
@@ -143,6 +147,7 @@ public class ParallaxContainer extends FrameLayout {
                         // fade in
                         view.setAlpha(1.0f - (containerWidth - positionOffsetPixels) * tag.alphaIn / containerWidth);
                     } else if (position == tag.index) {
+                        Log.w(TAG, "滑出页面：index:"+tag.index+";positionOffsetPixels:"+positionOffsetPixels);
                         // make visible
                         view.setVisibility(VISIBLE);
                         // slide out to left
