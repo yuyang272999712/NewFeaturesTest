@@ -314,4 +314,11 @@
             <flag name="end" value="0x00800005"/>
         </attr>
     </declare-styleable>
+    <!--ParallaxContainer ViewPager页面元素动画-->
+    <attr name="a_in" format="float" />
+    <attr name="a_out" format="float" />
+    <attr name="x_in" format="float" />
+    <attr name="x_out" format="float" />
+    <attr name="y_in" format="float" />
+    <attr name="y_out" format="float" />
 </resources>

@@ -46,7 +46,7 @@ public class LayoutInflateFactoryActivity extends AppCompatActivity {
                 //你可以在这里将系统类替换为自定义View
                 //就像上面那样将TextView替换为Button
 
-                //由于AppCompatActivity类已经重写了：
+                //!--yuyang 由于AppCompatActivity类已经重写了：
                 /*public void installViewFactory() {
                     LayoutInflater layoutInflater = LayoutInflater.from(mContext);
                     if (layoutInflater.getFactory() == null) {

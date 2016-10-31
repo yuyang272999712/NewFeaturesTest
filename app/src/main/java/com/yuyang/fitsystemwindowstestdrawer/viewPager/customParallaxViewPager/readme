@@ -1,0 +1,5 @@
+小红书引导页的视差效果：
+    注意ParallaxContainer.java虽然继承的是ViewPager，但是内部的每个page页都是空的，这里主要用的ViewPager的页面
+  切换监听，来更改ParallaxContainer中的底层元素动画。
+    ParallaxFactory.java通过LayoutInflater.Factory的View加载过程，将自定义属性添加至View的Tag中，供
+  ParallaxContainer动画使用。

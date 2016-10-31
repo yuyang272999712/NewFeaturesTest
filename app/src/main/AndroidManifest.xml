@@ -109,6 +109,7 @@
         <activity android:name=".viewPager.galleryViewPager.GalleryViewPagerActivity"/>
         <activity android:name=".viewPager.transformsAnimations.TransformsAnimationActivity"/>
         <activity android:name=".viewPager.loopViewPager.LoopViewPagerActivity"/>
+        <activity android:name=".viewPager.customParallaxViewPager.ParallaxViewPagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>
@@ -162,7 +163,7 @@
         <activity android:name=".customView.CustomActivity"
             android:theme="@style/ActivityTheme"/>
         <activity android:name=".customView.CustomActivity2"/>
-            android:theme="@style/SwipeBackTheme"/>
+        android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".customView.CustomActivity3"/>
         <activity android:name=".customView.CustomActivity4"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>

@@ -9,4 +9,6 @@
     <item name="id_stickynavlayout_viewpager" type="id"/>
     <item name="id_stickynavlayout_indicator" type="id"/>
     <item name="id_stickynavlayout_innerscrollview" type="id"/>
+    <!--ParallaxContainer 指定ID-->
+    <item name="id_parallax_view_tag" type="id"/>
 </resources>

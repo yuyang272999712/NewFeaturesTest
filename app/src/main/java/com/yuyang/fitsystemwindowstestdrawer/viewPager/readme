@@ -1,0 +1,48 @@
+
+ViewPager.OnPageChangeListener对象中的
+!--yuyang onPageScrolled(int position,float positionOffset, int positionOffsetPixels)
+这个方法会在屏幕滚动过程中不断被调用。
+    1、position：这个参数要特别注意一下。当用手指滑动时，如果手指按在页面上不动，position和当前页面index是一致的；
+    如果手指向左拖动（相应页面向右翻动），这时候position大部分时间和ZHU yuyang当前页面是一致的，只有翻页成功的情况下最后一次调用才会变为目标页面；
+    如果手指向右拖动（相应页面向左翻动），这时候position大部分时间和ZHU yuyang目标页面是一致的，只有翻页不成功的情况下最后一次调用才会变为原页面。
+    当直接设置setCurrentItem翻页时，如果是相邻的情况（比如现在是第二个页面，跳到第一或者第三个页面），如果页面向右翻动，大部分时间是和当前页面是一致的，只有最后才变成目标页面；如果向左翻动，position和目标页面是一致的。这和用手指拖动页面翻动是基本一致的。
+    如果不是相邻的情况，比如我从第一个页面跳到第三个页面，position先是0，然后逐步变成1，然后逐步变成2；我从第三个页面跳到第一个页面，position先是1，然后逐步变成0，并没有出现为2的情况。
+    2、positionOffset是当前页面滑动比例
+    如果页面向左拖动（相应页面向右翻动），ZHU yuyang这个值不断变大，最后在趋近1的情况后突变为0。
+    如果页面向右拖动（相应页面向左翻动），ZHU yuyang这个值不断变小，最后变为0。
+    3、positionOffsetPixels是当前页面滑动像素，变化情况和positionOffset一致。
+    如果页面向左拖动（相应页面向右翻动），ZHU yuyang这个值不断变大，最后在趋近页面宽度后突然变为0。
+    如果页面向右拖动（相应页面向左翻动），ZHU yuyang这个值不断变小，最后变为0。
+
+
+
+android3.0以后ViewPager新增加了一个
+    setPageTransformer(boolean reverseDrawingOrder, PageTransformer transformer)
+方法，设置该方法可为ViewPager添加自定义切换动画。
+
+    PageTransformer接口需要实现一个方法：
+        public void transformPage(View page, float position);
+
+    position的取值有如下说明：
+    position是指的是页面相对于中间页面的位置参数，根据位置不同，0的时候在中间，1的时候页面完全在右边，
+  -1的时候页面完全在左边。如图PageTransFormer_position.png：
+
+  position 有一下几个区间:
+  [-∞ , -1)  :
+       表示左边 的View 且已经看不到了
+  [-1 ,   0]  :
+       表示左边的 View ,且可以看见
+  ( 0 ,   1]  :
+       表示右边的VIew , 且可以看见了
+  ( 1 , -∞)  :
+       表示右边的 View 且已经看不见了
+
+  上面讲的有些模糊,  举个例子
+  a 是第一页
+  b 是第二页
+  当前页为 a, 当  a  向左滑动,  直到滑到 b 时:
+  a 的position变化是  [-1 ,   0]   由  0  慢慢变到 -1
+  b 的position变化是  ( 0 ,   1]   由  1  慢慢变到  0
+  当前页为b,  当 b 向右滑动, 直到滑到a 时:
+  a 的position变化是  [-1 ,   0]   由  -1  慢慢变到 0
+  b 的position变化是  ( 0 ,   1]   由   0  慢慢变到 1
