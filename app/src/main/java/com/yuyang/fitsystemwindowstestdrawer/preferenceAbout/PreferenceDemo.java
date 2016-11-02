@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * Created by yuyang on 16/1/18.
+ * 不是重点，具体参考：http://blog.csdn.net/yanbober/article/details/47954653
  */
 public class PreferenceDemo extends PreferenceActivity {
 

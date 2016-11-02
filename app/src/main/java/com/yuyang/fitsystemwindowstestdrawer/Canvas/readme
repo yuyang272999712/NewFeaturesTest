@@ -132,6 +132,17 @@ Canvas
        drawText(text,startX,startY,paint);  //绘制文字
        drawPosText(text, new float[]{X1,Y1,X2,Y2,...Xn,Yn},paint);  //在指定位置绘制文本
        drawPath(path, paint);       //绘制路径  Path path = new Path(); path.moveTo(0,0); path.lineTo(50,50);
+       drawBitmap();        //绘制图片（有很多重载方法）
+
+       drawBitmapMesh(Bitmap bitmap, int meshWidth, int meshHeight, float[] verts, int vertOffset, int[] colors, int colorOffset, Paint paint)
+            //Mesh表示网格，这个方法可以制作网格变形效果，让图片像布一样被扭曲（!--yuyang这个方法的具体介绍可参考：http://blog.csdn.net/leehong2005/article/details/9127095）
+            参数说明如下:
+            bitmap　　　　　需要扭曲的源位图
+            meshWidth 　　 控制在横向上把该源位图划成成多少格
+            meshHeight 　　控制在纵向上把该源位图划成成多少格
+            verts 　　　　　长度为(meshWidth + 1) * (meshHeight + 1) * 2的数组，它记录了扭曲后的位图各顶点位置
+            vertOffset    控制verts数组中从第几个数组元素开始才对bitmap进行扭曲
+          ZHU yuyang 这种效果请看Matrix.png的图片效果
 
     常用方法：
        save();

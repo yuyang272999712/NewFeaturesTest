@@ -42,7 +42,7 @@ public class RippleView extends View{
     Handler handler = new Handler(new Handler.Callback() {
         @Override
         public boolean handleMessage(Message msg) {
-            if (isFill) {//如果是填充的效果，就是用越来越的渐变效果
+            if (isFill) {//如果是填充的效果，就是用越来越慢的渐变效果
                 circles.add(new Circle(mDuration, mInitRadius, mMaxRadius, outSlowInterpolator));
             }else {
                 circles.add(new Circle(mDuration, mInitRadius, mMaxRadius, linearInterpolator));

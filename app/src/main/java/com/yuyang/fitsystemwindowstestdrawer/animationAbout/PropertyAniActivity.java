@@ -141,7 +141,7 @@ public class PropertyAniActivity extends AppCompatActivity {
     }
 
     /**
-     * 抛物线 ValueAnimator
+     * 抛物线 ValueAnimator ZHU yuyang 自定义TypeEvaluator
      */
     public void paowuxianRun(View view){
         valueAni2 = new ValueAnimator();

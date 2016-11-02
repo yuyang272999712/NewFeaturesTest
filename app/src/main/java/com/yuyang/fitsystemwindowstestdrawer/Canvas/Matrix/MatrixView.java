@@ -65,7 +65,7 @@ public class MatrixView extends View {
             matrix.setSkew(2, 4);
             canvas.drawBitmap(bitmap, matrix, null);
         }else if (type == BIANHUAN_TYPE.MESH){//像素块分析
-            float[] orig = new float[(HEIGHT+1)*(WIDTH+1)*2];
+            float[] orig = new float[(HEIGHT+1)*(WIDTH+1)*2];//那么放这些顶点的一维数据的大小应该是：(meshWidth + 1) * (meshHeight + 1) * 2 (一个点包含x, y坐标)
             float[] verts = new float[(HEIGHT+1)*(WIDTH+1)*2];
             //获取交叉点坐标，并保存到orig数组
             int index = 0;

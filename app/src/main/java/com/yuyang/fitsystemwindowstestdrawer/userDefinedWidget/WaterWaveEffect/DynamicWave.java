@@ -3,9 +3,12 @@ package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.DrawFilter;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.PaintFlagsDrawFilter;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -109,11 +112,13 @@ public class DynamicWave extends View {
         //根据累计偏移量重新给第一、二条波浪的数组赋值
         resetPositonY();
         for (int i=0; i<mTotalWidth; i++) {
-            //ZHU yuyang 减200只是为了控制波纹绘制的y的在屏幕的位置，大家可以改成一个变量，然后动态改变这个变量，从而形成波纹上升下降效果
+            //ZHU yuyang 加上下面这句会使波浪有个深度的颜色效果，不过代价很大，会不断的创建LinearGradient对象，从而引起GC不断的回收资源
+            //mWavePaint.setShader(new LinearGradient(i, mTotalHeight- mResetOneYPositions[i] - 300, i, mTotalHeight, Color.YELLOW, wave_color, Shader.TileMode.CLAMP));
+            //ZHU yuyang 减300只是为了控制波纹绘制的y的在屏幕的位置，大家可以改成一个变量，然后动态改变这个变量，从而控制波纹整体高度
             //绘制第一条波浪
-            canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 400, i, mTotalHeight, mWavePaint);
+            canvas.drawLine(i, mTotalHeight - mResetOneYPositions[i] - 300, i, mTotalHeight, mWavePaint);
             //绘制第二条波浪
-            canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 400, i, mTotalHeight, mWavePaint);
+            canvas.drawLine(i, mTotalHeight - mResetTwoYPositions[i] - 350, i, mTotalHeight, mWavePaint);
         }
 
         //改变两条波浪的偏移量
