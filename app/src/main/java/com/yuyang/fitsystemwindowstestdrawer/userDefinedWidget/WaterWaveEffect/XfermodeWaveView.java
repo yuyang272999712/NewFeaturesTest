@@ -12,6 +12,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -35,6 +36,8 @@ public class XfermodeWaveView extends View {
     private PaintFlagsDrawFilter mDrawFilter;
 
     private int mCurrentPosition;
+
+    private boolean isStop = false;
 
     public XfermodeWaveView(Context context) {
         this(context, null);
@@ -62,7 +65,7 @@ public class XfermodeWaveView extends View {
 
         new Thread() {
             public void run() {
-                while (true) {
+                while (!isStop) {
                     // 不断改变绘制的波浪的位置
                     mCurrentPosition += mSpeed;
                     if (mCurrentPosition >= mWaveSrc.getWidth()) {
@@ -121,5 +124,11 @@ public class XfermodeWaveView extends View {
 
         mPaint.setXfermode(null);
         canvas.restoreToCount(sc);
+    }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        isStop = true;
     }
 }
