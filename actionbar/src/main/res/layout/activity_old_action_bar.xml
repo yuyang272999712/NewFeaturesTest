@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,10 +8,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.yuyang.actionbar.OldActionBar">
 
     <Button
-        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAllCaps="false"
@@ -19,37 +19,77 @@
         android:text="使用Toolbar"/>
 
     <Button
-        android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button1"
         android:textAllCaps="false"
         android:onClick="gotoThemeStatusBarActivity"
         android:text="使用theme配置状态栏透明"/>
 
     <Button
-        android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button2"
         android:textAllCaps="false"
         android:onClick="gotoThemeStatusBarActivity2"
         android:text="使用theme配置状态栏透明"/>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/button3"
-        android:textAllCaps="false"
-        android:onClick="gotoTagStatusBarActivity"
-        android:text="代码动态配置状态栏透明"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/button4"
         android:textAllCaps="false"
         android:onClick="gotoWeixinStatusBarActivity"
         android:text="微信漂流瓶状态栏隐藏"/>
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Android_Developer-System Bars课程"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Dimming the System Bars"
+        android:onClick="gotoSystemBars1Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Hiding the Status Bar 小于等于 Android4.0"
+        android:onClick="gotoSystemBars2Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Hiding the Status Bar 大于等于 Android4.1"
+        android:onClick="gotoSystemBars3Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Hide the Navigation Bar"
+        android:onClick="gotoSystemBars4Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Use Non-Sticky Immersion"
+        android:onClick="gotoSystemBars5Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:text="Use Sticky Immersion"
+        android:onClick="gotoSystemBars6Activity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAllCaps="false"
+        android:onClick="gotoTagStatusBarActivity"
+        android:text="代码动态配置状态栏透明"/>
+</LinearLayout>

@@ -15,9 +15,15 @@ import android.widget.Toast;
 
 import com.yuyang.R;
 import com.yuyang.statusbar.FlagStatusBar;
+import com.yuyang.statusbar.SystemBars1Activity;
+import com.yuyang.statusbar.SystemBars2Activity;
+import com.yuyang.statusbar.SystemBars3Activity;
+import com.yuyang.statusbar.SystemBars4Activity;
+import com.yuyang.statusbar.SystemBars5Activity;
+import com.yuyang.statusbar.SystemBars6Activity;
 import com.yuyang.statusbar.ThemeStatusBar;
 import com.yuyang.statusbar.ThemeStatusBar2;
-import com.yuyang.statusbar.WeixinStatusBar;
+import com.yuyang.statusbar.SystemBars7Activity;
 
 /**
  * ActionBar专题
@@ -150,8 +156,38 @@ public class OldActionBar extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void gotoSystemBars1Activity(View view){
+        Intent intent = new Intent(this, SystemBars1Activity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSystemBars2Activity(View view){
+        Intent intent = new Intent(this, SystemBars2Activity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSystemBars3Activity(View view){
+        Intent intent = new Intent(this, SystemBars3Activity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSystemBars4Activity(View view){
+        Intent intent = new Intent(this, SystemBars4Activity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSystemBars5Activity(View view){
+        Intent intent = new Intent(this, SystemBars5Activity.class);
+        startActivity(intent);
+    }
+
+    public void gotoSystemBars6Activity(View view){
+        Intent intent = new Intent(this, SystemBars6Activity.class);
+        startActivity(intent);
+    }
+
     public void gotoWeixinStatusBarActivity(View view){
-        Intent intent = new Intent(this, WeixinStatusBar.class);
+        Intent intent = new Intent(this, SystemBars7Activity.class);
         startActivity(intent);
     }
 }

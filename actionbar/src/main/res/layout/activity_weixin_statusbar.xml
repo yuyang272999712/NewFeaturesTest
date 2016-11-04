@@ -12,29 +12,25 @@
         android:src="@drawable/img2"
         android:scaleType="centerCrop" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/white"
+        android:layout_centerVertical="true"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="通过代码动态控制状态栏透明"/>
 
-        android:background="#cdd98a"
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@android:color/white"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:text="通过代码动态控制状态栏透明"/>
-
-    </LinearLayout>
+    </FrameLayout>
 
 </RelativeLayout>

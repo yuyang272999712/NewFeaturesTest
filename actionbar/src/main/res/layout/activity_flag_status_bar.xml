@@ -5,19 +5,20 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:src="@drawable/img2"
         android:scaleType="centerCrop" />
 
     <FrameLayout
-        android:fitsSystemWindows="true"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:textColor="@android:color/white"
             android:textSize="25sp"
             android:textStyle="bold"

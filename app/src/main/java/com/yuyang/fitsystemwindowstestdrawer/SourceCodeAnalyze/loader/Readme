@@ -38,3 +38,18 @@
     Loader框架会帮我们很好的处理的；同时特别注意，对于CursorLoader，当我们数据源发生变化时Loader框架会通过ContentObserver
     调用onContentChanged的forceLoad方法重新请求数据进行回调刷新。
 
+
+ !--yuyang 自定义Loader对象至少必须实现一下方法：
+            1、onStartLoading()  //当使用LoaderManager管理Loader时，这个方法会被自主调用，其中可以执行数据加载工作（坚决不可以自己调用这个方法）
+            2、onStopLoading()   //当Activity／Fragment结束时，LoaderManager会自主调用这个方法
+            3、onCancelLoad()
+            4、onForceLoad()     //必须在主线程中运行，用于强制重新加载新的数据
+            5、onReset()         //总是在主线程中运行，当loader被重置时被调用，不需要客户端主动调用，LoaderManager会自主管理这个过程
+            可选方法：
+            onAbandon()       //在onReset()方法前调用，意味着客户端不再关心这个loader的数据
+
+            自定义Loader集成自AsyncTaskLoader类，必须实现如下方法：（onForceLoad／onCancelLoad方法已经帮我们实现）
+            1、onStartLoading()
+            2、onStopLoading()
+            3、onReset()
+            4、loadInBackground()    异步加载数据（onForceLoad()已经被AsyncTaskLoader实现，方法中会自动调用这个方法加载数据）

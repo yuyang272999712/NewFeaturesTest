@@ -20,10 +20,22 @@
                   android:theme="@style/StatusBarTheme"/>
         <activity android:name=".statusbar.ThemeStatusBar2"
                   android:theme="@style/StatusBarTheme2"/>
+        <activity android:name=".statusbar.SystemBars7Activity"
+                  android:theme="@style/ToolbarTheme"/>
         <activity android:name=".statusbar.FlagStatusBar"
                   android:theme="@style/StatusBarTag"/>
-        <activity android:name=".statusbar.WeixinStatusBar"
-                  android:theme="@style/ToolbarTheme"/>
+        <activity android:name=".statusbar.SystemBars1Activity"
+                  android:theme="@style/StatusBarTag"/>
+        <activity android:name=".statusbar.SystemBars2Activity"
+                  android:theme="@style/StatusBarTag"/>
+        <activity android:name=".statusbar.SystemBars3Activity"
+                  android:theme="@style/StatusBarTag"/>
+        <activity android:name=".statusbar.SystemBars4Activity"
+                  android:theme="@style/StatusBarTag"/>
+        <activity android:name=".statusbar.SystemBars5Activity"
+                  android:theme="@style/StatusBarTag"/>
+        <activity android:name=".statusbar.SystemBars6Activity"
+                  android:theme="@style/StatusBarTag"/>
     </application>
 
 </manifest>
