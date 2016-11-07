@@ -14,7 +14,7 @@ import com.yuyang.R;
  *
  * Hiding the Status Bar
  *
- * 1、android4.1及以后的设备
+ * 1、android4.1(API16)及以后的设备
  *  !--yuyang View.SYSTEM_UI_FLAG_FULLSCREEN
  *  可通过setSystemUiVisibility()方法来实现隐藏状态栏，这个方法比WindowManager.flags方法的控制能力更好
  *
@@ -60,7 +60,7 @@ public class SystemBars3Activity extends AppCompatActivity {
 
         imageView = (ImageView) findViewById(R.id.image_view);
 
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+        //getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
         //内容要填充至状态栏
         int flags = View.SYSTEM_UI_FLAG_FULLSCREEN //隐藏StatusBar
                 | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN; //内容占满全屏

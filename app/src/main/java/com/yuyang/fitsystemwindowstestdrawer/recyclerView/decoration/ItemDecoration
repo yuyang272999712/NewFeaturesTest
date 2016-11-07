@@ -1,0 +1,18 @@
+RecyclerView的ItemView装饰
+
+   需要重写方法：
+    1、getItemOffsets() 中为 outRect 设置的4个方向的值，将被计算进所有 decoration 的尺寸中，而这个尺寸，
+                     被计入了 RecyclerView 每个 item view 的 padding 中
+    2、onDraw 为 divider 设置绘制范围，并绘制到 canvas 上，而这个绘制范围可以超出在 getItemOffsets 中设置的范围，
+            但由于 decoration 是绘制在 child view 的底下，所以并不可见，但是会存在 overdraw
+    3、onDrawOver 是绘制在最上层的，所以它的绘制位置并不受限制
+
+   RecyclerView中Draw的执行顺序
+    !--yuyang 1、decoration 的 onDraw
+              2、child view 的 onDraw
+              3、decoration 的 onDrawOver
+              这三者是依次发生的
+
+
+ 具体可参考博客：http://blog.csdn.net/shangmingchao/article/details/51456319
+              https://blog.piasy.com/2016/03/26/Insight-Android-RecyclerView-ItemDecoration/?utm_source=tuicool&utm_medium=referral#fn:each-child-view

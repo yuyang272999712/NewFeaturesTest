@@ -18,6 +18,7 @@ import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.ViewInjectUtils
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ContentView;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.ioc.annotation.ViewInject;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager.CustomLayoutManagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.decoration.DecorationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.diffUtil.DiffUtilRecyclerViewActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator.SlideRecyclerListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.removeItem.RecyclerViewRemoveItemActivity;
@@ -33,7 +34,7 @@ import java.util.List;
 @ContentView(R.layout.activity_just_list)
 public class RecyclerViewDemoActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("侧滑删除Item","编辑动画效果","item拖动效果","粘性表头效果",
-            "DiffUtil工具更新RecyclerView内容","自定义LayoutManager");
+            "DiffUtil工具更新RecyclerView内容","自定义LayoutManager","自定义ItemDecoration");
 
     @ViewInject(R.id.toolbar)
     private Toolbar toolbar;
@@ -86,6 +87,9 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
                         break;
                     case 5:
                         intent = new Intent(RecyclerViewDemoActivity.this, CustomLayoutManagerActivity.class);
+                        break;
+                    case 6:
+                        intent = new Intent(RecyclerViewDemoActivity.this, DecorationActivity.class);
                         break;
                 }
                 startActivity(intent);

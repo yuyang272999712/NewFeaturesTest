@@ -3,3 +3,4 @@
     notifyItemChanged() 和 notifyItemRangeChanged()： 使给定 位置/范围 的 item(s) 无效，数据集并没有结构上的改变。
     notifyItemRemoved() 和 notifyItemRangeRemoved()： 移除给定 位置/范围 的 item(s)。
     notifyItemMoved()： 将数据集中的一个 item 重定位到一个新的位置。
+    getChildAdapterPosition(): 获取某个item所在的position

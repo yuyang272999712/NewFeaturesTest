@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <transitionSet
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:transitionOrdering="sequential">
+    android:transitionOrdering="sequential"><!--sequential 表示顺序执行，而 together 表示同时执行-->
 
     <changeBounds />
 
+    <!--淡入淡出效果-->
     <fade android:fadingMode="fade_in_out">
         <targets>
         <!--TODO yuyang target可设置过渡动画的对象-->

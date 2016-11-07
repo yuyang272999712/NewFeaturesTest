@@ -1,0 +1,32 @@
+SystemBar – StatusBar 跟 NavigationBar 的统称
+
+    android4.0(API 14)以前
+        可通过设置theme来隐藏StatusBar
+            <application
+                 ...
+                 android:theme="@android:style/Theme.Holo.NoActionBar.Fullscreen" >
+                 ...
+             </application>
+        也可以通过代码的形式来隐藏StatusBar
+             if (Build.VERSION.SDK_INT < 16) {
+                 getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+             }
+
+    android4.1(API 16)以后
+        SystemBar相关
+         SYSTEM_UI_FLAG_LOW_PROFILE (参见SystemBars1Activity.java)，使 NavigationBar 中的按钮减弱成 3 个点
+         SYSTEM_UI_FLAG_FULLSCREEN (参见SystemBars3Activity.java)，使 StatusBar 隐藏
+         SYSTEM_UI_FLAG_HIDE_NAVIGATION (参见SystemBars4Activity.java)，使 NavigationBar 隐藏
+
+        Layout相关
+         SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN (参见SystemBars3Activity.java)，使内容可以绘制到StatusBar的位置下
+         SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION (参见SystemBars4Activity.java)，使内容可以绘制到NavigationBar的位置下
+         SYSTEM_UI_FLAG_LAYOUT_STABLE (参见SystemBars3Activity.java)，如果设置了StatusBar隐藏，但没有设置SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN属性，那么当StatusBar隐藏后页面会重新布局填充StatusBar的区域，设置了这个属性后，就不会重新布局，StatusBar区域空白
+
+    android4.4(API 19)以后
+        SystemBar相关
+         SYSTEM_UI_FLAG_IMMERSIVE (参见SystemBars5Activity.java)，该方法会隐藏SystemBar，点击屏幕也不会显示，除非去掉这个flag
+         SYSTEM_UI_FLAG_IMMERSIVE_STICKY (参见SystemBars6Activity.java)，该方法会隐藏SystemBar,点击屏幕后SystemBar会出现一会，然后自动隐藏
+
+    !--yuyang 以上几种通过代码设置SystemBar的方式在离开这个屏幕的显示后都不会被清除flag，所有通常情况下想要保持效果，请在 onResume() 或 onWindowFocusChanged()方法中设置flag

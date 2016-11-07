@@ -321,4 +321,12 @@
     <attr name="x_out" format="float" />
     <attr name="y_in" format="float" />
     <attr name="y_out" format="float" />
+    <!--LetterBarView－字母导航条-->
+    <declare-styleable name="LetterBar">
+        <attr name="lbLetterBarBackground" format="reference|color" /><!-- 侧边栏Bar的背景色 -->
+        <attr name="lbLetterBarTextColor" format="reference|color" /><!-- 导航条文字颜色 -->
+        <attr name="lbOverlayBackground" format="reference|color" /><!-- 选中的字母显示背景 -->
+        <attr name="lbOverlayTextColor" format="reference|color" /><!-- 选中的字母显示文字颜色 -->
+        <attr name="lbOverlayTextSize" format="reference|dimension" /><!-- 选中的文字大小 -->
+    </declare-styleable>
 </resources>
