@@ -13,6 +13,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.CitySelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
 
@@ -48,6 +49,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button colorPicker;
     private Button blurredImage;
     private Button clockBtn;
+    private Button letterBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +87,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         colorPicker = (Button) findViewById(R.id.defind_color_picker);
         blurredImage = (Button) findViewById(R.id.defind_blurred_image);
         clockBtn = (Button) findViewById(R.id.defind_clock);
+        letterBar = (Button) findViewById(R.id.defind_letter_bar);
     }
 
     private void initDatas() {}
@@ -265,5 +268,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        letterBar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, CitySelectActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }
