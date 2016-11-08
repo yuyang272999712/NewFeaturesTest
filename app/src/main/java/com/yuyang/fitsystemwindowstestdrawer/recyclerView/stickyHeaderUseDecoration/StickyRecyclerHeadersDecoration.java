@@ -103,6 +103,7 @@ public class StickyRecyclerHeadersDecoration extends RecyclerView.ItemDecoration
             return;
         }
 
+        boolean isFirstHeader = true;
         for (int i = 0; i < childCount; i++) {
             View itemView = parent.getChildAt(i);
             int position = parent.getChildAdapterPosition(itemView);
@@ -120,8 +121,9 @@ public class StickyRecyclerHeadersDecoration extends RecyclerView.ItemDecoration
                     headerOffset = new Rect();
                     mHeaderRects.put(position, headerOffset);
                 }
-                mHeaderPositionCalculator.initHeaderBounds(headerOffset, parent, header, itemView, hasStickyHeader);
+                mHeaderPositionCalculator.initHeaderBounds(headerOffset, parent, header, itemView, isFirstHeader);
                 mRenderer.drawHeader(parent, canvas, header, headerOffset);
+                isFirstHeader = false;
             }
         }
     }

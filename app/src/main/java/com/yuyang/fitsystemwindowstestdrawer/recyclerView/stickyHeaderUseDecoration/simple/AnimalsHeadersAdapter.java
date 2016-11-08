@@ -96,12 +96,11 @@ public class AnimalsHeadersAdapter extends RecyclerView.Adapter<CommonViewHolder
 
     @Override
     public long getHeaderId(int position) {
-        return getItem(position).charAt(0);
-        /*if (position == 0) {
+        if (position == 0) {
             return -1;
         } else {
             return getItem(position).charAt(0);
-        }*/
+        }
     }
 
     @Override
