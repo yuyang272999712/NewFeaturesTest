@@ -23,6 +23,7 @@ import com.yuyang.fitsystemwindowstestdrawer.recyclerView.diffUtil.DiffUtilRecyc
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator.SlideRecyclerListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.removeItem.RecyclerViewRemoveItemActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeader.StickyHeaderRecyclerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeaderUseDecoration.simple.StickyHeaderDecorationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshTouchHelperActivity;
 
 import java.util.Arrays;
@@ -34,7 +35,8 @@ import java.util.List;
 @ContentView(R.layout.activity_just_list)
 public class RecyclerViewDemoActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("侧滑删除Item","编辑动画效果","item拖动效果","粘性表头效果",
-            "DiffUtil工具更新RecyclerView内容","自定义LayoutManager","自定义ItemDecoration");
+            "DiffUtil工具更新RecyclerView内容","自定义LayoutManager","自定义ItemDecoration",
+            "使用ItemDecoration实现粘性表头");
 
     @ViewInject(R.id.toolbar)
     private Toolbar toolbar;
@@ -90,6 +92,9 @@ public class RecyclerViewDemoActivity extends AppCompatActivity {
                         break;
                     case 6:
                         intent = new Intent(RecyclerViewDemoActivity.this, DecorationActivity.class);
+                        break;
+                    case 7:
+                        intent = new Intent(RecyclerViewDemoActivity.this, StickyHeaderDecorationActivity.class);
                         break;
                 }
                 startActivity(intent);
