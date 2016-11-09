@@ -43,7 +43,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button waterRippleBtn;
     private Button waterWaveBtn;
     private Button sloopVerticalScrollItem;
-    private Button parallaxViewPagerBtn;
     private Button colourImageBtn;
     private Button stereoBtn;
     private Button colorPicker;
@@ -81,7 +80,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         waterRippleBtn = (Button) findViewById(R.id.defind_water_ripple);
         waterWaveBtn = (Button) findViewById(R.id.defind_water_wave);
         sloopVerticalScrollItem = (Button) findViewById(R.id.defind_sloop_vertical_scroll);
-        parallaxViewPagerBtn = (Button) findViewById(R.id.defind_parallax_view_pager);
         colourImageBtn = (Button) findViewById(R.id.defind_colour_image);
         stereoBtn = (Button) findViewById(R.id.defind_stereo);
         colorPicker = (Button) findViewById(R.id.defind_color_picker);
@@ -223,13 +221,6 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, SingleItemScrollActivity.class);
-                startActivity(intent);
-            }
-        });
-        parallaxViewPagerBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(UserDefinedWidgetActivity.this, ParallaxViewPagerActivity.class);
                 startActivity(intent);
             }
         });

@@ -67,13 +67,6 @@
                 android:text="竖直无限循环滚动"/>
 
             <Button
-                android:id="@+id/defind_parallax_view_pager"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="背景视差效果的ViewPager"/>
-
-            <Button
                 android:id="@+id/defind_colour_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

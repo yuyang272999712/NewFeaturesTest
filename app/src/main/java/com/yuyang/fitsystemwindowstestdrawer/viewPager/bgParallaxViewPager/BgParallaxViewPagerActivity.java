@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.viewPager.bgParallaxViewPager;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -12,12 +12,12 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.viewPager.bgParallaxViewPager.BgParallaxViewPager;
 
 /**
- * 背景视差效果的ViewPager
+ * 背景视差位移效果
  */
-public class ParallaxViewPagerActivity extends AppCompatActivity {
+
+public class BgParallaxViewPagerActivity extends AppCompatActivity {
     private BgParallaxViewPager viewPager;
 
     @Override
@@ -39,14 +39,14 @@ public class ParallaxViewPagerActivity extends AppCompatActivity {
         });
     }
 
-    public static class SimpleFragment extends Fragment{
+    public static class SimpleFragment extends Fragment {
         public static SimpleFragment newInstance(String title) {
             SimpleFragment simpleFragment = new SimpleFragment();
             Bundle bundle = new Bundle();
             bundle.putString("key_title", title);
             simpleFragment.setArguments(bundle);
             return simpleFragment;
-    }
+        }
 
         private String mTitle = "helloworld";
 

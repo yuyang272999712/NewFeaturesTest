@@ -212,6 +212,7 @@
         <activity android:name=".viewPagerIndicator.BottomPagerIndicatorActivity"/>
         <activity android:name=".viewPagerIndicator.BannerIndicatorActivity"/>
         <activity android:name=".viewPagerIndicator.colorTrackTextIndicator.TrackViewSimpleActivity"/>
+        <activity android:name=".viewPager.bgParallaxViewPager.BgParallaxViewPagerActivity"/>
         <activity android:name=".flabbyBird.FlabbyBirdActivity"/>
         <activity android:name=".effect360AppIntroduce.Effect360AppIntroduceActivity"/>
         <activity android:name=".effect360AppIntroduce.AppIntroduce360Activity"/>

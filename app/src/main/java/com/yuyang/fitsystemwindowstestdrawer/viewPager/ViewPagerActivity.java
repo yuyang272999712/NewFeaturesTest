@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.bgParallaxViewPager.BgParallaxViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager.CardViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.customParallaxViewPager.ParallaxViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.elementAnimationViewPager.ElementAnimationActivity;
@@ -31,7 +32,8 @@ import java.util.List;
 
 public class ViewPagerActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("卡片效果","GridView配合ViewPager","画廊效果",
-            "pager切换动画","无限循环的ViewPager","小红书欢迎页","ViewPager切换页面元素进出");
+            "pager切换动画","无限循环的ViewPager","小红书欢迎页","ViewPager切换页面元素进出",
+            "背景视差效果");
 
     private Toolbar mToolbar;
     private ListView listView;
@@ -85,6 +87,9 @@ public class ViewPagerActivity extends AppCompatActivity {
                         break;
                     case 6:
                         intent = new Intent(ViewPagerActivity.this, ElementAnimationActivity.class);
+                        break;
+                    case 7:
+                        intent = new Intent(ViewPagerActivity.this, BgParallaxViewPagerActivity.class);
                         break;
                 }
                 startActivity(intent);
