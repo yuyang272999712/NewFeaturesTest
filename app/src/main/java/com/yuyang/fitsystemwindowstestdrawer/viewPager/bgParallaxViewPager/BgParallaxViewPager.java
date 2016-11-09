@@ -16,7 +16,7 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * 类似launcher的ViewPager背景视差效果
  */
 public class BgParallaxViewPager extends ViewPager {
-    private Bitmap bg = BitmapFactory.decodeResource(getResources(), R.mipmap.view_pager_bg);
+    private Bitmap bg;
     private static final int INVALID_POS = -1;
     private int mFirstPos = INVALID_POS;
 
@@ -32,6 +32,10 @@ public class BgParallaxViewPager extends ViewPager {
     protected void dispatchDraw(Canvas canvas) {
         if (mFirstPos == INVALID_POS){
             mFirstPos = getCurrentItem();
+        }
+        Drawable bgDrawable = getBackground();
+        if (bgDrawable instanceof BitmapDrawable){
+            bg = ((BitmapDrawable) bgDrawable).getBitmap();
         }
         if (bg != null) {
             int width = bg.getWidth();

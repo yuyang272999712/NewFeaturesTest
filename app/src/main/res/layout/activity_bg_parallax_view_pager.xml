@@ -8,6 +8,7 @@
     <com.yuyang.fitsystemwindowstestdrawer.viewPager.bgParallaxViewPager.BgParallaxViewPager
         android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:background="@mipmap/view_pager_bg"/>
 
 </LinearLayout>
