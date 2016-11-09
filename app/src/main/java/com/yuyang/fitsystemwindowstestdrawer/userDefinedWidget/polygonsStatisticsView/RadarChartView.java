@@ -31,11 +31,11 @@ public class RadarChartView extends View {
 
     private Paint mPaint;
     private int mDataCount;//数据集个数
-    private List<String> mDataNames = new ArrayList<>();//数据名称
+    private List<CharSequence> mDataNames = new ArrayList<>();//数据名称
     private float textSize;//文字大小
     private int textColor;//文字颜色
     private int outerLayerColor;//最外层背景色（必须半透明，如果不是透明的那就强制转换为75%透明度）
-    private int dataNameResourceId;
+    private CharSequence[] dataNames;
     private int defaultSize = 300;//默认大小
     private int height;//View宽高
     private int width;
@@ -43,7 +43,7 @@ public class RadarChartView extends View {
     private int textWidth;
     private float radius;//半径
     private PointF centerPoint;//中心点
-    private float viewLineWidth;//网格线宽度
+    private float viewLineWidth = 3;//网格线宽度
     private float valueLineWidth;//进度线宽度
     private float angle;//夹角
     private Path firstPath;//最外层圆
@@ -61,24 +61,32 @@ public class RadarChartView extends View {
 
     public RadarChartView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        TypedArray array = context.obtainStyledAttributes(R.styleable.RadarChartView);
-        textColor = array.getColor(R.styleable.RadarChartView_polygons_text_color, Color.BLACK);
-        textSize = array.getDimension(R.styleable.RadarChartView_polygons_text_size, DensityUtils.sp2px(context, DEFAULT_TEXT_SIZE));
-        outerLayerColor = array.getColor(R.styleable.RadarChartView_polygons_bg_color, Color.parseColor("#2648afb6"));
+        TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.RadarChart);
+        textColor = array.getColor(R.styleable.RadarChart_polygons_text_color, Color.BLACK);
+        textSize = array.getDimension(R.styleable.RadarChart_polygons_text_size, DensityUtils.sp2px(context, DEFAULT_TEXT_SIZE));
+        outerLayerColor = array.getColor(R.styleable.RadarChart_polygons_bg_color, Color.parseColor("#2648afb6"));
         if (outerLayerColor < 0x00ffffff){//如果所给的背景色是不透明的
             outerLayerColor += 0x26000000;
         }
-        viewLineWidth = array.getDimension(R.styleable.RadarChartView_polygons_view_line_width, DensityUtils.dp2px(context, DEFAULT_VIEW_LINE_WIDTH));
-        valueLineWidth = array.getDimension(R.styleable.RadarChartView_polygons_value_line_width, DensityUtils.dp2px(context, DEFAULT_VALUE_LINE_WIDTH));
-        dataNameResourceId = array.getResourceId(R.styleable.RadarChartView_polygons_data_names, 0);
-        if (dataNameResourceId != 0){
+        viewLineWidth = array.getDimension(R.styleable.RadarChart_polygons_view_line_width, DensityUtils.dp2px(context, DEFAULT_VIEW_LINE_WIDTH));
+        valueLineWidth = array.getDimension(R.styleable.RadarChart_polygons_value_line_width, DensityUtils.dp2px(context, DEFAULT_VALUE_LINE_WIDTH));
+        dataNames = array.getTextArray(R.styleable.RadarChart_polygons_datas);
+        if (dataNames == null || dataNames.length == 0){
+            Log.e("PolygonsStatisticsView", "必须设定要显示的数据项");
+            throw new RuntimeException("必须设定要显示的数据项");
+        }else {
+            mDataNames.addAll(Arrays.asList(dataNames));
+            mDataCount = mDataNames.size();
+            angle = 360f/mDataCount;
+        }
+        /*if (dataNameResourceId > 0){
             mDataNames.addAll(Arrays.asList(context.getResources().getStringArray(dataNameResourceId)));
             mDataCount = mDataNames.size();
             angle = 360f/mDataCount;
         }else {
             Log.e("PolygonsStatisticsView", "必须设定要显示的数据项");
             throw new RuntimeException("必须设定要显示的数据项");
-        }
+        }*/
         if (mDataCount < 3){
             Log.e("PolygonsStatisticsView", "dataNameResourceId对应的数据项不能少于3个");
             throw new RuntimeException("dataNameResourceId对应的数据项不能少于3个");
@@ -86,6 +94,7 @@ public class RadarChartView extends View {
         if (mDataNames.size() > 8){
             Log.e("PolygonsStatisticsView", "数据项太多了吧，我猜绘制出来肯定不好看");
         }
+        array.recycle();
 
         defaultSize = DensityUtils.dp2px(context, defaultSize);
 
@@ -96,13 +105,13 @@ public class RadarChartView extends View {
         //获取最长的字符串
         int position = 0;
         for (int i=1; i<mDataNames.size(); i++){
-            String first = mDataNames.get(position);
-            String second = mDataNames.get(i);
+            String first = mDataNames.get(position).toString();
+            String second = mDataNames.get(i).toString();
             if (second.length() > first.length()){
                 position = i;
             }
         }
-        mPaint.getTextBounds(mDataNames.get(position), 0, mDataNames.get(position).length(), textRect);
+        mPaint.getTextBounds(mDataNames.get(position).toString(), 0, mDataNames.get(position).length(), textRect);
         textHeight = textRect.height();
         textWidth = textRect.width();
     }
@@ -174,13 +183,13 @@ public class RadarChartView extends View {
             float[] textPosition = new float[2];
             pathMeasure.getPosTan(pathLength/mDataCount*i, textPosition, null);
             if (i == 0){//第一个点，文字肯定绘制在最上面
-                canvas.drawText(mDataNames.get(i), centerPoint.x-textWidth/2, centerPoint.y-radius, mPaint);
+                canvas.drawText(mDataNames.get(i).toString(), centerPoint.x-textWidth/2, centerPoint.y-radius, mPaint);
             }else if (mDataCount%2==0 && i==mDataCount/2){//整除说明最下面正中需要绘制文字
-                canvas.drawText(mDataNames.get(i), centerPoint.x-textWidth/2, centerPoint.y+radius+textHeight, mPaint);
+                canvas.drawText(mDataNames.get(i).toString(), centerPoint.x-textWidth/2, centerPoint.y+radius+textHeight, mPaint);
             }else if (mDataCount*1.0f/2>i){//右侧文字
-                canvas.drawText(mDataNames.get(i), textPosition[0], textPosition[1]-textHeight/2, mPaint);
+                canvas.drawText(mDataNames.get(i).toString(), textPosition[0], textPosition[1]-textHeight/2, mPaint);
             }else {//左侧文字
-                canvas.drawText(mDataNames.get(i), textPosition[0]+textWidth, textPosition[1]-textHeight/2, mPaint);
+                canvas.drawText(mDataNames.get(i).toString(), textPosition[0]+textWidth, textPosition[1]-textHeight/2, mPaint);
             }
         }
     }
@@ -189,12 +198,12 @@ public class RadarChartView extends View {
      * 画中心星形线
      */
     private void drawCenterLines(Canvas canvas) {
-        mPaint.setColor(Color.WHITE);
+        mPaint.setColor(Color.BLACK);
         mPaint.setStrokeWidth(viewLineWidth);
         canvas.save();
         for (int i=0; i<mDataCount; i++){
-            canvas.rotate(i*angle, centerPoint.x, centerPoint.y);
             canvas.drawLine(centerPoint.x, centerPoint.y, centerPoint.x, centerPoint.y-radius, mPaint);
+            canvas.rotate(angle, centerPoint.x, centerPoint.y);
         }
         canvas.restore();
     }

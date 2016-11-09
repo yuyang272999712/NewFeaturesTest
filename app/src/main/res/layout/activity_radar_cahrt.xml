@@ -20,6 +20,6 @@
         app:polygons_text_color="#0073ff"
         app:polygons_text_size="14sp"
         app:polygons_view_line_width="1dp"
-        app:polygons_data_names="@array/radar_cahrt_datas"/>
+        app:polygons_datas="@array/radar_cahrt_datas"/>
 
 </LinearLayout>

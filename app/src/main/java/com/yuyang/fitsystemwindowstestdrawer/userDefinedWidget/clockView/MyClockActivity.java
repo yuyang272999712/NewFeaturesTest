@@ -9,7 +9,7 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * 图片模糊效果
+ * 自定义表盘
  */
 public class MyClockActivity extends AppCompatActivity {
     private Toolbar mToolbar;
@@ -23,7 +23,7 @@ public class MyClockActivity extends AppCompatActivity {
 
     private void findViews() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitle("图片模糊效果");
+        mToolbar.setTitle("自定义表盘");
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {

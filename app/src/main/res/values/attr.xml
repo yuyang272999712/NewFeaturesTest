@@ -339,12 +339,12 @@
             <enum name="left" value="1"/>
         </attr>
     </declare-styleable>
-    <!--PolygonsStatisticsView－雷达图属性-->
-    <declare-styleable name="RadarChartView">
+    <!--RadarChartView－雷达图属性-->
+    <declare-styleable name="RadarChart">
         <attr name="polygons_text_size" format="dimension|reference"/><!--文字大小-->
         <attr name="polygons_text_color" format="color|reference"/><!--文字颜色-->
         <attr name="polygons_bg_color" format="color|reference"/><!--最外层背景色-->
-        <attr name="polygons_data_names" format="reference"/><!--数据名称集合-->
+        <attr name="polygons_datas" format="reference"/><!--数据名称集合-->
         <attr name="polygons_view_line_width" format="dimension|reference"/><!--图形线条宽度-->
         <attr name="polygons_value_line_width" format="dimension|reference"/><!--进度线条宽度-->
     </declare-styleable>
