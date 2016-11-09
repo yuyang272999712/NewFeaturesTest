@@ -12,6 +12,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.polygonsStatisticsView.RadarChartActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.CitySelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
@@ -49,6 +50,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button blurredImage;
     private Button clockBtn;
     private Button letterBar;
+    private Button radarChartBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,6 +88,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         blurredImage = (Button) findViewById(R.id.defind_blurred_image);
         clockBtn = (Button) findViewById(R.id.defind_clock);
         letterBar = (Button) findViewById(R.id.defind_letter_bar);
+        radarChartBtn = (Button) findViewById(R.id.defind_radar_chart);
     }
 
     private void initDatas() {}
@@ -263,6 +266,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, CitySelectActivity.class);
+                startActivity(intent);
+            }
+        });
+        radarChartBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, RadarChartActivity.class);
                 startActivity(intent);
             }
         });

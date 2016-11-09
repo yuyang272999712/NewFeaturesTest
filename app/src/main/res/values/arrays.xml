@@ -479,4 +479,13 @@
         <item>Zonkey</item>
         <item>Zorse</item>
     </string-array>
+
+    <string-array name="radar_cahrt_datas">
+        <item>测试1</item>
+        <item>测试2</item>
+        <item>测试3</item>
+        <item>测试4</item>
+        <item>测试5</item>
+        <item>测试6</item>
+    </string-array>
 </resources>

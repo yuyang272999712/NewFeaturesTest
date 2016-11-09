@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"/>
+    
+    <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.polygonsStatisticsView.RadarChartView
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        app:polygons_bg_color="#5e0073ff"
+        app:polygons_text_color="#0073ff"
+        app:polygons_text_size="14sp"
+        app:polygons_view_line_width="1dp"
+        app:polygons_data_names="@array/radar_cahrt_datas"/>
+
+</LinearLayout>
