@@ -15,12 +15,12 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <ExpandableListView
             android:id="@+id/city_select_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:childDivider="@null"
             android:divider="@null"
             android:focusable="true"
@@ -28,16 +28,26 @@
             android:groupIndicator="@null"
             android:overScrollMode="never"/>
 
-        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.LetterBarView
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.letterSideBar.LetterBarView
             android:id="@+id/letter_bar"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="right"
-            app:lbLetterBarBackground="@color/white"
+            app:lbLetterBarBackground="#ff60a5"
             app:lbLetterBarTextColor="#1993d1"
             app:lbOverlayBackground="@drawable/letter_flow_bg"
             app:lbOverlayTextColor="#1993d1"
             app:lbOverlayTextSize="40sp"/>
+
+        <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.WaveSideBar.WaveSideBar
+            android:id="@+id/wave_letter_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:sidebar_max_offset="50dp"
+            app:sidebar_lazy_respond="false"
+            app:sidebar_position="right"
+            app:sidebar_text_color="#ff60a5"/>
 
     </FrameLayout>
 

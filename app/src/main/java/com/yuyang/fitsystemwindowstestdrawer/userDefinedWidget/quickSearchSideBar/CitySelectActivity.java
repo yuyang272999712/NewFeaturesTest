@@ -6,11 +6,15 @@ import android.support.annotation.Nullable;
 import android.support.v4.util.ArrayMap;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.alibaba.fastjson.JSON;
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.WaveSideBar.WaveSideBar;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.letterSideBar.LetterBarView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,9 +30,11 @@ import java.util.List;
 public class CitySelectActivity extends AppCompatActivity {
     private Toolbar mToolbar;
     private ExpandableListView expandableListView;
-    private LetterBarView letterBarView;
     private ArrayMap<String, List<City>> datas = new ArrayMap<>();
     private ExpandableAdapter mAdapter;
+
+    private LetterBarView letterBarView;
+    private WaveSideBar waveSideBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,11 +44,12 @@ public class CitySelectActivity extends AppCompatActivity {
         setToolbar();
         expandableListView = (ExpandableListView) findViewById(R.id.city_select_list);
         letterBarView = (LetterBarView) findViewById(R.id.letter_bar);
+        waveSideBar = (WaveSideBar) findViewById(R.id.wave_letter_bar);
         initDatas();
 
         mAdapter = new ExpandableAdapter(this, datas);
-
         expandableListView.setAdapter(mAdapter);
+
         letterBarView.setOnLetterSelectListener(new LetterBarView.OnLetterSelectListener() {
             @Override
             public void onLetterSelect(String s) {
@@ -55,6 +62,20 @@ public class CitySelectActivity extends AppCompatActivity {
                 }
             }
         });
+        waveSideBar.setOnSelectIndexItemListener(new WaveSideBar.OnSelectIndexItemListener() {
+            @Override
+            public void onSelectIndexItem(String s) {
+                if (s.equalsIgnoreCase("#")) {
+                    expandableListView.setSelection(0);
+                } else {
+                    if (mAdapter.containsKey(s)) {
+                        expandableListView.setSelectedGroup(mAdapter.getKeyPosition(s));
+                    }
+                }
+            }
+        });
+
+        //展开所有group
         for (int i=0; i<datas.size(); i++){
             expandableListView.expandGroup(i);
         }
@@ -112,5 +133,23 @@ public class CitySelectActivity extends AppCompatActivity {
             }
         }
         return sb.toString();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add("换字母条各样式");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (waveSideBar.getVisibility() == View.GONE){
+            letterBarView.setVisibility(View.GONE);
+            waveSideBar.setVisibility(View.VISIBLE);
+        }else {
+            letterBarView.setVisibility(View.VISIBLE);
+            waveSideBar.setVisibility(View.GONE);
+        }
+        return true;
     }
 }

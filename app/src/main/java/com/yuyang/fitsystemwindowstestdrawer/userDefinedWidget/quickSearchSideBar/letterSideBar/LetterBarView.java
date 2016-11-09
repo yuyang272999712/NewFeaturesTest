@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.letterSideBar;
 
 import android.content.Context;
 import android.content.res.ColorStateList;

@@ -329,4 +329,14 @@
         <attr name="lbOverlayTextColor" format="reference|color" /><!-- 选中的字母显示文字颜色 -->
         <attr name="lbOverlayTextSize" format="reference|dimension" /><!-- 选中的文字大小 -->
     </declare-styleable>
+    <!--WaveSideBar－波浪字母导航条-->
+    <declare-styleable name="WaveSideBar">
+        <attr name="sidebar_lazy_respond" format="boolean"/><!--是否延时发送回调-->
+        <attr name="sidebar_text_color" format="color"/><!--字母颜色-->
+        <attr name="sidebar_max_offset" format="dimension" /><!--波峰最大偏移量-->
+        <attr name="sidebar_position" format="enum"><!--字母条靠左还是靠右显示-->
+            <enum name="right" value="0"/>
+            <enum name="left" value="1"/>
+        </attr>
+    </declare-styleable>
 </resources>
