@@ -2,7 +2,8 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -14,69 +15,182 @@
             android:id="@+id/metrics_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"/>
+            android:background="?attr/colorPrimary"
+            app:theme="@style/AppTheme.AppBarOverlay"/>
 
         <FrameLayout
-            android:id="@+id/metrics_frame"
+            android:id="@+id/parenView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/metrics_toolbar"
             android:background="#c67555"
             android:layout_marginLeft="200px"
-            android:layout_marginTop="50px"
-            android:padding="50px">
+            android:layout_marginTop="50px">
 
             <TextView
                 android:id="@+id/metrics_text"
-                android:layout_width="60dp"
-                android:layout_height="300px"
+                android:layout_margin="50px"
+                android:layout_width="150px"
+                android:layout_height="150px"
                 android:background="#9bde6e"
                 android:textSize="30sp"
-                android:text="开发测试"/>
+                android:text="TEXT"/>
 
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/metrics_linear"
+            android:id="@+id/rectangleView"
             android:orientation="horizontal"
-            android:layout_width="200px"
+            android:layout_width="500px"
             android:layout_height="1500px"
-            android:layout_below="@id/metrics_frame"
+            android:layout_below="@id/parenView"
             android:layout_marginTop="50px"
             android:layout_marginLeft="100px"
             android:background="#5fafd2">
-
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="高1500px 宽500px"/>
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/parenView"
+            android:layout_below="@id/metrics_toolbar"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/translationX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="setTranslationX(10)"
+                android:onClick="onClick"/>
+            <Button
+                android:id="@+id/setX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="setX(10)"
+                android:onClick="onClick"/>
+            <Button
+                android:id="@+id/scrollTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="scrollTo(50,50)"
+                android:onClick="onClick"/>
+            <Button
+                android:id="@+id/scrollBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="scrollBy(10,10)"
+                android:onClick="onClick"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/textViewInfo"
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/metrics_toolbar"
             android:layout_marginTop="10dp"
-            android:background="#00ffffff">
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewRect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/textViewGetMethod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/textViewInWindow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/textViewOnScreen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/viewInfo"
+                android:id="@+id/textViewRect1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/viewInfo1"
+                android:id="@+id/textViewGetMethod1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/viewInfo2"
+                android:id="@+id/textViewInWindow1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
             <TextView
-                android:id="@+id/viewInfo3"
+                android:id="@+id/textViewOnScreen1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rectangleInfo"
+            android:visibility="gone"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/parenView"
+            android:layout_marginTop="10dp"
+            android:background="#00ffffff">
             <TextView
                 android:id="@+id/viewInfo4"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/screenInfo"
+            android:visibility="visible"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/parenView"
+            android:layout_marginTop="10dp"
+            android:background="#00ffffff">
+            <TextView
+                android:id="@+id/windowMetrics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/windowRealMetrics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/windowDensity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/systemBarHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/decorViewTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
     </RelativeLayout>

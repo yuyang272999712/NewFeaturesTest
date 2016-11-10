@@ -63,8 +63,9 @@
         <activity android:name=".androidL.behaviorAbout.BehaviorAboutActivity"/>
         <activity android:name=".androidL.behaviorAbout.BottomSheetActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
-        <activity android:name=".MetricsAbout.MetricsActivity"
-            android:theme="@style/TransitionTheme"/>
+        <activity android:name=".metricsAbout.MetricsAboutActivity"/>
+        <activity android:name=".metricsAbout.screenAndViewMetrics.ScreenAndViewMetricsActivity"/>
+        <activity android:name=".metricsAbout.textFontMetrics.TextFontMetricsActivity"/>
         <activity android:name=".userDefinedWidget.UserDefinedWidgetActivity"/>
         <activity android:name=".userDefinedWidget.ViewDragHelperActivity"/>
         <activity android:name=".userDefinedWidget.VerticalLinearLayoutActivity"/>
