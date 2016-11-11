@@ -3,6 +3,7 @@ package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews;
 import android.content.Context;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,8 @@ public class VerticalDrawerLayout extends ViewGroup{
 
     private boolean mIsOpen = true;
 
+    private float initMotionY = 0;
+
     public VerticalDrawerLayout(Context context) {
         super(context);
         init();
@@ -36,14 +39,14 @@ public class VerticalDrawerLayout extends ViewGroup{
     }
 
     private void init() {
-        //Step1：使用静态方法构造ViewDragHelper,其中需要传入一个ViewDragHelper.Callback回调对象.
+        //ZHU yuyang Step1：使用静态方法构造ViewDragHelper,其中需要传入一个ViewDragHelper.Callback回调对象.
         mViewDragHelper = ViewDragHelper.create(this, 1.0f, new ViewDragHelperCallBack());
         //边界移动时对View进行捕获(这里只处理上边界)
         mViewDragHelper.setEdgeTrackingEnabled(ViewDragHelper.EDGE_TOP);
     }
 
 
-    //Step2：定义一个ViewDragHelper.Callback回调实现类
+    //ZHU yuyang Step2：定义一个ViewDragHelper.Callback回调实现类
     private class ViewDragHelperCallBack extends ViewDragHelper.Callback{
         @Override
         public boolean tryCaptureView(View child, int pointerId) {
@@ -88,7 +91,7 @@ public class VerticalDrawerLayout extends ViewGroup{
         }
 
         @Override
-        public int getViewHorizontalDragRange(View child) {
+        public int getViewVerticalDragRange(View child) {
             if(mDrawerView == null) return 0;
             return (mDrawerView == child) ? mDrawerView.getHeight() : 0;
         }
@@ -104,6 +107,7 @@ public class VerticalDrawerLayout extends ViewGroup{
 
     @Override
     public void computeScroll() {
+        //ZHU yuyang
         if (mViewDragHelper.continueSettling(true)) {
             invalidate();
         }
@@ -111,11 +115,13 @@ public class VerticalDrawerLayout extends ViewGroup{
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //ZHU yuyang
         return mViewDragHelper.shouldInterceptTouchEvent(ev);
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
+        //ZHU yuyang
         mViewDragHelper.processTouchEvent(event);
         return true;
     }
@@ -143,6 +149,7 @@ public class VerticalDrawerLayout extends ViewGroup{
 
         mContentView = getChildAt(0);
         mDrawerView = getChildAt(1);
+        mDrawerView.setClickable(true);
 
         MarginLayoutParams params = (MarginLayoutParams) mContentView.getLayoutParams();
         int childWidthMeasureSpec = MeasureSpec.makeMeasureSpec(

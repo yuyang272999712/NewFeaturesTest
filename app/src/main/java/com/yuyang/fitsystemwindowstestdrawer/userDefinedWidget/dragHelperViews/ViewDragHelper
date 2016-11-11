@@ -1,8 +1,8 @@
 ViewDragHelper常用方法：
     1、shouldInterceptTouchEvent
-        在parentView的onInterceptTouchEvent中调用，判断是否需要拦截［必需］
+        !--yuyang在parentView的onInterceptTouchEvent中调用，判断是否需要拦截［必需］
     2、processTouchEvent
-        在parentView的onTouchEvent中调用［必需］
+        !--yuyang在parentView的onTouchEvent中调用［必需］
     3、setEdgeTrackingEnabled
         设置编辑触碰回调是否可用（常用值：EDGE_LEFT，EDGE_RIGHT，EDGE_TOP，EDGE_BOTTOM）
     4、continueSettling
@@ -10,8 +10,10 @@ ViewDragHelper常用方法：
     5、captureChildView
         手动设置捕获子View，即使tryCaptureView返回false该View也会被捕获（经常使用在onEdgeTouched中，手动指定一个被拖拽对象）
     6、settleCapturedViewAt
-        设置captureView滚动至指定位置（只能在callback的onViewReleased方法中调用！！！！）
-    7、setMinVelocity
+        以松手前的滑动速度为初值，让捕获到的子View自动滚动到指定位置（!--yuyang 只能在callback的onViewReleased方法中调用！！！！）
+    7、flingCapturedView
+        以松手前的滑动速度为初值，让捕获到的子View在指定范围内fling惯性运动（!--yuyang 只能在callback的onViewReleased方法中调用！！！！）
+    8、setMinVelocity
         设置最小速率（当手指释放时速率大于这个值时，onViewReleased的速率才会大于0），详见代码实例
 
 ViewDragHelper.Callback常用方法：
@@ -30,14 +32,14 @@ ViewDragHelper.Callback常用方法：
     7、onEdgeDragStarted
         当发生边界触碰时回调
     8、getOrderedChildIndex
-        改变同一个坐标（x,y）去寻找captureView位置的方法。（具体在：findTopChildUnder方法中）
+        改变同一个坐标（x,y）去寻找captureView位置的方法，比如：实现重叠View时让下面的View获得选中（会在：findTopChildUnder方法中调用）
     9、getViewHorizontalDragRange
-        ＊＊X轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
+        !--yuyang＊＊X轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
     10、getViewVerticalDragRange
-        ＊＊Y轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
+        !--yuyang＊＊Y轴方向拖动范围，当拖动对象为clickable时该方法［必需重写］
     11、tryCaptureView
         通过该方法的返回值可以决定一个parentView中哪个子view可以拖动，即得到captureView
     12、clampViewPositionHorizontal
-        ［必须重写］返回X轴方向移动后位置
+        !--yuyang［必须重写］返回X轴方向移动后位置
     13、clampViewPositionVertical
-        ［必须重写］返回Y轴方向移动后位置
+        !--yuyang［必须重写］返回Y轴方向移动后位置
