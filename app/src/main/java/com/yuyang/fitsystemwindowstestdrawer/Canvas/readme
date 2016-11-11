@@ -3,6 +3,8 @@ Android 图像处理：（可参考：http://blog.csdn.net/yanbober/article/deta
 Paint
     常用方法：
        setAntiAlias();      //设置画笔的锯齿效果
+       setDither();         //获取与设定是否使用图像抖动处理，会使绘制出来的图片颜色更加平滑和饱满、图像更加清晰。
+       setStrokeJoin()      //获取与设置画笔画线等连接处的轮廓样式，可取值:Join.MITER/Join.ROUND/Join.BEVEL
        setColor();          //设置画笔颜色
        setARGB();           //设置画笔的A、R、G、B值
        setAlpha();          //设置画笔的Alpha值
@@ -20,6 +22,9 @@ Paint
                                    //铅笔笔尖削成方形的，那么画出来的线条会是一条弯曲的“矩形”，这就是笔触的意思。
                                    //除了ROUND，Paint.Cap还提供了另外两种类型：SQUARE和BUTT
        setMaskFilter()    //不支持硬件加速。该方法接收一个MaskFilter类型的参数，MaskFilter有两个子类，分别是BlurMaskFilter和EmbossMaskFilter，可以分别用来绘制模糊阴影以及浮雕效果。
+       getTextPath()      //获取文字轮廓的Path值，特别注意Path要close，否则无效
+       setShader()      //非常重要的方法，获取与设置渲染方法。Shader的直接子类有BitmapShader位图图像渲染、LinearGradient线性渲染、RadialGradient环形渲染、SweepGradient扫描渐变渲染/梯度渲染、ComposeShader组合渲染
+       etXfermode() //非常重要的方法设置两绘制相交时的模式，因为正常的情况下在已有图像上绘图会完全遮挡住下面已有的图，所以setXfermode()方法的作用就是来设置叠加时该如何搞的规则，传递null可以清除任何以前的xfermode设置
 ---------------------------------------------------------------------------------------------
 ColorMatrix  颜色矩阵
     ColorMatrix colorMatrix = new ColorMatrix();
