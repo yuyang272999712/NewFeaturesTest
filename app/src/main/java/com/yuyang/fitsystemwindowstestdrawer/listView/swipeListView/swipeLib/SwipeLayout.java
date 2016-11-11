@@ -1352,8 +1352,11 @@ public class SwipeLayout extends FrameLayout {
             return;
         }
         int dx, dy;
-        if (smooth) mDragHelper.smoothSlideViewTo(getSurfaceView(), getPaddingLeft(), getPaddingTop());
-        else {
+        if (smooth) {
+            if (mDragHelper.getViewDragState() != ViewDragHelper.STATE_SETTLING) {
+                mDragHelper.smoothSlideViewTo(getSurfaceView(), getPaddingLeft(), getPaddingTop());
+            }
+        } else {
             Rect rect = computeSurfaceLayoutArea(false);
             dx = rect.left - surface.getLeft();
             dy = rect.top - surface.getTop();

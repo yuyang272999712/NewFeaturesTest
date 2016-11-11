@@ -148,17 +148,17 @@ public class ScreenAndViewMetricsActivity extends AppCompatActivity implements V
                 +"\n 4、getTranslationX()："+translationX+"\n 5、getScrollX()："+scrollX
                 +"\n 6、getRotationX()："+rotationX+"\n 7、getScaleX()："+scaleX);
         int[] textViewLocationInWindow = new int[2];
-        textView.getLocationInWindow(textViewLocationInWindow);
+        textView.getLocationInWindow(textViewLocationInWindow);//如果为普通Activity则Y坐标为View左上角到屏幕顶部（此时Window与屏幕一样大）；如果为对话框式的Activity则Y坐标为当前Dialog模式Activity的标题栏顶部到View左上角的距离。
         textViewInWindow.setText("LocationInWindow："+textViewLocationInWindow[0]+"/"+textViewLocationInWindow[1]);
         int[] textViewLocationOnScreen = new int[2];
-        textView.getLocationOnScreen(textViewLocationOnScreen);
+        textView.getLocationOnScreen(textViewLocationOnScreen);//坐标是相对整个屏幕而言，Y坐标为View左上角到屏幕顶部的距离。
         textViewOnScreen.setText("LocationOnScreen："+textViewLocationOnScreen[0]+"/"+textViewLocationOnScreen[1]);
 
 
         Rect localRect = new Rect();
-        rectangleView.getLocalVisibleRect(localRect);
+        rectangleView.getLocalVisibleRect(localRect);//获取View自身可见的坐标区域，坐标以自己的左上角为原点(0,0)，另一点为可见区域右下角相对自己(0,0)点的坐标
         Rect globalRect = new Rect();
-        rectangleView.getGlobalVisibleRect(globalRect);
+        rectangleView.getGlobalVisibleRect(globalRect);//获取View在屏幕绝对坐标系中的可视区域，坐标以屏幕左上角为原点(0,0)，另一个点为可见区域右下角相对屏幕原点(0,0)点的坐标。
         Rect focusedRect = new Rect();
         rectangleView.getFocusedRect(focusedRect);
         Rect hitRect = new Rect();
