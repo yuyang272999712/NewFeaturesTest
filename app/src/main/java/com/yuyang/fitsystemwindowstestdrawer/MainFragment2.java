@@ -27,7 +27,6 @@ import com.yuyang.fitsystemwindowstestdrawer.rxJava.RxJavaActivity;
 import com.yuyang.fitsystemwindowstestdrawer.service.ServiceActivity;
 import com.yuyang.fitsystemwindowstestdrawer.softInput.SoftInputActivity;
 import com.yuyang.fitsystemwindowstestdrawer.telephony_sms.TelephonyAndSmsActivity;
-import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.ViewPagerIndicatorActivity;
 
 /**
  * Created by yuyang on 2016/6/2.
@@ -78,8 +77,7 @@ public class MainFragment2 extends Fragment {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), ViewPagerIndicatorActivity.class);
-                startActivity(intent);
+
             }
         });
         button3 = (Button) mContentView.findViewById(R.id.button3);

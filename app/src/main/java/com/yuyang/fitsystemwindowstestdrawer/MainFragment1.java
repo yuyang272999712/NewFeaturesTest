@@ -27,6 +27,7 @@ import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackAc
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.UserDefinedWidgetActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.ViewPagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPagerIndicator.ViewPagerIndicatorActivity;
 import com.yuyang.fitsystemwindowstestdrawer.webview.WebViewActivity;
 
 /**
@@ -151,7 +152,7 @@ public class MainFragment1 extends Fragment {
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), TantanActivity.class);
+                Intent intent = new Intent(getContext(), ViewPagerIndicatorActivity.class);
                 startActivity(intent);
             }
         });
@@ -169,7 +170,8 @@ public class MainFragment1 extends Fragment {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), TantanActivity.class);
+                startActivity(intent);
             }
         });
 

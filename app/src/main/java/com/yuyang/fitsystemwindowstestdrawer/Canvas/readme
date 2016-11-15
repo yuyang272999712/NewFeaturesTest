@@ -120,8 +120,34 @@ Xfermode
 
 ---------------------------------------------------------------------------------------------
 Path
-    路径绘制，常用的方法比较简单
-    PathMeasure这个类有必要了解下，参见博客：http://blog.csdn.net/u013831257/article/details/51565591
+    路径绘制，常用的方法比较简单:
+    addArc(RectF oval, float startAngle, float sweepAngle)
+    addArc(float left, float top, float right, float bottom, float startAngle, float sweepAngle)
+    addCircle(float x, float y, float radius, Path.Direction dir)
+    addOval(float left, float top, float right, float bottom, Path.Direction dir)
+    addOval(RectF oval, Path.Direction dir)
+    addRect(float left, float top, float right, float bottom, Path.Direction dir)
+    addRect(RectF rect, Path.Direction dir)
+    addRoundRect(float left, float top, float right, float bottom, float rx, float ry, Path.Direction dir)
+    addRoundRect(float left, float top, float right, float bottom, float[] radii, Path.Direction dir)
+    addRoundRect(RectF rect, float[] radii, Path.Direction dir)
+    addRoundRect(RectF rect, float rx, float ry, Path.Direction dir)
+    arcTo(float left, float top, float right, float bottom, float startAngle, float sweepAngle, boolean forceMoveTo)
+    arcTo(RectF oval, float startAngle, float sweepAngle)
+    arcTo(RectF oval, float startAngle, float sweepAngle, boolean forceMoveTo)
+
+    computeBounds(RectF bounds, boolean exact);//计算Path所在区域并将结果写入bounds，如果整个Path只包含0或者1个点则返回(0, 0, 0, 0)。exact参数现在没意义了，随意传值。
+    quadTo(float x1, float y1, float x2, float y2);//二阶贝塞尔曲线，只有一个控制点，(x1, y1)是控制点，(x2, y2)是结束点
+    cubicTo(float x1, float y1, float x2, float y2, float x3, float y3);//三阶贝塞尔曲线，有两个控制点，(x1, y1)是第一控制点，(x2, y2)是第二控制点，(x3, y3)是结束点
+
+PathMeasure这个类有必要了解下，参见博客：http://blog.csdn.net/u013831257/article/details/51565591
+    PathMeasure(Path path, boolean forceClosed);//构造方法；一个构造空的PathMeasure对象，一个通过一个已存在的path构造PathMeasure对象，forceClosed决定是否close()这个path。
+    setPath(Path path, boolean forceClosed);//配合PathMeasure()使用效果与PathMeasure(Path path, boolean forceClosed)一样。
+    getLength();//测量Path的长度。
+    isClosed();//判断轮廓路径是否是闭环的。
+    nextContour();//移动到下一个轮廓，如果你的Path是由多个轮廓组成的话，那么就可以使用这个方法，有下一个轮廓存在就返回true。
+    getPosTan(float distance, float[] pos, float[] tan);//传入一个距离distance(0<=distance<=getLength())，然后该方法会自动计算当前距离的坐标点和切线值存入pos与tan。
+    getSegment(float startD, float stopD, Path dst, boolean startWithMoveTo);//传入一个开始和结束距离（0..getLength()），然后会返回介于这之间的Path值dst，最后那个参数决定开始距离是否从MoveTo坐标为参照物。
 
 ---------------------------------------------------------------------------------------------
 Canvas
@@ -135,10 +161,10 @@ Canvas
        drawArc(left,top,right,bottom,startAngle,sweepAngle,userCenter,paint);   //绘制弧形、扇形
        drawOval(left,top,right,bottom,paint);   //绘制椭圆
        drawText(text,startX,startY,paint);  //绘制文字
+       drawTextOnPath(String text, Path path, float hOffset, float vOffset, Paint paint); //沿路径绘制文字
        drawPosText(text, new float[]{X1,Y1,X2,Y2,...Xn,Yn},paint);  //在指定位置绘制文本
        drawPath(path, paint);       //绘制路径  Path path = new Path(); path.moveTo(0,0); path.lineTo(50,50);
        drawBitmap();        //绘制图片（有很多重载方法）
-
        drawBitmapMesh(Bitmap bitmap, int meshWidth, int meshHeight, float[] verts, int vertOffset, int[] colors, int colorOffset, Paint paint)
             //Mesh表示网格，这个方法可以制作网格变形效果，让图片像布一样被扭曲（!--yuyang这个方法的具体介绍可参考：http://blog.csdn.net/leehong2005/article/details/9127095）
             参数说明如下:
@@ -150,9 +176,20 @@ Canvas
           ZHU yuyang 这种效果请看Matrix.png的图片效果
 
     常用方法：
-       save();
+       save(); //特别注意：这里所有的方法被调运后除过调用save、restore处理可以恢复原样Canvas以外该操作是不可逆的！）
        restore();
+       save(int saveFlags);
+       restoreToCount(int saveCount);
        translate();
+       scale();
        rotate();
        saveLayer();     //创建一个图层（详见：SaveLayerView.java）
+
+       setBitmap(Bitmap bitmap)     //设置可变化的位图
+       isHardwareAccelerated()      //判断当前Canvas是否开启了硬件加速
+
+       clipPath(Path path); //依据路径和区域方式切割画布
+       clipRect(RectF rect);  //以矩形方式切割画布
+       clipRegion(Region region);  //以Region的区域方式切割画布
+
 

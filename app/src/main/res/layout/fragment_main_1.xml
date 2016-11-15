@@ -101,7 +101,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="仿探探效果"/>
+                android:text="ViewPager指示器"/>
         </TableRow>
         <TableRow >
             <Button
@@ -118,7 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text=""/>
+                android:text="仿探探效果"/>
 
         </TableRow>
         <TableRow >
