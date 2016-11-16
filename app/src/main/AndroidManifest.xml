@@ -62,6 +62,7 @@
         <activity android:name=".androidL.activitySwitchAnim.AdapterDetailActivity"/>
         <activity android:name=".androidL.behaviorAbout.BehaviorAboutActivity"/>
         <activity android:name=".androidL.behaviorAbout.BottomSheetActivity"/>
+        <activity android:name=".androidL.behaviorAbout.nestedScrollBehavior.simple.NestedScrollBehaviorActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".metricsAbout.MetricsAboutActivity"/>
         <activity android:name=".metricsAbout.screenAndViewMetrics.ScreenAndViewMetricsActivity"/>

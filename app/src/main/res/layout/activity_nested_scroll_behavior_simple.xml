@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:gravity="center"
+                android:text="测试竖直滚动的Behavior"/>
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.nestedScrollBehavior.TitleViewBehavior"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:text="底部View"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.nestedScrollBehavior.BottomViewBehavior"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_dialog_email"
+        app:layout_behavior="com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.nestedScrollBehavior.FloatActionButtonBehavior"/>
+
+</android.support.design.widget.CoordinatorLayout>

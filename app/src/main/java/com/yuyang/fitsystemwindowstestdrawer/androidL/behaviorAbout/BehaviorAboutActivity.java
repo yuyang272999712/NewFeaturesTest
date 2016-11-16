@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.nestedScrollBehavior.simple.NestedScrollBehaviorActivity;
 
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +20,8 @@ import java.util.List;
  * behavior使用
  */
 public class BehaviorAboutActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("系统的BottomSheet","系统的SwipeDismissBehavior","自定义Behavior_DependBehavior","自定义Behavior_LayoutBehavior");
+    private List<String> items = Arrays.asList("系统的BottomSheet","系统的SwipeDismissBehavior","自定义Behavior_DependBehavior","自定义Behavior_LayoutBehavior",
+            "只关心滑动的自定义Behavior");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -49,6 +51,9 @@ public class BehaviorAboutActivity extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(BehaviorAboutActivity.this, BehaviorActivity2.class);
+                        break;
+                    case 4:
+                        intent = new Intent(BehaviorAboutActivity.this, NestedScrollBehaviorActivity.class);
                         break;
                 }
                 startActivity(intent);
