@@ -85,23 +85,10 @@ public class GridViewPagerActivity extends AppCompatActivity {
             mRecyclerViews.add(recyclerView);
         }
         mViewPager4Grid.setAdapter(new ViewPagerAdapter(mGridViews));
-        mViewPager4Grid.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                currentPage = position;
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
         mViewPager4Recycler.setAdapter(new ViewPagerAdapter(mRecyclerViews));
+
+        mViewPager4Grid.setOffscreenPageLimit(3);
+        mViewPager4Recycler.setOffscreenPageLimit(3);
     }
 
     private void initDatas() {

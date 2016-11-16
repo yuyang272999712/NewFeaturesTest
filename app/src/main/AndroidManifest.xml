@@ -114,6 +114,7 @@
         <activity android:name=".viewPager.loopViewPager.LoopViewPagerActivity"/>
         <activity android:name=".viewPager.customParallaxViewPager.ParallaxViewPagerActivity"/>
         <activity android:name=".viewPager.elementAnimationViewPager.ElementAnimationActivity"/>
+        <activity android:name=".viewPager.changeSizeViewPager.ChangeSizePagerActivity"/>
         <activity android:name=".tantan.TantanActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>

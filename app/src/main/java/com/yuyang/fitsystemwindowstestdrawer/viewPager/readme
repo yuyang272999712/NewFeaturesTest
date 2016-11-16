@@ -1,3 +1,8 @@
+常用方法：
+    setOffscreenPageLimit()     //设置缓存view 的个数
+    setPageMargin()     //设置viewpager每个页卡的间距
+
+
 
 ViewPager.OnPageChangeListener对象中的
 !--yuyang onPageScrolled(int position,float positionOffset, int positionOffsetPixels)

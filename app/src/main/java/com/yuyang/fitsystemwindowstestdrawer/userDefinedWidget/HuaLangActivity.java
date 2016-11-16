@@ -62,7 +62,7 @@ public class HuaLangActivity extends AppCompatActivity {
         mImgIds = new ArrayList<>(Arrays.asList(
                 R.mipmap.a, R.mipmap.b, R.mipmap.c,
                 R.mipmap.d, R.mipmap.e, R.mipmap.f,
-                R.mipmap.g, R.mipmap.h, R.mipmap.l));
+                R.mipmap.g, R.mipmap.h, R.mipmap.i));
         for (int i=0; i<mImgIds.size(); i++){
             View view = inflater.inflate(R.layout.item_4_gallery, mGallery, false);
             ImageView imageView = (ImageView) view.findViewById(R.id.gallery_item_image);
