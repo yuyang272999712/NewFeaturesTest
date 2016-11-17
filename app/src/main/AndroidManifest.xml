@@ -63,6 +63,10 @@
         <activity android:name=".androidL.behaviorAbout.BehaviorAboutActivity"/>
         <activity android:name=".androidL.behaviorAbout.BottomSheetActivity"/>
         <activity android:name=".androidL.behaviorAbout.nestedScrollBehavior.simple.NestedScrollBehaviorActivity"/>
+        <activity android:name=".androidL.coordinatorLayoutAbout.CoordinatorAboutActivity"/>
+        <activity android:name=".androidL.coordinatorLayoutAbout.appBarLayout.AppBarLayoutActivity"/>
+        <activity android:name=".androidL.coordinatorLayoutAbout.appBarLayout.OtherViewActivity"/>
+        <activity android:name=".androidL.coordinatorLayoutAbout.snackbarAndFABAndTabLayout.NewWidgetActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".metricsAbout.MetricsAboutActivity"/>
         <activity android:name=".metricsAbout.screenAndViewMetrics.ScreenAndViewMetricsActivity"/>

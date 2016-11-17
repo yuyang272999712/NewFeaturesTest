@@ -1,0 +1,22 @@
+AppBarLayout实现自LinearLayout的竖直拍版，它必须与CoordinatorLayout协同使用才会有效果
+
+    AppBarLayout的父类是LinearLayout竖直排版,即：AppBarLayout中可以竖直排版多个子View，
+  ZHU yuyang 但是如果第一个子View的app:layout_scrollFlags属性没用设置“scroll”，那么下面的子View也不会滚动出屏幕,
+  !--yuyang !!!AppBarLayout不必非要配合toolbar使用，任何放在AppBarLayout中的子View都可以实现滚动。
+    CoordinatorLayout中第二个控件设置“app:layout_behavior="@string/appbar_scrolling_view_behavior"”
+  属性即可自动排版到AppBarLayout布局之下。
+     
+    AppBarLayout包含的控件要想有滚动效果必须做到如下三点：
+        1. CoordinatorLayout作为布局的父布局容器。
+        2. 给需要滑动的组件设置 app:layout_scrollFlags=”scroll|enterAlways” 属性，所有想滚动出屏幕的view都需要设置scroll值。
+        3. 给滑动的组件设置app:layout_behavior属性
+
+    “app:layout_scrollFlags”属性值有如下五种：
+        1. scroll: 所有想滚动出屏幕的view都需要设置这个flag， 没有设置这个flag的view将被固定在屏幕顶部。
+            例如，Toolbar 没有设置这个值，将会停留在屏幕顶部。
+        2. enterAlways: 设置这个flag时，向下的滚动都会导致该view变为可见，启用快速“返回模式”。
+        （以下三个值主要配合CollapsingToolbarLayout使用效果）
+        3. enterAlwaysCollapsed: 当你的视图已经设置minHeight属性又使用此标志时，你的视图只能以最小高度进入，
+            只有当滚动视图到达顶部时才扩大到完整高度。
+        4. exitUntilCollapsed: 滚动退出屏幕，最后折叠在顶端。
+        5. snap：滚动压缩到50%以后自动收缩，不到则会自动复原

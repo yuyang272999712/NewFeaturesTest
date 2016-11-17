@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.androidL;
+package com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,23 +14,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.activityOptions.FirstActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.activitySwitchAnim.OptionsCompatActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout.BehaviorAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.CoordinatorAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity;
-import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.MaterialDesignActivity2;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.appBarLayout.AppBarLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.snackbarAndFABAndTabLayout.NewWidgetActivity;
 
 import java.util.Arrays;
 import java.util.List;
 
 /**
- * Android 5 以后的新东西
+ * CoordinatorLayout配合其他View的使用
  */
-public class AndroidLActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("Palette取色","卡片效果","Activity切换动画",
-            "Activity切换动画(兼容模式)","Behavior","AppBarLayout",
-            "CollapsingToolbarLayout","CoordinatorLayout综合");
+
+public class CoordinatorAboutActivity extends AppCompatActivity {
+    private List<String> items = Arrays.asList("AppBarLayout的使用","SnackBar/FAB/TabLayout");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -65,28 +60,10 @@ public class AndroidLActivity extends AppCompatActivity {
                 Intent intent = null;
                 switch (position){
                     case 0:
-                        intent = new Intent(AndroidLActivity.this, PaletteActivity.class);
+                        intent = new Intent(CoordinatorAboutActivity.this, AppBarLayoutActivity.class);
                         break;
                     case 1:
-                        intent = new Intent(AndroidLActivity.this, CardViewActivity.class);
-                        break;
-                    case 2:
-                        intent = new Intent(AndroidLActivity.this, FirstActivity.class);
-                        break;
-                    case 3:
-                        intent = new Intent(AndroidLActivity.this, OptionsCompatActivity.class);
-                        break;
-                    case 4:
-                        intent = new Intent(AndroidLActivity.this, BehaviorAboutActivity.class);
-                        break;
-                    case 5:
-                        intent = new Intent(AndroidLActivity.this, MaterialDesignActivity.class);
-                        break;
-                    case 6:
-                        intent = new Intent(AndroidLActivity.this, MaterialDesignActivity2.class);
-                        break;
-                    case 7:
-                        intent = new Intent(AndroidLActivity.this, CoordinatorAboutActivity.class);
+                        intent = new Intent(CoordinatorAboutActivity.this, NewWidgetActivity.class);
                         break;
                 }
                 startActivity(intent);

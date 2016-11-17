@@ -1,6 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer.androidL.behaviorAbout;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialog;
@@ -65,6 +66,19 @@ public class BottomSheetActivity extends AppCompatActivity {
         }else {
             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         }
+        bottomSheetBehavior.setBottomSheetCallback(new BottomSheetBehavior.BottomSheetCallback() {
+            //BottomSheet状态改变时的回调
+            @Override
+            public void onStateChanged(@NonNull View bottomSheet, int newState) {
+
+            }
+
+            //BottomSheet滑动时的回调
+            @Override
+            public void onSlide(@NonNull View bottomSheet, float slideOffset) {
+
+            }
+        });
     }
 
     /**

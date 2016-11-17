@@ -18,7 +18,7 @@ Behavior只有是CoordinatorLayout的直接子View才有意义。
     只需关心以下方法：
         //确定是否接收此滑动事件。nestedScrollAxes－滑动方向；target－手指落在的View，可以设置为依赖的View；directTargetChild－真正执行滑动的View，因为target可能嵌套在directTargetChild中
         public boolean onStartNestedScroll(CoordinatorLayout coordinatorLayout, View child, View directTargetChild, View target, int nestedScrollAxes)；
-        //处理滑动事件
+        //在嵌套滑动进行时，!--yuyang对象消费滚动距离前回调
         public void onNestedPreScroll(CoordinatorLayout coordinatorLayout, View child, View target, int dx, int dy, int[] consumed)
         //处理fling事件
         public boolean onNestedFling(CoordinatorLayout coordinatorLayout, View child, View target, float velocityX, float velocityY, boolean consumed)
