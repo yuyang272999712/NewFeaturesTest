@@ -22,7 +22,7 @@ public class FlipVerticalTransformer extends ABaseTransformer {
 
 	@Override
 	protected void onTransform(View view, float position) {
-		final float rotation = -180f * position;
+		final float rotation = 180f * position;
 
 		view.setAlpha(rotation > 90f || rotation < -90f ? 0f : 1f);
 		view.setPivotX(view.getWidth() * 0.5f);
