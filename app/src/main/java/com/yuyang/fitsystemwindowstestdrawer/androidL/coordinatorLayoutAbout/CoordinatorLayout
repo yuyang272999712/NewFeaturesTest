@@ -1,0 +1,12 @@
+CoordinatorLayout实际上相当于FrameLayout的布局
+
+       CoordinatorLayout使用Behavior来协调子View之间的相对位置
+
+       layout_anchor 的属性，连同 layout_anchorGravity 一起，可以用来放置与其他视图关联在一起的悬浮视图
+     相关属性：
+       app:layout_anchor - 关联对象
+       app:layout_anchorGravity - 与对象的相对关系
+
+
+
+https://developer.android.com/reference/android/support/design/widget/CoordinatorLayout.html

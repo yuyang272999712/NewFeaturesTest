@@ -1,0 +1,31 @@
+  TTabLayout
+     有以下常用属性：
+       app:tabGravity="fill"  表示TabLayout中的Tabs要占满屏幕的width；
+       app:tabSelectedTextColor：Tab被选中字体的颜色；
+       app:tabTextColor：Tab未被选中字体的颜色；
+       app:tabIndicatorColor：Tab指示器下标的颜色；
+       ...
+       (具体属性可参考官方文档：https://developer.android.com/reference/android/support/design/widget/TabLayout.html)
+
+
+  FloatingActionButton
+     属性较多，可参考官方文档：https://developer.android.com/reference/android/support/design/widget/FloatingActionButton.html
+        app:backgroundTint - 点击背景，需要是ColorStateList的参数
+        app:rippleColor - 点击波纹效果颜色
+        app:borderWidth - 该属性尤为重要，如果不设置0dp，那么在4.1的sdk上FAB会显示为正方形，而且在5.0以后的sdk没有阴影效果。所以设置为borderWidth="0dp"。
+        app:elevation - 默认状态下FAB的阴影大小。
+        app:pressedTranslationZ - 点击时候FAB的阴影大小。
+        app:fabSize - 设置FAB的大小，该属性有两个值，分别为normal和mini，对应的FAB大小分别为56dp和40dp。
+        src - 设置FAB的图标，Google建议符合Design设计的该图标大小为24dp。
+
+
+  SnackBar
+     只有使用CoordinatorLayout作为基本布局，FAB按钮才会自动产生向上移动的动画。
+     FAB浮动操作按钮有一个 默认的 behavior来检测SnackBar的添加并让按钮在SnackBar之上呈现上移与SnackBar等高的动画。
+     显示时间 duration 有三种类型LENGTH_SHORT、LENGTH_LONG和LENGTH_INDEFINITE(这个类型一旦显示就不会消失)
+     setAction()方法可设置SnackBar右侧按钮，增加进行交互事件。如果不使用setAction()则只显示左侧message。
+
+     SnackBar花式用法
+        Snackbar中定义了一个继承自LinearLayout的内部类SnackbarLayout，Snackbar的样子就是由这个SnackbarLayout实现的。
+      getView()方法即可获得其根布局，之后可以任意修改或向根布局添加自View
+     (官方传送门：https://developer.android.com/reference/android/support/design/widget/Snackbar.html)

@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.appBarLayout.AppBarLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.collapsingToolbarLayout.CollapsingToolbarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.snackbarAndFABAndTabLayout.NewWidgetActivity;
 
 import java.util.Arrays;
@@ -25,7 +26,8 @@ import java.util.List;
  */
 
 public class CoordinatorAboutActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("AppBarLayout的使用","SnackBar/FAB/TabLayout");
+    private List<String> items = Arrays.asList("AppBarLayout的使用","SnackBar/FAB/TabLayout",
+            "CollapsingToolbarLayout的使用");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -64,6 +66,9 @@ public class CoordinatorAboutActivity extends AppCompatActivity {
                         break;
                     case 1:
                         intent = new Intent(CoordinatorAboutActivity.this, NewWidgetActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(CoordinatorAboutActivity.this, CollapsingToolbarActivity.class);
                         break;
                 }
                 startActivity(intent);

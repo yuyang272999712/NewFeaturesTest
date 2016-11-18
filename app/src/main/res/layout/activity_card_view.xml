@@ -13,30 +13,10 @@
         android:background="?attr/colorPrimary"
         app:theme="@style/AppTheme.AppBarOverlay"/>
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/cardview"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_marginTop="8dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:cardElevation="10dp"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="#5670ab">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:padding="10dp"
-            android:textSize="20sp"
-            android:text="卡片效果"/>
-
-        <ToggleButton
-            android:layout_width="100dp"
-            android:layout_height="match_parent"
-            android:checked="true"/>
-
-    </android.support.v7.widget.CardView>
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

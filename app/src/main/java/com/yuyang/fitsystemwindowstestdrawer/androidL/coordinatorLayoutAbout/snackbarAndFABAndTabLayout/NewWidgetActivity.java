@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.androidL.coordinatorLayoutAbout.snackbarAndFABAndTabLayout;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
@@ -11,7 +12,11 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -42,6 +47,7 @@ public class NewWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Snackbar snackbar = Snackbar.make(mFAB, "显示点什么。", Snackbar.LENGTH_LONG);
+                resetSnackBar(snackbar);
                 snackbar.show();
             }
         });
@@ -51,7 +57,7 @@ public class NewWidgetActivity extends AppCompatActivity {
         ViewCompat.setElevation(mTabLayout, 10);
         mTabLayout.setupWithViewPager(mViewPager);
         for (int i=0; i<mViewPager.getAdapter().getCount(); i++){
-            TabLayout.Tab itemTab = mTabLayout.getTabAt(i);
+            TabLayout.Tab itemTab = mTabLayout.getTabAt(i);//!--yuyang TabLayout中ItemTab自定义显示
             if (itemTab!=null){
                 itemTab.setCustomView(R.layout.item_tab_layout_custom);
                 TextView itemTv = (TextView) itemTab.getCustomView().findViewById(R.id.tv_menu_item);
@@ -104,5 +110,21 @@ public class NewWidgetActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    /**
+     * !--yuyang SnackBar花式用法
+     * @param snackbar
+     */
+    private void resetSnackBar(Snackbar snackbar){
+        Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
+
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(R.mipmap.ic_category_0);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.CENTER_VERTICAL;
+
+        snackbarLayout.addView(imageView, layoutParams);
+        snackbarLayout.setBackgroundColor(Color.BLUE);
     }
 }

@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.view.ViewGroup;
 
 /**
  * 自适应大小的ViewPager
@@ -94,9 +94,9 @@ public class ChangeSizeViewPager extends ViewPager {
     }
 
     public void resetHeight(int height) {
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
+        ViewGroup.LayoutParams layoutParams = (ViewGroup.LayoutParams) getLayoutParams();
         if (layoutParams == null) {
-            layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height);
+            layoutParams = new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height);
         } else {
             layoutParams.height = height;
         }

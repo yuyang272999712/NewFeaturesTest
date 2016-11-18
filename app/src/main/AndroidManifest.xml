@@ -67,6 +67,7 @@
         <activity android:name=".androidL.coordinatorLayoutAbout.appBarLayout.AppBarLayoutActivity"/>
         <activity android:name=".androidL.coordinatorLayoutAbout.appBarLayout.OtherViewActivity"/>
         <activity android:name=".androidL.coordinatorLayoutAbout.snackbarAndFABAndTabLayout.NewWidgetActivity"/>
+        <activity android:name=".androidL.coordinatorLayoutAbout.collapsingToolbarLayout.CollapsingToolbarActivity"/>
         <activity android:name=".preferenceAbout.PreferenceDemo"/>
         <activity android:name=".metricsAbout.MetricsAboutActivity"/>
         <activity android:name=".metricsAbout.screenAndViewMetrics.ScreenAndViewMetricsActivity"/>
@@ -132,8 +133,6 @@
         <activity android:name=".animationAbout.svg.SVGdrawableActivity"/>
         <activity android:name=".animationAbout.coinWalletAnimator.CoinWalletAnimatorActivity"/>
         <activity android:name=".animationAbout.shoppingCartAnimator.ShoppingCartActivity"/>
-        <activity android:name=".androidL.coordinatorLayoutAbout.MaterialDesignActivity"/>
-        <activity android:name=".androidL.coordinatorLayoutAbout.MaterialDesignActivity2"/>
         <activity android:name=".androidL.behaviorAbout.BehaviorActivity1"/>
         <activity android:name=".androidL.behaviorAbout.BehaviorActivity2"/>
         <activity android:name=".androidL.behaviorAbout.SwipeDismissBehaviorActivity"/>
