@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -17,6 +18,10 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
  * 圆形菜单
  */
 public class CircleMenuLayout extends ViewGroup {
+    /**
+     * itemView的适配器
+     */
+    private ListAdapter mAdapter;
     /**
      * ViewGroup的宽度（直径）
      */
@@ -299,6 +304,44 @@ public class CircleMenuLayout extends ViewGroup {
         double x = xTouch - (mRadius / 2d);
         double y = yTouch - (mRadius / 2d);
         return (float) (Math.asin(y / Math.hypot(x, y)) * 180 / Math.PI);
+    }
+
+    //ZHU yuyang setAdapter()与addMenuItemViews()方法可以替换掉setMenuItemIconsAndTexts()与addMenuItems()方法
+    /**
+     * 设置要现实的item
+     * @param adapter
+     */
+    public void setAdapter(ListAdapter adapter){
+        if (adapter != null) {
+            this.mAdapter = adapter;
+        }else {
+            throw new IllegalArgumentException("Adapter不能设置为null");
+        }
+        mMenuItemCount = mAdapter.getCount();
+        addMenuItemViews();
+    }
+
+    /**
+     * 添加菜单项
+     */
+    private void addMenuItemViews(){
+        /**
+         * 根据用户设置的参数初始化View
+         */
+        for (int i=0; i<mMenuItemCount; i++){
+            final int index = i;
+            View view = mAdapter.getView(index, null, this);
+            view.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (onMenuItemClickListener != null){
+                        onMenuItemClickListener.itemClick(v, index);
+                    }
+                }
+            });
+            //添加View
+            addView(view);
+        }
     }
 
     /**

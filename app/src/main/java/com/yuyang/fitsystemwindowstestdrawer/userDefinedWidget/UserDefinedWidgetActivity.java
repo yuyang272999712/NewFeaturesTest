@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.CircleMenu.simple.CircleMenuActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;

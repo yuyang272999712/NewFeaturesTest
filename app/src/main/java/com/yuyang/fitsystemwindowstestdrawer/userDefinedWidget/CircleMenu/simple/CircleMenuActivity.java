@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.CircleMenu.simple;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,7 +31,7 @@ public class CircleMenuActivity extends AppCompatActivity {
         mCircleMenuLayout1 = (CircleMenuLayout) findViewById(R.id.circle_menu_1);
         mCircleMenuLayout2 = (CircleMenuLayout) findViewById(R.id.circle_menu_2);
 
-        mCircleMenuLayout1.setMenuItemIconsAndTexts(mItemImgs, mItemTexts);
+        mCircleMenuLayout1.setAdapter(new MenuItemAdapter(this, mItemImgs));
         mCircleMenuLayout1.setOnMenuItemClickListener(new CircleMenuLayout.OnMenuItemClickListener() {
             @Override
             public void itemClick(View view, int pos) {

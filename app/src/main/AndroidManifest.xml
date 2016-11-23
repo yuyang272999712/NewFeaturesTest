@@ -85,7 +85,7 @@
         <activity android:name=".userDefinedWidget.CircleImageActivity"/>
         <activity android:name=".userDefinedWidget.GuaguakaActivity"/>
         <activity android:name=".userDefinedWidget.LuckyPanActivity"/>
-        <activity android:name=".userDefinedWidget.CircleMenuActivity"/>
+        <activity android:name=".userDefinedWidget.CircleMenu.simple.CircleMenuActivity"/>
         <activity android:name=".userDefinedWidget.progressBars.ProgressBarActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.FoldingLayoutActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.MatrixPolyToPolyActivity"/>
