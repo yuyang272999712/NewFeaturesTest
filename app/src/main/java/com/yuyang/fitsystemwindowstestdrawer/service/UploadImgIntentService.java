@@ -20,7 +20,7 @@ import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
  *  每发送一个请求，会生成一个唯一的标识，然后将请求放入队列，当全部执行完成(最后一个请求也就相当于
  *  getLastStartId == startId)，或者当前发送的标识是最近发出的那一个（getLastStartId == startId），
  *  则会销毁我们的Service.如果传入的是-1则直接销毁。
- *      那么，当任务完成销毁Service回调onDestory，可以看到在onDestroy中释放了我们的Looper:mServiceLooper.quit()。
+ *      那么，当任务完成销毁Service回调onDestroy，可以看到在onDestroy中释放了我们的Looper:mServiceLooper.quit()。
  */
 public class UploadImgIntentService extends IntentService{
     private String TAG = "UploadImgIntentService";

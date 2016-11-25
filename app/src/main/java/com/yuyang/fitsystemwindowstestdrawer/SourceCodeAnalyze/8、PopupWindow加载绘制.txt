@@ -1,0 +1,16 @@
+--> PopupWindow构造方法
+        根据传入的View是否为空做了一下判断，若不为空，则初始化成员变量,Context和mWindowManager，
+    可以发现这里的mContext对象就是传入的View组件中保留的Context对象，
+    这里的mWindowManager是应用进程创建的时候注册的服务本地接口。
+--> PopupWindow.showAtLocation()
+  |--> PopupWindow.preparePopup() 根据有无背景初始化mBackgroundView变量
+    |--> PopupWindow.createDecorView() 调用了createDecorView方法初始化mDecorView变量，将mBackgroundView放入mDecorView中
+  |--> PopupWindow.invokePopup() 体执行PopupWindow的加载与显示逻辑
+    |--> WindowManagerImpl.addView() PopupWindow显示出来
+
+总结：
+1、PopupWindow的界面加载绘制流程也是通过Window对象实现的；
+2、PopupWindow内部保存的mWindowManager对象通过ContextImpl中获取，并且取得的是WindowManagerImpl对象；
+3、PopupWindow通过为传入的View添加一层包裹的布局，并重写该布局的点击事件，实现点击PopupWindow之外的区域PopupWindow消失的效果；
+
+ZHU yuyang 参考：http://blog.csdn.net/qq_23547831/article/details/51322574

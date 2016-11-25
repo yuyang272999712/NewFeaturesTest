@@ -12,13 +12,13 @@ Zygote（孵化）进程相当于是android系统的根进程，后面所有的�
 Zygote启动流程：
     init进程在启动 Zygote 进程时一般都会调用 ZygoteInit 类的 main 方法。
 
-    Zygote进程mian方法主要执行逻辑：
+    Zygote进程main方法主要执行逻辑：
         1、初始化DDMS；
         2、注册Zygote进程的socket通讯；
         3、初始化Zygote中的各种类，资源文件，OpenGL，类库，Text资源等等；
         4、初始化完成之后fork出SystemServer进程；
         5、fork出SystemServer进程之后，关闭socket连接；
-    （可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51104873）
+    （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51104873）
 
 
 SystemServer进程启动流程(Zygote启动中第四步启动SystemServer)：
@@ -36,7 +36,7 @@ SystemServer进程启动流程(Zygote启动中第四步启动SystemServer)：
     7、!--yuyang 创建的系统服务过程中主要通过 SystemServiceManager 对象来管理，通过调用服务对象的构造方法和
        onStart方法初始化服务的相关变量；
     8、服务对象都有自己的异步消息对象，并运行在单独的线程中；
-  （可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51105171）
+  （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51105171）
 
 
 Launcher启动流程:
@@ -54,13 +54,13 @@ Launcher启动流程:
   所以我们就可以将这个Launcher启动起来了
     LauncherActivity中是以ListView来显示我们的应用图标列表的，并且为每个Item保存了应用的包名和启动Activity类名，
   这样点击某一项应用图标的时候就可以根据应用包名和启动Activity名称启动我们的App了。
-  （可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51112031）
+  （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51112031）
 
 
 Activity进程的启动过程：
     startActivity() --> startActivityForResult() --> Instrumentation 的 execStartActivity()
     --> ActivityManagerService 的 execStartActivity() --> startActivityAsUser()、startActivityMayWait()等方法不断跳转
     --> Process 的 start() --> startViaZygote() 向 zygote 发送新建进程的 socket 请求
-    （可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51119333）
+    （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51119333）
 
 

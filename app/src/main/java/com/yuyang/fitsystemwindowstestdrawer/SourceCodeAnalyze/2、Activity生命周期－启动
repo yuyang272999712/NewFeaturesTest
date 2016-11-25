@@ -146,8 +146,6 @@ handleResumeActivity方法，在方法体最后有这样的一代码：
      --> Instrumentation.callActivityOnStop()
      --> Activity.onStop()
 
-ZHU yuyang 卧槽，真他吗复杂，可参考博客：http://blog.csdn.net/qq_23547831/article/details/51224992
-
 总结：
     !--yuyang Activity的启动流程，一个典型的场景就是Activity a 启动了一个Activity b，他们的生命周期回调方法是：
   onPause(a) –> onCreate(b) –> onStart(b) –> onResume(b) –> onStop(a)
@@ -176,3 +174,6 @@ ZHU yuyang 卧槽，真他吗复杂，可参考博客：http://blog.csdn.net/qq_
     开始执行栈顶Activity的onStop方法；
 15、ActivityManagerService开始执行栈顶的onStop方法并告知ActivityThread；
 16、ActivityThread执行真正的onStop方法
+
+ZHU yuyang 卧槽，真他吗复杂，可参考博客：http://blog.csdn.net/qq_23547831/article/details/51224992
+
