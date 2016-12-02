@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.googleWidget;
+package com.yuyang.fitsystemwindowstestdrawer.googleWidget.rangeSeekBar;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,8 +7,6 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.googleWidget.rangeSeekBar.MaterialRangeSlider;
-import com.yuyang.fitsystemwindowstestdrawer.googleWidget.rangeSeekBar.RangeSeekBar;
 import com.yuyang.fitsystemwindowstestdrawer.utils.LogUtils;
 import com.yuyang.fitsystemwindowstestdrawer.utils.ToastUtils;
 

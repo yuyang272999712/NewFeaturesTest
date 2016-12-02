@@ -16,4 +16,6 @@
     <string name="preview_pic_original_size">原图(%1$.2fM)</string>
 
     <string name="long_string">红嘴相思鸟杭州公安微信公众号11月14 日消息，近日，淳安巡特警大队在燕山岗亭卡口查获一辆装满小鸟的小货车，这些小鸟一种小型鸟类，体长13-16厘米。它嘴赤红色，上体暗灰绿色，耳羽浅灰色或橄榄灰色，两翅有黄色和红色翅斑。\n这些小鸟全部都是国家“三有”野生动物—红嘴相思鸟，数量多达260只。该鸟羽色华丽，体态优美，雌雄鸟之间形影不离，十分恩爱。属于易濒危野生动物，浙江省重点保护物种。</string>
+
+    <string name="my_accessibility_description">微信自动抢红包（开发版）</string>
 </resources>

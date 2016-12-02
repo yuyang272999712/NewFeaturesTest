@@ -190,9 +190,9 @@
         <activity android:name=".mediaPlayerAbout.CameraVideoIntentActivity"/>
         <activity android:name=".mediaPlayerAbout.MediaRecorderActivity"/>
         <activity android:name=".googleWidget.GoogleWidgetActivity"/>
-        <activity android:name=".googleWidget.FlexboxLayoutActivity"/>
-        <activity android:name=".googleWidget.DividerActivity"/>
-        <activity android:name=".googleWidget.SeekBarActivity"/>
+        <activity android:name=".googleWidget.customFlexboxLayout.FlexboxLayoutActivity"/>
+        <activity android:name=".googleWidget.CompatDivider.DividerActivity"/>
+        <activity android:name=".googleWidget.rangeSeekBar.SeekBarActivity"/>
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
         <activity android:name=".internetAbout.InternetAboutActivity"/>
@@ -349,6 +349,19 @@
         </service>
 
         <service android:name=".internetAbout.downFileService.DownLoadFileService"/>
+
+        <!--微信自动抢红包-->
+        <service android:name=".googleWidget.accessibilityService.WeChatAccessibilityService"
+                 android:label="微信自动抢红包"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice"
+                       android:resource="@xml/wechat_accessibility_service"/>
+        </service>
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->

@@ -51,6 +51,7 @@ public class OkHttpUtils {
         }
         Request.Builder builder = new Request.Builder();
         Request request = builder
+                //.cacheControl(new CacheControl.Builder().noCache().build())//TODO yuyang 强制不使用缓存（下拉刷新时使用）
                 .url(url)
                 .post(bodyBuilder.build())
                 .tag(url)//TODO yuyang 可以通过tag取消请求，call.cancel();

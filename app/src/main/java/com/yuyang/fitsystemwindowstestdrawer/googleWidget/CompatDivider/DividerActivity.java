@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.googleWidget;
+package com.yuyang.fitsystemwindowstestdrawer.googleWidget.CompatDivider;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

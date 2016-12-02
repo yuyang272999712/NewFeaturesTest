@@ -1,0 +1,73 @@
+官方文档：https://developer.android.com/reference/android/accessibilityservice/AccessibilityService.html
+
+AccessibilityService：
+    1、生命周期
+        当在系统设置中开启了服务后，将会永久运行，除非在系统设置中关闭服务，或者调用它的 disableSelf() 方法。
+
+    2、服务声明
+        和其他服务一样需要在manifests中声明
+        <service
+            android:name=".AccessibilityService.QHBAccessibilityService"
+            android:enabled="true"
+            android:exported="true"
+            android:label="@string/label"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+        </service>
+        !--yuyang其中：permission 和 intent-filter 是必不可少的，切确定不变的
+
+    3、配置服务参数
+        可以设置只接受特定的包、特定事件等配置。
+        <service android:name=".MyAccessibilityService">
+            <intent-filter>
+             <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data android:name="android.accessibilityservice"
+                android:resource="@xml/accessibilityservice" />
+        </service>
+        下面是@xml/accessibilityservice的配置：
+        <accessibility-service
+            android:accessibilityEventTypes="typeNotificationStateChanged|typeWindowStateChanged|typeWindowContentChanged|typeWindowsChanged"
+            android:accessibilityFeedbackType="feedbackGeneric"
+            android:accessibilityFlags="flagDefault"
+            android:canRetrieveWindowContent="true"
+            android:description="@string/description"
+            android:notificationTimeout="100"
+            android:packageNames="com.tencent.mm" />
+        xml参数的介绍
+            accessibilityEventTypes：表示该服务对界面中的哪些变化感兴趣，即哪些事件通知，比如窗口打开，滑动，焦点变化，长按等。具体的值可以在AccessibilityEvent类中查到，如typeAllMask表示接受所有的事件通知
+            accessibilityFeedbackType：表示反馈方式，比如是语音播放，还是震动
+            canRetrieveWindowContent：表示该服务能否访问活动窗口中的内容。也就是如果你希望在服务中获取窗体内容，则需要设置其值为true
+            description：对该无障碍功能的描述
+            notificationTimeout：接受事件的时间间隔，通常将其设置为100即可
+            packageNames：表示对该服务是用来监听哪个包的产生的事件，这里以微信的包名为例
+         也可以通过AccessibilityService.setServiceInfo(AccessibilityServiceInfo info)方法设置这些配置。
+
+    4、常用方法
+        void disableSelf()：禁用当前服务，也就是在服务可以通过该方法停止运行
+        AccessibilityNodeInfo findFocus(int flag)：查找拥有特定焦点类型的控件
+        AccessibilityNodeInfo getRootInActiveWindow()：如果配置能够获取窗口内容,则会返回当前活动窗口的根结点
+        AccessibilityServiceInfo getServiceInfo()：获取当前服务的配置信息
+        void onAccessibilityEvent(AccessibilityEvent event)：有关AccessibilityEvent事件的回调函数，系统通过sendAccessibilityEvent()不断的发送AccessibilityEvent到此处
+        boolean performGlobalAction(int action)：执行全局操作，比如返回，回到主页，打开最近等操作
+        void setServiceInfo(AccessibilityServiceInfo info)：设置当前服务的配置信息
+        Object getSystemService(String name)：获取系统服务
+        boolean onKeyEvent(KeyEvent event)：如果允许服务监听按键操作，该方法是按键事件的回调，需要注意，这个过程发生了系统处理按键事件之前
+        void onServiceConnected()：系统成功绑定该服务时被触发，也就是当你在设置中开启相应的服务，系统成功的绑定了该服务时会触发，通常我们可以在这里做一些初始化操作
+        void onInterrupt()：服务中断时的回调
+
+    onAccessibilityEvent(AccessibilityEvent event)方法的参数
+    AccessibilityEvent常用方法：
+        getEventType()：事件类型
+        getSource()：获取事件源对应的结点信息
+        getClassName()：获取事件源对应类的类型，比如点击事件是有某个Button产生的，那么此时获取的就是Button的完整类名
+        getText()：获取事件源的文本信息，比如事件是有TextView发出的,此时获取的就是TextView的text属性。如果该事件源是树结构，那么此时获取的是这个树上所有具有text属性的值的集合
+        isEnabled()：事件源(对应的界面控件)是否处在可用状态
+        getItemCount()：如果事件源是树结构，将返回该树根节点下子节点的数量
+    getRootInActiveWindow()方法获取的
+    AccessibilityNodeInfo常用方法：
+        findAccessibilityNodeInfosByText(String text):通过文本找到对应的节点集合
+        findAccessibilityNodeInfosByViewId(String viewId):通过控件ID找到对应的节点集合
+        performAction(AccessibilityNodeInfo.ACTION_CLICK):模拟点击
