@@ -193,6 +193,7 @@
         <activity android:name=".googleWidget.customFlexboxLayout.FlexboxLayoutActivity"/>
         <activity android:name=".googleWidget.CompatDivider.DividerActivity"/>
         <activity android:name=".googleWidget.rangeSeekBar.SeekBarActivity"/>
+        <activity android:name=".googleWidget.dataBinding.DataBindingDemoActivity"/>
         <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
         <activity android:name=".userDefinedWidget.HuaLangActivity"/>
         <activity android:name=".internetAbout.InternetAboutActivity"/>

@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.CompatDivider.DividerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.customFlexboxLayout.FlexboxLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.googleWidget.dataBinding.DataBindingDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.rangeSeekBar.SeekBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.asyncTask.AsyncTaskSimpleActivity;
@@ -44,7 +45,7 @@ import java.util.List;
  */
 public class GoogleWidgetActivity  extends AppCompatActivity {
     private List<String> items = Arrays.asList("google流式布局","divider属性及兼容处理","SeekBar",
-            "微信自动抢红包");
+            "微信自动抢红包","DataBinding");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -89,6 +90,9 @@ public class GoogleWidgetActivity  extends AppCompatActivity {
                         break;
                     case 3:
                         intent = new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS);
+                        break;
+                    case 4:
+                        intent = new Intent(GoogleWidgetActivity.this, DataBindingDemoActivity.class);
                         break;
 
                 }

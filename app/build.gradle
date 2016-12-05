@@ -17,6 +17,10 @@ android {
         multiDexEnabled true
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     buildTypes {
         release {
             minifyEnabled false
