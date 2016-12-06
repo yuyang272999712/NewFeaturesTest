@@ -209,7 +209,7 @@ public class WebViewActivity extends AppCompatActivity {
     private Intent createChooserIntent(Intent... intents) {
         Intent chooser = new Intent(Intent.ACTION_CHOOSER);
         chooser.putExtra(Intent.EXTRA_INITIAL_INTENTS, intents);
-        chooser.putExtra(Intent.EXTRA_TITLE, "请选择");
+        chooser.putExtra(Intent.EXTRA_TITLE, "请选择文件");
         return chooser;
     }
 

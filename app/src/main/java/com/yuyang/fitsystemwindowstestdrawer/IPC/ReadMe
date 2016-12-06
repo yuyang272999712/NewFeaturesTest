@@ -1,0 +1,30 @@
+TODO yuyang service使用中需要注意的：
+1、!--yuyang ServiceConnection.onServiceDisconnected()并不会在unbindService()过程中调用，
+   !--yuyang 它只会在service进程被终止时回调通知绑定的客户端；
+2、只有在绑定这个service的所有客户端中的组件都执行了unbindService()时，service才会被销毁，
+   执行service.onDestroy(),这也就要求暗示我们当完成与服务的交互后，最好unbindService,
+   这样有利于系统及时回收service资源。!--yuyang（系统不会在onDestroy()方法后调用
+   ServiceConnection.onServiceDisconnected()方法，因为已经unbindService()了，
+   onServiceDisconnected()方法将永远不会被调用到）
+3、当目标service所在的进程被杀掉时(即除了正常回收service)，系统并不会销毁之前的与该service绑定的组件创建的连接，
+   一旦service后续再次运行，系统会再次回调onServiceConnected()；
+4、如果service是通过startService（）启动的，那么service将一直运行到其通过 stopSelf() 自行停止，
+   或其他组件调用 stopService() 为止，无论其是否绑定到任何客户端；
+5、unbindService()操作也是异步操作的；
+6、一般情况下，只要service被客户端绑定过了，当其再被绑定时，不会在调用service.onBind()方法了，
+   也就是说通常service.onBind()只会执行一次；
+7、同一个组件内使用同一个ServiceConnection接口对象，重复绑定一个service时，会在AMS中为其创建连接，
+   但是不会导致ServiceConnection.onServiceConnected()方法执行
+8、同一个组件内执行unbindService(ServiceConnection sc)时，相当于对所有使用sc绑定的
+   service执行一次unbindService操作；
+
+TODO yuyang 生命周期的总结：
+1、单独使用bindService()，unbindService()会经历：
+    ->onCreate()->onBind()->Service running->onUnbind() -> onDestroy()；
+2、单独使用startService()，stopService()会经历：
+    ->onCreate()->onStartCommand()->Service running-> onDestroy()；
+3、先调用startService()，再调用bindService()方法：
+    a. 如果结束只调用unbindService()，那么只会执行到onUnbind()，将不会执行onDestroy()：
+        ->onCreate()->onStartCommand()->onBind()->Service running-> onUnbind();
+    b. 如果在unbindService后，在调用stopService()，那么：
+        ->onCreate()->onStartCommand()->onBind()->Service running-> onUnbind()->onDestroy();
