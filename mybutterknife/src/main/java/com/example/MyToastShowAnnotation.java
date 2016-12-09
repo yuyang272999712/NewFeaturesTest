@@ -11,7 +11,7 @@ import java.lang.annotation.Target;
  * 编译时注解
  */
 @Documented
-@Target(ElementType.FIELD)//只可用语类的注解
+@Target(ElementType.FIELD)//只可用成员变量的注解
 @Retention(RetentionPolicy.CLASS)//编译时注解
 @Inherited
 public @interface MyToastShowAnnotation {

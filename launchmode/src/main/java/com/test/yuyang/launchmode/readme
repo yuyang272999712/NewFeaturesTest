@@ -1,0 +1,10 @@
+Activity启动模式：
+1、standard：默认启动模式，所在任务栈的名字就是当前的 包名
+2、singleTop：同一个任务栈中栈顶只能有唯一的这个Activity，同时它的onNewIntent方法会被调用，
+             onCreate、onStart不会被调用
+3、singleTask：一个任务栈中只能有唯一的这个Activity，，同时它的onNewIntent方法会被调用，
+              onCreate、onStart不会被调用。可以配合TaskAffinity标签使用来指定任务栈名称。
+              singleTask模式会将整个任务栈中的内容移动到前台，比如：A、B是SingleTask模式在任务栈Task1中，
+              C是正常模式在任务栈Task2中，当C启动B时，任务栈Task1会整体移动到前台，此时回退会回到A界面，
+              再回退才会到C界面
+4、singleInstance：具有此种模式的Activity只能单独的位于一个任务栈中
