@@ -17,7 +17,7 @@
 JDK5中添加了新的concurrent包，相对同步容器而言，并发容器通过一些机制改进了并发性能：（参见：http://www.cnblogs.com/dolphin0520/p/3932905.html）
     ConcurrentHashMap代替同步的Map（Collections.synchronized（new HashMap()）），众所周知，HashMap是根据散列值分段存储的，同步Map在同步的时候锁住了所有的段，而ConcurrentHashMap加锁的时候根据散列值锁住了散列值锁对应的那段，因此提高了并发性能。ConcurrentHashMap也增加了对常用复合操作的支持，比如"若没有则添加"：putIfAbsent()，替换：replace()。这2个操作都是原子操作。
     CopyOnWriteArrayList和CopyOnWriteArraySet分别代替List和Set，主要是在遍历操作为主的情况下来代替同步的List和同步的Set，这也就是上面所述的思路：迭代过程要保证不出错，除了加锁，另外一种方法就是"克隆"容器对象。
-    ConcurrentLinkedQuerue是一个先进先出的队列。它是非阻塞队列。
+    ConcurrentLinkedQueue是一个先进先出的队列。它是非阻塞队列。
     ConcurrentSkipListMap可以在高效并发中替代SoredMap（例如用Collections.synchronzedMap包装的TreeMap）。
     ConcurrentSkipListSet可以在高效并发中替代SoredSet（例如用Collections.synchronzedSet包装的TreeMap）。
 

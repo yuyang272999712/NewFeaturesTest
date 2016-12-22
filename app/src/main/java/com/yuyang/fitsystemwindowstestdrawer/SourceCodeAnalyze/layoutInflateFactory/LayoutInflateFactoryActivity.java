@@ -12,6 +12,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -74,6 +75,11 @@ public class LayoutInflateFactoryActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_layout_inflate_factory);
         findViews();
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
     }
 
     private void findViews() {

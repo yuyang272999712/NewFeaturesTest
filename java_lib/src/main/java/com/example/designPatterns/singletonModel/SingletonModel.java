@@ -11,7 +11,7 @@ public class SingletonModel {
 
     private SingletonModel(){}
 
-    private SingletonModel getInstance(){
+    public static SingletonModel getInstance(){
         if (instance == null){
             synchronized (SingletonModel.class){
                 if (instance == null){
