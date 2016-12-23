@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager.SwipeCardLayoutManager;
 
 /**
  * 自定义RecyclerView的LayoutManager
@@ -61,7 +62,8 @@ public class CustomLayoutManagerActivity extends AppCompatActivity {
                 mRecyclerView.setAdapter(new DiamondManagerAdapter(this, totalSize));
                 break;
             case 2:
-                mRecyclerView.setLayoutManager(new FixedLayoutManager(groupSize));
+                mRecyclerView.setLayoutManager(new SwipeCardLayoutManager());
+                //mRecyclerView.setLayoutManager(new FixedLayoutManager(groupSize));
                 mRecyclerView.setAdapter(new FixedManagerAdapter(this, totalSize));
                 break;
         }

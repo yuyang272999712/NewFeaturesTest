@@ -121,7 +121,9 @@
         <activity android:name=".viewPager.customParallaxViewPager.ParallaxViewPagerActivity"/>
         <activity android:name=".viewPager.elementAnimationViewPager.ElementAnimationActivity"/>
         <activity android:name=".viewPager.changeSizeViewPager.ChangeSizePagerActivity"/>
-        <activity android:name=".tantan.TantanActivity"/>
+        <activity android:name=".tantan.TantanDemoActivity"/>
+        <activity android:name=".tantan.cardFlingView.TantanAdapterViewActivity"/>
+        <activity android:name=".tantan.layoutManager.TantanLayoutManagerActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>
         <activity android:name=".animationAbout.PropertyAniXmlActivity"/>

@@ -14,11 +14,17 @@ import android.widget.FrameLayout;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by yuyang on 16/3/11.
  * 叠加式的listview，卡片形式
  */
 public class OverlyingListView extends BaseFlingAdapterView {
+    private static final String TAG = "yuyang________";
+
+    //View缓存
+    private ArrayList<View> cacheItems = new ArrayList<>();
 
     //缩放层叠效果
     private int yOffsetStep = 29; // view叠加垂直偏移量的步长
@@ -60,22 +66,37 @@ public class OverlyingListView extends BaseFlingAdapterView {
         typedArray.recycle();
     }
 
+    private void removeAndAddToCache(int remain) {
+        View view;
+        for (int i = 0; i < getChildCount() - remain; ) {
+            view = getChildAt(i);
+            removeViewInLayout(view);
+            cacheItems.add(view);
+        }
+    }
+
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
         if(mAdapter == null){
             return;
         }
-        Log.i("yuyang________", "自定义控件OverLyingListView onLayout" + System.currentTimeMillis());
+        Log.i(TAG, "自定义控件OverLyingListView onLayout" + System.currentTimeMillis());
         mInLayout = true;
 
         int adapterCount = mAdapter.getCount();
         if(adapterCount == 0){
-            removeAllViewsInLayout();
+            //removeAllViewsInLayout();
+            removeAndAddToCache(0);
         }else {
             View topCard = getChildAt(LAST_OBJECT_IN_STACK);
-            if(mActiveCard == null || topCard == null || mActiveCard != topCard){
-                removeAllViewsInLayout();
+            if(mActiveCard != null && topCard != null && topCard == mActiveCard) {
+                //removeViewsInLayout(0, LAST_OBJECT_IN_STACK);
+                removeAndAddToCache(1);
+                layoutChildren(1, adapterCount);
+            }else{
+                //removeAllViewsInLayout();
+                removeAndAddToCache(0);
                 layoutChildren(0, adapterCount);
                 setTopView();
             }
@@ -95,7 +116,13 @@ public class OverlyingListView extends BaseFlingAdapterView {
 
     private void layoutChildren(int startingIndex, int adapterCount) {
         while (startingIndex < Math.min(adapterCount, MAX_VISIBLE)){
-            View newCard = mAdapter.getView(startingIndex, null, this);
+            //View newCard = mAdapter.getView(startingIndex, null, this);
+            View item = null;
+            if (cacheItems.size() > 0) {
+                item = cacheItems.get(0);
+                cacheItems.remove(item);
+            }
+            View newCard = mAdapter.getView(startingIndex, item, this);
             if(newCard.getVisibility() != GONE){
                 makeAndAddView(newCard, startingIndex);
                 LAST_OBJECT_IN_STACK = startingIndex;
@@ -220,6 +247,7 @@ public class OverlyingListView extends BaseFlingAdapterView {
                         ROTATION_DEGREES, new FlingCardListener.FlingListener() {
                     @Override
                     public void onCardExited() {
+                        removeViewInLayout(mActiveCard);
                         mActiveCard = null;
                         mFlingListener.removeFirstObjectInAdapter();
                     }
@@ -279,6 +307,7 @@ public class OverlyingListView extends BaseFlingAdapterView {
     @Override
     public void requestLayout() {
         if(!mInLayout) {
+            Log.i(TAG, "自定义控件OverLyingListView requestLayout");
             super.requestLayout();
         }
     }

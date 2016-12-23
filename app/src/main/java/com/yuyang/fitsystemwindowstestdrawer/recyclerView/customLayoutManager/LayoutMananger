@@ -11,7 +11,7 @@ Recycler对象
   最后再将绑定好新数据的View返回。
 
     我们有两种选择的方式：Detach和Remove来决定View缓存到哪里，Detach的View放在Scrap缓存中，Remove掉的View放在Recycle缓存中。
-    Detach使用场景：主要是在我们的代码执行结束之前，我们需要反复去将View移除并且马上又要添加进去时，选择Datach方式，
+    Detach使用场景：主要是在我们的代码执行结束之前，我们需要反复去将View移除并且马上又要添加进去时，选择Detach方式，
   比如：当我们对View进行重新排序的时候，可以选择Detach，因为屏幕上显示的就是这些position对应的View，我们并不需要重新去绑定数据，
   这明显可以提高效率。使用Detach方式可以通过函数!--yuyang detachAndScrapView()实现。
     Remove使用场景：当View不在屏幕中有任何显示的时候，你需要将它Remove掉，以备后面循环利用。
