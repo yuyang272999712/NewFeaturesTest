@@ -15,6 +15,8 @@ import java.util.List;
  */
 
 public class DiamondLayoutManager extends RecyclerView.LayoutManager {
+    private static final String TAG = "DiamondLayoutManager";
+
     public static final int DEFAULT_GROUP_SIZE = 5;//每组默认最多显示多少（一组分两行显示）
 
     private int mGroupSize;//每行最多显示多少个

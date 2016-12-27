@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.os.AsyncTaskCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -19,10 +20,9 @@ import java.util.List;
  * Created by yuyang on 16/3/15.
  */
 public class TantanAdapterViewActivity extends AppCompatActivity {
-
+    private Toolbar mToolbar;
     private ArrayList<CardMode> al;
     private CardAdapter adapter;
-    private int i = 1;
     private OverlyingListView flingContainer;
     private List<List<String>> imgList = new ArrayList<>();
     private ImageView left, right;
@@ -31,6 +31,7 @@ public class TantanAdapterViewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tantan);
+        setToolbar();
 
         left = (ImageView) findViewById(R.id.left);
         right = (ImageView) findViewById(R.id.right);
@@ -92,6 +93,19 @@ public class TantanAdapterViewActivity extends AppCompatActivity {
             @Override
             public void onItemClicked(int itemPosition, Object dataObject) {
                 makeToast(TantanAdapterViewActivity.this, "点击图片");
+            }
+        });
+    }
+
+    private void setToolbar() {
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitle("使用AdapterView实现");
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
             }
         });
     }

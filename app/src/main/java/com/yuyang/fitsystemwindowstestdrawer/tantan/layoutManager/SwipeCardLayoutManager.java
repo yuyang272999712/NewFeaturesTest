@@ -2,7 +2,6 @@ package com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager;
 
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,10 +13,10 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
     private static final String TAG = "SwipeCardLayoutManager";
     
     //缩放层叠效果
-    private int yOffsetStep = 40; // view叠加垂直偏移量的步长
+    private int yOffsetStep = 80; // view叠加垂直偏移量的步长
     private static final float SCALE_STEP = 0.08f; // view叠加缩放的步长
     /* 显示的View个数 */
-    private int MAX_VISIBLE = 4;
+    private int MAX_VISIBLE = 3;
     /* 所有子View的宽高，这里假设所有的子View都是同样大小 */
     private int mDecoratedChildWidth;
     private int mDecoratedChildHeight;
@@ -25,7 +24,13 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
     private int currentItem = 0;
     /* 偏移量 */
     private int offsetX;
-    private int offsetY;
+    private int offsetY = 0;
+    /* 可滑动的View*/
+    private View selectedView;
+
+    private OnItemClickListener mOnItemClickListener;
+    private FlingCardListener flingCardListener;
+    private onFlingListener mFlingListener;
 
     @Override
     public RecyclerView.LayoutParams generateDefaultLayoutParams() {
@@ -45,6 +50,8 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
         }
 
         Log.i(TAG, "onLayoutChildren: layout");
+        //onLayoutChildren方法在RecyclerView 初始化时 会执行两遍
+        detachAndScrapAttachedViews(recycler);
 
         if (getChildCount() == 0) {
             //获取第一个childView，并进行测量
@@ -54,27 +61,16 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
             //假设所有的childView都是同样大小
             mDecoratedChildWidth = getDecoratedMeasuredWidth(scrap);
             mDecoratedChildHeight = getDecoratedMeasuredHeight(scrap);
+
+            ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) scrap.getLayoutParams();
+            offsetY = lp.topMargin;
+            offsetX = (getWidth() - mDecoratedChildWidth)/2;
             //回收这个View，下次使直接拿出来显示
             detachAndScrapView(scrap, recycler);
         }
 
-        offsetX = (getWidth() - mDecoratedChildWidth)/2;
-        offsetY = (getHeight() - mDecoratedChildHeight)/2;
-
-        SparseArray<View> viewCache = new SparseArray<>();
-        if (getChildCount() != 0) {
-            //根据position缓存所有childView
-            for (int i = 0; i < getChildCount(); i++) {
-                //!--yuyang 这里的索引用的是position而不是index，是因为在childView在移动后可能不在布局中了，
-                // 那么index此时对应的View就不是原来的View了
-                int position = currentItem + MAX_VISIBLE - i;
-                View child = getChildAt(i);
-                viewCache.put(position, child);
-            }
-            //临时的剥离这些View（这些View在之后的会之中我们还会将屏幕上显示的View添加回屏幕）
-            for (int i=0; i < viewCache.size(); i++) {
-                detachView(viewCache.valueAt(i));
-            }
+        if (currentItem+MAX_VISIBLE > getItemCount() && mFlingListener!=null){
+            mFlingListener.onAdapterAboutToEmpty(currentItem);
         }
 
         for(int i=MAX_VISIBLE;i>=0; i--){
@@ -82,37 +78,33 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
             if (position >= state.getItemCount()){
                 continue;
             }
-            //从缓存中取view
-            View view = viewCache.get(position);
-            if (view == null){
-                /*
-                 * Recycler会决定view是从Scrap还是Recycle缓存中取View，还是重新生成一个View
-                 */
-                view = recycler.getViewForPosition(position);
+            /*
+             * Recycler会决定view是从Scrap还是Recycle缓存中取View，还是重新生成一个View
+             */
+            View view = recycler.getViewForPosition(position);
+            if (view != null){
                 addView(view);
                 /*
                  * 重新测量和布局这个View
                  */
                 measureChildWithMargins(view, 0, 0);
                 layoutDecorated(view, offsetX, offsetY, offsetX+mDecoratedChildWidth, offsetY+mDecoratedChildHeight);
-            }else {
-                //如果缓存中有这个View，就直接将这个View添加至布局中，不用在进行测量和重新布局了
-                attachView(view);
-                viewCache.remove(position);
+                //平移、缩放View
+                adjustChildView(view, i);
             }
-            adjustChildView(view, i);
         }
-
-        /*
-         * 最后一步：将之前缓存的但没有再添加回布局中的View回收至Recycle缓存中，以便Recycler对象可以回收利用
-         */
-        for (int i=0; i < viewCache.size(); i++) {
-            recycler.recycleView(viewCache.valueAt(i));
-        }
+        Log.i(TAG, "onLayoutChildren: getChildCount="+getChildCount());
+        //给第一个View设置触摸事件监听
+        setTopView(recycler);
     }
 
+    /**
+     * 布局平移，实现叠加效果
+     * @param child
+     * @param index
+     */
     private void adjustChildView(View child, int index) {
-        if (index > -1 && index < MAX_VISIBLE) {
+        if (index > -1 && index <= MAX_VISIBLE) {
             int multiple;
             if (index > 2) {
                 multiple = 2;
@@ -123,5 +115,135 @@ public class SwipeCardLayoutManager extends RecyclerView.LayoutManager {
             child.setScaleX(1 - SCALE_STEP * multiple);
             child.setScaleY(1 - SCALE_STEP * multiple);
         }
+    }
+
+    private void setTopView(final RecyclerView.Recycler recycler) {
+        if(getChildCount() > 0){
+            selectedView = findViewByPosition(currentItem);
+            if(selectedView != null){
+                flingCardListener = new FlingCardListener(selectedView, currentItem,
+                        10.0f, new FlingCardListener.FlingListener() {
+                    @Override
+                    public void onCardExited() {
+                        currentItem++;
+                        selectedView.setOnTouchListener(null);//释放空间
+                        removeAndRecycleView(selectedView, recycler);
+                        if (mFlingListener != null){
+                            mFlingListener.removeFirstObjectInAdapter();
+                        }
+                    }
+
+                    @Override
+                    public void leftExit(Integer position) {
+                        if (mFlingListener != null){
+                            mFlingListener.onLeftCardExit(position);
+                        }
+                    }
+
+                    @Override
+                    public void rightExit(Integer position) {
+                        if (mFlingListener != null){
+                            mFlingListener.onRightCardExit(position);
+                        }
+                    }
+
+                    @Override
+                    public void onClick(Integer position) {
+                        if (mOnItemClickListener != null){
+                            mOnItemClickListener.onItemClicked(position);
+                        }
+                    }
+
+                    @Override
+                    public void onScroll(float progress, float scrollProgressPercent) {
+                        adjustChildrenOfUnderTopView(progress);
+                        if (mFlingListener != null){
+                            mFlingListener.onScroll(scrollProgressPercent);
+                        }
+                    }
+                });
+
+                selectedView.setOnTouchListener(flingCardListener);
+            }
+        }
+    }
+
+    /**
+     * 处理topView下面的View动画显示
+     * @param rate
+     */
+    private void adjustChildrenOfUnderTopView(float rate) {
+        int count = getChildCount();
+        if (count > 1) {
+            View firstUnderTopView = findViewByPosition(currentItem+1);
+            if (firstUnderTopView != null){
+                int offset = (int) (yOffsetStep * (1 - rate));
+                firstUnderTopView.offsetTopAndBottom(offset - firstUnderTopView.getTop() + offsetY);
+                firstUnderTopView.setScaleX(1 - SCALE_STEP * 1 + SCALE_STEP * rate);
+                firstUnderTopView.setScaleY(1 - SCALE_STEP * 1 + SCALE_STEP * rate);
+            }
+            View secondUnderTopView = findViewByPosition(currentItem+2);
+            if (secondUnderTopView != null){
+                int offset = (int) (yOffsetStep * (2 - rate));
+                secondUnderTopView.offsetTopAndBottom(offset - secondUnderTopView.getTop() + offsetY);
+                secondUnderTopView.setScaleX(1 - SCALE_STEP * 2 + SCALE_STEP * rate);
+                secondUnderTopView.setScaleY(1 - SCALE_STEP * 2 + SCALE_STEP * rate);
+            }
+        }
+    }
+
+    public FlingCardListener getTopCardListener() throws NullPointerException {
+        if (flingCardListener == null) {
+            throw new NullPointerException();
+        }
+        return flingCardListener;
+    }
+
+    public void setFlingListener(onFlingListener onFlingListener) {
+        this.mFlingListener = onFlingListener;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.mOnItemClickListener = onItemClickListener;
+    }
+
+    public View getSelectedView(){
+        return selectedView;
+    }
+
+    public interface OnItemClickListener {
+        public void onItemClicked(Integer position);
+    }
+
+    public interface onFlingListener {
+        /**
+         * 移除第一个adapter
+         */
+        public void removeFirstObjectInAdapter();
+
+        /**
+         * 左滑item
+         * @param position
+         */
+        public void onLeftCardExit(Integer position);
+
+        /**
+         * 右滑item
+         * @param position
+         */
+        public void onRightCardExit(Integer position);
+
+        /**
+         * 当adapter剩余数量少于MAX_VISIBLE后调用该方法
+         * （有可能是该通过网络获取新数据了）
+         * @param itemsInAdapter 当前view在adapter中的位置
+         */
+        public void onAdapterAboutToEmpty(int itemsInAdapter);
+
+        /**
+         * 活动过程中动作处理（例如图片的渐渐显示效果）
+         * @param scrollProgressPercent 滑动百分比
+         */
+        public void onScroll(float scrollProgressPercent);
     }
 }

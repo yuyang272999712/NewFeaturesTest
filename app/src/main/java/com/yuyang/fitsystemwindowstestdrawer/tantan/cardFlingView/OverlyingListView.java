@@ -213,6 +213,10 @@ public class OverlyingListView extends BaseFlingAdapterView {
         }
     }
 
+    /**
+     * 处理topView下面的View动画显示
+     * @param scrollRate
+     */
     private void adjustChildrenOfUnderTopView(float scrollRate) {
         int count = getChildCount();
         if (count > 1) {

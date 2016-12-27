@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView;
+package com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -36,7 +36,7 @@ public class FlingCardListener implements View.OnTouchListener {
     /**
      * adapter的getItem方法返回的值
      */
-    private final Object dataObject;
+    private final Integer position;
     /**
      * 倾斜角度
      */
@@ -78,11 +78,11 @@ public class FlingCardListener implements View.OnTouchListener {
     private int animDuration = 300;
     private float scale;
 
-    public FlingCardListener(View frame, Object itemAtPosition, FlingCardListener.FlingListener flingListener) {
+    public FlingCardListener(View frame, Integer itemAtPosition, FlingCardListener.FlingListener flingListener) {
         this(frame, itemAtPosition, 10.0F, flingListener);
     }
 
-    public FlingCardListener(View frame, Object itemAtPosition, float rotation_degrees, FlingCardListener.FlingListener flingListener) {
+    public FlingCardListener(View frame, Integer itemAtPosition, float rotation_degrees, FlingCardListener.FlingListener flingListener) {
         this.mActivePointerId = -1;
         this.frame = null;
         this.isAnimationRunning = false;
@@ -92,7 +92,7 @@ public class FlingCardListener implements View.OnTouchListener {
         this.objectH = frame.getHeight();
         this.objectW = frame.getWidth();
         this.halfWidth = (float) this.objectW / 2.0F;
-        this.dataObject = itemAtPosition;
+        this.position = itemAtPosition;
         this.parentWidth = ((ViewGroup) frame.getParent()).getWidth();
         this.BASE_ROTATION_DEGREES = rotation_degrees;
         this.mFlingListener = flingListener;
@@ -220,7 +220,7 @@ public class FlingCardListener implements View.OnTouchListener {
             float absXMoveDistance = Math.abs(this.aPosX - this.objectX);//移动距离
             float absYMoveDistance = Math.abs(this.aPosY - this.objectY);//移动距离
             if(absXMoveDistance < 4 && absYMoveDistance < 4){//如果移动距离小于4，就认为是点击
-                this.mFlingListener.onClick(this.dataObject);
+                this.mFlingListener.onClick(this.position);
             }else {
                 this.frame.animate()
                         .setDuration(200)
@@ -321,12 +321,18 @@ public class FlingCardListener implements View.OnTouchListener {
                         new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationEnd(Animator animation) {
+                                //ZHU yuyang 针对RecyclerView的特殊处理，将View恢复至原位置，以便回收利用后显示正确
+                                frame.setX(objectX);
+                                frame.setY(objectY);
+                                frame.setRotation(0);
+                                frame.animate().setListener(null).setUpdateListener(null);
+
                                 if (isLeft) {
                                     mFlingListener.onCardExited();
-                                    mFlingListener.leftExit(dataObject);
+                                    mFlingListener.leftExit(position);
                                 } else {
                                     mFlingListener.onCardExited();
-                                    mFlingListener.rightExit(dataObject);
+                                    mFlingListener.rightExit(position);
                                 }
                                 isAnimationRunning = false;
                             }
@@ -396,21 +402,21 @@ public class FlingCardListener implements View.OnTouchListener {
 
         /**
          * 左滑出动作
-         * @param dataObject
+         * @param position
          */
-        void leftExit(Object dataObject);
+        void leftExit(Integer position);
 
         /**
          * 右滑出动作
-         * @param dataObject
+         * @param position
          */
-        void rightExit(Object dataObject);
+        void rightExit(Integer position);
 
         /**
          * 点击动作
-         * @param dataObject
+         * @param position
          */
-        void onClick(Object dataObject);
+        void onClick(Integer position);
 
         /**
          * 滑动过程中

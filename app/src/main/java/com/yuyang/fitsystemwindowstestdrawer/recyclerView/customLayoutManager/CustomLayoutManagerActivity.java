@@ -62,8 +62,7 @@ public class CustomLayoutManagerActivity extends AppCompatActivity {
                 mRecyclerView.setAdapter(new DiamondManagerAdapter(this, totalSize));
                 break;
             case 2:
-                mRecyclerView.setLayoutManager(new SwipeCardLayoutManager());
-                //mRecyclerView.setLayoutManager(new FixedLayoutManager(groupSize));
+                mRecyclerView.setLayoutManager(new FixedLayoutManager(groupSize));
                 mRecyclerView.setAdapter(new FixedManagerAdapter(this, totalSize));
                 break;
         }

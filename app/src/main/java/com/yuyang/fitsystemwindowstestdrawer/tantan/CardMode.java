@@ -36,4 +36,9 @@ public class CardMode {
     public List<String> getImages() {
         return images;
     }
+
+    @Override
+    public String toString() {
+        return "姓名："+this.name+"；年龄："+this.year;
+    }
 }

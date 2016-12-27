@@ -18,6 +18,17 @@ Recycler对象
   可以通过函数!--yuyang removeAndRecycleView()实现。
 
 
+RecyclerViewPool对象
+    RecyclerViewPool是一个为RecyclerView缓存ViewHolder的缓存池，它默认会为每种viewType缓存5个ViewHolder。
+    调用的recyclerView.getRecycledViewPool() 方法就可以通过mRecycler获取RecyclerViewPool对象。
+  常用方法：
+    1、setMaxRecycledViews(int viewType, int max)    设置相应ViewType的缓存数量
+    2、getRecycledView(int viewType)     获取ViewType对应的缓存ViewHolder
+    3、putRecycledView(ViewHolder scrap)     存入ViewHolder
+    4、size()        RecyclerViewPool缓存池一共缓存的ViewHolder数量：是所有viewType的ViewHolder数量之和
+    5、getScrapHeapForType(int viewType)     根据viewType获取相应缓存list
+
+
 LayoutManager类
     常用方法：
         1、generateDefaultLayoutParams()     !--yuyang 必须重写
