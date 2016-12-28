@@ -8,20 +8,12 @@ import android.support.v4.os.AsyncTaskCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager.DiamondLayoutManager;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager.DiamondManagerAdapter;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager.FixedLayoutManager;
-import com.yuyang.fitsystemwindowstestdrawer.recyclerView.customLayoutManager.FixedManagerAdapter;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.CardMode;
-import com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView.TantanAdapterViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +37,7 @@ public class TantanLayoutManagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_layout_manager);
+        setContentView(R.layout.activity_tantan_custom_layout_manager);
         setToolbar();
         setLeftAndRightBtn();
 

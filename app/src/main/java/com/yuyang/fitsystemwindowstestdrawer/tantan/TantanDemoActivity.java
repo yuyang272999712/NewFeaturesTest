@@ -26,6 +26,7 @@ import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeader.StickyHea
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.stickyHeaderUseDecoration.simple.StickyHeaderDecorationActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.totalEffect.SwipeRefreshTouchHelperActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView.TantanAdapterViewActivity;
+import com.yuyang.fitsystemwindowstestdrawer.tantan.dragHelper.TantanViewDragHelperActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager.TantanLayoutManagerActivity;
 
 import java.util.Arrays;
@@ -33,7 +34,8 @@ import java.util.List;
 
 @ContentView(R.layout.activity_just_list)
 public class TantanDemoActivity extends AppCompatActivity {
-    private List<String> items = Arrays.asList("重写AdapterView","重写RecyclerView的LayoutManager");
+    private List<String> items = Arrays.asList("重写AdapterView","重写RecyclerView的LayoutManager",
+            "重写Layout");
 
     @ViewInject(R.id.toolbar)
     private Toolbar toolbar;
@@ -74,6 +76,9 @@ public class TantanDemoActivity extends AppCompatActivity {
                         break;
                     case 1:
                         intent = new Intent(TantanDemoActivity.this, TantanLayoutManagerActivity.class);
+                        break;
+                    case 2:
+                        intent = new Intent(TantanDemoActivity.this, TantanViewDragHelperActivity.class);
                         break;
                 }
                 startActivity(intent);

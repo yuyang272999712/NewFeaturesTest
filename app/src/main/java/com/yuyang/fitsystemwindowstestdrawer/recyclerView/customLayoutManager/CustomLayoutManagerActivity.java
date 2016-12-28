@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager.SwipeCardLayoutManager;
 
 /**
  * 自定义RecyclerView的LayoutManager
@@ -26,7 +25,7 @@ public class CustomLayoutManagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_custom_layout_manager);
+        setContentView(R.layout.activity_tantan_custom_layout_manager);
         setToolbar();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);

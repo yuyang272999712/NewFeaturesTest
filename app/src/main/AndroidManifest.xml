@@ -124,6 +124,7 @@
         <activity android:name=".tantan.TantanDemoActivity"/>
         <activity android:name=".tantan.cardFlingView.TantanAdapterViewActivity"/>
         <activity android:name=".tantan.layoutManager.TantanLayoutManagerActivity"/>
+        <activity android:name=".tantan.dragHelper.TantanViewDragHelperActivity"/>
         <activity android:name=".animationAbout.AnimationActivity"/>
         <activity android:name=".animationAbout.PropertyAniActivity"/>
         <activity android:name=".animationAbout.PropertyAniXmlActivity"/>
