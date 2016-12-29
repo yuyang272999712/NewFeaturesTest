@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.CardMode;
@@ -32,6 +33,27 @@ public class TantanViewDragHelperActivity extends AppCompatActivity {
 
         swipeCardLayout = (SwipeCardLayout) findViewById(R.id.swipe_layout);
         swipeCardLayout.setAdapter(new CardAdapter(this, al));
+        swipeCardLayout.setFlingLIstener(new SwipeCardLayout.OnFlingListener() {
+            @Override
+            public void onLeftCardExit(Object dataObject) {
+                Toast.makeText(TantanViewDragHelperActivity.this, "不喜欢", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onRightCardExit(Object dataObject) {
+                Toast.makeText(TantanViewDragHelperActivity.this, "喜欢", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAdapterAboutToEmpty(int itemsInAdapter) {
+                Toast.makeText(TantanViewDragHelperActivity.this, "该加载数据了", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onScroll(float scrollProgressPercent) {
+                //Toast.makeText(TantanViewDragHelperActivity.this, "更新界面元素："+scrollProgressPercent, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void setToolbar() {

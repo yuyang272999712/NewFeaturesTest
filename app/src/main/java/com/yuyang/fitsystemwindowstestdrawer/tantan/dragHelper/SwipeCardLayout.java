@@ -1,13 +1,19 @@
 package com.yuyang.fitsystemwindowstestdrawer.tantan.dragHelper;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
+import android.os.Build;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.BaseAdapter;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.FrameLayout;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
@@ -30,16 +36,18 @@ public class SwipeCardLayout extends FrameLayout {
     private float ROTATION_DEGREES = 10.f;//倾斜角度
     private int MAX_VISIBLE = 4;//叠加几个card
 
-    private BaseAdapter mAdapter;//数据集
+    private CardAdapter mAdapter;//数据集
     private View mTopCard = null;//最顶层的card
     private AdapterDataSetObserver mDataSetObserver;//数据监听
     private boolean mInLayout = false;//是否正在绘制布局
-    private onFlingListener mFlingListener;//左右滑出、加载数据的监听
-    private FlingCardListener flingCardListener;
+    private OnFlingListener mFlingListener;//滑动、左右滑出、加载数据的监听
 
-    //顶层card的左上坐标
+    //顶层card的初始左上坐标
     private int cardTop;
     private int cardLeft;
+    //顶层card移动后的左上坐标
+    private int cardMovedLeft;
+    private int cardMovedTop;
     //顶层card的宽高
     private int cardW;
     private int cardH;
@@ -77,6 +85,7 @@ public class SwipeCardLayout extends FrameLayout {
         yOffsetStep = typedArray.getDimensionPixelOffset(R.styleable.SwipeFlingAdapterView_y_offset_step, yOffsetStep);
         typedArray.recycle();
 
+        mDataSetObserver = new AdapterDataSetObserver();
         mViewDragHelper = ViewDragHelper.create(this, new ViewDragHelper.Callback() {
             @Override
             public boolean tryCaptureView(View child, int pointerId) {
@@ -98,31 +107,55 @@ public class SwipeCardLayout extends FrameLayout {
 
             @Override
             public void onViewCaptured(View capturedChild, int activePointerId) {
-                if (event.getPointerId(0) == activePointerId){
-                    float y = event.getY();
-                    if(y < halfWidth){//判断点击的是frame的上半部分
-                        touchPosition = TOUCH_ABOVE;
-                    }else {//判断点击的是frame的下半部分
-                        touchPosition = TOUCH_BELOW;
+                if (!mInLayout) {
+                    cardMovedLeft = capturedChild.getLeft();
+                    cardLeft = capturedChild.getLeft();
+                    cardTop = capturedChild.getTop();
+                    cardW = capturedChild.getWidth();
+                    cardH = capturedChild.getHeight();
+                    if (event.getPointerId(0) == activePointerId) {
+                        float y = event.getY();
+                        if (y < halfWidth) {//判断点击的是frame的上半部分
+                            touchPosition = TOUCH_ABOVE;
+                        } else {//判断点击的是frame的下半部分
+                            touchPosition = TOUCH_BELOW;
+                        }
                     }
                 }
             }
 
             @Override
             public void onViewReleased(View releasedChild, float xvel, float yvel) {
-                mViewDragHelper.settleCapturedViewAt(cardLeft, cardTop);
-                invalidate();
+                mInLayout = true;
+                if (movedBeyondLeftBorder()){
+                    onSelected(true, getExitPoint(-cardW), 100L, false);
+                    adjustChildrenOfUnderTopView(1.0f);
+                    callbackScroll(getScrollProgressPercent());
+                }else if (movedBeyondRightBorder()){
+                    onSelected(false, getExitPoint(parentWidth), 100L, false);
+                    adjustChildrenOfUnderTopView(1.0f);
+                    callbackScroll(getScrollProgressPercent());
+                }else {
+                    mViewDragHelper.settleCapturedViewAt(cardLeft, cardTop);
+                    invalidate();
+                }
             }
 
             @Override
             public void onViewPositionChanged(View changedView, int left, int top, int dx, int dy) {
                 super.onViewPositionChanged(changedView, left, top, dx, dy);
+                cardMovedLeft = left;
+                cardMovedTop = top;
                 int offset = left - cardLeft;
                 float rotation = ROTATION_DEGREES * 2.0F * offset / parentWidth;
                 if(touchPosition == TOUCH_BELOW){//如果点击的是下半部分，旋转角度为负
                     rotation = -rotation;
                 }
                 changedView.setRotation(rotation);
+                //topCard下面的View缩放动画
+                adjustChildrenOfUnderTopView(getScrollProgress());
+                //回调滑动监听,以便更新界面元素
+                callbackScroll(getScrollProgressPercent());
             }
         });
     }
@@ -139,12 +172,19 @@ public class SwipeCardLayout extends FrameLayout {
         super.computeScroll();
         if (mViewDragHelper.continueSettling(true)){
             invalidate();
+        }else {
+            mInLayout = false;
         }
     }
 
-    public void setAdapter(BaseAdapter adapter){
+    /**
+     * 设置显示数据
+     * @param adapter
+     */
+    public void setAdapter(CardAdapter adapter){
         if (adapter != null) {
             this.mAdapter = adapter;
+            this.mAdapter.registerDataSetObserver(mDataSetObserver);
             layoutCards();
         }
     }
@@ -153,7 +193,10 @@ public class SwipeCardLayout extends FrameLayout {
      * 布局Cards
      */
     private void layoutCards() {
-        mInLayout = true;
+        Log.i(TAG, "layoutCards");
+        if (mAdapter == null){
+            return;
+        }
         for (int i=0; i<Math.min(mAdapter.getCount(), MAX_VISIBLE); i++){
             View cardView = null;
             if (cacheItems.size() > 0){
@@ -164,39 +207,20 @@ public class SwipeCardLayout extends FrameLayout {
             FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) cardView.getLayoutParams();
             addViewInLayout(cardView, 0, lp, true);
 
-            boolean needToMeasure = cardView.isLayoutRequested();
-            if(needToMeasure && lp!=null){
-                int childWidthSpec = getChildMeasureSpec(getMeasuredWidth(),
-                        getPaddingLeft() + getPaddingRight() + lp.leftMargin + lp.rightMargin,
-                        lp.width);
-                int childHeightSpec = getChildMeasureSpec(getMeasuredHeight(),
-                        getPaddingTop() + getPaddingBottom() + lp.topMargin + lp.bottomMargin,
-                        lp.height);
-                cardView.measure(childWidthSpec, childHeightSpec);
-            }else {
-                cleanupLayoutState(cardView);
-            }
-            int w = cardView.getMeasuredWidth();
-            int h = cardView.getMeasuredHeight();
-            int childLeft = (getWidth() + getPaddingLeft() - getPaddingRight() - w)/2 +
-                    lp.leftMargin - lp.rightMargin;
-            int childTop = getPaddingTop() + lp.topMargin;
-
-            cardView.layout(childLeft, childTop, childLeft + w, childTop + h);
-
             // 缩放层叠效果
             adjustChildView(cardView, i);
 
             if (i == 0){
                 mTopCard = cardView;
-                //获取初始位置的值
-                cardLeft = mTopCard.getLeft();
-                cardTop = mTopCard.getTop();
             }
         }
-        mInLayout = false;
     }
 
+    /**
+     * 调整布局，使card实现层叠效果
+     * @param child
+     * @param index
+     */
     private void adjustChildView(View child, int index) {
         if (index > -1 && index < MAX_VISIBLE) {
             int multiple;
@@ -205,11 +229,216 @@ public class SwipeCardLayout extends FrameLayout {
             } else {
                 multiple = index;
             }
-            //child.offsetTopAndBottom(yOffsetStep * multiple);
             child.setTranslationY(yOffsetStep * multiple);
             child.setScaleX(1 - SCALE_STEP * multiple);
             child.setScaleY(1 - SCALE_STEP * multiple);
         }
+    }
+
+    /**
+     * 处理topCard下面的View动画显示
+     * @param scrollRate
+     */
+    private void adjustChildrenOfUnderTopView(float scrollRate) {
+        int count = getChildCount();
+        if (count > 1) {
+            int multiple = 1;
+            float rate = Math.abs(scrollRate);
+            for (int i=1; i<3; i++, multiple++){//最有一个是topCard
+                View underView = getChildAt(count-1-i);
+                if (underView != null){
+                    int offset = (int) (yOffsetStep * (multiple - rate));
+                    underView.setTranslationY(offset - underView.getTop() + cardTop);
+                    underView.setScaleX(1 - SCALE_STEP * multiple + SCALE_STEP * rate);
+                    underView.setScaleY(1 - SCALE_STEP * multiple + SCALE_STEP * rate);
+                }
+            }
+        }
+    }
+
+    /**
+     * 移除当前的topCard，并添加新的card
+     */
+    private void updateTopCardAndAddNewCard(){
+        //TODO yuyang view缓存没做好
+        detachViewFromParent(mTopCard);
+        mTopCard = getChildAt(getChildCount()-1);//更新topCard引用
+        mAdapter.remove(0);//移除数据
+        if (mAdapter.getCount() <= MAX_VISIBLE+1 && mFlingListener!=null){
+            mFlingListener.onAdapterAboutToEmpty(mAdapter.getCount());
+        }
+        if (mAdapter.getCount() >= MAX_VISIBLE){
+            View cardView = null;
+            if (cacheItems.size() > 0){
+                cardView = cacheItems.get(0);
+                cacheItems.remove(0);
+            }
+            cardView = mAdapter.getView(MAX_VISIBLE-1, cardView, this);
+            FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) cardView.getLayoutParams();
+            addViewInLayout(cardView, 0, lp, true);
+
+            // 缩放层叠效果
+            adjustChildView(cardView, MAX_VISIBLE-1);
+        }
+    }
+
+    /**
+     * 选中的card的选中结果，左滑出或者右滑出
+     * @param isLeft 是否是左滑
+     * @param exitY 滑出至位置，Y轴坐标
+     * @param duration 动画持续时间
+     * @param left_right_select 是否是外部点击执行左／右滑出
+     */
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public void onSelected(final boolean isLeft, float exitY, long duration, final boolean left_right_select){
+        if (mTopCard == null){
+            return;
+        }
+        mInLayout = true;
+        float exitX;//滑出的位置x轴坐标
+        if(isLeft){
+            exitX = (float)(-cardW) - this.getRotationWidthOffset();
+        }else {
+            exitX = (float)parentWidth + this.getRotationWidthOffset();
+        }
+
+        mTopCard.animate().setDuration(duration)
+                .setInterpolator(new AccelerateInterpolator())
+                .x(exitX)
+                .y(exitY)
+                .setListener(
+                        new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                updateTopCardAndAddNewCard();
+                                if (mFlingListener != null) {
+                                    if (isLeft) {
+                                        mFlingListener.onLeftCardExit(mAdapter.getItem(0));
+                                    } else {
+                                        mFlingListener.onRightCardExit(mAdapter.getItem(0));
+                                    }
+                                }
+                                mInLayout = false;
+                            }
+                        })
+                .rotation(getExitRotation(isLeft))
+                .setUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+                    @Override
+                    public void onAnimationUpdate(ValueAnimator animation) {
+                        if (left_right_select) {
+                            long total = animation.getDuration();
+                            long current = animation.getCurrentPlayTime();
+                            adjustChildrenOfUnderTopView((float) current / total);
+                            callbackScroll(0);
+                        }
+                    }
+                });
+    }
+
+    /**
+     * 回调滑动监听
+     * @param scrollProgressPercent
+     */
+    private void callbackScroll(float scrollProgressPercent){
+        if (mFlingListener != null){
+            mFlingListener.onScroll(scrollProgressPercent);
+        }
+    }
+
+    /**
+     * 返回x、y方向上的总位移比例
+     * @return
+     */
+    private float getScrollProgress() {
+        float dx = cardMovedLeft - cardLeft;
+        float dy = cardMovedTop - cardTop;
+        float dis = Math.abs(dx) + Math.abs(dy);
+        return Math.min(dis, 400f) / 400f;
+    }
+
+    /**
+     * 返回X轴方向的位移比例（距离判断滑出的百分比）
+     * @return
+     */
+    private float getScrollProgressPercent() {
+        if(this.movedBeyondLeftBorder()){
+            return -1.0F;
+        }else if(this.movedBeyondRightBorder()){
+            return 1.0F;
+        }else {
+            float zeroToOneValue = (cardLeft + this.halfWidth - this.leftBorder()) / (this.rightBorder() - this.leftBorder());
+            return zeroToOneValue * 2.0F - 1.0F;
+        }
+    }
+
+    /**
+     * 右侧滑出
+     * @return 是否超过右边界
+     */
+    private boolean movedBeyondRightBorder() {
+        return cardMovedLeft + this.halfWidth > rightBorder();
+    }
+
+    /**
+     * 左侧滑出
+     * @return 是否超过左边界
+     */
+    private boolean movedBeyondLeftBorder() {
+        return cardMovedLeft + this.halfWidth < leftBorder();
+    }
+
+    /**
+     * 左滑边界值（当frame的中点在父控件宽度的四分之一左侧时，左滑出）
+     * @return
+     */
+    private float leftBorder(){
+        return (float)this.parentWidth / 4.0F;
+    }
+
+    /**
+     * 同上
+     * @return
+     */
+    private float rightBorder(){
+        return (float)this.parentWidth * 3 / 4.0F;
+    }
+
+    /**
+     * 旋转最大角度45度后，粗略计算宽度增加的长度
+     * @return
+     */
+    private float getRotationWidthOffset() {
+        return (float) this.cardW / this.MAX_COS - (float) this.cardW;
+    }
+
+    /**
+     * 根据是否左滑与水平方向上滑动距离计算旋转角度
+     * @param isLeft
+     * @return
+     */
+    private float getExitRotation(boolean isLeft) {
+        float rotation = ROTATION_DEGREES * 2.0F * ((float) this.parentWidth - this.cardLeft) / (float) this.parentWidth;
+        if (this.touchPosition == this.TOUCH_BELOW) {
+            rotation = -rotation;
+        }
+
+        if (isLeft) {
+            rotation = -rotation;
+        }
+
+        return rotation;
+    }
+
+    /**
+     * 根据frame的左上角坐标与移动后的左上角坐标的线性回归函数，计算Y轴坐标（具体数学计算不懂啊！！）
+     * @param exitXPoint
+     * @return
+     */
+    private float getExitPoint(int exitXPoint) {
+        float[] x = new float[]{this.cardLeft, this.cardMovedLeft};
+        float[] y = new float[]{this.cardTop, this.cardMovedTop};
+        LinearRegression regression = new LinearRegression(x, y);
+        return (float) regression.slope() * (float) exitXPoint + (float) regression.intercept();
     }
 
     /**
@@ -241,16 +470,11 @@ public class SwipeCardLayout extends FrameLayout {
         return mViewDragHelper.shouldInterceptTouchEvent(event);
     }
 
-    public interface OnItemClickListener {
-        public void onItemClicked(int itemPosition, Object dataObject);
+    public void setFlingLIstener(OnFlingListener listener){
+        this.mFlingListener = listener;
     }
 
-    public interface onFlingListener {
-        /**
-         * 移除第一个adapter
-         */
-        public void removeFirstObjectInAdapter();
-
+    public interface OnFlingListener {
         /**
          * 左滑item
          * @param dataObject 该adapter内容
