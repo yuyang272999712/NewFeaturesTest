@@ -22,6 +22,9 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.test.haha"/>
+        <activity android:name=".FiveActivity"
+                  android:excludeFromRecents="true"
+                  android:launchMode="singleTop"/>
     </application>
 
 </manifest>

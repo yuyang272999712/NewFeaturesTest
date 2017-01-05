@@ -42,4 +42,11 @@
         android:onClick="startFourthActivity"
         android:textAllCaps="false"
         android:text="startFourthActivity"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startFiveActivity"
+        android:textAllCaps="false"
+        android:text="startFiveActivity"/>
 </LinearLayout>

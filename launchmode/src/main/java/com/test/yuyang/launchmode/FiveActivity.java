@@ -1,18 +1,21 @@
 package com.test.yuyang.launchmode;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-public class FirstActivity extends AppCompatActivity {
-    private static final String TAG = "FirstActivity";
+/**
+ * Created by yuyang on 2016/8/25.
+ */
+public class FiveActivity extends AppCompatActivity {
+    private static final String TAG = "FiveActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_first);
+        setContentView(R.layout.activity_five);
         Log.w(TAG, "onCreate");
     }
 
@@ -74,7 +77,7 @@ public class FirstActivity extends AppCompatActivity {
     }
 
     public void startFourthActivity(View view){
-        Intent intent = new Intent(this, FourthActivity.class);
+        Intent intent = new Intent(this, FiveActivity.class);
         startActivity(intent);
     }
 
@@ -82,5 +85,4 @@ public class FirstActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FiveActivity.class);
         startActivity(intent);
     }
-
 }
