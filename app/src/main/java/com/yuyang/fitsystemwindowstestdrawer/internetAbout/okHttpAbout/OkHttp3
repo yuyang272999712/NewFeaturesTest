@@ -23,7 +23,7 @@ okHttp3使用FormBody.Builder创建请求的参数键值对；
      这种情况下我们只需要手动给okhttp设置缓存就可以让okhttp自动帮你缓存了
     二、服务器不支持缓存
         如果服务器不支持缓存就可能没有指定这个头部，或者指定的值是如no-store等。
-     这种情况下我们就需要使用Interceptor来重写Respose的头部信息，从而让okhttp支持缓存。
+     这种情况下我们就需要使用Interceptor来重写Response的头部信息，从而让okhttp支持缓存。
 
 TODO yuyang 具体请求cache使用可参考类：OkHttp3.Cache.java 类的注释
     Request request = new Request.Builder()

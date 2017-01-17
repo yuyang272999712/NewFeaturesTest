@@ -1,0 +1,30 @@
+    在声明对第三方类库的依赖时，我们需要告诉Gradle在什么地方去获取这些依赖，即配置Gradle的!--yuyang Repository。
+在配置好依赖之后，Gradle会自动地下载这些依赖到本地。Gradle可以使用Maven和Ivy的Repository，同时它还可以使用本地
+文件系统作为Repository。
+例如：repositories {
+        mavenCentral()
+        jcenter()
+     }
+
+    Gradle将对依赖进行分组，比如编译Java时使用的是这组依赖，运行Java时又可以使用另一组依赖。每一组依赖称为
+一个Configuration，在声明依赖时，我们实际上是在设置不同的Configuration。值得一提的是，将依赖称为
+Configuration并不是一个好的名字，更好的应该叫作诸如“DependencyGroup”之类的。但是，习惯了就好的。
+    要定义一个!--yuyang Configuration，我们可以通过以下方式完成：
+    configurations {
+       myDependency
+    }
+    以上只是定义了一个名为myDependency的Configuration，我们并未向其中加入依赖。我们可以通过
+!--yuyang dependencies()方法向myDependency中加入实际的依赖项：
+    dependencies {
+       myDependency 'org.apache.commons:commons-lang3:3.0'
+    }
+    在实际应用时，比如我们需要调用Ant的某个target，而该target在执行时需要设置classpath，那么我们便可以通过以上方式进行设置。
+下面，我们来看一个Java项目，该项目依赖于SLF4J，而在测试时依赖于Junit。在声明依赖时，我们可以通过以下方式进行设置：
+    dependencies {
+       compile 'org.slf4j:slf4j-log4j12:1.7.2'
+       testCompile 'junit:junit:4.8.2'
+    }
+    我们并没有定义名为compile和testCompile的Configuration，这是这么回事呢？原因在于，
+!--yuyang java Plugin会自动定义compile和testCompile，分别用于编译Java源文件和编译Java测试源文件。
+
+allprojects 内容应用于所有Project

@@ -98,6 +98,8 @@ public class MainActivity extends AppCompatActivity
         //TODO yuyang 测试编译时注解
         ToastShow.doSomething(this);
         ToastShow.showToast(this);
+        //!--yuyang 6.0权限申请
+
     }
 
     @Override
