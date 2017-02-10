@@ -16,6 +16,7 @@ import java.util.List;
  * AccessibilityService就是一个后台监控服务，设计用来帮助使用障碍的人士
  *
  * 在手机无障碍设置中开启
+ * 微信6.5.4
  */
 
 public class WeChatAccessibilityService extends AccessibilityService {
@@ -110,14 +111,14 @@ public class WeChatAccessibilityService extends AccessibilityService {
             List<AccessibilityNodeInfo> list;//节点集合
             switch (actionType){
                 case 0://开红包
-                    list = nodeInfo.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/bg7");
+                    list = nodeInfo.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/bi3");
                     for (AccessibilityNodeInfo item : list) {
                         item.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                     }
                     break;
                 case 1://退出红包
                     //微信6.3.31
-                    list = nodeInfo.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/gd");
+                    list = nodeInfo.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/gv");
                     for (AccessibilityNodeInfo item : list) {
                         item.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                     }
@@ -137,17 +138,20 @@ public class WeChatAccessibilityService extends AccessibilityService {
         }
         AccessibilityNodeInfo rootNode = getRootInActiveWindow();
         if (rootNode != null) {
-            //寻找聊天fragment
-            List<AccessibilityNodeInfo> list = rootNode.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/p");
+            //id/a4w是红包的item
+            List<AccessibilityNodeInfo> list = rootNode.findAccessibilityNodeInfosByViewId("com.tencent.mm:id/a4w");
             if (list != null && list.size() > 0) {//如果是在聊天页面，那肯定能找到唯一的一个node
-                recycle(list.get(0));
+                AccessibilityNodeInfo itemNode = list.get(list.size() - 1);
+                itemNode.performAction(AccessibilityNodeInfo.ACTION_CLICK);
+                inProgress = true;
+                /*recycle(list.get(0));
                 if (newNodes.size() > 0) {
                     Log.e(TAG, "点击聊天列表上的红包item");
                     AccessibilityNodeInfo itemNode = newNodes.get(newNodes.size() - 1);
                     itemNode.performAction(AccessibilityNodeInfo.ACTION_CLICK);
                     inProgress = true;
                     newNodes.clear();
-                }
+                }*/
             }
         }
     }
@@ -161,9 +165,9 @@ public class WeChatAccessibilityService extends AccessibilityService {
         if (info.getChildCount() == 0) {
             if (info.getText() != null) {
                 if ("领取红包".equals(info.getText().toString())) {
-                    if (info.isClickable()) {
+                    /*if (info.isClickable()) {
                         info.performAction(AccessibilityNodeInfo.ACTION_CLICK);
-                    }
+                    }*/
                     AccessibilityNodeInfo parent = info.getParent();
                     while (parent != null) {
                         if (parent.isClickable()){

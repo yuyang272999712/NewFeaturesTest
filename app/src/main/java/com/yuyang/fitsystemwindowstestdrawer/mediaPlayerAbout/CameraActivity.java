@@ -97,12 +97,12 @@ public class CameraActivity extends AppCompatActivity implements SurfaceHolder.C
         //找出可用的对焦模式
         if (parameters.getSupportedFocusModes().contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)){
             parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE);
-            camera.autoFocus(new Camera.AutoFocusCallback() {
+            /*camera.autoFocus(new Camera.AutoFocusCallback() {
                 @Override
                 public void onAutoFocus(boolean success, Camera camera) {
                     Log.e(TAG, "AutoFocus:"+success);
                 }
-            });
+            });*/
         }
         /**
          * 设置对焦区域

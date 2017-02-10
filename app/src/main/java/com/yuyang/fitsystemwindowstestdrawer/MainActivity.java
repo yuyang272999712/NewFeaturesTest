@@ -1,17 +1,23 @@
 package com.yuyang.fitsystemwindowstestdrawer;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +26,11 @@ import android.view.ViewGroup;
 import com.example.MyToastShowAnnotation;
 import com.example.ToastShow;
 import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
+import com.yuyang.fitsystemwindowstestdrawer.utils.SPUtils;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * tableLayout 相关属性设定：
@@ -29,6 +40,7 @@ import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
  */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final String TAG = "MainActivity";
 
     @MyToastShowAnnotation(message = "编译时注解，此时的编译时注解代码已经无用，因为在编译时已经生成了相应的.class文件")//TODO yuyang 测试编译时注解
     private String test;
@@ -98,8 +110,36 @@ public class MainActivity extends AppCompatActivity
         //TODO yuyang 测试编译时注解
         ToastShow.doSomething(this);
         ToastShow.showToast(this);
-        //!--yuyang 6.0权限申请
 
+        if ((Integer)SPUtils.get(this, "permission_request", 0) == 0) {//未申请过权限
+            //!--yuyang 6.0权限申请
+            permissionRequest();
+            SPUtils.put(this, "permission_request", 1);
+        }
+    }
+
+    private void permissionRequest(){
+        List<String> permissions = new ArrayList<>();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+            permissions.add(Manifest.permission.CAMERA);
+        }
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) != PackageManager.PERMISSION_GRANTED){
+            permissions.add(Manifest.permission.READ_CONTACTS);
+        }
+        if (permissions.size() > 0){
+            ActivityCompat.requestPermissions(this, permissions.toArray(new String[]{}), 1);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == 1){
+            for (int i=0; i<permissions.length; i++){
+                if (grantResults[i] != PackageManager.PERMISSION_GRANTED){
+                    Log.e(TAG, "权限："+permissions[i]+",申请失败！");
+                }
+            }
+        }
     }
 
     @Override

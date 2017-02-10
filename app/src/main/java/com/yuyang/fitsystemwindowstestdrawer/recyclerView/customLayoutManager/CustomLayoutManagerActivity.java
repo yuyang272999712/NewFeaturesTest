@@ -25,7 +25,7 @@ public class CustomLayoutManagerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tantan_custom_layout_manager);
+        setContentView(R.layout.activity_custom_layout_manager);
         setToolbar();
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
