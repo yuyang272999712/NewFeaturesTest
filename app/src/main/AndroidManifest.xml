@@ -405,6 +405,8 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".TestActivity"/>
+
     </application>
 
 </manifest>

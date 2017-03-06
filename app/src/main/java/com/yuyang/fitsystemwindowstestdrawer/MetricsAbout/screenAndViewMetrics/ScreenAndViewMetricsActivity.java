@@ -230,11 +230,11 @@ public class ScreenAndViewMetricsActivity extends AppCompatActivity implements V
         switch (v.getId()){
             case R.id.translationX:
                 //!--yuyang 相对于当前位置移动（getLeft＋translationX）
-                textView.setTranslationX(200);
+                textView.setTranslationX(10);
                 break;
             case R.id.setX:
                 //!--yuyang 相对于父View的位置
-                textView.setX(200);
+                textView.setX(10);
                 break;
             //!--yuyang scrollTo和scrollBy都是移动内容的
             case R.id.scrollTo:

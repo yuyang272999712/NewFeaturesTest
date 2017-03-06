@@ -2,6 +2,7 @@ package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispat
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -98,6 +99,7 @@ public class HorizontalScrollViewEx2 extends ViewGroup {
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         int x = (int) ev.getX();
         int y = (int) ev.getY();
+        Log.e(TAG, "onInterceptTouchEvent");
 
         if (ev.getAction() == MotionEvent.ACTION_DOWN){
             mLastX = x;
@@ -122,6 +124,7 @@ public class HorizontalScrollViewEx2 extends ViewGroup {
                 if (!mScroller.isFinished()){
                     mScroller.abortAnimation();
                 }
+                Log.e(TAG, "ACTION_DOWN");
                 break;
             case MotionEvent.ACTION_MOVE:
                 int deltaX = x - mLastX;

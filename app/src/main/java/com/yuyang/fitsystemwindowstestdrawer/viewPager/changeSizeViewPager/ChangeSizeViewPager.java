@@ -1,6 +1,7 @@
 package com.yuyang.fitsystemwindowstestdrawer.viewPager.changeSizeViewPager;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
@@ -81,16 +82,22 @@ public class ChangeSizeViewPager extends ViewPager {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         this.widthMeasureSpec = widthMeasureSpec;
-        if (isFirstLayout) {
+        if (isFirstLayout && getAdapter()!=null) {
             View child = ((PicPagerAdapter) getAdapter()).getItemView(currentPosition);
             child.measure(widthMeasureSpec, MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
             int h = child.getMeasuredHeight();
             height = h;
             heightMeasureSpec = MeasureSpec.makeMeasureSpec(height, MeasureSpec.EXACTLY);
-            isFirstLayout = false;
+            //isFirstLayout = false;
         }
 
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int l, int t, int r, int b) {
+        super.onLayout(changed, l, t, r, b);
+        isFirstLayout = false;
     }
 
     public void resetHeight(int height) {

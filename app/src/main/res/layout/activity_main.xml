@@ -24,4 +24,16 @@
         app:headerLayout="@layout/layout_nav_header_main"
         app:menu="@menu/activity_main_drawer"/>
 
+    <RelativeLayout
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:background="@color/gray">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="测试"/>
+    </RelativeLayout>
+
 </android.support.v4.widget.DrawerLayout>

@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.OverScroller;
 
@@ -45,7 +43,7 @@ public class LargeImageView extends View {
     public LargeImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         velocityTracker = VelocityTracker.obtain();
-        overScroller = new OverScroller(context, new AccelerateDecelerateInterpolator());
+        overScroller = new OverScroller(context, new DecelerateInterpolator());
         init();
     }
 
@@ -117,8 +115,10 @@ public class LargeImageView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        Bitmap bitmap = mDecoder.decodeRegion(mRect, options);
-        canvas.drawBitmap(bitmap, 0, 0, null);
+        if (mDecoder != null) {
+            Bitmap bitmap = mDecoder.decodeRegion(mRect, options);
+            canvas.drawBitmap(bitmap, 0, 0, null);
+        }
     }
 
     @Override
