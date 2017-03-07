@@ -12,6 +12,7 @@ import java.util.List;
 
 /**
  * Created by yuyang on 16/5/9.
+ * !--yuyang GridLayoutManager布局设置某个Item占整行，重写Adapter的onAttachedToRecyclerView()方法
  */
 public abstract class LoadMoreAdapter<T> extends RecyclerView.Adapter<CommonViewHolder> {
     private static final int ITEM_TYPE_FOOTER = Integer.MIN_VALUE;

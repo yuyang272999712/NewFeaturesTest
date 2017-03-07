@@ -286,6 +286,7 @@
             android:windowSoftInputMode="adjustPan|stateUnchanged"/>
         <activity android:name=".softInput.emotionMode.ChatActivity"
             android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name=".homeDemo.complexHome.RecyclerViewComplexHomeActivity"/>
 
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）

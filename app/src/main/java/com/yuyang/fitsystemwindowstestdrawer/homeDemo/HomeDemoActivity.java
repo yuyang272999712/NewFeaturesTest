@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.homeDemo.complexHome.RecyclerViewComplexHomeActivity;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.notificationAbout.NotificationActivity;
 
 import java.util.Arrays;
@@ -21,7 +22,7 @@ import java.util.List;
  */
 public class HomeDemoActivity extends ListActivity {
     private List<String> homeDemos = Arrays.asList("传统的ViewPager实现","FragmentManager+Fragment实现",
-            "ViewPager+Fragment实现","SlidingPaneLayout实现侧滑导航");
+            "ViewPager+Fragment实现","SlidingPaneLayout实现侧滑导航","RecyclerView实现主要复杂布局");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,8 @@ public class HomeDemoActivity extends ListActivity {
             case 3:
                 intent = new Intent(this, SlidingPaneLayoutActivity.class);
                 break;
+            case 4:
+                intent = new Intent(this, RecyclerViewComplexHomeActivity.class);
         }
         startActivity(intent);
     }
