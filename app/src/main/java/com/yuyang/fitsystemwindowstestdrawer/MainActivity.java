@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
 import com.example.MyToastShowAnnotation;
 import com.example.ToastShow;
@@ -101,6 +102,9 @@ public class MainActivity extends AppCompatActivity
         MainFragment1 fragmet1 = new MainFragment1();
         transaction.replace(R.id.fragment_content, fragmet1);
         transaction.commit();
+
+        //禁止截屏
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
     }
 
     @Override

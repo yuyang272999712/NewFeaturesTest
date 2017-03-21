@@ -4,3 +4,11 @@
     notifyItemRemoved() 和 notifyItemRangeRemoved()： 移除给定 位置/范围 的 item(s)。
     notifyItemMoved()： 将数据集中的一个 item 重定位到一个新的位置。
     getChildAdapterPosition(): 获取某个item所在的position
+
+    setHasFixedSize(true) 当RecyclerView的大小是固定的，设置为true，会使RecyclerView更高效。（例如：不管有几行item，RecyclerView都是占满整个屏幕）
+        因为：  void onItemsInsertedOrRemoved() {
+                  if (hasFixedSize)
+                    layoutChildren();
+                  else
+                    requestLayout();
+               }

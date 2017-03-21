@@ -1,0 +1,20 @@
+Activity:
+    android:excludeFromRecents="true" 使该Activity所在的任务栈不出现在系统最近任务中
+    android:noHistory="true" 使该Activity不会存留在任务栈中
+
+
+
+
+小知识：
+  1、禁止截屏
+    getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
+
+  2、获取快照：
+    // 获取需要截取快照的控件
+    View view = findViewById(R.id.my_view);
+    // 设置控件允许绘制缓存
+    view.setDrawingCacheEnabled(true);
+    // 获取控件的绘制缓存（快照）
+    Bitmap bitmap = view.getDrawingCache();
+    // 保存截取的快照
+    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
