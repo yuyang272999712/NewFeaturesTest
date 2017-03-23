@@ -15,8 +15,8 @@ import android.widget.Scroller;
  * 竖直排版的引导页，类似竖直的ViewPager
  */
 public class VerticalLinearLayout extends ViewGroup {
-    //屏幕高度
-    private int mScreenHeight;
+    //内容总高度
+    private int mTotalHeight;
     //手指按下时的getScrollY
     private int mScrollStart;
     //手指抬起时的getScrollY
@@ -37,13 +37,6 @@ public class VerticalLinearLayout extends ViewGroup {
     public VerticalLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         /**
-         * 获取屏幕高度
-         */
-        WindowManager windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
-        DisplayMetrics metrics = new DisplayMetrics();
-        windowManager.getDefaultDisplay().getMetrics(metrics);
-        mScreenHeight = metrics.heightPixels;
-        /**
          * 初始化滚动辅助
          */
         mScroller = new Scroller(context);
@@ -62,19 +55,15 @@ public class VerticalLinearLayout extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         if(changed){
             int childCount = getChildCount();
-            /**
-             * 设置主布局高度
-             */
-            MarginLayoutParams layoutParams = (MarginLayoutParams) getLayoutParams();
-            layoutParams.height = mScreenHeight * childCount;
-            setLayoutParams(layoutParams);
-
+            int heightOffset = 0;
             for (int i=0; i<childCount; i++){
                 View view = getChildAt(i);
                 if(view.getVisibility() == VISIBLE){
-                    view.layout(l, mScreenHeight * i, r, mScreenHeight * (i + 1));
+                    view.layout(l, heightOffset, r, heightOffset+view.getMeasuredHeight());
+                    heightOffset += view.getHeight();
                 }
             }
+            mTotalHeight = heightOffset;
         }
     }
 
@@ -108,7 +97,7 @@ public class VerticalLinearLayout extends ViewGroup {
                     dy = 0;
                 }
                 // 已经到达底部
-                if (dy > 0 && scrollY + dy > getHeight() - mScreenHeight) {
+                if (dy > 0 && scrollY + dy > mTotalHeight - getHeight()) {
                     dy = 0;
                 }
 
@@ -122,14 +111,14 @@ public class VerticalLinearLayout extends ViewGroup {
 
                 if (wantScrollToNext()){//上滑
                     if (shouldScrollToNext()){
-                        mScroller.startScroll(0, getScrollY(), 0, mScreenHeight - dScrollY);
+                        mScroller.startScroll(0, getScrollY(), 0, getHeight() - dScrollY);
                     }else {
                         mScroller.startScroll(0, getScrollY(), 0, -dScrollY);
                     }
                 }
                 if (wantScrollToPre()){//下滑
                     if (shouldScrollToPre()){
-                        mScroller.startScroll(0, getScrollY(), 0, -mScreenHeight - dScrollY);
+                        mScroller.startScroll(0, getScrollY(), 0, -getHeight() - dScrollY);
                     }else {
                         mScroller.startScroll(0, getScrollY(), 0, -dScrollY);
                     }
@@ -150,7 +139,7 @@ public class VerticalLinearLayout extends ViewGroup {
             scrollTo(0, mScroller.getCurrY());
             postInvalidate();
         }else {
-            int position = getScrollY() / mScreenHeight;
+            int position = getScrollY() / getHeight();
             Log.i("－－VerticalLinearLayout－", position + "," + currentPage);
             if (position != currentPage) {
                 if (mOnPageChangeListener != null) {
@@ -183,7 +172,7 @@ public class VerticalLinearLayout extends ViewGroup {
      * @return
      */
     private boolean shouldScrollToNext(){
-        return mScrollEnd - mScrollStart > mScreenHeight/2 || Math.abs(getVelocity()) > 600;
+        return mScrollEnd - mScrollStart > getHeight()/2 || Math.abs(getVelocity()) > 600;
     }
 
     /**
@@ -191,7 +180,7 @@ public class VerticalLinearLayout extends ViewGroup {
      * @return
      */
     private boolean shouldScrollToPre(){
-        return mScrollStart - mScrollEnd > mScreenHeight/2 || Math.abs(getVelocity()) > 600;
+        return mScrollStart - mScrollEnd > getHeight()/2 || Math.abs(getVelocity()) > 600;
     }
 
     /**
