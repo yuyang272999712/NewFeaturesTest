@@ -97,6 +97,12 @@
                 android:text="自定义钟表效果"/>
 
             <Button
+                android:id="@+id/defind_miui_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Miui表盘"/>
+
+            <Button
                 android:id="@+id/defind_letter_bar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

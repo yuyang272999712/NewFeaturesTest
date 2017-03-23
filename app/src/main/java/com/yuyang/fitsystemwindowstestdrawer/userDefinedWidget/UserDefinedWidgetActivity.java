@@ -13,6 +13,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockViewMIUI.MiuiClockActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.polygonsStatisticsView.RadarChartActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.CitySelectActivity;
@@ -50,6 +51,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button colorPicker;
     private Button blurredImage;
     private Button clockBtn;
+    private Button miuiClockBtn;
     private Button letterBar;
     private Button radarChartBtn;
 
@@ -88,6 +90,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         colorPicker = (Button) findViewById(R.id.defind_color_picker);
         blurredImage = (Button) findViewById(R.id.defind_blurred_image);
         clockBtn = (Button) findViewById(R.id.defind_clock);
+        miuiClockBtn = (Button) findViewById(R.id.defind_miui_clock);
         letterBar = (Button) findViewById(R.id.defind_letter_bar);
         radarChartBtn = (Button) findViewById(R.id.defind_radar_chart);
     }
@@ -260,6 +263,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, MyClockActivity.class);
+                startActivity(intent);
+            }
+        });
+        miuiClockBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, MiuiClockActivity.class);
                 startActivity(intent);
             }
         });

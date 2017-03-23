@@ -349,4 +349,10 @@
         <attr name="polygons_view_line_width" format="dimension|reference"/><!--图形线条宽度-->
         <attr name="polygons_value_line_width" format="dimension|reference"/><!--进度线条宽度-->
     </declare-styleable>
+    <!--ClockViewMiui—小米表盘-->
+    <declare-styleable name="ClockViewMiui">
+        <attr name="backgroundColor" format="color" /><!--背景色-->
+        <attr name="lightColor" format="color" /><!--数字、时针、表盘颜色-->
+        <attr name="darkColor" format="color" /><!--分针、秒针颜色-->
+    </declare-styleable>
 </resources>

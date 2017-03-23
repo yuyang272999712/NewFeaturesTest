@@ -105,6 +105,7 @@
         <activity android:name=".userDefinedWidget.WaterWaveActivity"/>
         <activity android:name=".userDefinedWidget.blurredEffect.BlurredImageActivity"/>
         <activity android:name=".userDefinedWidget.clockView.MyClockActivity"/>
+        <activity android:name=".userDefinedWidget.clockViewMIUI.MiuiClockActivity"/>
         <activity android:name=".userDefinedWidget.quickSearchSideBar.CitySelectActivity"/>
         <activity android:name=".userDefinedWidget.polygonsStatisticsView.RadarChartActivity"/>
         <activity android:name=".mvp.activity.UserInfoActivity"/>
