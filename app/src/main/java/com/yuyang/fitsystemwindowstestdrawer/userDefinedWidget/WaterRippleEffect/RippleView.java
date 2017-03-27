@@ -61,6 +61,7 @@ public class RippleView extends View{
         mColor = array.getColor(R.styleable.RippleView_ripple_color, mColor);
         isAuto = array.getBoolean(R.styleable.RippleView_ripple_auto, false);
         isFill = array.getBoolean(R.styleable.RippleView_ripple_fill, false);
+        array.recycle();
 
         mPaint = new Paint();
         mPaint.setAntiAlias(true);

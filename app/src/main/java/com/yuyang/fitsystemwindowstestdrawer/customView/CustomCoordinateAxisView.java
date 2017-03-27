@@ -53,6 +53,7 @@ public class CustomCoordinateAxisView extends View {
         axisColor = array.getColor(R.styleable.AxisView_axis_color, axisColor);
         fillColor = array.getColor(R.styleable.AxisView_axis_fill_color, fillColor);
         circleColor = array.getColor(R.styleable.AxisView_axis_circle_color, circleColor);
+        array.recycle();
 
         paint = new Paint();
         paint.setAntiAlias(true);

@@ -123,7 +123,7 @@ public abstract class ABaseTransformer implements PageTransformer {
 	 * @param min
 	 * @return
 	 */
-	protected static final float min(float val, float min) {
+	protected static float min(float val, float min) {
 		return val < min ? min : val;
 	}
 

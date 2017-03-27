@@ -16,7 +16,6 @@
     <com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockViewMIUI.ClockViewMiui
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
         android:layout_gravity="center"
         app:backgroundColor="#237EAD"
         app:darkColor="#80ffffff"

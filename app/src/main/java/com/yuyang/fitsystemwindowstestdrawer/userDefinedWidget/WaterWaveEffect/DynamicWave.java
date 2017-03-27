@@ -69,6 +69,7 @@ public class DynamicWave extends View {
         //自定义波浪颜色
         TypedArray array = context.obtainStyledAttributes(attrs, R.styleable.DynamicWave);
         wave_color = array.getColor(R.styleable.DynamicWave_wave_color, WAVE_PAINT_COLOR);
+        array.recycle();
 
         // 将dp转化为px，用于控制不同分辨率上移动速度基本一致
         mXOffsetSpeedOne = DensityUtils.dp2px(getContext(), TRANSLATE_X_SPEED_ONE);

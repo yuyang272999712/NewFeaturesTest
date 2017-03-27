@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="start_app"
+        android:enabled="true"
+        android:icon="@mipmap/ic_launcher"
+        android:shortcutShortLabel="@string/shortcutShortLabel"
+        android:shortcutLongLabel="@string/shortcutLongLabel"
+        android:shortcutDisabledMessage="@string/shortcutDisabledMessage">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.yuyang.fitsystemwindowstestdrawer"
+            android:targetClass="com.yuyang.fitsystemwindowstestdrawer.MainActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+</shortcuts>

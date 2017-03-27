@@ -9,7 +9,7 @@ import org.greenrobot.eventbus.EventBus;
 /**
  * EventBus的所有的事件都需要通知注册／注销
  */
-public class EventBusBaseActivity extends AppCompatActivity {
+public abstract class EventBusBaseActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

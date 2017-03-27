@@ -97,6 +97,7 @@ public class ZoomImageView extends ImageView implements View.OnTouchListener,
         mHorizontalPadding = (int) array.getDimension(R.styleable.ClipImageLayout_horizontal_padding,
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mHorizontalPadding, context.getResources().getDisplayMetrics()));
         src = array.getResourceId(R.styleable.ClipImageLayout_src, R.mipmap.zoom_img_1);
+        array.recycle();
         setImageResource(src);
         //ImageView专有方法，设置缩放模式
         super.setScaleType(ScaleType.MATRIX);

@@ -24,7 +24,7 @@ public class MyApplication extends MultiDexApplication {
         this.name = name;
     }
 
-    public static final MyApplication getInstance() {
+    public static MyApplication getInstance() {
         return sInstance;
     }
 

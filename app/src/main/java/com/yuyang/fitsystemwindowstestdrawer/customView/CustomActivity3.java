@@ -24,7 +24,7 @@ public class CustomActivity3 extends AppCompatActivity {
     private CustomLineView lineView;
     private CustomAreaChartsView areaChartsView;
 
-    private Handler mHandler;
+    private static Handler mHandler;
     private Timer mTimer;
 
     @Override

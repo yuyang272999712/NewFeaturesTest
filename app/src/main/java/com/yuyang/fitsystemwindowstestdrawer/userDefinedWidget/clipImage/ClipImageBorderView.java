@@ -52,6 +52,7 @@ public class ClipImageBorderView extends View {
                 TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, mHorizontalPadding, context.getResources().getDisplayMetrics()));
         mBorderWidth = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP,
                 mBorderWidth, context.getResources().getDisplayMetrics());
+        array.recycle();
         mPaint = new Paint();
         mPaint.setAntiAlias(true);
     }

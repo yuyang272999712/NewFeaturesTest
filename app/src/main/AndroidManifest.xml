@@ -53,6 +53,9 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts"/>
         </activity>
         <activity android:name=".androidL.AndroidLActivity"/>
         <activity android:name=".androidL.PaletteActivity"/>
@@ -407,8 +410,6 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
-
-        <activity android:name=".TestActivity"/>
 
     </application>
 

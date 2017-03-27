@@ -38,8 +38,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="左侧为菜单栏"
-            android:textSize="20sp"
-            android:layout_centerInParent="true"/>
+            android:textSize="20sp"/>
 
     </FrameLayout>
 

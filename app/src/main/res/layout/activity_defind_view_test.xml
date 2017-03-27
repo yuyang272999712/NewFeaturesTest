@@ -4,119 +4,111 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <GridLayout
         android:background="#c7f16c"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:gravity="center">
+        android:columnCount="2">
 
-        <GridLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnCount="2">
+        <Button
+            android:id="@+id/defind_guaguaka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="刮刮卡效果"/>
 
-            <Button
-                android:id="@+id/defind_guaguaka"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="刮刮卡效果"/>
+        <Button
+            android:id="@+id/defind_lucky_pan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="幸运转盘"/>
 
-            <Button
-                android:id="@+id/defind_lucky_pan"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="幸运转盘"/>
+        <Button
+            android:id="@+id/defind_circle_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="圆形菜单"/>
 
-            <Button
-                android:id="@+id/defind_circle_menu"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="圆形菜单"/>
+        <Button
+            android:id="@+id/defind_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义进度条"/>
 
-            <Button
-                android:id="@+id/defind_progress_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="自定义进度条"/>
+        <Button
+            android:id="@+id/defind_folding_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="折叠布局"/>
 
-            <Button
-                android:id="@+id/defind_folding_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="折叠布局"/>
+        <Button
+            android:id="@+id/defind_water_ripple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="水波纹效果"/>
 
-            <Button
-                android:id="@+id/defind_water_ripple"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="水波纹效果"/>
+        <Button
+            android:id="@+id/defind_water_wave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="波浪效果"/>
 
-            <Button
-                android:id="@+id/defind_water_wave"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="波浪效果"/>
+        <Button
+            android:id="@+id/defind_sloop_vertical_scroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="竖直无限循环滚动"/>
 
-            <Button
-                android:id="@+id/defind_sloop_vertical_scroll"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="竖直无限循环滚动"/>
+        <Button
+            android:id="@+id/defind_colour_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="着色器"/>
 
-            <Button
-                android:id="@+id/defind_colour_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="着色器"/>
+        <Button
+            android:id="@+id/defind_stereo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="3D上下循环翻页"/>
 
-            <Button
-                android:id="@+id/defind_stereo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3D上下循环翻页"/>
+        <Button
+            android:id="@+id/defind_color_picker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="色值选择器"/>
 
-            <Button
-                android:id="@+id/defind_color_picker"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="色值选择器"/>
+        <Button
+            android:id="@+id/defind_blurred_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="图片模糊效果"/>
 
-            <Button
-                android:id="@+id/defind_blurred_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="图片模糊效果"/>
+        <Button
+            android:id="@+id/defind_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义钟表效果"/>
 
-            <Button
-                android:id="@+id/defind_clock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="自定义钟表效果"/>
+        <Button
+            android:id="@+id/defind_miui_clock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Miui表盘"/>
 
-            <Button
-                android:id="@+id/defind_miui_clock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Miui表盘"/>
+        <Button
+            android:id="@+id/defind_letter_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="字母导航"/>
 
-            <Button
-                android:id="@+id/defind_letter_bar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="字母导航"/>
+        <Button
+            android:id="@+id/defind_radar_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="雷达图"/>
 
-            <Button
-                android:id="@+id/defind_radar_chart"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="雷达图"/>
-
-        </GridLayout>
-
-    </LinearLayout>
+    </GridLayout>
 
     <LinearLayout
         android:background="#f16cc5"
@@ -191,7 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="圆形图片"/>
-        
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
