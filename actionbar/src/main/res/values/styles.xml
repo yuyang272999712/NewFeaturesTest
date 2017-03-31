@@ -14,6 +14,11 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/background</item>
         <item name="android:windowIsTranslucent">true</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+    </style>
+
+    <style name="OverflowMenu" parent="Base.Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
     </style>
 
     <style name="StatusBarTag" parent="Theme.AppCompat.Light.NoActionBar">

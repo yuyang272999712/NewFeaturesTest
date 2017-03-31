@@ -1,0 +1,1 @@
+bitmap.getByteCount()  获取bitmap占用内存的大小

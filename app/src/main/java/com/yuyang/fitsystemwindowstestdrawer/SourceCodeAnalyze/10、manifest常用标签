@@ -18,3 +18,13 @@ Activity:
     Bitmap bitmap = view.getDrawingCache();
     // 保存截取的快照
     bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+
+  3、修改Activity的主题即可让下拉菜单显示在Toolbar下面，具体如下：（可参考actionbar项目下的NewToolbar.java的实现）
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+    </style>
+    <style name="OverflowMenu" parent="Base.Widget.AppCompat.PopupMenu.Overflow">
+        <item name="overlapAnchor">false</item>
+    </style>

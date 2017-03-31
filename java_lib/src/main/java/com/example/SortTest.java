@@ -4,7 +4,7 @@ package com.example;
  * Created by yuyang on 2017/3/2.
  */
 
-public class JavaTest {
+public class SortTest {
     private static int[] nums = new int[]{4,7,11,19,3,6,45,23,0};
 
     public static void main(String[] args){
