@@ -1,6 +1,9 @@
 Activity:
     android:excludeFromRecents="true" 使该Activity所在的任务栈不出现在系统最近任务中
     android:noHistory="true" 使该Activity不会存留在任务栈中
+    android:launchMode="singleTask" Activity启动模式
+    android:taskAffinity="com.test.haha" 指定activity任务栈名称（字符串中必须包含分隔符"."）
+    android:process=":remote" 指定activity进程（":"开头的进程属于当前应用的私有进程，其他应用的组件不可以和它跑在同一进程中。不以":"开头的进程属于全局进程）
 
 
 

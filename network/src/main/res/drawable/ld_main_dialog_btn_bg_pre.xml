@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/ld_main_dialog_btn_bg_nor"></item>
+
+    <item android:drawable="@color/ld_black_a10"></item>
+
+</layer-list>

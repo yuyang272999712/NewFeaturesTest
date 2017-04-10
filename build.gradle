@@ -26,3 +26,8 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext{
+    ip="\"api.github.com\""//git接口
+    port="80"
+}

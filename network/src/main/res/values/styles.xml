@@ -1,0 +1,50 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+    <style name="MyDialogStyle">
+        <!--Dialog的标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--Dialog的内容的背景，默认是透明的-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--Dialog的内容的背景半透明(不起作用，真正的半透明是backgroundDimEnabled值)-->
+        <item name="android:windowIsTranslucent">true</item>
+        <!--Dialog整体的边框，如果有Title的话包括Title(坚决不能要啊，除非@Drawable填充是空的)-->
+        <item name="android:windowFrame">@null</item>
+        <!--Dialog的ContentView区域的覆盖-->
+        <item name="android:windowContentOverlay">@null</item>
+        <!--Dialog进出动画-->
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <!--是否浮现在activity之上(非常重要，该属性决定了Dialog的整体样式，如果为false，它将像一个Activity一样被整体布局在页面上)-->
+        <item name="android:windowIsFloating">true</item>
+        <!--window背景模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--模糊程度 -->
+        <item name="android:backgroundDimAmount">0.5</item>
+    </style>
+
+    <style name="ld_cell_divider_hor">
+        <item name="android:background">#eeeeee</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dip</item>
+    </style>
+
+    <style name="cell_divider_ver">
+        <item name="android:background">@color/app_color_gray_light</item>
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+</resources>
