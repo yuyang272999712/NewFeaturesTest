@@ -35,33 +35,35 @@ public class LFServiceController {
         }
         if (cacheControl == null) {
             //未开启缓存的情况下
-            NetworkManager.getInstance(MyApplication.getInstance()).loadData(url, request.getToken(), false, null, 0, 0,
-                    request, responseClass, new Response.Listener<T>() {
-                        @Override
-                        public void onResponse(T response) {
-                            listener.onServiceCallBack(new ServiceEvent(response));
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            listener.onServiceCallBack(new ServiceEvent(getServiceError(error)));
-                        }
-                    }, null);
+            NetworkManager.getInstance(MyApplication.getInstance())
+                    .loadData(url, request.getToken(), false, null, 0, 0,
+                            request, responseClass, new Response.Listener<T>() {
+                                @Override
+                                public void onResponse(T response) {
+                                    listener.onServiceCallBack(new ServiceEvent(response));
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    listener.onServiceCallBack(new ServiceEvent(getServiceError(error)));
+                                }
+                            }, null);
         } else {
             //开启缓存
-            NetworkManager.getInstance(MyApplication.getInstance()).loadData(url, request.getToken(),
-                    true, cacheControl.getCacheKey(), cacheControl.getCacheDuration(), cacheControl.getRefreshDuration(),
-                    request, responseClass, new Response.Listener<T>() {
-                        @Override
-                        public void onResponse(T response) {
-                            listener.onServiceCallBack(new ServiceEvent(response));
-                        }
-                    }, new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                            listener.onServiceCallBack(new ServiceEvent(getServiceError(error)));
-                        }
-                    }, null);
+            NetworkManager.getInstance(MyApplication.getInstance())
+                    .loadData(url, request.getToken(),
+                            true, cacheControl.getCacheKey(), cacheControl.getCacheDuration(), cacheControl.getRefreshDuration(),
+                            request, responseClass, new Response.Listener<T>() {
+                                @Override
+                                public void onResponse(T response) {
+                                    listener.onServiceCallBack(new ServiceEvent(response));
+                                }
+                            }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    listener.onServiceCallBack(new ServiceEvent(getServiceError(error)));
+                                }
+                            }, null);
         }
     }
 
