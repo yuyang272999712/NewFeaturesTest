@@ -49,10 +49,6 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 public class FragmentManagerAboutActivity extends Activity {
     private FragmentManager fragmentManager;
 
-    private ManagerFragmentTest fragmentTest1;
-    private ManagerFragmentTest fragmentTest2;
-    private ManagerFragmentTest fragmentTest3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +62,13 @@ public class FragmentManagerAboutActivity extends Activity {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.add(R.id.fragment_content_1, ManagerFragmentTest.getInstance("第0个Fragment"));
         transaction.commit();*/
+        ManagerFragmentTest fragmentTest1 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第一个Fragment");
         if (fragmentTest1 == null) {
             fragmentTest1 = ManagerFragmentTest.getInstance("第一个Fragment");
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if (!fragmentTest1.isAdded()) {
-            transaction.add(R.id.fragment_content_1, fragmentTest1);
+            transaction.add(R.id.fragment_content_1, fragmentTest1, "第一个Fragment");
             transaction.commit();
         }else {
             transaction.show(fragmentTest1);
@@ -79,6 +76,7 @@ public class FragmentManagerAboutActivity extends Activity {
     }
 
     public void remove1(View view){
+        ManagerFragmentTest fragmentTest1 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第一个Fragment");
         if (fragmentTest1 != null && fragmentTest1.isAdded()){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.remove(fragmentTest1);
@@ -87,21 +85,23 @@ public class FragmentManagerAboutActivity extends Activity {
     }
 
     public void replace1(View view){
+        ManagerFragmentTest fragmentTest2 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第二个Fragment");
         if (fragmentTest2 == null) {
             fragmentTest2 = ManagerFragmentTest.getInstance("第二个Fragment");
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(R.id.fragment_content_1, fragmentTest2);
+        transaction.replace(R.id.fragment_content_1, fragmentTest2, "第二个Fragment");
         transaction.commit();
     }
 
     public void show1(View view){
+        ManagerFragmentTest fragmentTest3 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第三个Fragment");
         if (fragmentTest3 == null){
             fragmentTest3 = ManagerFragmentTest.getInstance("第三个Fragment");
         }
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         if (!fragmentTest3.isAdded()){
-            transaction.add(R.id.fragment_content_1, fragmentTest3);
+            transaction.add(R.id.fragment_content_1, fragmentTest3, "第三个Fragment");
         }else {
             transaction.show(fragmentTest3);
         }
@@ -109,6 +109,7 @@ public class FragmentManagerAboutActivity extends Activity {
     }
 
     public void hide1(View view){
+        ManagerFragmentTest fragmentTest3 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第三个Fragment");
         if (fragmentTest3 != null && fragmentTest3.isAdded()){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.hide(fragmentTest3);
@@ -117,6 +118,7 @@ public class FragmentManagerAboutActivity extends Activity {
     }
 
     public void detach1(View view){
+        ManagerFragmentTest fragmentTest2 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第二个Fragment");
         if (fragmentTest2 != null && !fragmentTest2.isDetached()){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.detach(fragmentTest2);
@@ -125,6 +127,7 @@ public class FragmentManagerAboutActivity extends Activity {
     }
 
     public void attach1(View view){
+        ManagerFragmentTest fragmentTest2 = (ManagerFragmentTest) fragmentManager.findFragmentByTag("第二个Fragment");
         if (fragmentTest2 != null && fragmentTest2.isDetached()){
             FragmentTransaction transaction = fragmentManager.beginTransaction();
             transaction.attach(fragmentTest2);

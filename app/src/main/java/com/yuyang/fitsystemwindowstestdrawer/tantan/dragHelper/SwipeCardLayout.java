@@ -310,7 +310,6 @@ public class SwipeCardLayout extends FrameLayout {
                         new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationEnd(Animator animation) {
-                                updateTopCardAndAddNewCard();
                                 if (mFlingListener != null) {
                                     if (isLeft) {
                                         mFlingListener.onLeftCardExit(mAdapter.getItem(0));
@@ -318,6 +317,7 @@ public class SwipeCardLayout extends FrameLayout {
                                         mFlingListener.onRightCardExit(mAdapter.getItem(0));
                                     }
                                 }
+                                updateTopCardAndAddNewCard();
                                 mInLayout = false;
                             }
                         })

@@ -22,9 +22,6 @@ public class RecyclerViewComplexHomeActivity extends AppCompatActivity {
     private ComplexAdapter adapter;
 
     private int toolbarHeight = 0;
-    private int green = 0xffa6e9a6;
-    private int tuming = 0x00000000;
-    private int jianbian = green - tuming;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
