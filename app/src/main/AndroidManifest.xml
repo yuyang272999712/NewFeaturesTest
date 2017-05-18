@@ -2,9 +2,6 @@
 <manifest package="com.yuyang.fitsystemwindowstestdrawer"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-sdk
-        android:targetSdkVersion="9"/>
-
     <!--访问网络权限-->
     <uses-permission android:name="android.permission.INTERNET"/>
     <!--网络状态访问权限-->
