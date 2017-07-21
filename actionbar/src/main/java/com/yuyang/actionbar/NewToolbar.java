@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
@@ -19,20 +20,57 @@ import com.yuyang.R;
  * 新版Toolbar
  */
 public class NewToolbar extends AppCompatActivity {
-    private Toolbar toolbar;
+    private Toolbar toolbar1;
+    private Toolbar toolbar2;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_toolbar);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        toolbar1 = (Toolbar) findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar1);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        toolbar1.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        setToolbar2();
+    }
+
+    private void setToolbar2() {
+        ActionMenuView actionMenuView= (ActionMenuView) findViewById(R.id.action_menu_view);
+        getMenuInflater().inflate(R.menu.main_menu, actionMenuView.getMenu());
+        actionMenuView.setOnMenuItemClickListener(new ActionMenuView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int id = item.getItemId();
+                String toastStr = "";
+                switch (id){
+                    case R.id.main_camera:
+                        toastStr = "camera";
+                        break;
+                    case R.id.main_gallery:
+                        toastStr = "gallery";
+                        break;
+                    case R.id.main_manage:
+                        toastStr = "manage";
+                        break;
+                    case R.id.main_search:
+                        toastStr = "send";
+                        break;
+                    case R.id.main_share:
+                        toastStr = "share";
+                        break;
+                    case R.id.main_slide_show:
+                        toastStr = "slideshow";
+                        break;
+                }
+                Toast.makeText(NewToolbar.this, toastStr, Toast.LENGTH_LONG).show();
+                return true;
             }
         });
     }

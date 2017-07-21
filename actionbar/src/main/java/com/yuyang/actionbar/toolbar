@@ -1,0 +1,6 @@
+1、使menu显示在toolbar下边
+<item name="actionOverflowMenuStyle">@style/OverflowMenu</item>
+
+<style name="OverflowMenu" parent="Base.Widget.AppCompat.PopupMenu.Overflow">
+    <item name="overlapAnchor">false</item>
+</style>

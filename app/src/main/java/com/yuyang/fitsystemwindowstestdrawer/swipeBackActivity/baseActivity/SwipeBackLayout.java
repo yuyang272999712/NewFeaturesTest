@@ -22,6 +22,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -401,6 +402,8 @@ public class SwipeBackLayout extends ViewGroup {
 
             float fractionScreen = (float) draggingOffset / (float) getDragRange();
             if (fractionScreen >= 1) fractionScreen = 1;
+
+            Log.e("left","滑动draggingOffset："+draggingOffset+"------"+getDragRange()+"--------"+fractionScreen);
 
             if (swipeBackListener != null) {
                 swipeBackListener.onViewPositionChanged(fractionAnchor, fractionScreen);
