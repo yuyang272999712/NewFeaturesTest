@@ -14,6 +14,7 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.Sli
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockViewMIUI.MiuiClockActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.parallaxRecyclerImageView.sample.ParallaxRecyclerImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.polygonsStatisticsView.RadarChartActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.ProgressBarActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.CitySelectActivity;
@@ -54,6 +55,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button miuiClockBtn;
     private Button letterBar;
     private Button radarChartBtn;
+    private Button parallaxRecyclerBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,6 +95,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         miuiClockBtn = (Button) findViewById(R.id.defind_miui_clock);
         letterBar = (Button) findViewById(R.id.defind_letter_bar);
         radarChartBtn = (Button) findViewById(R.id.defind_radar_chart);
+        parallaxRecyclerBtn = (Button) findViewById(R.id.defind_parallax_recycler);
     }
 
     private void initDatas() {}
@@ -287,6 +290,12 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        parallaxRecyclerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, ParallaxRecyclerImageActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
