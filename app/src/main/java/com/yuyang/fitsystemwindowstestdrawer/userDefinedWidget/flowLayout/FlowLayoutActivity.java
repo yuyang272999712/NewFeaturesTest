@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -9,9 +9,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayout;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagAdapter;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.TagFlowLayout;
 
 import java.util.Set;
 

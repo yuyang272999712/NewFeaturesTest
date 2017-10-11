@@ -74,18 +74,18 @@
         <activity android:name=".metricsAbout.screenAndViewMetrics.ScreenAndViewMetricsActivity"/>
         <activity android:name=".metricsAbout.textFontMetrics.TextFontMetricsActivity"/>
         <activity android:name=".userDefinedWidget.UserDefinedWidgetActivity"/>
-        <activity android:name=".userDefinedWidget.ViewDragHelperActivity"/>
-        <activity android:name=".userDefinedWidget.VerticalLinearLayoutActivity"/>
-        <activity android:name=".userDefinedWidget.GestureLockActivity"/>
+        <activity android:name=".userDefinedWidget.dragHelperViews.ViewDragHelperActivity"/>
+        <activity android:name=".userDefinedWidget.verticalLinearLayout.VerticalLinearLayoutActivity"/>
+        <activity android:name=".userDefinedWidget.gestureLock.GestureLockActivity"/>
         <activity android:name=".userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1"/>
         <activity android:name=".userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2"/>
-        <activity android:name=".userDefinedWidget.ClipImageActivity"/>
-        <activity android:name=".userDefinedWidget.ClipImageResultActivity"/>
-        <activity android:name=".userDefinedWidget.GamePintuActivity"/>
-        <activity android:name=".userDefinedWidget.FlowLayoutActivity"/>
-        <activity android:name=".userDefinedWidget.CircleImageActivity"/>
-        <activity android:name=".userDefinedWidget.GuaguakaActivity"/>
-        <activity android:name=".userDefinedWidget.LuckyPanActivity"/>
+        <activity android:name=".userDefinedWidget.clipImage.ClipImageActivity"/>
+        <activity android:name=".userDefinedWidget.clipImage.ClipImageResultActivity"/>
+        <activity android:name=".userDefinedWidget.pintu.GamePintuActivity"/>
+        <activity android:name=".userDefinedWidget.flowLayout.FlowLayoutActivity"/>
+        <activity android:name=".userDefinedWidget.circleImageView.CircleImageActivity"/>
+        <activity android:name=".userDefinedWidget.guaguaka.GuaguakaActivity"/>
+        <activity android:name=".userDefinedWidget.zhuanpan.LuckyPanActivity"/>
         <activity android:name=".userDefinedWidget.CircleMenu.simple.CircleMenuActivity"/>
         <activity android:name=".userDefinedWidget.progressBars.ProgressBarActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.FoldingLayoutActivity"/>
@@ -96,13 +96,13 @@
         <activity android:name=".userDefinedWidget.FoldingLayout.SlidingPanelLayoutSampleActivity"/>
         <activity android:name=".userDefinedWidget.FoldingLayout.DrawerLayoutSampleActivity"/>
         <activity android:name=".userDefinedWidget.MyDrawerLayoutActivity"/>
-        <activity android:name=".userDefinedWidget.WaterRippleActivity"/>
+        <activity android:name=".userDefinedWidget.WaterRippleEffect.WaterRippleActivity"/>
         <activity android:name=".userDefinedWidget.singleItemScrollView.SingleItemScrollActivity"/>
         <activity android:name=".userDefinedWidget.ParallaxViewPagerActivity"/>
         <activity android:name=".userDefinedWidget.ColourImageActivity"/>
         <activity android:name=".userDefinedWidget.stereoView.StereoViewActivity"/>
-        <activity android:name=".userDefinedWidget.ColorPickerActivity"/>
-        <activity android:name=".userDefinedWidget.WaterWaveActivity"/>
+        <activity android:name=".userDefinedWidget.colorPicker.ColorPickerActivity"/>
+        <activity android:name=".userDefinedWidget.WaterWaveEffect.WaterWaveActivity"/>
         <activity android:name=".userDefinedWidget.blurredEffect.BlurredImageActivity"/>
         <activity android:name=".userDefinedWidget.clockView.MyClockActivity"/>
         <activity android:name=".userDefinedWidget.clockViewMIUI.MiuiClockActivity"/>
@@ -199,8 +199,8 @@
         <activity android:name=".googleWidget.CompatDivider.DividerActivity"/>
         <activity android:name=".googleWidget.rangeSeekBar.SeekBarActivity"/>
         <activity android:name=".googleWidget.dataBinding.DataBindingDemoActivity"/>
-        <activity android:name=".userDefinedWidget.ArcMenuAndZoomImageActivity"/>
-        <activity android:name=".userDefinedWidget.HuaLangActivity"/>
+        <activity android:name=".userDefinedWidget.ArcMenu.ArcMenuAndZoomImageActivity"/>
+        <activity android:name=".userDefinedWidget.galleryEffect.HuaLangActivity"/>
         <activity android:name=".internetAbout.InternetAboutActivity"/>
         <activity android:name=".internetAbout.httpAbout.HttpURLConnectionActivity"/>
         <activity android:name=".internetAbout.manager.ConnectivityStateActivity"/>
@@ -290,6 +290,7 @@
             android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity android:name=".homeDemo.complexHome.RecyclerViewComplexHomeActivity"/>
         <activity android:name=".userDefinedWidget.parallaxRecyclerImageView.sample.ParallaxRecyclerImageActivity"/>
+        <activity android:name=".userDefinedWidget.specialList.simple.DemoChangeBigHeadActivity"/>
 
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）

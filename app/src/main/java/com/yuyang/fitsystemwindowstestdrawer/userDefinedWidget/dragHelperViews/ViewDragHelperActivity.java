@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.MyDrawerLayoutActivity;
 
 /**
  * 自定义ViewDragHelper的布局

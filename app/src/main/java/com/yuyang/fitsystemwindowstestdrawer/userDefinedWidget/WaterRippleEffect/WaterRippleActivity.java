@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect;
 
 import android.app.Activity;
 import android.os.Bundle;

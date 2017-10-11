@@ -1,11 +1,10 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.verticalLinearLayout;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.verticalLinearLayout.VerticalLinearLayout;
 
 /**
  * 自定义VerticalLinearLayout的布局

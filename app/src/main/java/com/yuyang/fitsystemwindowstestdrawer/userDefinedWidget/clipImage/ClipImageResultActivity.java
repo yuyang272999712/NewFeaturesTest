@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clipImage;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

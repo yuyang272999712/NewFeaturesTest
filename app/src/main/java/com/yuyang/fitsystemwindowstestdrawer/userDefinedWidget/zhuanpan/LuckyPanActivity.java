@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.zhuanpan;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

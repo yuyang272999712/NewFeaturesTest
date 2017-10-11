@@ -114,6 +114,12 @@
             android:layout_height="wrap_content"
             android:text="RecyclerView滑动图片视差"/>
 
+        <Button
+            android:id="@+id/defind_big_head_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="顶部item放大显示"/>
+
     </GridLayout>
 
     <LinearLayout

@@ -1,4 +1,4 @@
-package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget;
+package com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * 拼图游戏
+ * 圆形图片
  */
-public class GamePintuActivity extends AppCompatActivity {
+public class CircleImageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_pintu);
+        setContentView(R.layout.activity_circle_image);
     }
 }

@@ -7,10 +7,23 @@ import android.view.View;
 import android.widget.Button;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.ArcMenu.ArcMenuAndZoomImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.CircleMenu.simple.CircleMenuActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.FoldingLayout.FoldingLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity1;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.QQSlidingMenu.SlidingMenuActivity2;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterRippleEffect.WaterRippleActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.WaterWaveEffect.WaterWaveActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.circleImageView.CircleImageActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clipImage.ClipImageActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.colorPicker.ColorPickerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.dragHelperViews.ViewDragHelperActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.flowLayout.FlowLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.galleryEffect.HuaLangActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.gestureLock.GestureLockActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.guaguaka.GuaguakaActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.pintu.GamePintuActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.specialList.simple.DemoChangeBigHeadActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.blurredEffect.BlurredImageActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockView.MyClockActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.clockViewMIUI.MiuiClockActivity;
@@ -20,6 +33,8 @@ import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.progressBars.Prog
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.quickSearchSideBar.CitySelectActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.singleItemScrollView.SingleItemScrollActivity;
 import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.stereoView.StereoViewActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.verticalLinearLayout.VerticalLinearLayoutActivity;
+import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.zhuanpan.LuckyPanActivity;
 
 /**
  * 自定义ViewDragHelper的布局
@@ -56,6 +71,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
     private Button letterBar;
     private Button radarChartBtn;
     private Button parallaxRecyclerBtn;
+    private Button bigHeadBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +112,7 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
         letterBar = (Button) findViewById(R.id.defind_letter_bar);
         radarChartBtn = (Button) findViewById(R.id.defind_radar_chart);
         parallaxRecyclerBtn = (Button) findViewById(R.id.defind_parallax_recycler);
+        bigHeadBtn = (Button) findViewById(R.id.defind_big_head_list);
     }
 
     private void initDatas() {}
@@ -294,6 +311,13 @@ public class UserDefinedWidgetActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserDefinedWidgetActivity.this, ParallaxRecyclerImageActivity.class);
+                startActivity(intent);
+            }
+        });
+        bigHeadBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserDefinedWidgetActivity.this, DemoChangeBigHeadActivity.class);
                 startActivity(intent);
             }
         });
