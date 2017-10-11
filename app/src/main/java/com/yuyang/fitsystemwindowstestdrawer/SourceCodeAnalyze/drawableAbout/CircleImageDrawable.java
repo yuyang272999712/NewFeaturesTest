@@ -6,11 +6,8 @@ import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Paint;
 import android.graphics.PixelFormat;
-import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.Drawable;
-
-import com.yuyang.fitsystemwindowstestdrawer.userDefinedWidget.CircleImageActivity;
 
 /**
  * 自定义Drawable,实现圆形图片
