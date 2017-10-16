@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class AnimationActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("属性动画","属性动画xml","布局动画","View animate方法动画",
-            "视图动画","逐帧动画","自定义动画","SVG动画","钱币动画","购物车动画");
+            "视图动画","逐帧动画","自定义动画","SVG动画","钱币动画","购物车动画","弹性动画");
 
     private Toolbar toolbar;
     private ListView listView;
@@ -90,6 +90,9 @@ public class AnimationActivity extends AppCompatActivity {
                         break;
                     case 9:
                         intent = new Intent(AnimationActivity.this, ShoppingCartActivity.class);
+                        break;
+                    case 10:
+                        intent = new Intent(AnimationActivity.this, DynamicAnimationActivity.class);
                         break;
                 }
                 startActivity(intent);
