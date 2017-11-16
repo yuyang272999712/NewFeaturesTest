@@ -63,4 +63,6 @@ dependencies {
     compile 'com.facebook.fresco:fresco:0.9.0'
     //谷歌的一个动画工具（更符合物理定律）
     compile 'com.android.support:support-dynamic-animation:25.3.0'
+    //新的ConstraintLayout布局
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
 }

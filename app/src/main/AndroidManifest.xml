@@ -292,6 +292,9 @@
         <activity android:name=".userDefinedWidget.parallaxRecyclerImageView.sample.ParallaxRecyclerImageActivity"/>
         <activity android:name=".userDefinedWidget.specialList.simple.DemoChangeBigHeadActivity"/>
         <activity android:name=".animationAbout.DynamicAnimationActivity"/>
+        <activity android:name=".sourceCodeAnalyze.textViewSpannable.SpannableStringTestActivity"
+            android:hardwareAccelerated="false"/>
+        <activity android:name=".sourceCodeAnalyze.textViewSpannable.mySpan.MySpanActivity"/>
 
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）

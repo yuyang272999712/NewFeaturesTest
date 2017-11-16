@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"/>
+
+        <TextView
+            android:id="@+id/frame_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="FrameSpan-给相应的字符序列添加边框的效果"/>
+
+        <TextView
+            android:id="@+id/vertical_image_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="VerticalImageSpan-图片居中显示的效果"/>
+
+        <TextView
+            android:id="@+id/animated_color_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="AnimatedColorSpan-前景色彩虹效果"/>
+
+        <TextView
+            android:id="@+id/fire_works_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="“烟火”动画是让文字随机淡入"/>
+    </LinearLayout>
+</ScrollView>

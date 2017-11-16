@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"/>
+
+        <TextView
+            android:id="@+id/background_color_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="BackgroundColorSpan-跟背景颜色相关的"/>
+
+        <TextView
+            android:id="@+id/clickable_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="ClickableSpan-点击事件相关的Span"/>
+
+        <TextView
+            android:id="@+id/url_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="URLSpan-链接，类似HTML中的a标签"/>
+
+        <TextView
+            android:id="@+id/foreground_color_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="ForegroundColorSpan-设置字体颜色"/>
+
+        <TextView
+            android:id="@+id/mask_filter_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            android:text="MaskFilterSpan-文字的装饰效果。分为两种：BlurMaskFilter-模糊效果 和 EmbossMaskFilter-浮雕效果"/>
+
+        <TextView
+            android:id="@+id/absolute_size_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="AbsoluteSizeSpan-字体大小的"/>
+
+        <TextView
+            android:id="@+id/relative_size_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="RelativeSizeSpan-相对的字体大小"/>
+
+        <TextView
+            android:id="@+id/image_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="ImageSpan-有关图片的"/>
+
+        <TextView
+            android:id="@+id/scale_x_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="ScaleXSpan-横向压缩比例因子"/>
+
+        <TextView
+            android:id="@+id/style_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="StyleSpan-主要由正常、粗体、斜体和同时加粗倾斜四种样式"/>
+
+        <TextView
+            android:id="@+id/subscript_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="SubscriptSpan-脚注样式，比如化学式的常见写法"/>
+
+        <TextView
+            android:id="@+id/text_appearance_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="TextAppearanceSpan-设置文字字体、文字样式（粗体、斜体、等等）、文字颜色状态、文字下划线颜色状态等等"/>
+
+        <TextView
+            android:id="@+id/typeface_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="TypefaceSpan-字体样式，可以设置不同的字体"/>
+
+        <TextView
+            android:id="@+id/rasterizer_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="RasterizerSpan-设置光栅字样"/>
+
+        <TextView
+            android:id="@+id/strike_through_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="StrikethroughSpan-删除线"/>
+
+        <TextView
+            android:id="@+id/underline_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="UnderlineSpan-下划线"/>
+
+        <TextView
+            android:id="@+id/tab_stop_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="TabStopSpan-每行的MarginLeft的偏移量（跟 \t 和 \n 有关系）"/>
+
+        <TextView
+            android:id="@+id/quote_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:text="QuoteSpan-设置文字左侧显示引用样式（一条竖线）"/>
+
+        <TextView
+            android:id="@+id/bullet_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:layout_marginLeft="10dp"
+            android:text="BulletSpan-类似于HTML中的 li 标签的圆点效果。gapWidth：圆点与文本的间距。color：圆点颜色。"/>
+
+        <TextView
+            android:id="@+id/leading_margin_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="LeadingMarginSpan-设置文本缩进,first：首行的 margin left 偏移量。rest：其他行的 margin left 偏移量。"/>
+
+        <TextView
+            android:id="@+id/icon_margin_span"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginTop="7dp"
+            android:text="IconMarginSpan-文本插入图片+Margin"/>
+    </LinearLayout>
+</ScrollView>

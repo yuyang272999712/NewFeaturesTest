@@ -8,6 +8,8 @@ import android.view.View;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
+ * 基础详见：https://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&mid=2653579375&idx=1&sn=4f80a50961329e19cad6cd0e1bff20d9&chksm=84b3ba68b3c4337e28a870d6338fa3035d299a2aff2f3bf3f82304417aa7a83deab0b95031e6&mpshare=1&scene=23&srcid=1027w4e5A50m62Ro8t7DqKT5#rd
+ *
  * Fragment常用知识以及填坑
  *
  * 1、管理Fragment回退栈(在配置发生变化后有点混乱)

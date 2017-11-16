@@ -23,6 +23,7 @@ import com.yuyang.fitsystemwindowstestdrawer.metricsAbout.MetricsAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.mvp.activity.UserInfoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.recyclerView.RecyclerViewDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
+import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.textViewSpannable.SpannableStringTestActivity;
 import com.yuyang.fitsystemwindowstestdrawer.swipeBackActivity.SimpleSwipeBackActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.TantanDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView.TantanAdapterViewActivity;
@@ -100,7 +101,8 @@ public class MainFragment1 extends Fragment {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), SpannableStringTestActivity.class);
+                startActivity(intent);
             }
         });
 

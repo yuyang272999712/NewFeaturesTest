@@ -13,6 +13,13 @@ public class StringTest {
         equalsTest();
         System.out.println();
         splicTest();
+        String x = new String("asdf");
+        resetStr(x);
+        System.out.println(x);
+    }
+
+    private static void resetStr(String x){
+        x = "qwer";
     }
 
     private static void equalsTest(){
