@@ -1,26 +1,38 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.handlerAndMessage;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.os.MessageQueue;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
-import java.lang.ref.WeakReference;
-
 /**
- * Handler使用
+ * MessageQueue.IdleHandler使用
+ *  IdleHandler会在当前Looper中所有message都执行完之后被执行
+ *
+    Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+        //ZHU yuyang 如果这个方法返回true，则此方法会在每次Looper执行完所有message后被调用
+        @Override
+        public boolean queueIdle() {
+            return false;
+        }
+    });
  */
-public class HandlerSimpleActivity extends Activity {
+
+public class IdleHandlerActivity extends AppCompatActivity {
     private TextView textView;
     private Button button;
+    private ViewGroup contentView;
 
     private int mCount = 0;
     //独立线程中的handler
@@ -42,33 +54,6 @@ public class HandlerSimpleActivity extends Activity {
         }
     };
 
-    /*static class TestHandler extends Handler {
-        WeakReference<Activity > mActivityReference;
-
-        TestHandler(Activity activity) {
-            mActivityReference= new WeakReference<Activity>(activity);
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            Log.i("--yuyang--", "mHandler--handleMessage--msg.what="+msg.what);
-            final Activity activity = mActivityReference.get();
-            if (activity != null) {
-                HandlerSimpleActivity handlerActivity = (HandlerSimpleActivity) activity;
-                handlerActivity.textView.setText("mCount=" + handlerActivity.mCount);
-                //handler接收到独立线程发送来的信息后，向mHandlerThread发送msg 1
-                handlerActivity.mHandlerThread.sendEmptyMessage(1);
-                handlerActivity.mCount++;
-                Log.i("--yuyang--", "mHandler--handleMessage--mCount="+handlerActivity.mCount);
-                *//*if (handlerActivity.mCount >= 30) {
-                    //由于mHandlerThr是在Child Thread创建，Looper手动死循环阻塞，所以需要quit。
-                    handlerActivity.mHandlerThread.getLooper().quit();
-                }*//*
-            }
-        }
-    }
-    private Handler mHandler = new TestHandler(this);*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,6 +61,7 @@ public class HandlerSimpleActivity extends Activity {
 
         textView = (TextView) findViewById(R.id.handler_text);
         button = (Button) findViewById(R.id.handler_button);
+        contentView = (ViewGroup) findViewById(R.id.content_view);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +69,14 @@ public class HandlerSimpleActivity extends Activity {
                 Log.i(null, ">>>>>>>>>>>>>Child# begin start send msg!!!");
                 //向mHandlerThread发送msg 1
                 mHandlerThread.sendEmptyMessage(1);
+            }
+        });
+
+        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
+            @Override
+            public boolean queueIdle() {
+                Toast.makeText(IdleHandlerActivity.this, "queueIdle方法被调用,button高度："+button.getHeight(), Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
     }
@@ -96,7 +90,6 @@ public class HandlerSimpleActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        //TODO yuyang 移除所有消息以免内存泄露，因为mHandler中持有TextView对象
         mHandler.removeCallbacksAndMessages(null);
         mHandlerThread.getLooper().quit();//结束MessageQueue消息队列阻塞死循环,结束线程
     }
@@ -118,7 +111,7 @@ public class HandlerSimpleActivity extends Activity {
                     }
                 };
                 //不能在这个后面添加代码，程序是无法运行到这行之后的，除非quit消息队列
-                Looper.loop();// TODO yuyang 该方法会进入一个死循环，不断遍历Looper消息队列中的消息
+                Looper.loop();
             }
         }.start();
     }

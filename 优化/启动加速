@@ -1,0 +1,124 @@
+应用在冷启动之前，要执行三个任务：
+    1、加载启动App；
+    2、App启动之后立即展示出一个空白的Window；
+    3、创建App的进程；
+而这三个任务执行完毕之后会马上执行以下任务：
+    1、创建Application对象；
+    2、启动Main Thread；
+    3、创建启动的Activity对象；
+    4、加载View；
+    5、布置屏幕；
+    6、进行第一次绘制；
+作为普通应用，App进程的创建等环节我们是无法主动控制的，可以优化的也就是Application、Activity创建以及回调等过程。
+同样，Google也给出了启动加速的方向：
+    1、利用提前展示出来的Window，快速展示出来一个界面，给用户快速反馈的体验；
+    2、避免在启动时做密集沉重的初始化（Heavy app initialization）；
+    3、定位问题：避免I/O操作、反序列化、网络操作、布局嵌套等。
+
+Google给出的优化方法：
+    一、启动加速-主题切换
+        按照官方文档的说明：使用Activity的windowBackground主题属性来为启动的Activity提供一个简单的drawable。
+        具体见本应用的MainActivity.class，在Manifest文件中设置带有drawable的theme，然后再Activity启动时将
+      主题切换为我们需要的theme。
+    二、启动加速-Avoid Heavy App Initialization
+        App启动过程中三方组件都抢占先机，在Application主线程初始化。这样的初始化方式肯定是过重的:
+        1、考虑异步初始化三方组件，不阻塞主线程；
+        2、延迟部分三方组件的初始化；实际上我们粗粒度的把所有三方组件都放到异步任务里，可能会出现WorkThread中尚未
+        初始化完毕但MainThread中已经使用的错误，因此这种情况建议延迟到使用前再去初始化；
+    三、启动加速-Diagnosing The Problem
+        通过对traceview的详细跟踪以及代码的详细比对，我发现卡顿发生在：
+            部分数据库及IO的操作发生在首屏Activity主线程；
+            Application中创建了线程池；
+            首屏Activity网络请求密集；
+            工作线程使用未设置优先级；
+            信息未缓存，重复获取同样信息；
+            流程问题：例如闪屏图每次下载，当次使用；
+        以及其它细节问题：
+            执行无用老代码；
+            执行开发阶段使用的代码；
+            执行重复逻辑；
+            调用三方SDK里或者Demo里的多余代码；
+        项目修改：
+        1. 数据库及IO操作都移到工作线程，并且设置线程优先级为THREAD_PRIORITY_BACKGROUND，这样工作线程最多能
+        获取到10%的时间片，优先保证主线程执行。
+        2. 流程梳理，延后执行；
+            实际上，这一步对项目启动加速最有效果。通过流程梳理发现部分流程调用时机偏早、失误等，例如：
+            更新等操作无需在首屏尚未展示就调用，造成资源竞争；
+            调用了IOS为了规避审核而做的开关，造成网络请求密集；
+            自有统计在Application的调用里创建数量固定为5的线程池，造成资源竞争，在上图traceview功能说明图中最后一行可以看到编号12执行5次，耗时排名前列；此处线程池的创建是必要但可以延后的。
+            修改广告闪屏逻辑为下次生效。
+        3.其它优化；
+            去掉无用但被执行的老代码；
+            去掉开发阶段使用但线上被执行的代码；
+            去掉重复逻辑执行代码；
+            去掉调用三方SDK里或者Demo里的多余代码；
+            信息缓存，常用信息只在第一次获取，之后从缓存中取；
+            项目是多进程架构，只在主进程执行Application的onCreate()；
+
+数据延时加载
+    通常情况下，我们是在Activity的onCreate中加载数据，可是此时的Activity还未展示给用户，我们应该在Activity
+  展示完成后再进行数据请求，然后更新页面展示数据。这就涉及到延时加载的问题（还有获取界面View宽高等问题），如果只是
+  简单的handler.post()发送延时消息，我们无法确定message的具体延时时间，这就需要走另外一种方式：
+    getWindow().getDecorView().post(new Runnable() {
+        @Override
+        public void run() {
+            myHandler.post(mLoadingRunnable);
+        }
+    });
+  即，通过View的post方法来实现延时加载。具体原理见如下分析：
+    View 的：
+        public boolean post(Runnable action) {
+            final AttachInfo attachInfo = mAttachInfo;
+            if (attachInfo != null) {
+                return attachInfo.mHandler.post(action);
+            }
+            // Assume that post will succeed later
+            ViewRootImpl.getRunQueue().post(action);
+            return true;
+        }
+    注意这里的 mAttachInfo ，我们调用 post 是在 Activity 的 onCreate 中调用的，那么此时 mAttachInfo
+  是否为空呢？答案是 mAttachInfo 此时为空。
+    mAttachInfo是在ViewRootImpl初始化时被创建的（ViewRootImpl:328行）：
+        public final class ViewRootImpl implements ViewParent,
+                View.AttachInfo.Callbacks, HardwareRenderer.HardwareDrawCallbacks
+    而ViewRootImpl是在只有在ActivityThread.handleResumeActivity方法中才会被创建，这已经到了Activity
+  的onResume方法，所以在onCreate时ViewRootImpl还是空的，所以mAttachInfo也是空的。
+    （mAttachInfo的传递过程：
+        ActivityThread.handleResumeActivity方法会将 decorView 与 WindowManagerImpl联系起来，
+      这句最终会调用到 WindowManagerGlobal 的 addView 函数，在addView函数（310行）会调用ViewRootImpl
+      的addView方法，将ViewRootImpl 与 DecorView关联，而当ViewRootImpl执行performTraversals时（1364行）
+      会将mAttachInfo通过dispatchAttachedToWindow方法传给DecorView，接下来的所有子View都会通过dispatchAttachedToWindow
+      方法获得mAttachInfo。）
+    由于 在 onCreate 的时候 attachInfo 为空，所以会走下面的分支：ViewRootImpl.getRunQueue().post(action);
+  注意这里的 getRunQueue 得到的并不是 Looper 里面的那个 MessageQueue，而是由 ViewRootImpl 维持的一个
+  RunQueue 对象，其核心为一个 ArrayList ：
+    private final ArrayList<HandlerAction> mActions = new ArrayList<HandlerAction>();
+    void post(Runnable action) {
+        postDelayed(action, 0);
+    }
+    void postDelayed(Runnable action, long delayMillis) {
+        HandlerAction handlerAction = new HandlerAction();
+        handlerAction.action = action;
+        handlerAction.delay = delayMillis;
+        synchronized (mActions) {
+            mActions.add(handlerAction);
+        }
+    }
+    void executeActions(Handler handler) {
+        synchronized (mActions) {
+            final ArrayList<HandlerAction> actions = mActions;
+            final int count = actions.size();
+            for (int i = 0; i < count; i++) {
+                final HandlerAction handlerAction = actions.get(i);
+                handler.postDelayed(handlerAction.action, handlerAction.delay);
+            }
+            actions.clear();
+        }
+    }
+    当我们执行了 Post 之后 ，其实只是把 Runnable 封装成一个 HandlerAction 对象存入到 ArrayList 中，
+  当执行到 executeActions 方法的时候，将存在这里的 HandlerAction 再通过 executeActions 方法传入的
+  Handler 对象重新进行 Post。
+  那么 executeActions 方法是什么时候执行的呢？传入的 Handler 又是哪个 Handler 呢？
+    ViewRootImpl 的 performTraversals 方法是一个很核心的方法，每一帧绘制都会走一遍，调用各种 measure / layout / draw 等 ，
+  最终将要显示的数据交给 hwui 去进行绘制，executeActions ，就是在 performTraversals 中执行的（1400行）。
+  这里传入的handler就是MainLooper的Handler。

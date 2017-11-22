@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--用于启动时展示的图片，在APP完全启动前展示给用户-->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:opacity="opaque">
+    <item android:drawable="@android:color/white"/>
+    <item>
+        <bitmap android:src="@drawable/intro_item_manrun_1"
+                android:gravity="center"/>
+    </item>
+</layer-list>

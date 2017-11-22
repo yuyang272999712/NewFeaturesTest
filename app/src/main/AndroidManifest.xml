@@ -45,7 +45,7 @@
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:excludeFromRecents="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
@@ -295,6 +295,7 @@
         <activity android:name=".sourceCodeAnalyze.textViewSpannable.SpannableStringTestActivity"
             android:hardwareAccelerated="false"/>
         <activity android:name=".sourceCodeAnalyze.textViewSpannable.mySpan.MySpanActivity"/>
+        <activity android:name=".sourceCodeAnalyze.handlerAndMessage.IdleHandlerActivity"/>
 
 <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）

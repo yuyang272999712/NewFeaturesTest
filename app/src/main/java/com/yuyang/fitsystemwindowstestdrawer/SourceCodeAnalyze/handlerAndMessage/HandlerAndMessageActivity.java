@@ -31,4 +31,9 @@ public class HandlerAndMessageActivity extends Activity {
         Intent intent = new Intent(this, LoadLocationAlbumActivity.class);
         startActivity(intent);
     }
+
+    public void gotoIdleHandler(View view){
+        Intent intent = new Intent(this, IdleHandlerActivity.class);
+        startActivity(intent);
+    }
 }

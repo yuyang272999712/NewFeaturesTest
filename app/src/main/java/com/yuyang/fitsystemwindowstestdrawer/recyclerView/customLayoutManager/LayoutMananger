@@ -42,6 +42,12 @@ LayoutManager类
         8、supportsPredictiveItemAnimations()  !--yuyang 告诉RecyclerView是否支持item动画效果
 
     1、onLayoutChildren()
+        该方法是LayoutManager的入口。它会在如下情况下被调用：
+        1 在RecyclerView初始化时，会被调用两次。
+        2 在调用adapter.notifyDataSetChanged()时，会被调用。
+        3 在调用setAdapter替换Adapter时,会被调用。
+        4 在RecyclerView执行动画时，它也会被调用。
+
         它会在 view 需要初始化布局时调用，当适配器的数据改变时(或者整个适配器被换掉时)会再次调用。
         !--yuyang 注意！这个方法不是在每次你对布局作出改变时调用的。它是 初始化布局 或者 在数据改变时重置子视图布局的位置。
 
@@ -128,6 +134,40 @@ LayoutManager类
         如果被移除的范围在可视边界之外， 调用 pre-layout 之前会调用 onItemRemoved()。我们可以利用它收集和这个
       变化有关的数据，为这个事件可能触发的 appearing view 改变提供更好的支持。
 
+
+
+    重写LayoutManager时常用的API：
+      布局API:
+        1、//找recycler要一个childItemView,我们不管它是从scrap里取，还是从RecyclerViewPool里取，亦或是onCreateViewHolder里拿。
+           View view = recycler.getViewForPosition(xxx);  //获取position为xxx的View
+        2、addView(view);//将View添加至RecyclerView中，
+          addView(child, 0);//将View添加至RecyclerView中，childIndex为0，但是View的位置还是由layout的位置决定，该方法在逆序layout子View时有大用
+        3、measureChildWithMargins(scrap, 0, 0)  测量View,这个方法会考虑到View的ItemDecoration以及Margin
+        4、layoutDecoratedWithMargins(view, leftOffset, topOffset,
+                                   leftOffset + getDecoratedMeasuredWidth(view),
+                                   topOffset + getDecoratedMeasuredHeight(view));
+              将ViewLayout出来，显示在屏幕上，内部会自动追加上该View的ItemDecoration和Margin。此时我们的View已经可见了
+      回收API：
+        1、detachAndScrapAttachedViews(recycler);//detach轻量回收所有View
+            detachAndScrapView(view, recycler);//detach轻量回收指定View
+        2、removeAndRecycleView(View child, Recycler recycler)
+           removeAndRecycleAllViews(Recycler recycler);
+           //recycle真的回收一个View ，该View再次回来需要执行onBindViewHolder方法
+        3、detachView(view);//超级轻量回收一个View,马上就要添加回来
+            attachView(view);//将上个方法detach的View attach回来
+            recycler.recycleView(viewCache.valueAt(i));//detachView 后 没有attachView的话 就要真的回收掉他们
+      移动子ViewAPI:
+        offsetChildrenVertical(-dy); // 竖直平移容器内的item
+        offsetChildrenHorizontal(-dx);//水平平移容器内的item
+      工具API：
+        1、public int getPosition(View view)//获取某个view 的 layoutPosition，很有用的方法
+        2、//以下方法会我们考虑ItemDecoration的存在，但部分函数没有考虑margin的存在
+          getDecoratedLeft(view)=view.getLeft()
+          getDecoratedTop(view)=view.getTop()
+          getDecoratedRight(view)=view.getRight()
+          getDecoratedBottom(view)=view.getBottom()
+          getDecoratedMeasuredHeight(view)=view.getMeasuredWidth()
+          getDecoratedMeasuredHeight(view)=view.getMeasuredHeight()
 
 TODO yuyang 具体可参考：https://github.com/hehonghui/android-tech-frontier/blob/master/issue-13/%E5%88%9B%E5%BB%BA-RecyclerView-LayoutManager-Redux.md
 
