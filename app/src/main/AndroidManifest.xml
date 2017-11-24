@@ -54,6 +54,12 @@
                 android:name="android.app.shortcuts"
                 android:resource="@xml/shortcuts"/>
         </activity>
+        <activity android:name=".LoadResActivity"
+                  android:launchMode= "singleTask"
+                  android:process= ":mini"
+                  android:alwaysRetainTaskState= "false"
+                  android:excludeFromRecents= "true"
+                  android:screenOrientation= "portrait" />
         <activity android:name=".androidL.AndroidLActivity"/>
         <activity android:name=".androidL.PaletteActivity"/>
         <activity android:name=".androidL.activityOptions.FirstActivity"/>
@@ -175,21 +181,21 @@
         <activity android:name=".recyclerView.decoration.DecorationActivity"/>
         <activity android:name=".recyclerView.stickyHeaderUseDecoration.simple.StickyHeaderDecorationActivity"/>
         <activity android:name=".swipeBackActivity.SimpleSwipeBackActivity"
-            android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
+                  android:theme="@style/SwipeBackTheme"/><!-- activity背景设置为透明-->
         <activity android:name=".customView.CustomActivity"
-            android:theme="@style/ActivityTheme"/>
+                  android:theme="@style/ActivityTheme"/>
         <activity android:name=".customView.CustomActivity2"/>
         android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".customView.CustomActivity3"/>
         <activity android:name=".customView.CustomActivity4"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
         <activity android:name=".mediaPlayerAbout.VideoActivity"
-            android:screenOrientation="landscape"/>
+                  android:screenOrientation="landscape"/>
         <activity android:name=".mediaPlayerAbout.AudioPlayerActivity"/>
         <activity android:name=".mediaPlayerAbout.RawAudioActivity"/>
         <activity android:name=".mediaPlayerAbout.SoundPoolActivity"/>
         <activity android:name=".mediaPlayerAbout.SurfaceActivity"
-            android:configChanges="keyboardHidden|keyboard|screenSize|orientation"/>
+                  android:configChanges="keyboardHidden|keyboard|screenSize|orientation"/>
         <activity android:name=".mediaPlayerAbout.CameraIntentActivity"/>
         <activity android:name=".mediaPlayerAbout.CameraActivity"/>
         <activity android:name=".mediaPlayerAbout.CameraVideoIntentActivity"/>
@@ -275,29 +281,29 @@
         <activity android:name=".Canvas.Matrix.MatrixValueSetActivity"/>
         <activity android:name=".Canvas.Matrix.PixelMatrixEffectActivity"/>
         <activity android:name=".Canvas.Xfermode.XfermodeActivity"
-            android:hardwareAccelerated="false"/><!--TODO yuyang 关闭硬件加速，因为某些Xfermode效果在硬件加速下无法实现-->
+                  android:hardwareAccelerated="false"/><!--TODO yuyang 关闭硬件加速，因为某些Xfermode效果在硬件加速下无法实现-->
         <activity android:name=".Canvas.Shader.ShaderActivity"/>
         <activity android:name=".Canvas.PathEffect.PathEffectActivity"/>
         <activity android:name=".Canvas.SurfaceView.DrawBoardActivity"/>
         <activity android:name=".Canvas.Bezier.BezierActivity"
-            android:hardwareAccelerated="false"/>
+                  android:hardwareAccelerated="false"/>
         <activity android:name=".softInput.SoftInputActivity"/>
         <activity android:name=".softInput.softInputMode.SoftInputModeActivity1"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity android:name=".softInput.softInputMode.SoftInputModeActivity2"
-            android:windowSoftInputMode="adjustPan|stateUnchanged"/>
+                  android:windowSoftInputMode="adjustPan|stateUnchanged"/>
         <activity android:name=".softInput.emotionMode.ChatActivity"
-            android:windowSoftInputMode="adjustResize|stateHidden"/>
+                  android:windowSoftInputMode="adjustResize|stateHidden"/>
         <activity android:name=".homeDemo.complexHome.RecyclerViewComplexHomeActivity"/>
         <activity android:name=".userDefinedWidget.parallaxRecyclerImageView.sample.ParallaxRecyclerImageActivity"/>
         <activity android:name=".userDefinedWidget.specialList.simple.DemoChangeBigHeadActivity"/>
         <activity android:name=".animationAbout.DynamicAnimationActivity"/>
         <activity android:name=".sourceCodeAnalyze.textViewSpannable.SpannableStringTestActivity"
-            android:hardwareAccelerated="false"/>
+                  android:hardwareAccelerated="false"/>
         <activity android:name=".sourceCodeAnalyze.textViewSpannable.mySpan.MySpanActivity"/>
         <activity android:name=".sourceCodeAnalyze.handlerAndMessage.IdleHandlerActivity"/>
 
-<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+        <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->
         <provider
@@ -306,7 +312,7 @@
             android:exported="true"/>
 
 
-<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+        <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--
             android:name　　－－－－－－　　服务类名
             android:label　 －－－－－－　　服务的名字，如果此项不设置，那么默认显示的服务名则为类名
@@ -335,7 +341,7 @@
         </service>
         <!--Messenger实现IPC-->
         <service android:name=".IPC.CaleMessengerService"
-            android:exported="true">
+                 android:exported="true">
             <intent-filter>
                 <action android:name="com.yuyang.aidl.cale.messenger"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -376,7 +382,7 @@
             <meta-data android:name="android.accessibilityservice"
                        android:resource="@xml/wechat_accessibility_service"/>
         </service>
-<!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
+        <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
 
         <!--网络状态变化广播接收器-->
         <receiver android:name=".internetAbout.manager.ConnectivityChangedReceiver">
@@ -407,7 +413,7 @@
                 android:resource="@xml/dest_stack_widget_info"/>
         </receiver>
         <service android:name=".destWidget.MyRemoteViewService"
-            android:permission="android.permission.BIND_REMOTEVIEWS"/>
+                 android:permission="android.permission.BIND_REMOTEVIEWS"/>
         <!--监听新短息到来-->
         <receiver android:name=".telephony_sms.SmsReceiver" >
             <intent-filter android:priority="800">

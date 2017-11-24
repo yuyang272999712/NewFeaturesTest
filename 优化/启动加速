@@ -122,3 +122,25 @@ Google给出的优化方法：
     ViewRootImpl 的 performTraversals 方法是一个很核心的方法，每一帧绘制都会走一遍，调用各种 measure / layout / draw 等 ，
   最终将要显示的数据交给 hwui 去进行绘制，executeActions ，就是在 performTraversals 中执行的（1400行）。
   这里传入的handler就是MainLooper的Handler。
+
+MultiDex初次启动APP优化（ZHU yuyang http://blog.csdn.net/synaric/article/details/53540760）
+    在Dalvik下MultiDex带来了下列几个问题：
+    1、在冷启动时因为需要安装DEX文件，如果DEX文件过大时，处理时间过长，很容易引发ANR（Application Not Responding）；
+    2、采用MultiDex方案的应用可能不能在低于Android 4.0 (API level 14) 机器上启动，这个主要是因为
+  Dalvik linearAlloc的一个bug (Issue 22586);
+    3、采用MultiDex方案的应用因为需要申请一个很大的内存，在运行时可能导致程序的崩溃，这个主要是因为
+  Dalvik linearAlloc 的一个限制(Issue 78035). 这个限制在 Android 4.0 (API level 14)已经增加了,
+  应用也有可能在低于 Android 5.0 (API level 21)版本的机器上触发这个限制；
+    而在ART下MultiDex是不存在这个问题的，这主要是因为ART下采用Ahead-of-time (AOT) compilation技术，
+  系统在APK的安装过程中会使用自带的dex2oat工具对APK中可用的DEX文件进行编译并生成一个可在本地机器上运行的文件，
+  这样能提高应用的启动速度，因为是在安装过程中进行了处理这样会影响应用的安装速度。
+
+    简单来说，安装完成并初次启动APP的时候，5.0以下某些低端机会出现ANR或者长时间卡顿不进入引导页，而罪魁祸首是
+  MultiDex.install(Context context)的dexopt过程耗时过长。因此需要在初次启动时做特别处理。
+    解决这个问题的思路，大致分为3步：
+    1、在Application.attachBaseContext(Context base)中，判断是否初次启动，以及系统版本是否小于5.0，
+   如果是，跳到2；否则，直接执行MultiDex.install(Context context)。
+    2、开启一个新进程，在这个进程中执行MultiDex.install(Context context)。执行完毕，唤醒主进程，自身结束。
+   主进程在开启新进程后，自身是挂起的，直到被唤醒。
+    3、唤醒的主进程继续执行初始化操作。
+
