@@ -35,6 +35,8 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':photoviewlibrary')
     compile project(':mybutterknife')
+    //View层级分析
+    compile project(':viewserver')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.2.0'
     compile 'com.android.support:design:24.2.0'

@@ -144,3 +144,8 @@ MultiDex初次启动APP优化（ZHU yuyang http://blog.csdn.net/synaric/article/
    主进程在开启新进程后，自身是挂起的，直到被唤醒。
     3、唤醒的主进程继续执行初始化操作。
 
+TraceView性能优化工具（https://www.cnblogs.com/sunzn/p/3192231.html  http://blog.csdn.net/u011240877/article/details/54347396）
+   TraceView 是 Android 平台配备一个很好的性能分析的工具。它可以通过图形化的方式让我们了解我们要跟踪的程序的性能，并且能具体到 method。
+   可以使用DDMS启动分析，也可以通过代码启动：
+    Debug.startMethodTracing("Entertainment");//开始位置（输出文件为根目录下的Entertainment.trace）
+    Debug.stopMethodTracing();//结束位置

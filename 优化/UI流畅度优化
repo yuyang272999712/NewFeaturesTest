@@ -1,0 +1,36 @@
+一、Overdraw 防止过度绘制
+    原色 – 没有过度绘制 – 这部分的像素点只在屏幕上绘制了一次。
+    蓝色 – 1次过度绘制– 这部分的像素点只在屏幕上绘制了两次。
+    绿色 – 2次过度绘制 – 这部分的像素点只在屏幕上绘制了三次。
+    粉色 – 3次过度绘制 – 这部分的像素点只在屏幕上绘制了四次。
+    红色 – 4次过度绘制 – 这部分的像素点只在屏幕上绘制了五次。
+
+    备注：一个容易忽略的点是我们的Activity使用的Theme可能会默认的加上背景色，不需要的情况下可以去掉。
+
+二、减少嵌套层次及控件个数
+    Hierarchy Viewer这个方便可视化的工具，可以得到：树形结构总览、布局view、每一个View（包含子View）
+  绘制所花费的时间及View总个数。
+    备注： Hierarchy Viewer不能连接真机的问题可以通过ViewServer这个库解决；
+    ZHU yuyang ViewServer使用请参考：build.gradle引用 和 MainActivity.java中的使用
+
+三、开启手机的GPU配置渲染工具
+    备注：GPU配置渲染工具虽然可以定位出问题发生在某个步骤，但是并不能定位到具体的某一行；当我们定位到某个步骤之后
+  可以使用工具TraceView进行更加详细的定位。
+
+四、通过使用Tags减少层级
+    1、merge标签
+        merge多用于替换顶层FrameLayout或者include布局时,用于消除因为引用布局导致的多余嵌套。
+    2、ViewStub标签
+        推迟创建对象、延迟初始化，不仅可以提高性能，也可以节省内存（初始化对象不被创建）。Android定义了ViewStub
+      类，ViewStub是轻量级且不可见的视图，它没有大小，没有绘制功能，也不参与measure和layout，资源消耗非常低。
+            ViewStub viewStub = (ViewStub)view.findViewById(R.id.mask);
+            viewStub.inflate();
+        App里常见的视图如蒙层、小红点，以及网络错误、没有数据等公共视图，使用频率并不高，如果每一次都参与绘制其实
+      是浪费资源的，都可以借助ViewStub标签进行延迟初始化，仅当使用时才去初始化。
+    3、include标签
+
+五、2种检测UI卡顿的方案（https://mp.weixin.qq.com/s?__biz=MzAxMTI4MTkwNQ==&mid=2650822205&idx=1&sn=6b8e78bc1d71eb79a199667cf132acf7&chksm=80b782a3b7c00bb5c12437556fca68136c75409855e9252e395b545621319edf23959942b67c&scene=21#wechat_redirect）
+    1、利用loop()中打印的日志
+        Looper.getMainLooper().setMessageLogging();
+    2、利用Choreographer
+        Choreographer.getInstance().postFrameCallback();

@@ -1,0 +1,79 @@
+使用工具分析内存泄漏（工具使用：http://www.jianshu.com/p/080473ae050b）
+    1、Memory Monitor
+    2、LeakCanary
+        LeakCanary是大名鼎鼎的square出的一款开源的用来做内存泄露检测的工具.
+        具体植入方式, 请参考LeakCanary README文档
+    3、MAT （http://www.jianshu.com/p/cbe2ee08ca02）
+        Eclipse MAT是一个快速且功能丰富的Java Heap分析工具, 可以帮助我们寻找内存泄露, 减少内存消耗.
+        MAT可以分析程序(成千上万的对象产生过程中)生成的Heap dumps文件, 它会快速计算出对象的Retained Size,
+      来展示是哪些对象没有被GC, 自动生成内存泄露疑点的报告.
+
+当界面不可见时释放内存
+    在Activity中重写onTrimMemory()方法，然后在这个方法中监听TRIM_MEMORY_UI_HIDDEN这个级别，一旦触发了
+  之后就说明用户已经离开了我们的程序，那么此时就可以进行资源释放操作了，如下所示：
+        @Override
+        public void onTrimMemory(int level) {
+            super.onTrimMemory(level);
+            switch (level) {
+            case TRIM_MEMORY_UI_HIDDEN:
+                // 进行资源释放操作
+                break;
+            }
+        }
+    注意onTrimMemory()方法中的TRIM_MEMORY_UI_HIDDEN回调只有当我们程序中的所有UI组件全部不可见的时候才会
+  触发，这和onStop()方法还是有很大区别的，因为onStop()方法只是当一个Activity完全不可见的时候就会调用，比如
+  说用户打开了我们程序中的另一个Activity。因此，我们可以在onStop()方法中去释放一些Activity相关的资源，比如
+  说取消网络连接或者注销广播接收器等，但是像UI相关的资源应该一直要等到onTrimMemory(TRIM_MEMORY_UI_HIDDEN)
+  这个回调之后才去释放，这样可以保证如果用户只是从我们程序的一个Activity回到了另外一个Activity，界面相关的资源
+  都不需要重新加载，从而提升响应速度。
+    onTrimMemory()方法还有很多种其它类型的回调:
+        TRIM_MEMORY_RUNNING_MODERATE    表示应用程序正常运行，并且不会被杀掉。但是目前手机的内存已经有点低了，系统可能会开始根据LRU缓存规则来去杀死进程了。
+        TRIM_MEMORY_RUNNING_LOW    表示应用程序正常运行，并且不会被杀掉。但是目前手机的内存已经非常低了，我们应该去释放掉一些不必要的资源以提升系统的性能，同时这也会直接影响到我们应用程序的性能。
+        TRIM_MEMORY_RUNNING_CRITICAL    表示应用程序仍然正常运行，但是系统已经根据LRU缓存规则杀掉了大部分缓存的进程了。这个时候我们应当尽可能地去释放任何不必要的资源，不然的话系统可能会继续杀掉所有缓存中的进程，并且开始杀掉一些本来应当保持运行的进程，比如说后台运行的服务。
+        以上是当我们的应用程序正在运行时的回调，那么如果我们的程序目前是被缓存的，则会收到以下几种类型的回调：
+        TRIM_MEMORY_BACKGROUND    表示手机目前内存已经很低了，系统准备开始根据LRU缓存来清理进程。这个时候我们的程序在LRU缓存列表的最近位置，是不太可能被清理掉的，但这时去释放掉一些比较容易恢复的资源能够让手机的内存变得比较充足，从而让我们的程序更长时间地保留在缓存当中，这样当用户返回我们的程序时会感觉非常顺畅，而不是经历了一次重新启动的过程。
+        TRIM_MEMORY_MODERATE    表示手机目前内存已经很低了，并且我们的程序处于LRU缓存列表的中间位置，如果手机内存还得不到进一步释放的话，那么我们的程序就有被系统杀掉的风险了。
+        TRIM_MEMORY_COMPLETE    表示手机目前内存已经很低了，并且我们的程序处于LRU缓存列表的最边缘位置，系统会最优先考虑杀掉我们的应用程序，在这个时候应当尽可能地把一切可以释放的东西都进行释放。
+
+使用优化过的数据集合
+    Android API当中提供了一些优化过后的数据集合工具类，如SparseArray，SparseBooleanArray，以及
+  LongSparseArray等，使用这些API可以让我们的程序更加高效。传统Java API中提供的HashMap工具类会相对比较低效，
+  因为它需要为每一个键值对都提供一个对象入口，而SparseArray就避免掉了基本数据类型转换成对象数据类型的时间。
+
+避免在Bitmap上浪费内存
+    1、高效加载大图片
+        BitmapFactory这个类提供了多个解析方法(decodeByteArray, decodeFile, decodeResource等)用于创建Bitmap对象
+      BitmapFactory.Options参数，将这个参数的 inJustDecodeBounds 属性设置为true就可以让解析方法禁止为
+      bitmap分配内存，返回值也不再是一个Bitmap对象，而是null。虽然Bitmap是null了，但是BitmapFactory.Options
+      的outWidth、outHeight和outMimeType属性都会被赋值。这个技巧让我们可以在加载图片之前就获取到图片的长宽值和
+      MIME类型，从而根据情况对图片进行压缩。再通过inSampleSize的 inSampleSize 参数对bitmap进行压缩。
+
+      ZHU yuyang BitmapFactory 在解码图片时，可以带一个Options，有一些比较有用的功能，比如：
+          a、inTargetDensity 表示要被画出来时的目标像素密度
+          b、inSampleSize 这个值是一个int，当它小于1的时候，将会被当做1处理，如果大于1，那么就会按照比例（1 / inSampleSize）
+            缩小bitmap的宽和高、降低分辨率，大于1时这个值将会被处置为2的倍数。例如，
+            width=100，height=100，inSampleSize=2，那么就会将bitmap处理为，width=50，height=50，
+            宽高降为1 / 2，像素数降为1 / 4
+          c、inJustDecodeBounds 字面意思就可以理解就是只解析图片的边界，有时如果只是为了获取图片的大小就可以用这个，
+            而不必直接加载整张图片。
+          d、inPreferredConfig 默认会使用ARGB_8888,在这个模式下一个像素点将会占用4个byte,而对一些没有透明度要求或者
+            图片质量要求不高的图片，可以使用RGB_565，一个像素只会占用2个byte，一下可以省下50%内存。
+          e、inPurgeable和inInputShareable 这两个需要一起使用，BitmapFactory.java的源码里面有注释，大致意思是表示
+            在系统内存不足时是否可以回收这个bitmap，有点类似软引用，但是实际在5.0以后这两个属性已经被忽略，因为系统
+            认为回收后再解码实际会反而可能导致性能问题
+          f、inBitmap 官方推荐使用的参数，表示重复利用图片内存，减少内存分配，在4.4以前只有相同大小的图片内存区域可以
+            复用，4.4以后只要原有的图片比将要解码的图片大既可以复用了。
+
+    2、使用图片缓存技术
+        LruCache (此类在android-support-v4的包中提供) 。这个类非常适合用来缓存图片，它的主要算法原理是把最近
+      使用的对象用强引用存储在 LinkedHashMap 中，并且把最近最少使用的对象在缓存值达到预设定值之前从内存中移除。
+
+Android里一些很常见的内存泄露问题：
+    单例（主要原因还是因为一般情况下单例都是全局的，有时候会引用一些实际生命周期比较短的变量，导致其无法释放）
+    静态变量（同样也是因为生命周期比较长）
+    Handler内存泄露[7]
+    匿名内部类（匿名内部类会引用外部类，导致无法释放，比如各种回调）
+    资源使用完未关闭（BraodcastReceiver，ContentObserver，File，Cursor，Stream，Bitmap）
+
+
+ZHU yuyang 腾讯的东西值得学习啊：https://mp.weixin.qq.com/s/2MsEAR9pQfMr1Sfs7cPdWQ
