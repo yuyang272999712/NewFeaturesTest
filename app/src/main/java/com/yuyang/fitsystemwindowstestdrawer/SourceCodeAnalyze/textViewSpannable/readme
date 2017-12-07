@@ -40,3 +40,6 @@ Span分类：
     如果一个Span修改字符级别的文本外观，则实现UpdateAppearance；
     如果一个Span修改字符级文本度量|大小，则实现UpdateLayout
  具体继承关系参见图片
+
+
+ ZHU yuyang Span相关 http://www.jianshu.com/p/deb28c22852a

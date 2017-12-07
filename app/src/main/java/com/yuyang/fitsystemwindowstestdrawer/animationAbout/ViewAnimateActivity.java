@@ -16,6 +16,21 @@ import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
  * View的animate方法
+ *
+ * //V4包中的兼容模式 TODO yuyang
+    ViewPropertyAnimatorCompat animation = ViewCompat.animate(view);
+    animation.setDuration(getRemoveDuration())
+     .alpha(0).setListener(new VpaListenerAdapter() {
+        @Override
+        public void onAnimationStart(View view) {
+
+        }
+
+        @Override
+        public void onAnimationEnd(View view) {
+
+        }
+    }).start();
  */
 public class ViewAnimateActivity extends AppCompatActivity {
     private ImageView tagertImg;

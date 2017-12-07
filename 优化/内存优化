@@ -40,7 +40,7 @@
   LongSparseArray等，使用这些API可以让我们的程序更加高效。传统Java API中提供的HashMap工具类会相对比较低效，
   因为它需要为每一个键值对都提供一个对象入口，而SparseArray就避免掉了基本数据类型转换成对象数据类型的时间。
 
-避免在Bitmap上浪费内存
+避免在Bitmap上浪费内存（ZHU yuyang 你的Bitmap究竟占多大内存 http://dev.qq.com/topic/591d61f56793d26660901b4e）
     1、高效加载大图片
         BitmapFactory这个类提供了多个解析方法(decodeByteArray, decodeFile, decodeResource等)用于创建Bitmap对象
       BitmapFactory.Options参数，将这个参数的 inJustDecodeBounds 属性设置为true就可以让解析方法禁止为

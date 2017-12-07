@@ -1,3 +1,5 @@
+ZHU yuyang http://www.jianshu.com/nb/8407779
+
 应用在冷启动之前，要执行三个任务：
     1、加载启动App；
     2、App启动之后立即展示出一个空白的Window；
@@ -25,6 +27,9 @@ Google给出的优化方法：
         1、考虑异步初始化三方组件，不阻塞主线程；
         2、延迟部分三方组件的初始化；实际上我们粗粒度的把所有三方组件都放到异步任务里，可能会出现WorkThread中尚未
         初始化完毕但MainThread中已经使用的错误，因此这种情况建议延迟到使用前再去初始化；
+        例如：将友盟、Bugly、听云、GrowingIO、BlockCanary等组件放在WorkThread中初始化；
+           延迟地图定位、ImageLoader、自有统计等组件的初始化：地图及自有统计延迟4秒，此时应用已经打开；而ImageLoader
+           因为调用关系不能异步以及过久延迟，初始化从Application延迟到SplashActivity；而EventBus因为在Activity中使用所以必须在Application中初始化。
     三、启动加速-Diagnosing The Problem
         通过对traceview的详细跟踪以及代码的详细比对，我发现卡顿发生在：
             部分数据库及IO的操作发生在首屏Activity主线程；

@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.recyclerView.itemAnimator;
 
+import android.animation.ObjectAnimator;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ public class SlideAdapter extends RecyclerView.Adapter {
     private int mState = NORMAL;
     private List<ItemBean> mItemBeans;
     private List<SlideViewHolder> mSlideViewHolders = new ArrayList<>();
+    private int mLastPosition;//放在成员变量的位置上
 
     public void setItemBeans(List<ItemBean> beans) {
         mItemBeans = beans;
@@ -50,6 +52,11 @@ public class SlideAdapter extends RecyclerView.Adapter {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         ((SlideViewHolder) holder).bind(mItemBeans.get(position));
+        if (holder.getAdapterPosition() > mLastPosition) {
+            ObjectAnimator scaleX = ObjectAnimator.ofFloat(holder.itemView, "scaleX", 0.5f, 1f);
+            scaleX.start();
+            mLastPosition = holder.getLayoutPosition();
+        }
     }
 
     @Override

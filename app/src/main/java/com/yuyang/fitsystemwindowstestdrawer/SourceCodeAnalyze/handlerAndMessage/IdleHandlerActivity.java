@@ -17,7 +17,8 @@ import android.widget.Toast;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
 /**
- * MessageQueue.IdleHandler使用
+ * https://mp.weixin.qq.com/s?__biz=MzA3NTYzODYzMg==&mid=2653579390&idx=1&sn=fcd0b0487f0fb45e354249cead5fec83&chksm=84b3ba79b3c4336fc50cf4f027654b60c9b31ad2f80807ec1a4a5c2e861f05a18e7a4a303219&mpshare=1&scene=23&srcid=1206JkWbbi47A8MEbJV9Iwui#rd
+ * ZHU yuyang MessageQueue.IdleHandler使用
  *  IdleHandler会在当前Looper中所有message都执行完之后被执行
  *
     Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {

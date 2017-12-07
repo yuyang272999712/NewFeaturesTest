@@ -12,3 +12,25 @@
                   else
                     requestLayout();
                }
+
+
+RecyclerView相关类
+    RecyclerView.Adapter ：创建子项item布局和绑定数据
+    RecyclerView.ViewHolder ：生成子项item的布局
+    RecyclerView.LayoutManager ：设置子项item的排列方式
+    RecyclerView.ItemDecoration ： 设置子项item的分割线
+    RecyclerView.ItemAnimator ： 设置子项item的动画
+
+ZHU yuyang http://www.jianshu.com/p/2a82b0341138
+默认的动画：
+    mRecyclerView.setItemAnimator(new DefaultItemAnimator());
+自定义的动画：
+    //写在Adapter中
+    private int mLastPosition;//放在成员变量的位置上
+    if (viewHolder.getAdapterPosition() > mLastPosition) {
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(viewHolder.itemView, "scaleX", 0.5f, 1f);
+        scaleX.start();
+        mLastPosition = viewHolder.getLayoutPosition();
+    }
+    说明:实现的方式有很多种，这里介绍一种，就是在RecyclerView的onBindViewHolder中利用属性动画就可以实现
+  非常华丽的效果。
