@@ -14,6 +14,7 @@ import android.util.Log;
 import com.facebook.cache.disk.DiskCacheConfig;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.squareup.leakcanary.LeakCanary;
 import com.yuyang.fitsystemwindowstestdrawer.utils.SPUtils;
 import com.yuyang.fitsystemwindowstestdrawer.utils.SystemUtils;
 
@@ -51,6 +52,8 @@ public class MyApplication extends MultiDexApplication {
         CrashHandler.getInstance().start(this);
 
         Fresco.initialize(this, createFrescoConfig());
+
+        LeakCanary.install(this);
     }
 
     private ImagePipelineConfig createFrescoConfig() {

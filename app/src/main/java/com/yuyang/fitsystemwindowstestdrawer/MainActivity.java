@@ -4,7 +4,6 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -19,7 +18,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Choreographer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,7 +31,6 @@ import com.yuyang.fitsystemwindowstestdrawer.service.BackgroundService;
 import com.yuyang.fitsystemwindowstestdrawer.utils.SPUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -110,7 +107,7 @@ public class MainActivity extends AppCompatActivity
         //ZHU yuyang 禁止截屏
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_SECURE);
 
-        // Set content view, etc.
+        //View层级分析
         ViewServer.get(this).addWindow(this);
     }
 

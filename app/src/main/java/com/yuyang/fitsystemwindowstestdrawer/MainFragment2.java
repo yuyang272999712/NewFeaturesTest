@@ -20,6 +20,7 @@ import com.yuyang.fitsystemwindowstestdrawer.eventBus.EventBusAboutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.flabbyBird.FlabbyBirdActivity;
 import com.yuyang.fitsystemwindowstestdrawer.homeDemo.HomeDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.imageLoader.ImageLoaderActivity;
+import com.yuyang.fitsystemwindowstestdrawer.keepAlive.SportsActivity;
 import com.yuyang.fitsystemwindowstestdrawer.myIOCforAndroid.MyIOCActivity;
 import com.yuyang.fitsystemwindowstestdrawer.notificationDialogPopupWindowToast.NotificationDialogPopupToastActivity;
 import com.yuyang.fitsystemwindowstestdrawer.pictureSelect.PictureSelectActivity;
@@ -213,6 +214,14 @@ public class MainFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), SoftInputActivity.class);
+                startActivity(intent);
+            }
+        });
+        button20 = (Button) mContentView.findViewById(R.id.button20);
+        button20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SportsActivity.class);
                 startActivity(intent);
             }
         });

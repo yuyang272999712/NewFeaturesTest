@@ -1,5 +1,5 @@
 Activity:
-    android:excludeFromRecents="true" 使该Activity所在的任务栈不出现在系统最近任务中
+    android:excludeFromRecents="true" 使该Activity所在的任务栈不出现在系统最近任务中,只有在根Activity中才起作用
     android:noHistory="true" 使该Activity不会存留在任务栈中
     android:launchMode="singleTask" Activity启动模式
     android:taskAffinity="com.test.haha" 指定activity任务栈名称（字符串中必须包含分隔符"."）

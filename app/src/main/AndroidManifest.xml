@@ -44,7 +44,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:excludeFromRecents="true"
             android:theme="@style/AppTheme.Launcher">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -185,7 +184,6 @@
         <activity android:name=".customView.CustomActivity"
                   android:theme="@style/ActivityTheme"/>
         <activity android:name=".customView.CustomActivity2"/>
-        android:theme="@style/SwipeBackTheme"/>
         <activity android:name=".customView.CustomActivity3"/>
         <activity android:name=".customView.CustomActivity4"/>
         <activity android:name=".mediaPlayerAbout.MediaAboutActivity"/>
@@ -302,7 +300,14 @@
                   android:hardwareAccelerated="false"/>
         <activity android:name=".sourceCodeAnalyze.textViewSpannable.mySpan.MySpanActivity"/>
         <activity android:name=".sourceCodeAnalyze.handlerAndMessage.IdleHandlerActivity"/>
-
+        <!--APP保活-->
+        <activity android:name=".keepAlive.SportsActivity"
+                  android:launchMode="singleTask"/>
+        <activity android:name=".keepAlive.SinglePixelActivity"
+                  android:launchMode="singleInstance"
+                  android:excludeFromRecents="true"
+                  android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
+                  android:theme="@style/SingleActivityStyle"/>
         <!--－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－-->
         <!--android:authorities属性指定了该内容提供器的权限（即：URI中的权限部分）
             android:exported属性指定了该内容提供器可以被其他应用程序访问-->
@@ -368,7 +373,24 @@
             </intent-filter>
         </service>
 
+        <!--文件下载-->
         <service android:name=".internetAbout.downFileService.DownLoadFileService"/>
+
+        <!--前台service，保活使用-->
+        <service android:name=".keepAlive.services.DaemonService"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:process=":daemon_service"/>
+        <!--取消前台Service的通知-->
+        <service android:name=".keepAlive.services.CancelNoticeService"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:process=":cancel_notice_service"/>
+        <!--循环播放无声音乐的Service-->
+        <service android:name=".keepAlive.services.PlayerMusicService"
+                 android:enabled="true"
+                 android:exported="true"
+                 android:process=":music_service"/>
 
         <!--微信自动抢红包-->
         <service android:name=".googleWidget.accessibilityService.WeChatAccessibilityService"
