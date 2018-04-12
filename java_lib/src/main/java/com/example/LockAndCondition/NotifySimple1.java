@@ -1,4 +1,4 @@
-package com.example.notify_condition;
+package com.example.LockAndCondition;
 
 /**
  *     如果调用某个对象的wait()方法，当前线程必须拥有这个对象的monitor（即锁），因此调用wait()方法必须在同步块或者

@@ -3,14 +3,18 @@ package com.example.synchronizedSimples;
 import java.util.ArrayList;
 
 /**
+ * 属性锁：
  * synchronized代码块
  *     synObject可以是this，代表获取当前对象的锁，也可以是类中的一个属性，代表获取该属性的锁。（注：两个锁不是同一个锁，可同时运行，
  * 例如下面代码，线程1与线程2访问的同步方法的锁一个是类中的属性、一个是this，锁的不是同一个对象，所以能同时运行）
  *
+ * 类锁：
  *     另外，每个类也会有一个锁，它可以用来控制对static数据成员的并发访问。
  * 并且如果一个线程执行一个对象的非static synchronized方法，另外一个线程需要执行这个对象所属类的static synchronized方法，
  * 此时不会发生互斥现象，因为访问static synchronized方法占用的是类锁，而访问非static synchronized方法占用的是对象锁，
  * 所以不存在互斥现象。
+ * 即：用synchronized关键字声明的静态方法，同时只能被一个执行线程访问，但是其他线程可以访问这个对象的非静态方法。即：两个线程
+ * 可以同时访问一个对象的两个不同的synchronized方法，其中一个是静态方法，一个是非静态方法。
  */
 public class Simple2 {
     public static void main(String[] args){
@@ -91,7 +95,7 @@ class DataOpt2 {
         System.out.println(thread.getName()+"insert耗时：3秒"+",线程经历了："+(System.currentTimeMillis()-currentTime)+"毫秒");
     }
 
-    public synchronized void add(Thread thread) throws InterruptedException {
+    public void add(Thread thread) throws InterruptedException {
         System.out.println(thread.getName()+"在add数据＋＋＋＋＋＋＋＋＋");
         synchronized(this) {
             arrayList.add(2);

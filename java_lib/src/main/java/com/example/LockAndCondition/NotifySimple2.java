@@ -1,4 +1,4 @@
-package com.example.notify_condition;
+package com.example.LockAndCondition;
 
 import java.util.PriorityQueue;
 

@@ -15,6 +15,9 @@ import java.util.concurrent.ArrayBlockingQueue;
         队列中获取到该元素。DelayQueue也是一个无界队列，因此往队列中插入数据的操作（生产者）永远不会被阻塞，
         而只有获取数据的操作（消费者）才会被阻塞。
  *
+ * 插入方法：add(e)（添加失败会抛出异常）、offer(e)（添加失败返回特殊值）、put(e)（添加失败会一直阻塞）
+ * 移除方法：remove(e)（移除失败会抛出异常）、poll(e)（移除失败会返回特殊值）、take(e)（移除失败会一直阻塞）
+
  * 阻塞队列应用实例
  */
 public class BlockingQueueSimple {

@@ -120,6 +120,12 @@
             android:layout_height="wrap_content"
             android:text="顶部item放大显示"/>
 
+        <Button
+            android:id="@+id/defind_keyboard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="自定义键盘"/>
+
     </GridLayout>
 
     <LinearLayout

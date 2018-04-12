@@ -3,6 +3,7 @@ package com.example.synchronizedSimples;
 import java.util.ArrayList;
 
 /**
+ *  对象锁：
  *     当一个线程正在访问一个对象的synchronized方法，那么其他线程不能访问该对象的其他synchronized方法。这个原因很简单，
  * 因为一个对象只有一把锁，当一个线程获取了该对象的锁之后，其他线程无法获取该对象的锁，所以无法访问该对象的其他synchronized方法。
  *     当一个线程正在访问一个对象的synchronized方法，那么其他线程能访问该对象的非synchronized方法。这个原因很简单，

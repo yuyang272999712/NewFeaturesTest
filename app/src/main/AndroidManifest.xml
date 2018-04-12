@@ -113,6 +113,7 @@
         <activity android:name=".userDefinedWidget.clockViewMIUI.MiuiClockActivity"/>
         <activity android:name=".userDefinedWidget.quickSearchSideBar.CitySelectActivity"/>
         <activity android:name=".userDefinedWidget.polygonsStatisticsView.RadarChartActivity"/>
+        <activity android:name=".userDefinedWidget.DefinedKeyBoard.DefinedKeyBoardActivity"/>
         <activity android:name=".mvp.activity.UserInfoActivity"/>
         <activity android:name=".listView.ListViewAboutActivity"/>
         <activity android:name=".listView.listViewCommonViewHolder.ListCommonViewHolderActivity"/>

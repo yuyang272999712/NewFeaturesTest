@@ -2,10 +2,16 @@ package com.example.sortAlgorithm;
 
 /**
  * 选择排序
+ *  堆排序
+ *   实现堆排序的基本思想是：将待排序的序列构造成一个大顶堆或者小顶堆。此时整个堆满足根节点是最大值或者最小值。将根节点移走，
+ *  并与堆数组的最后一个值进行交换，这样的话最后一个值就是最大值或者最小值了。然后将剩余n-1（假设原来总共有n个元素）
+ *  未排序的序列重新构造成一个最大堆或者最小堆，再与除原来最大值之外的最后一个元素进行交换，得到次小值。如此反复进行，就得到一个排序的序列。
+ *  时间O(nlogn)
+ *  O(1)
  */
 
 public class Dui {
-    private static int[] a = new int[]{12,34,7,32,67,0,23,16,89,2};
+    private static int[] a = new int[]{12,34,7,2,32,67,0,23,16,89,2};
 
     public static void main(String[] args){
         headSort(a);

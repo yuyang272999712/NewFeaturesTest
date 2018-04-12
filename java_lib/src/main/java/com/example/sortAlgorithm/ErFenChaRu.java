@@ -5,7 +5,7 @@ package com.example.sortAlgorithm;
  */
 
 public class ErFenChaRu {
-    private static int[] a = new int[]{12,34,7,32,67,0,23,16,89,2};
+    private static int[] a = new int[]{12,34,7,32,67,0,23,2,16,89,2};
 
     public static void main(String[] args){
         erFenChaRu(a);

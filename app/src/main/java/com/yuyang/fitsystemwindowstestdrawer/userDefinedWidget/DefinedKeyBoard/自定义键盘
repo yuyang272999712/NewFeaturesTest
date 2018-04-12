@@ -1,0 +1,79 @@
+对于自定义软键盘，需要用到系统提供的两个类：Keyboard和KeyboardView。
+
+1、Keyboard （见res/xml/keyboard_number.xml文件）
+    设计键盘的布局文件，也就是说这个Keyboard是一个xml文件，可以用来进行键盘的布局
+    Keyboard描述键盘时的一些常用属性介绍：
+    属性	            描述
+    codes	        按键对应的输出值，可以为unicode值或则逗号(,)分割的多个值，也可以为一个字 符串。
+                    在字符串中通过“\”来转义特殊字符，例如 ‘\n’ 或则 ‘\uxxxx’ 。Codes通常用来定义该键的键码，
+                    例如上图中的数字按键1对应的为49；如果提供的是逗号分割的多个值则和普通手机输入键盘一样在多个
+                    值之间切换
+    keyLabel	    按键显示的文本内容
+    keyIcon	        按键显示的图标内容，如果指定了该值则在显示的时候显示为图片不显示文本
+    keyWidth	    按键的宽度，可以为精确值或则相对值，对于精确值支持多种单位，例如：像素，英寸 等；相对值为
+                    相对于基础取值的百分比，为以% 或则%p 结尾，其中%p表示相对于父容器
+    keyHeight	    按键的高度，取值同keyWidth
+    horizontalGap	按键前的间隙（水平方向），取值取值同keyWidth
+    isSticky	    按键是否为sticky的。例如Shift大小写切换按键，具有两种状态，按下状态和正常状态，取值为
+                    true或则false
+    isModifier	    按键是否为功能键( modifier key ) ，例如 Alt 或则 Shift 。取值为true或则false
+    keyOutputText	按键输出的文本内容，取值为字符串
+    isRepeatable	按键是否是可重复的，如果长按该键可以触发重复按键事件则为true，否则为false
+    keyEdgeFlags	按键的对齐指令，取值为left或则right
+    注：如果一个code对应多个key，这个key代表的字符取决于这个key接受到的点击数taps，例如，一个键具有
+      49，50，51编码:
+        一次点击就是 1
+        两次点击就是 2
+        三次点击就是 3
+      一般自己定义的code都为负数，比如-5代表删除，-1代表shift切换等，因为正数被哈希码占了。
+
+2、KeyboardView
+    处理绘制，检测按键，触摸动作等
+    KeyboardView的属性：
+    属性	                        描述
+    android:keyBackground	    键的背景图
+    android:keyPreviewLayout	击键盘上的某个键时，短暂弹出的提示布局文件
+    android:keyPreviewOffset	击键盘上的某个键时，短暂弹出布局的垂直偏移量
+    android:keyTextColor	    按键中的keyLabel的颜色
+    android:keyTextSize 	    按键中的keyLabel的大小
+    android:labelTextSize	    如果有图片时，按键中的keyLabel的大小
+    android:popupLayout	        弹出键盘的布局文件
+    android:verticalCorrection	补偿触摸Y坐标的偏移量，用于偏移校正
+
+实现键盘功能
+    键盘按键输出处理功能我们放置到一个EditText上，一般流程是初始化好一个Keyboard类，然后将该类赋值到
+  keyboardView上，同时设置 ZHU yuyang KeyboardView.OnKeyboardActionListener来处理相应的按键回调事件
+
+    初始化键盘，这里得到字母键盘与数字键盘
+    private fun initEditView() {
+        keyboradNumber = Keyboard(context, R.xml.keyboard_number)
+        keyboradLetter = Keyboard(context, R.xml.keyboard_letter)
+    }
+    随后你可以通过
+    keyboardView.isPreviewEnabled = true
+    进行键盘预览功能的开关
+
+    完成以上步骤你可以添加按键回调事件了
+    public interface OnKeyboardActionListener {
+        // 当用户按下一个键时调用。在调用onKey之前调用。这是在调用onKey之前。对于重复的键，此键仅调用一次。如果之前定义的codes有问题，primaryCode为0
+        void onPress(int primaryCode);
+        // 当用户释放键时调用,这是在调用onKey之后。对于重复的键，此键仅调用一次。
+        void onRelease(int primaryCode);
+        // 发送一个按键到监听器,之前codes字段定义的值
+        void onKey(int primaryCode, int[] keyCodes);
+        // 向侦听器发送一系列字符。如果之前在keyOutputText定义过数值，则按键之后会在此回调中进行响应
+        void onText(CharSequence text);
+        // 下面都是在键盘上进行手势操作
+        void swipeLeft();
+        void swipeRight();
+        void swipeDown();
+        void swipeUp();
+    }
+    我们重点看一下onKey方法。
+    不知道你之前有没有注意到我在按键布局中有几个负数值，其实这些负数值是有意义的，我这里使用了系统定义好的几个参数
+    public static final int KEYCODE_SHIFT = -1;
+    public static final int KEYCODE_MODE_CHANGE = -2;
+    public static final int KEYCODE_CANCEL = -3;
+    public static final int KEYCODE_DONE = -4;
+    public static final int KEYCODE_DELETE = -5;
+    public static final int KEYCODE_ALT = -6;

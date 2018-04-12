@@ -1,4 +1,4 @@
-package com.example.notify_condition;
+package com.example.LockAndCondition;
 
 import java.util.PriorityQueue;
 import java.util.concurrent.locks.Condition;
@@ -6,8 +6,9 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
+ *  条件锁-Condition：
     Condition是在java 1.5中才出现的，它用来替代传统的Object的wait()、notify()实现线程间的协作，相比使用Object
- 的wait()、notify()，使用Condition1的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较
+ 的wait()、notify()，使用Condition的await()、signal()这种方式实现线程间协作更加安全和高效。因此通常来说比较
  推荐使用Condition，在阻塞队列那一篇博文中就讲述到了，阻塞队列实际上是使用了Condition来模拟线程间协作。
     Condition是个接口，基本的方法就是await()和signal()方法；
     Condition依赖于Lock接口，生成一个Condition的基本代码是lock.newCondition()
@@ -40,6 +41,7 @@ public class ConditionSimple {
         public void run() {
             while (true){
                 lock.lock();
+                System.out.println("消费者获取锁");
                 try {
                     Thread.sleep(2000);
                     while (queue.size() == 0) {
@@ -68,6 +70,7 @@ public class ConditionSimple {
         public void run() {
             while (true) {
                 lock.lock();
+                System.out.println("生产者获取锁");
                 try {
                     while (queue.size() == queueSize){
                         try {
