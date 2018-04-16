@@ -1,3 +1,5 @@
+参考：https://www.jianshu.com/p/fd61e8f4049e
+
 WebSettings 的常用方法介绍
     setJavaScriptEnabled(true);  //支持js
     setPluginsEnabled(true);  //支持插件
@@ -65,3 +67,48 @@ WebChromeClient主要辅助WebView处理Javascript的对话框、网站图标、
     onReceivedTitle
 看上去他们有很多不同，实际使用的话，如果你的WebView只是用来处理一些html的页面内容，只用WebViewClient就行了，
 如果需要更丰富的处理效果，比如JS、进度条等，就要用到WebChromeClient。
+
+ZHU yuyang JS注入漏洞
+目前已知的 WebView 漏洞有 4 个,分别是：
+1、CVE-2012-6636，揭露了 WebView 中 addJavascriptInterface 接口会引起远程代码执行漏洞；
+2、CVE-2013-4710，针对某些特定机型会存在 addJavascriptInterface API 引起的远程代码执行漏洞；
+3、CVE-2014-1939，爆出 WebView 中内置导出的 “searchBoxJavaBridge_” Java Object 可能被利用，
+    实现远程任意代码；
+4、CVE-2014-7224，类似于 CVE-2014-1939 ，WebView 内置导出 “accessibility” 和
+    “accessibilityTraversal” 两个 Java Object 接口，可被利用实现远程任意代码执行。
+
+如何解决漏洞
+1、Android 4.2 以下不要在使用 JavascriptInterface方式，4.2 以上需要添加注解 @JavascriptInterface 才能调用。（这部分和JsBrige 有关，更详细的内容后面会介绍）
+2、同1解决；
+3、在创建 WebView 时，使用 removeJavascriptInterface 方法将系统注入的 searchBoxJavaBridge_ 对象删除。
+4、当系统辅助功能服务被开启时，在 Android 4.4 以下的系统中，由系统提供的 WebView 组件都默认导出
+  ”accessibility” 和 ”accessibilityTraversal” 这两个接口，这两个接口同样存在远程任意代码执行的威胁，
+  同样的需要通过 removeJavascriptInterface 方法将这两个对象删除。
+    super.removeJavascriptInterface("searchBoxJavaBridge_");
+    super.removeJavascriptInterface("accessibility");
+    super.removeJavascriptInterface("accessibilityTraversal");
+以上都是系统机制层面上的漏洞，还有一些是使用 WebView 不挡产生的漏洞。
+5、通过 WebSettings.setSavePassword(false) 关闭密码保存提醒功能，防止明文密码存在本地被盗用。
+6、WebView 默认是可以使用 File 协议的，也就是 setAllowFileAccess(true)，我们应该是主动设置为
+    setAllowFileAccess(false),防止加载本地文件，移动版的 Chrome 默认禁止加载 file 协议的文件。
+    setAllowFileAccess(true);//设置为 false 将不能加载本地 html 文件
+    setAllowFileAccessFromFileURLs(false);
+    setAllowUniversalAccessFromFileURLs(false);
+    if (url.startsWith("file://") {
+        setJavaScriptEnabled(false);
+    } else {
+        setJavaScriptEnabled(true);
+    }
+
+ZHU yuyang WebView 与 JavaScript 交互的三种形式两种原理分析如下：
+1、使用 addJavascriptInterface
+    原理：这是Android提供的Js与Native通信的官方解决方案，将 java 对象注入到 Js 中直接作为window的某一变量来
+  使用。
+2、WebViewClient 中 shouldOverrideUrlLoading (WebView view, String url)。
+    利用 scheme iframe 机制，只要有iframe 加载，shouldOverrideUrlLoading 方法就会有回调。可以构造一个
+  特殊格式的url，使用shouldOverrideUrlLoading 方法拦截url，根据解析url来之行native方法逻辑。
+3、利用 WebChromeClient 中的 onJsAlert、onJsConfirm、onJsPrompt 提示接口，同样也是拦截操作。
+    利用 js调用window对象的对应的方法，即 window.alert，window.confirm，window.prompt，
+  WebChromeClient 对象中的三个方法 onJsAlert、onJsConfirm、onJsPrompt 就会被触发，有了js到native
+  的通道，那么我们就可以制定协议来约束对方。最终我们选择使用 prompt 方法，onJsPrompt()方法的message参数
+  的值正是Js的方法window.prompt()的message的值。
