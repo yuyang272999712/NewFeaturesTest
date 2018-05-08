@@ -15,7 +15,7 @@
         android:rotation="0">
         <!--android:fillColor="@android:color/holo_blue_light"-->
         <path
-            android:strokeColor="@android:color/holo_blue_light"
+            android:strokeColor="#ff33b5e5"
             android:strokeWidth="2"
             android:pathData="
                 M 25 50

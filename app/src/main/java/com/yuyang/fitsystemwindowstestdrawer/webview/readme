@@ -112,3 +112,48 @@ ZHU yuyang WebView 与 JavaScript 交互的三种形式两种原理分析如下�
   WebChromeClient 对象中的三个方法 onJsAlert、onJsConfirm、onJsPrompt 就会被触发，有了js到native
   的通道，那么我们就可以制定协议来约束对方。最终我们选择使用 prompt 方法，onJsPrompt()方法的message参数
   的值正是Js的方法window.prompt()的message的值。
+
+ZHU yuyang Activity结束后清理WebView
+    @Override
+    protected void onDestroy() {
+        if (mWebView != null) {
+            // 如果先调用destroy()方法，则会命中if (isDestroyed()) return;这一行代码，需要先onDetachedFromWindow()，再
+            // destory()
+            ViewParent parent = mWebView.getParent();
+            if (parent != null) {
+                ((ViewGroup) parent).removeView(mWebView);
+            }
+
+            mWebView.stopLoading();
+            // 退出时调用此方法，移除绑定的服务，否则某些特定系统会报错
+            mWebView.getSettings().setJavaScriptEnabled(false);
+            mWebView.clearHistory();
+            mWebView.clearView();
+            mWebView.removeAllViews();
+
+            mWebView.destroy();
+            mWebView = null;
+        }
+        super.onDestroy();
+    }
+
+ZHU yuyang Android与JS交互常用JsBridge（gitHub上的开源项目）
+其实现的基本原理：
+JS调用Android基本有下面三种方式
+    webView.addJavascriptInterface()
+    WebViewClient.shouldOverrideUrlLoading()
+    WebChromeClient.onJsAlert()/onJsConfirm()/onJsPrompt() 方法分别回调拦截JS对话框alert()、confirm()、prompt()消息
+Android调用JS
+    webView.loadUrl();
+    webView.evaluateJavascript()
+JsBridge原理：
+    1.Android调用JS是通过loadUrl(url),url中可以拼接要传给JS的对象
+    2.JS调用Android是通过shouldOverrideUrlLoading
+    3.JsBridge将沟通数据封装成Message，然后放进Queue,再将Queue进行传输
+使用方法：
+    被调用方注册Handler
+        registerHandler(String handlerName, BridgeHandler handler)
+    调用方调用Handler
+        callHandler(String handlerName, String data, CallBackFunction callBack)
+    （如果没用回调 callBack可以为空。甚至handlerName都可以为空，就相当于调用BridgeWebView的send方法，
+    但这要求html中有默认的messageHandler）

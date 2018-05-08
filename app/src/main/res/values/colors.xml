@@ -14,4 +14,6 @@
     <color name="state_1">#ff7979</color>
     <color name="state_2">#9dff79</color>
     <color name="state_3">#797bff</color>
+
+    <color name="holo_blue_light">#ff33b5e5</color>
 </resources>

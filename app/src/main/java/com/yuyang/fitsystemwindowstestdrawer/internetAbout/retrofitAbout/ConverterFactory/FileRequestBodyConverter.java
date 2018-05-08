@@ -11,6 +11,7 @@ import retrofit2.Converter;
  * 自定义RequestBodyConverter（相当于Retrofit自带的GsonRequestBodyConverter）
  */
 public class FileRequestBodyConverter implements Converter<File, RequestBody> {
+    public static final FileRequestBodyConverter INSTANCE = new FileRequestBodyConverter();
     @Override
     public RequestBody convert(File file) throws IOException {
         return RequestBody.create(MediaType.parse("application/otcet-stream"), file);

@@ -1,0 +1,25 @@
+请求行     方法 sp URL sp 版本 cr lf
+首部行     首部名称 ： sp 值 cr lf
+          首部名称 ： sp 值 cr lf
+          ...
+空行       cr lf
+主体       （这里面的内容就是客户端实际请求的内容了，通常是一些备注信息）
+注：其中sp表示空格，cr表示回车，lf表示换行
+
+请求首部行（也称为请求头）
+    注意到首部行中可以包含多个行，每个首部行都是首部名陈与值的组合，那么首部名称有哪些呢？
+    1、Accept：给出客户能够接收的媒体类型。例如Accept: text/plain, text/html
+    2、User-agent：标志客户程序的相关信息。例如User-Agent: Mozilla/5.0 (Linux; X11)
+    3、Accept-Charset：给出客户能够接受的字符集。例如Accept-Charset: iso-8859-5
+    4、Accept-Encoding：给出客户能够处理的编码方案。例如Accept-Encoding: compress, gzip
+    5、Accept-Language：给出客户能够接受的语言类型。例如Accept-Language: en,zh
+    6、Authorization：HTTP授权的授权证书。例如Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==
+    7、Host：给出主机地址和端口号。例如Host: www.baidu.com
+    8、Upgrade：指明优先使用的通信协议（如果支持的话）。例如Upgrade: HTTP/2.0, SHTTP/1.3, IRC/6.9, RTA/x11
+    9、Cookie：把Cookie回送给服务器。例如Cookie: $Version=1; Skin=new;
+    10、If-Modified-Since：如果请求的部分在指定时间之后被修改则请求成功，未被修改则返回304代码。例如If-Modified-Since: Sat, 29 Oct 2010 19:43:31 GMT
+    11、Connection：表示是否需要持久连接。（HTTP 1.1默认进行持久连接）。例如Connection: close表示不使用长连接
+    12、Cache-Control：指定请求和响应遵循的缓存机制。例如Cache-Control: no-cache表示不使用缓存
+    13、Content-Length：请求的内容长度
+    14、Content-Type：请求的与MIME对应的类型。例如Content-Type: application/x-www-form-urlencoded
+    15、Pragma：用来包含实现特定的指令

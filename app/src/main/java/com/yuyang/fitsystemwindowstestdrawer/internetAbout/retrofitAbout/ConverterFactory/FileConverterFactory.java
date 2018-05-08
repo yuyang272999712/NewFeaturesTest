@@ -19,15 +19,27 @@ import retrofit2.Retrofit;
  *  addConverterFactory()中的参数
  */
 public class FileConverterFactory extends Converter.Factory {
+    public static final FileConverterFactory INSTANCE = new FileConverterFactory();
+
+    public static FileConverterFactory create() {
+        return INSTANCE;
+    }
+
     //入参（请求参数）格式处理方法
     @Override
-    public Converter<File, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
-        return new FileRequestBodyConverter();
+    public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
+        if (type == File.class) {
+            return FileRequestBodyConverter.INSTANCE;
+        }
+        return null;
     }
 
     //回参（返回参数）格式处理方法
     @Override
-    public Converter<ResponseBody, UserInfoBean> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        return new UserInfoResponseBodyConverter();
+    public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
+        if (type == UserInfoBean.class){
+            return UserInfoResponseBodyConverter.INSTANCE;
+        }
+        return null;
     }
 }

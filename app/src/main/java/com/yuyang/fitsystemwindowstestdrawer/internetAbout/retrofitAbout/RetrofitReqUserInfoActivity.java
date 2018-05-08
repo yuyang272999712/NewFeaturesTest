@@ -45,8 +45,8 @@ public class RetrofitReqUserInfoActivity extends AppCompatActivity {
                 Retrofit retrofit = new Retrofit.Builder()
                         //ZHU yuyang 这里建议：- Base URL: 总是以/结尾；- @Url: 不要以/开头
                         .baseUrl(BASE_URL)
+                        .addConverterFactory(FileConverterFactory.create())//ZHU yuyang 注意：这里的ConverterFactory是区分先后顺序的
                         .addConverterFactory(GsonConverterFactory.create())//解析方法
-                        .addConverterFactory(new FileConverterFactory())
                         .build();
                 //2、创建访问API的请求
                 UserService apiService = retrofit.create(UserService.class);//接口申明
