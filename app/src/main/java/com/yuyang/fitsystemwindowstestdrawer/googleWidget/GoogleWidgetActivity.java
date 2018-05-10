@@ -2,7 +2,6 @@ package com.yuyang.fitsystemwindowstestdrawer.googleWidget;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,16 +19,6 @@ import com.yuyang.fitsystemwindowstestdrawer.googleWidget.CompatDivider.DividerA
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.customFlexboxLayout.FlexboxLayoutActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.dataBinding.DataBindingDemoActivity;
 import com.yuyang.fitsystemwindowstestdrawer.googleWidget.rangeSeekBar.SeekBarActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.SourceCodeAnalyzeActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.asyncTask.AsyncTaskSimpleActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.childThreadUpdateUI.ChildThreadUpdateUIActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.drawableAbout.DrawableAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout.FragmentAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.handlerAndMessage.HandlerAndMessageActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflate.LayoutInflateActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.layoutInflateFactory.LayoutInflateFactoryActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.loader.LoaderAboutActivity;
-import com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.touchEventDispatch.ViewTouchEventActivity;
 
 import java.util.Arrays;
 import java.util.List;

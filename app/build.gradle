@@ -51,8 +51,8 @@ dependencies {
     //OkHttp网络请求工具
     compile 'com.squareup.okhttp3:mockwebserver:3.4.1'
     //RxAndroid
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.14-RC1'
     //json解析工具
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     //取色器
