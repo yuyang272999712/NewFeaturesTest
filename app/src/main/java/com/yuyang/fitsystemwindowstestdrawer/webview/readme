@@ -137,6 +137,23 @@ ZHU yuyang Activity结束后清理WebView
         super.onDestroy();
     }
 
+ZHU yuyang Android WebView重定向问题的解决方案
+  当WebView在加载网页时，有时会有重定向问题，返回键回退怎么也回退不掉，怎么办？
+WebView有一个getHitTestResult():返回的是一个HitTestResult，一般会根据打开的链接的类型，返回一个extra的
+信息，如果打开链接不是一个url，或者打开的链接是JavaScript的url，他的类型是UNKNOWN_TYPE，这个url就会通过
+requestFocusNodeHref(Message)异步重定向。返回的extra为null，或者没有返回extra。根据此方法的返回值，
+判断是否为null，可以用于解决网页重定向问题。
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            WebView.HitTestResult hitTestResult = view.getHitTestResult();
+        //hitTestResult==null解决重定向问题
+        if (!TextUtils.isEmpty(url) && hitTestResult == null) {
+                view.loadUrl(url);
+        return true;
+            }
+        return super.shouldOverrideUrlLoading(view, url);
+    }
+
 ZHU yuyang Android与JS交互常用JsBridge（gitHub上的开源项目）
 其实现的基本原理：
 JS调用Android基本有下面三种方式

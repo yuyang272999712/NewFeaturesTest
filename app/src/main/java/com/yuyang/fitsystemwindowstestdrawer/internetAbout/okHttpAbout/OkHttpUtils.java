@@ -14,7 +14,6 @@ import java.net.URLEncoder;
 import java.util.Map;
 
 import okhttp3.Cache;
-import okhttp3.CacheControl;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -34,6 +33,7 @@ public class OkHttpUtils {
     private static Cache cache = new Cache(new File(Environment.getExternalStorageDirectory().getAbsoluteFile()+File.separator+"OkHttCache"), 10*1024*1024);
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             //.addInterceptor(new GetRequestInterceptor())//TODO yuyang 这里添加了一个拦截器
+            .addInterceptor(new HttpLoggingInterceptor())//Log打印
             .addInterceptor(new CacheInterceptor())//TODO yuyang 使百度支持缓存
             .cache(cache)//TODO yuyang OkHttp默认不使用缓存
             .build();
@@ -191,7 +191,7 @@ public class OkHttpUtils {
     }
 
     /**
-     * 上传／下载进度回调监听
+     * 上传进度回调监听
      * @param requestBody
      * @param callback
      * @return

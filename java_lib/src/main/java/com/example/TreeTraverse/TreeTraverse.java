@@ -1,5 +1,7 @@
 package com.example.TreeTraverse;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 /**
@@ -42,6 +44,8 @@ public class TreeTraverse {
         inOrderTraverse2(root);
         System.out.println();
         postOrderTraverse2(root);
+        System.out.println();
+        breadthFirstTraverse(root);
     }
 
     /**
@@ -152,6 +156,23 @@ public class TreeTraverse {
                     root = root.right;
                 }
             }
+        }
+    }
+
+    /**
+     * 广度优先遍历二叉树，又称层次遍历二叉树
+     */
+    private static void breadthFirstTraverse(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<TreeNode>();
+        TreeNode currentNode = null;
+        queue.offer(root);
+        while (!queue.isEmpty()) {
+            currentNode = queue.poll();
+            System.out.print(currentNode.value + "  ");
+            if (currentNode.left != null)
+                queue.offer(currentNode.left);
+            if (currentNode.right != null)
+                queue.offer(currentNode.right);
         }
     }
 }

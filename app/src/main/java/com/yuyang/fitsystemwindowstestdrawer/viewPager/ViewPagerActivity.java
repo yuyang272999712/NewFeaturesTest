@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.bgParallaxViewPager.BgParallaxViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.cardViewPager.CardViewPagerActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.changeAdapterList.ChangeAdapterListActivity;
+import com.yuyang.fitsystemwindowstestdrawer.viewPager.changeFragmentAdapterList.ChangeFragmentAdapterListActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.changeSizeViewPager.ChangeSizePagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.customParallaxViewPager.ParallaxViewPagerActivity;
 import com.yuyang.fitsystemwindowstestdrawer.viewPager.elementAnimationViewPager.ElementAnimationActivity;
@@ -34,7 +36,7 @@ import java.util.List;
 public class ViewPagerActivity extends AppCompatActivity {
     private List<String> items = Arrays.asList("卡片效果","GridView配合ViewPager","画廊效果",
             "pager切换动画","无限循环的ViewPager","小红书欢迎页","ViewPager切换页面元素进出",
-            "背景视差效果","Pager每页大小不一致");
+            "背景视差效果","Pager每页大小不一致","PagerAdapter大小发生改变","FragmentPagerAdapter大小发生改变");
 
     private Toolbar mToolbar;
     private ListView listView;
@@ -94,6 +96,12 @@ public class ViewPagerActivity extends AppCompatActivity {
                         break;
                     case 8:
                         intent = new Intent(ViewPagerActivity.this, ChangeSizePagerActivity.class);
+                        break;
+                    case 9:
+                        intent = new Intent(ViewPagerActivity.this, ChangeAdapterListActivity.class);
+                        break;
+                    case 10:
+                        intent = new Intent(ViewPagerActivity.this, ChangeFragmentAdapterListActivity.class);
                         break;
                 }
                 startActivity(intent);

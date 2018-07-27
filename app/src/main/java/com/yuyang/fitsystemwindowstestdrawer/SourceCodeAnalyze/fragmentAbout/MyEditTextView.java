@@ -1,5 +1,6 @@
 package com.yuyang.fitsystemwindowstestdrawer.sourceCodeAnalyze.fragmentAbout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Parcelable;
 import android.util.AttributeSet;
@@ -10,6 +11,7 @@ import android.widget.EditText;
  * Created by yuyang on 2017/2/8.
  */
 
+@SuppressLint("AppCompatCustomView")
 public class MyEditTextView extends EditText {
     private static final String TAG = "MyEditTextView";
 

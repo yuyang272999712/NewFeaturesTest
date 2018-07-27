@@ -7,6 +7,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
+import android.annotation.SuppressLint;
 import android.graphics.PointF;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -72,6 +73,7 @@ public class PropertyAniActivity extends AppCompatActivity {
     }
 
     //TODO yuyang ObjectAnimator多属性变化
+    @SuppressLint("ObjectAnimatorBinding")
     public void noParamsObjAnim2(View view){
         //TODO yuyang 这里设置属性“yuyang”的变化，由于ImageView中找不到“yuyang”属性的get、set方法，所有需要自己更新变化
         objAni2 = ObjectAnimator.ofFloat(object2, "yuyang", 1f, 0f).setDuration(500);

@@ -25,6 +25,7 @@
         android:layout_height="100dp"/>
 
     <TextView
+        android:id="@+id/btn_test"
         android:layout_margin="10dp"
         android:layout_gravity="center"
         android:gravity="center"

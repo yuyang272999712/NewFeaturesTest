@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
@@ -35,7 +34,7 @@ public class GalleryViewPagerActivity extends AppCompatActivity {
 
         setToolbar();
         mViewPager = (ViewPager) findViewById(R.id.view_pager);
-        mViewPager.setOffscreenPageLimit(5);
+        mViewPager.setOffscreenPageLimit(2);
 
         //获取带倒影的图片
         Bitmap bitmap = ImageUtil.getReverseBitmapById(R.mipmap.h, this);
@@ -46,6 +45,7 @@ public class GalleryViewPagerActivity extends AppCompatActivity {
             pages.add(imageView);
         }
 
+        mViewPager.setPageTransformer(true, new GalleryPageTransformer());
         mViewPager.setAdapter(new PagerAdapter() {
             @Override
             public int getCount() {
@@ -68,7 +68,6 @@ public class GalleryViewPagerActivity extends AppCompatActivity {
                 container.removeView(pages.get(position));
             }
         });
-        mViewPager.setPageTransformer(true, new GalleryPageTransformer());
 
         parentView = (ViewGroup) findViewById(R.id.parent_view);
         parentView.setOnTouchListener(new View.OnTouchListener() {

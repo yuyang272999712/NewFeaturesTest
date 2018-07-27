@@ -28,3 +28,5 @@ TODO yuyang 生命周期的总结：
         ->onCreate()->onStartCommand()->onBind()->Service running-> onUnbind();
     b. 如果在unbindService后，在调用stopService()，那么：
         ->onCreate()->onStartCommand()->onBind()->Service running-> onUnbind()->onDestroy();
+
+ZHU yuyang service 参考：https://www.cnblogs.com/leslies2/p/5401813.html  (onReBind调用原理)

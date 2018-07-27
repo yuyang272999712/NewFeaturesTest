@@ -129,6 +129,8 @@
         <activity android:name=".viewPager.customParallaxViewPager.ParallaxViewPagerActivity"/>
         <activity android:name=".viewPager.elementAnimationViewPager.ElementAnimationActivity"/>
         <activity android:name=".viewPager.changeSizeViewPager.ChangeSizePagerActivity"/>
+        <activity android:name=".viewPager.changeAdapterList.ChangeAdapterListActivity"/>
+        <activity android:name=".viewPager.changeFragmentAdapterList.ChangeFragmentAdapterListActivity"/>
         <activity android:name=".tantan.TantanDemoActivity"/>
         <activity android:name=".tantan.cardFlingView.TantanAdapterViewActivity"/>
         <activity android:name=".tantan.layoutManager.TantanLayoutManagerActivity"/>
@@ -443,6 +445,7 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".internetAbout.httpAbout.Test"/>
 
     </application>
 

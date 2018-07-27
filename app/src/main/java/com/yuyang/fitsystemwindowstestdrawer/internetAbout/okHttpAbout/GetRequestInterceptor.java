@@ -4,10 +4,12 @@ import java.io.IOException;
 
 import okhttp3.FormBody;
 import okhttp3.Interceptor;
-import okhttp3.MultipartBody;
+import okhttp3.MediaType;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okio.BufferedSource;
 
 /**
  * 拦截器，这个拦截器针对getRequest进行修改

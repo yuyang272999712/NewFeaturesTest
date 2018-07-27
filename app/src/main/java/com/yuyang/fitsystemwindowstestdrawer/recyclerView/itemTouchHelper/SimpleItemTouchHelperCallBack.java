@@ -40,7 +40,7 @@ public class SimpleItemTouchHelperCallBack extends ItemTouchHelper.Callback {
 
     /**
      * 重写getMovementFlags()方法来指定可以支持的拖放和滑动的方向。
-     * 使用helperItemTouchHelper.makeMovementFlags(int, int)来构造返回的flag。
+     * 使用ItemTouchHelper.makeMovementFlags(int, int)来构造返回的flag。
      * 这里我们启用了上下左右两种方向。
      * @param recyclerView
      * @param viewHolder
