@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="StatusBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+        <item name="android:windowTranslucentStatus">true
+        </item> <!--TODO yuyang 设置了这个,statusBarColor就不其作用了-->
+        <item name="android:windowTranslucentNavigation">true
+        </item> <!--TODO yuyang 设置了这个,navigationBarColor就不其作用了-->
+        <!--TODO yuyang statusBarColor、navigationBarColor属性只有在21以后才有-->
+        <item name="android:statusBarColor">@android:color/holo_blue_light</item>
+        <item name="android:navigationBarColor">@android:color/holo_blue_light</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="StatusBarTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowIsTranslucent">true</item>
+
+        <!--TODO yuyang windowDrawsSystemBarBackgrounds ，将它设置为true，系统将在你的window里面绘制status bar，
+            默认为 TRUE ，之所以要写出来是因为你的theme有可能是继承过来的，确保为true。-->
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:statusBarColor">@color/status_bar_bg</item>
+
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

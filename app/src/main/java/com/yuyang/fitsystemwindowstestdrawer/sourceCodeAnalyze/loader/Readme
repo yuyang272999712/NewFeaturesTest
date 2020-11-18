@@ -1,0 +1,55 @@
+参考博客：http://blog.csdn.net/yanbober/article/details/48861457
+
+一、LoaderManager
+    每个Activity／Fragment持有切仅有一个LoaderManager（LoaderManagerImpl的实现类），LoaderManager帮助我们管理
+ Loader的生命周期。
+    Activity中 mAllLoaderManagers（ArrayMap<String, LoaderManagerImpl> mAllLoaderManagers）
+ 保存了Activity与Fragment的所有LoaderManager。
+    LoaderManager的实质是将Loader对象转换为LoaderInfo来进行管理，也就是管理了所有的Loader对象。
+
+二、Loader
+    public Loader(Context context) {
+       //TODO yuyang 这里使用ApplicationContext可避免内存泄露等问题
+       mContext = context.getApplicationContext();
+    }
+    继承关系： Loader 基类无非也就是一个方法接口的定义类，组织预留了一些方法供LoaderManager去调运处理，同时需要子类实现其提供的一些onXXX方法，以便LoaderManager调运Loader的方法时可以触发Loader子类的实现逻辑。
+                ｜    Loader提供了一个ForceLoadContentObserver实现了ContentObserver类，从而能够方便监听ContentProvider的数据变化（如果想要自己实现AsyncTaskLoader并监听数据变化，请自行创建监听方法）
+                ｜
+                ｜－－ AsyncTaskLoader 抽象子类，其实质是提供了一个基于AsyncTask工作机制的Loader（子类LoadTask继承AsyncTask<Void, Void, D>，并且实现了Runable接口，功能十分强大。），但是不可直接用，
+                   ｜   因为其为abstract抽象类，所以我们需要继承实现它才可以使用，然而好在系统API已经帮我们提供了他现成的子类CursorLoader，但CursorLoader同时也限制了Loader的泛型数据为Cursor类型。
+                   ｜   当然了，我们如果想要Loader自己的类型数据那也很简单—继承实现AsyncTaskLoader即可。
+                   ｜
+                   ｜－－CursorLoader 子类，适用于加载ContentProvider提供的数据查询
+                   ｜－－...（自己实现AsyncTaskLoader）
+
+ 三、总结：
+        一次完整的数据加载流程为Activity调用LoaderManager的doStart()方法，然后LoaderManager调用Loader的startLoading()方法，
+    然后Loader调运AsyncTaskLoader的doingBackground()方法进行耗时数据加载，然后AsyncTaskLoader回调LoaderManager的complete
+    数据加载完成方法，接着LoaderManager回调我们在Activity中实现的callback中的onLoadFinish()方法。
+
+        Acivity和Fragment的生命周期主动管理了LoaderManager，每个Activity用一个ArrayMap的mAllLoaderManager来保存
+    当前Activity及其附属Frament的唯一LoaderManager；在Activity配置发生变化时，Activity在destory前会保存mAllLoaderManager，
+    当Activity再重新创建时，会在Activity的onAttcach()、onCreate()、performStart()方法中恢复mAllLoaderManager。
+
+        LoaderManager给Activity提供了管理自己的一些方法；同时主动管理了对应的Loader，它把每一个Loader封装为LoadInfo对象，
+    同时它负责主动调运管理Loader的startLoading()、stopLoading()、,forceLoad()等方法。
+
+        由于整个Activity和Fragment主动管理了Loader，所以关于Loader的释放（譬如CursorLoader的Cursor关闭等）不需要我们人为处理，
+    Loader框架会帮我们很好的处理的；同时特别注意，对于CursorLoader，当我们数据源发生变化时Loader框架会通过ContentObserver
+    调用onContentChanged的forceLoad方法重新请求数据进行回调刷新。
+
+
+ !--yuyang 自定义Loader对象至少必须实现一下方法：
+            1、onStartLoading()  //当使用LoaderManager管理Loader时，这个方法会被自主调用，其中可以执行数据加载工作（坚决不可以自己调用这个方法）
+            2、onStopLoading()   //当Activity／Fragment结束时，LoaderManager会自主调用这个方法
+            3、onCancelLoad()
+            4、onForceLoad()     //必须在主线程中运行，用于强制重新加载新的数据
+            5、onReset()         //总是在主线程中运行，当loader被重置时被调用，不需要客户端主动调用，LoaderManager会自主管理这个过程
+            可选方法：
+            onAbandon()       //在onReset()方法前调用，意味着客户端不再关心这个loader的数据
+
+            自定义Loader集成自AsyncTaskLoader类，必须实现如下方法：（onForceLoad／onCancelLoad方法已经帮我们实现）
+            1、onStartLoading()
+            2、onStopLoading()
+            3、onReset()
+            4、loadInBackground()    异步加载数据（onForceLoad()已经被AsyncTaskLoader实现，方法中会自动调用这个方法加载数据）

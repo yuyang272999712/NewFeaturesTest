@@ -12,6 +12,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexWrap;
 import com.google.android.flexbox.FlexboxLayout;
 import com.yuyang.fitsystemwindowstestdrawer.R;
 
@@ -53,8 +55,8 @@ public class TagFlowLayout extends FlexboxLayout implements TagAdapter.OnAdapter
             setClickable(true);
         }
 
-        setFlexDirection(FlexboxLayout.FLEX_DIRECTION_ROW);
-        setFlexWrap(FLEX_WRAP_WRAP);
+        setFlexDirection(FlexDirection.ROW);
+        setFlexWrap(FlexWrap.WRAP);
     }
 
     public interface OnSelectListener {

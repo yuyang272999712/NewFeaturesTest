@@ -20,6 +20,8 @@ import javax.annotation.processing.Filer;
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
+import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
@@ -35,8 +37,8 @@ import javax.tools.Diagnostic;
     process 函数返回值表示这组 annotations 是否被这个 Processor 接受，如果接受后续子的 processor 不会再对这个
         Annotations 进行处理
  */
-//@SupportedAnnotationTypes({ "com.example.annotation.classAnnotation.MyToastShowAnnotation" })
-//@SupportedSourceVersion(SourceVersion.RELEASE_8)
+@SupportedAnnotationTypes({ "com.example.annotation.classAnnotation.MyToastShowAnnotation" })
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
 public class ToastShowProcessor extends AbstractProcessor {
     private static final String STRING_TYPE = "java.lang.String";
     public static final String subClassName = "$$yuyang";

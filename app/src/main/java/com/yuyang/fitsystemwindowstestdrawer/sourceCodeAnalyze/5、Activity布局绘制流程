@@ -1,0 +1,49 @@
+    在执行ActivityThread的handleLaunchActivity方法中通过Window对象控制了布局文件的加载流程，
+而Android体系在执行Activity的onResume方法之前会回调ActivityThread的handleResumeActivity方法。
+
+--> ActivityThread.handleLaunchActivity() 方法中会走完onCreate()与onStart()方法，
+                                       接下来会调用handleResumeActivity()方法
+--> ActivityThread.handleResumeActivity() 代码中在获取了Activity的Window相关参数之后执行了
+                                       r.activity.makeVisible()方法
+--> Activity.makeVisible() 首先判断成员变量mWindowAdded是否为true，可以发现mWindowAdded成员变量只有在执行之后
+                        才能赋值为true，所以这里的代码的主要逻辑是该if分支只能执行一次。这里的ViewManager对象是
+                        通过getWindowManager()方法获取的，WindowManager是在Window初始化时被建立的，
+                        Window又是在Activity创建时初始化的。
+    ZHU yuyang 一个Activity对应这一个新的Window，而这个Window对象内部会对应着一个新的WindowManager对象，
+    WindowManager对象其实都是一个WindowManagerImpl的实例。
+--> WindowManagerImpl.addView()
+--> WindowManagerGlobal.addView()
+        WindowManagerGlobal中存在着三个数据列表：
+            private final ArrayList<View> mViews = new ArrayList<View>();
+            private final ArrayList<ViewRootImpl> mRoots = new ArrayList<ViewRootImpl>();
+            private final ArrayList<WindowManager.LayoutParams> mParams = new ArrayList<WindowManager.LayoutParams>();
+        其中mViews主要用于保存Activity的mDecor也就是Activity的根View，而mRoots主要用于保存ViewRootImpl，
+      mParams主要用于保存Window的LayoutParams，WindowManagerGlobal主要作为WindowManagerImpl的辅助方法类，
+      用于操作View组件。
+--> ViewRootImpl.setView() 实现了mDecor与ViewRootImpl的相互关联
+--> ViewRootImpl.requestLayout()
+ |--> ViewRootImpl.checkThread() 检查当前线程，若当前线程非UI线程，则抛出非UI线程更新UI的错误，
+                                 ZHU yuyang 所以在此之前可以在非UI线程更新界面
+ |--> ViewRootImpl.scheduleTraversals() mChoreographer.postCallback,内部会调用一个异步消息，用于执行mTraversalRunnable的run方法
+   |--> TraversalRunnable.run() run()方法中会调用ViewRootImpl的doTraversal()方法
+--> ViewRootImpl.doTraversal()
+--> ViewRootImpl.performTraversals() 这个方法就是整个View的绘制起始方法，从这个方法开始我们的View经过大小测量，
+                                     位置测量，界面绘制三个逻辑操作之后就可以展示在界面中了
+
+    在方法performTraversals方法，依次调用了performMeasure，performLayout，performDraw三个方法，
+这几个方法主要用于测量View组件的大小，测量View组件的位置，绘制View组件。
+
+总结：
+1、Activity执行onResume之后再ActivityThread中执行Activity的makeVisible方法。
+2、View的绘制流程包含了测量大小，测量位置，绘制三个流程；
+3、Activity的界面绘制是从mDecor即根View开始的，也就是从mDecor的测量大小，测量位置，绘制三个流程；
+4、View体系的绘制流程是从ViewRootImpl的performTraversals方法开始的；
+5、View的测量大小流程:performMeasure –> measure –> onMeasure等方法;
+6、View的测量位置流程：performLayout –> layout –> onLayout等方法；
+7、View的绘制流程：onDraw等方法；
+8、View组件的绘制流程会在onMeasure,onLayout以及onDraw方法中执行分发逻辑，也就是在onMeasure同时执行子View的测量
+  大小逻辑，在onLayout中同时执行子View的测量位置逻辑，在onDraw中同时执行子View的绘制逻辑；
+9、Activity中都对应这个一个Window对象，而每一个Window对象都对应着一个新的WindowManager对象（WindowManagerImpl实例）；
+
+
+ZHU yuyang 可参见：http://blog.csdn.net/qq_23547831/article/details/51285804

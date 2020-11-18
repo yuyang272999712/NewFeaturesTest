@@ -1,0 +1,66 @@
+AlertDialog为例
+
+--> AlertDialog.Builder.Builder()
+    AlertDialog.Builder方法中主要执行了AlertController.AlertParams的初始化操作，初始化了一些成员变量。
+之后的Builder一系列的set方法都是为Builder的成员变量P的相应成员变量赋值。
+--> AlertDialog.Builder.create()
+    Builder.create方法，并且这个方法返回了AlertDialog。
+        public AlertDialog create() {
+            // Context has already been wrapped with the appropriate theme.
+            final AlertDialog dialog = new AlertDialog(P.mContext, 0, false);
+            P.apply(dialog.mAlert);
+            dialog.setCancelable(P.mCancelable);
+            if (P.mCancelable) {
+                dialog.setCanceledOnTouchOutside(true);
+            }
+            dialog.setOnCancelListener(P.mOnCancelListener);
+            dialog.setOnDismissListener(P.mOnDismissListener);
+            if (P.mOnKeyListener != null) {
+                dialog.setOnKeyListener(P.mOnKeyListener);
+            }
+            return dialog;
+        }
+    |--> ALerDialog.ALerDialog()
+        AlertDialog的构造方法中只有三个过程：
+            super(context, createContextThemeWrapper ? resolveDialogTheme(context, themeResId) : 0, createContextThemeWrapper);
+            mWindow.alwaysReadCloseOnTouchAttr();
+            mAlert = new AlertController(getContext(), this, getWindow());
+        |--> Dialog.Dialog()
+             |--> ContextImpl.getSystemService()
+             |--> PhoneWindow.PhoneWindow()
+             |--> PhoneWindow.setWindowManager()
+                调用了Dialog的构造方法，其方法中!--yuyang直接构造了一个PhoneWindow，并赋值给Dialog的成员变量mWindow。
+                然后我们执行了一些Window对象的初始化操作，比如设置回调函数为本身，然后调用了Window类的setWindowManager方法，
+             并传入了WindowManager，可以发现这里的WindowManager对象是通过方法：
+                mWindowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+             获取的，而我们的context传入的是Activity对象，!--yuyang所以这里的WindowManager对象其实和Activity获取的
+             WindowManager对象是一致的。
+             |--> AlertController.AlertController()
+    |--> AlertController.AlertParams.apply() 继续回到我们的AlertDialog.Builder.create方法，
+        在创建了一个AlertDialog之后，又执行了P.apply(dialog.mAlert)。
+
+--> Dialog.show()
+    --> Dialog.dispatchOnCreate()
+        -->AlertDialog.onCreate()
+            --> AlertController.installContent()
+                --> AlertController.selectContentView() 获取Window对象的布局文件。
+                --> PhoneWindow.setContentView()
+    --> WindowManagerImpl.addView() 到了这一步就喝上一篇Activity布局绘制流程相似了，顺着这个方法整个Dialog的界面就会被绘制出来了。
+    --> Dialog.sendShowMessage() 回调OnShowListener方法
+
+总结：
+1、Dialog和Activity的显示逻辑是相似的都是内部管理这一个Window对象，用Window对象实现界面的加载与显示逻辑；
+2、!--yuyang Dialog中的Window对象与Activity中的Window对象是相似的，都对应着一个WindowManager对象；
+3、Dialog相关的几个类：Dialog，AlertDialog，AlertDialog.Builder，AlertController，AlertController.AlertParams，
+   其中Dialog是窗口的父类，主要实现Window对象的初始化和一些共有逻辑，
+   而AlertDialog是具体的Dialog的操作实现类，
+   AlertDialog.Builder类是AlertDialog的内部类，主要用于构造AlertDialog，
+   AlertController是AlertDialog的控制类，
+   AlertController.AlertParams类是控制参数类；
+4、构造显示Dialog的一般流程，构造AlertDialog.Builder，然后设置各种属性，最后调用AlertDialog.Builder.create
+   方法获取AlertDialog对象，并且create方法中会执行，构造AlertDialog，设置dialog各种属性的操作。
+   最后我们调用Dialog.show方法展示窗口，初始化Dialog的布局文件，Window对象等，然后执行mWindowManager.addView
+   方法，开始执行绘制View的操作，并最终将Dialog显示出来；
+
+
+参考：http://blog.csdn.net/qq_23547831/article/details/51289456

@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
+    compileSdkVersion 27
     buildToolsVersion "25.0.2"
 
     defaultConfig {
@@ -16,6 +16,9 @@ android {
         renderscriptSupportModeEnabled true
         //方法数超过64K
         multiDexEnabled true
+
+        //添加如下配置就OK了
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
 
     dataBinding {
@@ -32,44 +35,45 @@ android {
 
 dependencies {
     //方法数超过64K
-    compile 'com.android.support:multidex:1.0.1'
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':photoviewlibrary')
-    compile project(':mybutterknife')
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':photoviewlibrary')
+    implementation project(':mybutterknife')
     //View层级分析
-    compile project(':viewserver')
-    testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.4.0'
-    compile 'com.android.support:design:25.4.0'
-    compile 'com.android.support:recyclerview-v7:25.4.0'
-    compile 'com.android.support:support-v4:25.4.0'
+    implementation project(':viewserver')
+    testImplementation 'junit:junit:4.12'
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support:support-compat:27.1.1'
     //google流式布局
-    compile 'com.google.android:flexbox:0.1.2'
+    implementation 'com.google.android:flexbox:2.0.1'
     //jsoup网络爬虫工具
-    compile 'org.jsoup:jsoup:1.9.2'
+    implementation 'org.jsoup:jsoup:1.9.2'
     //Retrofit网络请求工具
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
     //OkHttp网络请求工具
-    compile 'com.squareup.okhttp3:mockwebserver:3.4.1'
+    implementation 'com.squareup.okhttp3:mockwebserver:3.12.0'
     //RxAndroid
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'io.reactivex.rxjava2:rxjava:2.1.14-RC1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.0'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.4'
     //json解析工具
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
     //取色器
-    compile 'com.android.support:palette-v7:25.4.0'
+    implementation 'com.android.support:palette-v7:27.1.1'
     //卡片效果
-    compile 'com.android.support:cardview-v7:25.4.0'
+    implementation 'com.android.support:cardview-v7:27.1.1'
     //EventBus:3.0
-    compile 'org.greenrobot:eventbus:3.0.0'
+    implementation 'org.greenrobot:eventbus:3.1.1'
     //图片加载工具
-    compile 'com.facebook.fresco:fresco:0.9.0'
+    implementation 'com.facebook.fresco:fresco:0.9.0'
     //谷歌的一个动画工具（更符合物理定律）
-    compile 'com.android.support:support-dynamic-animation:25.3.0'
+    implementation 'com.android.support:support-dynamic-animation:27.1.1'
     //新的ConstraintLayout布局
-    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     //内存分析工具
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
+    testImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }

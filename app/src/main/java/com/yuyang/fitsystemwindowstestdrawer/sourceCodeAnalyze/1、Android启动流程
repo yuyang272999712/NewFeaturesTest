@@ -1,0 +1,66 @@
+Android系统的Zygote进程是所有的android进程的父进程，包括SystemServer和各种应用进程都是通过Zygote进程fork出来的。
+Zygote（孵化）进程相当于是android系统的根进程，后面所有的进程都是通过这个进程fork出来的，而Zygote进程则是通过linux
+系统的init进程启动的，也就是说，android系统中各种进程的启动方式
+  init进程 –> Zygote进程 –> SystemServer进程 –>各种应用进程
+    1、init进程：linux的根进程，android系统是基于linux系统的，因此可以算作是整个android操作系统的第一个进程；
+    2、Zygote进程：android系统的根进程，主要作用：可以作用Zygote进程fork出SystemServer进程和各种应用进程；
+    3、SystemService进程：主要是在这个进程中启动系统的各项服务，比如ActivityManagerService，
+       PackageManagerService，WindowManagerService服务等等；
+    4、各种应用进程：启动自己编写的客户端应用时，一般都是重新启动一个应用进程，有自己的虚拟机与运行环境；
+
+
+Zygote启动流程：
+    init进程在启动 Zygote 进程时一般都会调用 ZygoteInit 类的 main 方法。
+
+    Zygote进程main方法主要执行逻辑：
+        1、初始化DDMS；
+        2、注册Zygote进程的socket通讯；
+        3、初始化Zygote中的各种类，资源文件，OpenGL，类库，Text资源等等；
+        4、初始化完成之后fork出SystemServer进程；
+        5、fork出SystemServer进程之后，关闭socket连接；
+    （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51104873）
+
+
+SystemServer进程启动流程(Zygote启动中第四步启动SystemServer)：
+    SystemServer进程主要的作用是启动各种系统服务，比如ActivityManagerService，PackageManagerService，
+  WindowManagerService等服务，我们平时熟知的各种系统性的服务其实都是在SystemServer进程中启动的，而当我们的
+  应用需要使用各种系统服务的时候其实也是通过与SystemServer进程通讯获取各种服务对象的句柄的进而执行相应的操作的。
+
+    1、SystemServer进程是android中一个很重要的进程由Zygote进程启动；
+    2、SystemServer进程主要用于启动系统中的服务；
+    3、SystemServer进程启动服务的启动函数为main函数；
+    4、SystemServer在执行过程中首先会初始化一些系统变量，加载类库，创建Context对象，
+       创建 SystemServiceManager 对象等之后才开始启动系统服务；
+    5、SystemServer进程将系统服务分为三类：boot服务，core服务和other服务，并逐步启动
+    6、SystemServer进程在尝试启动服务之前会首先尝试与!--yuyang Zygote建立socket通讯，只有通讯成功之后才会开始尝试启动服务；
+    7、!--yuyang 创建的系统服务过程中主要通过 SystemServiceManager 对象来管理，通过调用服务对象的构造方法和
+       onStart方法初始化服务的相关变量；
+    8、服务对象都有自己的异步消息对象，并运行在单独的线程中；
+  （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51105171）
+
+
+Launcher启动流程:
+    SystemServer进程的启动过程中会调用其main静态方法，开始执行整个SystemServer的启动流程，在其中通过调用三个内部
+  方法分别启动boot service、core service和other service。在调用!--yuyang startOtherService方法中就会通过
+  调用!--yuyang mActivityManagerService.systemReady()方法，systemReady()方法会启动桌面应用Launcher。
+
+    启动流程：Zygote进程 –> SystemServer进程 –> startOtherService方法 –> ActivityManagerService
+        的systemReady方法 –> startHomeActivityLocked方法 –> ActivityStackSupervisor
+        的startHomeActivity方法 –> 执行Activity的启动逻辑，执行scheduleResumeTopActivities()方法
+
+    因为是隐士的启动Activity，所以启动的Activity就是在AndroidManifest.xml中配置catogery的值为：
+        public static final String CATEGORY_HOME = "android.intent.category.HOME";
+    可以发现android M 中在androidManifest.xml中配置了这个category的activity是LauncherActivity，
+  所以我们就可以将这个Launcher启动起来了
+    LauncherActivity中是以ListView来显示我们的应用图标列表的，并且为每个Item保存了应用的包名和启动Activity类名，
+  这样点击某一项应用图标的时候就可以根据应用包名和启动Activity名称启动我们的App了。
+  （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51112031）
+
+
+Activity进程的启动过程：
+    startActivity() --> startActivityForResult() --> Instrumentation 的 execStartActivity()
+    --> ActivityManagerService 的 execStartActivity() --> startActivityAsUser()、startActivityMayWait()等方法不断跳转
+    --> Process 的 start() --> startViaZygote() 向 zygote 发送新建进程的 socket 请求
+    （ZHU yuyang可看源码或参考：http://blog.csdn.net/qq_23547831/article/details/51119333）
+
+

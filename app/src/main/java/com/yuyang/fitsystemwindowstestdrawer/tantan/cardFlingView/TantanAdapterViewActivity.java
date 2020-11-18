@@ -3,7 +3,6 @@ package com.yuyang.fitsystemwindowstestdrawer.tantan.cardFlingView;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.os.AsyncTaskCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,6 +11,7 @@ import android.widget.Toast;
 
 import com.yuyang.fitsystemwindowstestdrawer.R;
 import com.yuyang.fitsystemwindowstestdrawer.tantan.CardMode;
+import com.yuyang.fitsystemwindowstestdrawer.tantan.layoutManager.AsyncTaskCompat;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,0 +1,49 @@
+LayoutInflater大家肯定都不陌生，用的最多的就是其inflate()方法了，今天介绍的就是它的另外的两个方法：
+    setFactory
+    setFactory2
+   这两个方法的功能基本是一致的，setFactory2是在SDK>=11以后引入的，所以我们要根据SDK的版本去选择调用上述方法。
+   值得高兴的是，v4包下有个类LayoutInflaterCompat帮我们完成了兼容性的操作，提供的方法为：
+    LayoutInflaterCompat
+        - setFactory(LayoutInflater inflater, LayoutInflaterFactory factory)
+
+   这个方法能够根据布局文件中的信息去创建对应的View
+
+setFactory已经被v7包占领
+   打开AppCompatActivity的源码，找到onCreate，你会发现如下代码：
+   @Override
+   protected void onCreate(@Nullable Bundle savedInstanceState) {
+       getDelegate().installViewFactory();
+       //...
+   }
+
+   installViewFactory的具体实现为：
+   @Override
+   public void installViewFactory() {
+       LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+       if (layoutInflater.getFactory() == null) {
+           LayoutInflaterCompat.setFactory(layoutInflater, this);
+       } else {
+           Log.i(TAG, "The Activity's LayoutInflater already has a Factory installed"
+                   + " so we can not install AppCompat's");
+       }
+   }
+
+   V7包的AppCompatViewInflater类帮助我们做了转化：
+   代码片段
+   switch (name) {
+       case "TextView":
+           view = new AppCompatTextView(context, attrs);
+           break;
+       case "ImageView":
+           view = new AppCompatImageView(context, attrs);
+           break;
+       case "Button":
+           view = new AppCompatButton(context, attrs);
+           break;
+       case "EditText":
+           view = new AppCompatEditText(context, attrs);
+           break;
+      //...
+   }
+
+!--yuyang 具体可参见博客：http://blog.csdn.net/lmj623565791/article/details/51503977

@@ -1,0 +1,45 @@
+    SpannableString和SpannableStringBuilder两个类，这两个类实现了Spannable接口，实现了接口里面定义的方法。
+SpannableStringBuilder和StringBuilder一样实现了Appendable接口，从而可以往里面不断append内容。
+常用方法：
+    setSpan(Object what, int start, int end, int flags) 在这个方法中what通常指各种类型的span（ImageSpan、URLSpan、ClickableSpan等），
+        该方法可以将spanable里面从start到end的内容替换为指定的span类型的内容。其中flags是指设定start和end的方式。
+    removeSpan(Object what) 在这个方法中what也是指各种类型的span，这个方法是在spanable中移除特定的span。
+    getSpanEnd(Object tag) 这个方法用来获取一个span的结束位置。
+    getSpanFlags(Object tag) 这个方法用来获取这个span设置的flag。
+    getSpanStart(Object tag) 这个方法用来获取一个span开始的位置。
+    getSpans(int start, int end, Class<T> type) 这个方法用来获取从start到end的位置上所有的特定类型的span，
+        比如说我么希望找到某一段里面所有的ClickableSpan就可以使用这个方法。
+    nextSpanTransition(int start, int limit, Class type) 这个方法会在你指定的文本范围内，返回下一个你
+        指定的Span类型的开始位置，依照这个方法，我们就可以逐层扫描指定的 Span ，而不用同时考虑其他类型的Span的
+        影响，十分有用。
+
+看一下Spannable中的常用常量：
+    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE --- 不包含start和end所在的端点 (a,b)
+    Spanned.SPAN_EXCLUSIVE_INCLUSIVE --- 不包含端start，但包含end所在的端点 (a,b]
+    Spanned.SPAN_INCLUSIVE_EXCLUSIVE --- 包含start，但不包含end所在的端点 [a,b)
+    Spanned.SPAN_INCLUSIVE_INCLUSIVE --- 包含start和end所在的端点 [a,b]
+
+前端的可用SPAN有：
+    URLSpan、ClickableSpan、BackgroundColorSpan、ForegroundColorSpan、
+    MaskFilterSpan、AbsoluteSizeSpan、RelativeSizeSpan、ImageSpan、ScaleXSpan、
+    StyleSpan、SubscriptSpan、SuperscriptSpan、TextAppearanceSpan、TypefaceSpan、
+    RasterizerSpan、StrikethroughSpan、UnderlineSpan。
+    这些样式都是继承自CharacterStyle类。
+    各种的Span就是通过SpannableString来封装样式的，设置完Span之后需要将Span放入到SpannableString类中，
+然后SpannableString设置到TextView中去。
+
+注意：
+ClickableSpan：在使用ClickableSpan的时候，在单击链接时凡是有要执行的动作，ZHU yuyang 都必须设置MovementMethod对象(LinkMovementMethod)。
+URLSpan：在单击链接时凡是有要执行的动作，都必须设置MovementMethod对象
+MaskFilterSpan：文字的装饰效果。分为两种：BlurMaskFilter（模糊效果） 和 EmbossMaskFilter（浮雕效果）(必须关闭硬件加速)
+TypefaceSpan：提供了三种字体 monospace、serif、sans-serif
+
+Span分类：
+    如果一个Span影响字符级的文本格式，则继承CharacterStyle；
+    如果一个Span影响段落层次的文本格式，则实现ParagraphStyle；
+    如果一个Span修改字符级别的文本外观，则实现UpdateAppearance；
+    如果一个Span修改字符级文本度量|大小，则实现UpdateLayout
+ 具体继承关系参见图片
+
+
+ ZHU yuyang Span相关 http://www.jianshu.com/p/deb28c22852a

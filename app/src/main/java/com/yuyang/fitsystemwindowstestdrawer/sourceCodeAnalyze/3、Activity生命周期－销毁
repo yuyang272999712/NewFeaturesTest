@@ -1,0 +1,78 @@
+Activity的finish()方法调用过程：
+--> Activity.finish()
+--> ActivityManagerNative.getDefault().finishActivity()
+回到服务进程
+--> ActivityManagerService.finishActivity()
+--> ActivityStack.requestFinishActivityLocked()
+--> ActivityStack.finishActivityLocked()
+--> ActivityStack.startPausingLocked() 该方法中调prev.app.thread.schedulePauseActivity，
+    这里实际上调用的是IApplicationThread的schedulePauseActivity方法，IApplicationThread也是一个Binder对象，
+    它是ActivityThread中ApplicationThread的Binder client端，所以最终会调用的是ApplicationThread的
+    schedulePauseActivity方法
+    --> prev.app.thread.schedulePauseActivity()
+回到应用进程
+--> ActivityThread.schedulePauseActivity()
+--> ActivityThread.sendMessage()
+--> ActivityThread.H.sendMessage()
+--> ActivityThread.H.handleMessage()
+--> ActivityThread.handlePauseActivity()
+--> ActivityThread.performPauseActivity()
+  |--> Instrumentation.callActivityOnPause()
+    --> Activity.performPause()
+    --> Activity.onPause()
+  |--> ActivityManagerNative.getDefault().activityPaused()
+回到服务进程
+--> ActivityManagerService.activityPaused()
+--> ActivityStack.activityPausedLocked()
+--> ActivityStack.completePauseLocked()
+
+    上面方法就完成了当前Activity的onPause()方法，在ActivityStack.completePauseLocked()方法中会调用
+ mStackSupervisor.resumeTopActivitiesLocked(topStack, prev, null)方法，执行栈中下一个Activity的onResume方法。
+--> ActivityStackSupervisor.resumeTopActivityLocked()
+--> ActivityStack.resumeTopInnerLocked()
+回到应用进程
+--> ActivityThread.ApplicationThread.scheduleResumeActivity()
+--> ActivityThread.scheduleResumeActivity()
+--> ActivityThread.sendMessage()
+--> ActivityThread.H.sendMessage()
+--> ActivityThread.H.handleMessage()
+--> ActivityThread.H.handleResumeActivity()
+--> Activity.performResume()
+--> Activity.performRestart()
+--> Instrumentation.callActivityOnRestart()
+--> Activity.onRestart()
+--> Activity.performStart()
+--> Instrumentation.callActivityOnStart()
+--> Activity.onStart()
+--> Instrumentation.callActivityOnResume()
+--> Activity.onResume()
+
+    我们在ActivityThread.handleResumeActivity方法中调用了Looper.myQueue().addIdleHandler(new Idler())
+--> Looper.myQueue().addIdleHandler(new Idler())
+--> ActivityManagerNative.getDefault().activityIdle()
+回到服务进程
+--> ActivityManagerService.activityIdle()
+--> ActivityStackSupervisor.activityIdleInternalLocked()
+--> ActivityStack.destroyActivityLocked()
+--> IApplicationThread.scheduleDestroyActivity()
+回到应用进程
+--> ActivityThread.ApplicationThread.scheduleDestroyActivity()
+--> ActivityThread.sendMessage()
+--> ActivityThread.H.sendMessage()
+--> ActivityThread.H.handleMessage()
+--> ActivityThread.handleDestroyActivity()
+--> ActivityThread.performDestroyActivity()
+--> Activity.performStop()
+--> Instrumentation.callActivityOnStop()
+--> Activity.onStop()
+--> Instrumentation.callActivityOnDestroy()
+--> Activity.performDestroy()
+--> Activity.onDestroy()
+--> ActivityManagerNative.getDefault().activityDestroyed()
+回到服务进程
+--> ActivityManagerService.activityDestroyed()
+--> ActivityStack.activityDestroyedLocked()
+
+
+    让一个Activity a启动Activity b，然后在b中调用finish()方法，它们的生命周期执行顺序是：
+  onPause(b) -> onRestart(a) -> onStart(a) -> onResume(a) -> onStop(b) -> onDestroy(b)
